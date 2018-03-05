@@ -1,0 +1,32 @@
+.\objects\main.o: USER\main.c
+.\objects\main.o: USER\config.h
+.\objects\main.o: .\CMSIS\stm32f10x.h
+.\objects\main.o: .\CMSIS\core_cm3.h
+.\objects\main.o: D:\Program Files (x86)\keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\main.o: .\CMSIS\system_stm32f10x.h
+.\objects\main.o: .\CMSIS\stm32f10x_conf.h
+.\objects\main.o: .\FWLB\inc\stm32f10x_dma.h
+.\objects\main.o: .\CMSIS\stm32f10x.h
+.\objects\main.o: .\FWLB\inc\stm32f10x_flash.h
+.\objects\main.o: .\FWLB\inc\stm32f10x_gpio.h
+.\objects\main.o: .\FWLB\inc\stm32f10x_i2c.h
+.\objects\main.o: .\FWLB\inc\stm32f10x_rcc.h
+.\objects\main.o: .\FWLB\inc\misc.h
+.\objects\main.o: D:\Program Files (x86)\keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\main.o: USER\delay.h
+.\objects\main.o: USER\usart.h
+.\objects\main.o: .\FWLB\inc\stm32f10x_usart.h
+.\objects\main.o: USER\tim.h
+.\objects\main.o: .\FWLB\inc\stm32f10x_tim.h
+.\objects\main.o: .\asciifont.h
+.\objects\main.o: .\font.h
+.\objects\main.o: .\USER\config.h
+.\objects\main.o: USER\qpylcd.h
+.\objects\main.o: USER\ds18b20.h
+.\objects\main.o: USER\esp8266.h
+.\objects\main.o: USER\support.h
+.\objects\main.o: USER\key.h
+.\objects\main.o: USER\ec11.h
+.\objects\main.o: USER\pwm.h
+.\objects\main.o: USER\eeprom.h
+.\objects\main.o: USER\beep.h

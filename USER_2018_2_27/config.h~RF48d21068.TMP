@@ -1,0 +1,21 @@
+#ifndef		__CONFIG_H__
+#define		__CONFIG_H__
+
+#include 	"stm32f10x.h"
+
+#include	"stdio.h"
+
+#include	"delay.h"
+#include	"usart.h"
+#include	"tim.h"
+
+#include	"asciifont.h"
+#include	"font.h"
+
+#include	"qpylcd.h"
+#include	"ds18b20.h"
+#include	"esp8266.h"
+#include	"support.h"
+#include	"key.h"
+
+#endif

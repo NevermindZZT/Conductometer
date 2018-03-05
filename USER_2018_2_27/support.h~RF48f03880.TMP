@@ -1,0 +1,22 @@
+#ifndef		__SUPPORT_H__
+#define		__SUPPORT_H__
+
+#include	"config.h"
+
+void DYY_WelcomeScreen(void);
+
+void DYY_InputStudentNumberScreen(void);
+
+void DYY_BuildBlanceScreen(void);
+
+void DYY_HeatingScreen(void);
+
+void DYY_RecordingScreen(void);
+
+void DYY_DrawEquipment1(uint16_t xLabel, uint16_t yLabel, uint8_t color);
+
+void DYY_DrawEquipment2(uint16_t xLabel, uint16_t yLabel, uint8_t color);
+
+void DYY_DrawEquipment3(uint16_t xLabel, uint16_t yLabel, uint8_t color);
+
+#endif

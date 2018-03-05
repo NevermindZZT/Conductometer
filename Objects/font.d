@@ -1,0 +1,33 @@
+.\objects\font.o: font.c
+.\objects\font.o: font.h
+.\objects\font.o: .\USER\config.h
+.\objects\font.o: .\CMSIS\stm32f10x.h
+.\objects\font.o: .\CMSIS\core_cm3.h
+.\objects\font.o: D:\Program Files (x86)\keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\font.o: .\CMSIS\system_stm32f10x.h
+.\objects\font.o: .\CMSIS\stm32f10x_conf.h
+.\objects\font.o: .\FWLB\inc\stm32f10x_dma.h
+.\objects\font.o: .\CMSIS\stm32f10x.h
+.\objects\font.o: .\FWLB\inc\stm32f10x_flash.h
+.\objects\font.o: .\FWLB\inc\stm32f10x_gpio.h
+.\objects\font.o: .\FWLB\inc\stm32f10x_i2c.h
+.\objects\font.o: .\FWLB\inc\stm32f10x_rcc.h
+.\objects\font.o: .\FWLB\inc\misc.h
+.\objects\font.o: D:\Program Files (x86)\keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\font.o: .\USER\delay.h
+.\objects\font.o: .\USER\usart.h
+.\objects\font.o: .\FWLB\inc\stm32f10x_usart.h
+.\objects\font.o: .\USER\tim.h
+.\objects\font.o: .\FWLB\inc\stm32f10x_tim.h
+.\objects\font.o: .\asciifont.h
+.\objects\font.o: .\font.h
+.\objects\font.o: .\USER\qpylcd.h
+.\objects\font.o: .\USER\ds18b20.h
+.\objects\font.o: .\USER\esp8266.h
+.\objects\font.o: .\USER\config.h
+.\objects\font.o: .\USER\support.h
+.\objects\font.o: .\USER\key.h
+.\objects\font.o: .\USER\ec11.h
+.\objects\font.o: .\USER\pwm.h
+.\objects\font.o: .\USER\eeprom.h
+.\objects\font.o: .\USER\beep.h

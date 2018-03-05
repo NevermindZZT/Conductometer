@@ -1,0 +1,32 @@
+.\objects\qpylcd.o: USER\qpylcd.c
+.\objects\qpylcd.o: USER\config.h
+.\objects\qpylcd.o: .\CMSIS\stm32f10x.h
+.\objects\qpylcd.o: .\CMSIS\core_cm3.h
+.\objects\qpylcd.o: D:\Program Files (x86)\keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\qpylcd.o: .\CMSIS\system_stm32f10x.h
+.\objects\qpylcd.o: .\CMSIS\stm32f10x_conf.h
+.\objects\qpylcd.o: .\FWLB\inc\stm32f10x_dma.h
+.\objects\qpylcd.o: .\CMSIS\stm32f10x.h
+.\objects\qpylcd.o: .\FWLB\inc\stm32f10x_flash.h
+.\objects\qpylcd.o: .\FWLB\inc\stm32f10x_gpio.h
+.\objects\qpylcd.o: .\FWLB\inc\stm32f10x_i2c.h
+.\objects\qpylcd.o: .\FWLB\inc\stm32f10x_rcc.h
+.\objects\qpylcd.o: .\FWLB\inc\misc.h
+.\objects\qpylcd.o: D:\Program Files (x86)\keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\qpylcd.o: USER\delay.h
+.\objects\qpylcd.o: USER\usart.h
+.\objects\qpylcd.o: .\FWLB\inc\stm32f10x_usart.h
+.\objects\qpylcd.o: USER\tim.h
+.\objects\qpylcd.o: .\FWLB\inc\stm32f10x_tim.h
+.\objects\qpylcd.o: .\asciifont.h
+.\objects\qpylcd.o: .\font.h
+.\objects\qpylcd.o: .\USER\config.h
+.\objects\qpylcd.o: USER\qpylcd.h
+.\objects\qpylcd.o: USER\ds18b20.h
+.\objects\qpylcd.o: USER\esp8266.h
+.\objects\qpylcd.o: USER\support.h
+.\objects\qpylcd.o: USER\key.h
+.\objects\qpylcd.o: USER\ec11.h
+.\objects\qpylcd.o: USER\pwm.h
+.\objects\qpylcd.o: USER\eeprom.h
+.\objects\qpylcd.o: USER\beep.h

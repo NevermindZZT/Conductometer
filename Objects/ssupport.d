@@ -1,0 +1,33 @@
+.\objects\ssupport.o: USER\ssupport.c
+.\objects\ssupport.o: USER\support.h
+.\objects\ssupport.o: USER\config.h
+.\objects\ssupport.o: .\CMSIS\stm32f10x.h
+.\objects\ssupport.o: .\CMSIS\core_cm3.h
+.\objects\ssupport.o: D:\Program Files (x86)\keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\ssupport.o: .\CMSIS\system_stm32f10x.h
+.\objects\ssupport.o: .\CMSIS\stm32f10x_conf.h
+.\objects\ssupport.o: .\FWLB\inc\stm32f10x_dma.h
+.\objects\ssupport.o: .\CMSIS\stm32f10x.h
+.\objects\ssupport.o: .\FWLB\inc\stm32f10x_flash.h
+.\objects\ssupport.o: .\FWLB\inc\stm32f10x_gpio.h
+.\objects\ssupport.o: .\FWLB\inc\stm32f10x_i2c.h
+.\objects\ssupport.o: .\FWLB\inc\stm32f10x_rcc.h
+.\objects\ssupport.o: .\FWLB\inc\misc.h
+.\objects\ssupport.o: D:\Program Files (x86)\keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\ssupport.o: USER\delay.h
+.\objects\ssupport.o: USER\usart.h
+.\objects\ssupport.o: .\FWLB\inc\stm32f10x_usart.h
+.\objects\ssupport.o: USER\tim.h
+.\objects\ssupport.o: .\FWLB\inc\stm32f10x_tim.h
+.\objects\ssupport.o: .\asciifont.h
+.\objects\ssupport.o: .\font.h
+.\objects\ssupport.o: .\USER\config.h
+.\objects\ssupport.o: USER\qpylcd.h
+.\objects\ssupport.o: USER\ds18b20.h
+.\objects\ssupport.o: USER\esp8266.h
+.\objects\ssupport.o: USER\support.h
+.\objects\ssupport.o: USER\key.h
+.\objects\ssupport.o: USER\ec11.h
+.\objects\ssupport.o: USER\pwm.h
+.\objects\ssupport.o: USER\eeprom.h
+.\objects\ssupport.o: USER\beep.h
