@@ -28,11 +28,11 @@ GPIO_TypeDef *DS18B20x_GPIO_PORT;
 *********************************************/
 void DS18B20_Select(uint16_t DS18B20x)
 {
-	switch (DS18B20x)
+	switch (DS18B20x)																			//判断传感器编号
 	{
 		case DS18B20A:
 		{
-			DS18B20x_GPIO_CLK = DS18B20A_GPIO_CLK;
+			DS18B20x_GPIO_CLK = DS18B20A_GPIO_CLK;												//指定传感器
 			DS18B20x_GPIO_PORT = DS18B20A_GPIO_PORT;
 			DS18B20x_GPIO_PIN = DS18B20A_GPIO_PIN;
 			break;
@@ -72,20 +72,20 @@ void DS18B20_SetIOMode(uint8_t IOMode)
 	
 //	DS18B20_Select(DS18B20x);
 	
-	if (IOMode == IN)
+	if (IOMode == IN)																		//判断IO口模式
 	{
-		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
+		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;										//上拉输入
 	}
 	else
 	{
-		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;									//推挽输出
 	}
-	GPIO_InitStructure.GPIO_Pin = DS18B20x_GPIO_PIN;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_InitStructure.GPIO_Pin = DS18B20x_GPIO_PIN;										//指定引脚
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;										//IO口速度
 	
-	RCC_APB2PeriphClockCmd(DS18B20x_GPIO_CLK, ENABLE);
+	RCC_APB2PeriphClockCmd(DS18B20x_GPIO_CLK, ENABLE);										//开启时钟
 	
-	GPIO_Init(DS18B20x_GPIO_PORT, &GPIO_InitStructure);
+	GPIO_Init(DS18B20x_GPIO_PORT, &GPIO_InitStructure);										//初始化IO口
 }
 
 
@@ -98,11 +98,11 @@ void DS18B20_SetIOMode(uint8_t IOMode)
 bool DS18B20_Init(uint16_t DS18B20x)
 {
 	uint8_t i = 0;
-	DS18B20_Select(DS18B20x);
+	DS18B20_Select(DS18B20x);																//选择传感器
 	
-	DS18B20_SetIOMode(OUT);
+	DS18B20_SetIOMode(OUT);																	//设置IO口模式为输出
 	
-	DS18B20DQ_HIGH;
+	DS18B20DQ_HIGH;																			//初始化时序
 	delay_us(2);
 	DS18B20DQ_LOW;
 	delay_us(750);
@@ -110,25 +110,25 @@ bool DS18B20_Init(uint16_t DS18B20x)
 	
 	delay_us(15);
 	
-	DS18B20_SetIOMode(IN);
-	while (DS18B20DQ_READ && i < 200)
+	DS18B20_SetIOMode(IN);																	//设置IO口模式为输入
+	while (DS18B20DQ_READ && i < 200)														//等待传感器响应
 	{
 		delay_us(1);
 		i++;
 	}
-	if (i >= 200)
+	if (i >= 200)																			//响应超时，返回FALSE
 		return FALSE;
 	
 	i = 0;
-	while (!DS18B20DQ_READ && i < 240)
+	while (!DS18B20DQ_READ && i < 240)														//等待传感器响应
 	{
 		delay_us(1);
 		i++;
 	}
-	if (i >= 240)
+	if (i >= 240)																			//响应超时，返回FALSE
 		return FALSE;
 	
-	return TRUE;
+	return TRUE;																			//初始化成功，返回TRUE
 }
 
 
@@ -142,20 +142,20 @@ uint8_t DS18B20_ReadByte(uint16_t DS18B20x)
 {
 	uint8_t i, readData;
 	readData = 0;
-	DS18B20_Select(DS18B20x);
+	DS18B20_Select(DS18B20x);																//选择传感器
 	
-	for (i = 0; i < 8; i++)
+	for (i = 0; i < 8; i++)																	//一位一位读
 	{
 		readData >>= 1;
-		DS18B20_SetIOMode(OUT);
-		DS18B20DQ_LOW;
+		DS18B20_SetIOMode(OUT);																//设置IO口模式为输出
+		DS18B20DQ_LOW;																		//读数据时序
 		delay_us(2);
 		DS18B20DQ_HIGH;
 		
-		DS18B20_SetIOMode(IN);
+		DS18B20_SetIOMode(IN);																//设置IO口模式为输入
 		delay_us(10);
 		
-		if (DS18B20DQ_READ != 0)
+		if (DS18B20DQ_READ != 0)															//读取数据
 		{
 			readData |= 0x80;
 		}
@@ -164,7 +164,7 @@ uint8_t DS18B20_ReadByte(uint16_t DS18B20x)
 //	DS18B20_SetIOMode(OUT);
 //	DS18B20DQ_HIGH;
 	
-	return readData;
+	return readData;																		//返回读取到的数据
 }
 
 
@@ -179,16 +179,16 @@ void DS18B20_WriteByte(uint16_t DS18B20x, uint8_t writeData)
 {
 	uint8_t i;
 	
-	DS18B20_Select(DS18B20x);
+	DS18B20_Select(DS18B20x);																//选择传感器
 	
 	
-	DS18B20_SetIOMode(OUT);
+	DS18B20_SetIOMode(OUT);																	//设置IO口模式为输出
 	
 	for (i = 0; i < 8; i++)
 	{
-		DS18B20DQ_LOW;
+		DS18B20DQ_LOW;																		//写数据时序
 		delay_us(2);
-		if (writeData & 0x01)
+		if (writeData & 0x01)																//写数据
 		{
 			DS18B20DQ_HIGH;
 		}
@@ -215,8 +215,8 @@ void DS18B20_ConvertTemp(uint16_t DS18B20x)
 	DS18B20_Init(DS18B20x);
 //	delay_ms(1);
 	
-	DS18B20_WriteByte(DS18B20x, SKIPROM);
-	DS18B20_WriteByte(DS18B20x, CONVERTTEMP);
+	DS18B20_WriteByte(DS18B20x, SKIPROM);													//写命令
+	DS18B20_WriteByte(DS18B20x, CONVERTTEMP);												//开始转换温度
 }
 
 
@@ -232,20 +232,20 @@ float DS18B20_ReadTemp(uint16_t DS18B20x)
 	uint8_t tempL, tempH;
 	float realTemp;
 	
-	DS18B20_Init(DS18B20x);
+	DS18B20_Init(DS18B20x);																	//初始化一次传感器
 	delay_ms(1);
 	
-	DS18B20_ConvertTemp(DS18B20x);
+	DS18B20_ConvertTemp(DS18B20x);															//转换温度
 //	delay_ms(100);
 	DS18B20_Init(DS18B20x);
 //	delay_ms(1);
-	DS18B20_WriteByte(DS18B20x, SKIPROM);
+	DS18B20_WriteByte(DS18B20x, SKIPROM);													//读数据
 	DS18B20_WriteByte(DS18B20x, READSCRTCHPAD);
-	tempL = DS18B20_ReadByte(DS18B20x);
+	tempL = DS18B20_ReadByte(DS18B20x);														//读取两字节数据
 	tempH = DS18B20_ReadByte(DS18B20x);
 	temp = (uint16_t)tempH;
 	temp = (temp << 8) | tempL;
-	if (tempH > 7)
+	if (tempH > 7)																			//数据处理
 	{
 		temp = ~temp;
 		realTemp = (float)temp * 0.0625;

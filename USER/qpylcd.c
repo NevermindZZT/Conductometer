@@ -21,11 +21,12 @@
 //#include		"stdio.h"
 #include	"config.h"
 
-
-uint16_t xLabelForPrint = 0;
+#ifdef		PRINTTOLCD
+uint16_t xLabelForPrint = 0;																//用作fputc函数重写
 uint16_t yLabelForPrint = 0;
+#endif
 
-FONT FONT8X16 = {8, 16};
+FONT FONT8X16 = {8, 16};																	//定义字体
 FONT FONT16X16 = {16, 16};
 FONT FONT16X24 = {16, 24};
 FONT FONT24X24 = {24, 24};
@@ -44,7 +45,7 @@ void QPYLCD_Init(void)
 {
 	GPIO_InitTypeDef GPIO_InitStructure;
 	
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;										//初始化LCD所有端口
 	GPIO_InitStructure.GPIO_Pin = LCDDATAL_GPIO_PIN;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	
@@ -74,10 +75,10 @@ void QPYLCD_Init(void)
 	
 	GPIO_Init(LCDCS_GPIO_PORT, &GPIO_InitStructure);
 	
-	QPYLCDCS_HIGH;
-	QPYLCD_On(TRUE);
-	QPYLCD_Clear();
-	QPYLCD_Control(0, 0, 0, 2);
+	QPYLCDCS_HIGH;																			//拉高CS引脚，默认保持
+	QPYLCD_On(TRUE);																		//开显示
+	QPYLCD_Clear();																			//清屏
+	QPYLCD_Control(0, 0, 0, 2);																//设置默认亮度级别2
 }
 
 
@@ -91,9 +92,9 @@ void QPYLCD_Init(void)
 void QPYLCD_On(bool on)
 {
 	if (on)
-		QPYLCDDISP_HIGH;
+		QPYLCDDISP_HIGH;																	//DISP引脚高电平，开显示
 	else
-		QPYLCDDISP_LOW;
+		QPYLCDDISP_LOW;																		//DISP引脚地点品，关显示
 }
 /**********************************************
 *函数名称：	QPYLCD_WriteCmd
@@ -104,17 +105,17 @@ void QPYLCD_On(bool on)
 **********************************************/
 void QPYLCD_WriteCmd(uint16_t cmd, uint16_t data)
 {
-	uint8_t i, dataWidth;
-	if (cmd == SINGELPIXEL ||cmd == EIGHTPIXEL)
+	uint8_t i, dataWidth;																	//数据宽度
+	if (cmd == SINGELPIXEL ||cmd == EIGHTPIXEL)												//根据命令判断数据宽度
 		dataWidth = 0;
 	else if (cmd == CONTROL || cmd == CLR || cmd == FRONTGROUND || cmd == BACKGROUND)
 		dataWidth = 1;
 	else
 		dataWidth = 2;
 	
-	QPYLCD_ProcessData(cmd);
+	QPYLCD_ProcessData(cmd);																//命令写入IO口
 
-	QPYLCDRS_LOW;
+	QPYLCDRS_LOW;																			//写命令时序
 	QPYLCDRD_HIGH;
 	QPYLCDCS_LOW;
 	QPYLCDWR_LOW;
@@ -128,7 +129,7 @@ void QPYLCD_WriteCmd(uint16_t cmd, uint16_t data)
 	
 //	delay_us(1);						//ADD
 	
-	for (i = 0; i < dataWidth; i++)
+	for (i = 0; i < dataWidth; i++)															//8位一次写数据
 	{
 		QPYLCD_WriteData(data);
 		data = data >> 8;
@@ -148,7 +149,7 @@ void QPYLCD_ProcessData(uint16_t data)
 	uint16_t dataL;
 	uint16_t dataM;
 	
-	dataL = data & 0x0007;
+	dataL = data & 0x0007;																	//根据LCD数据位与MCU的连接方式，确定数据处理方式
 	dataM = data & 0x00F8;
 	
 	GPIO_Write(LCDDATAL_GPIO_PORT, ((GPIO_ReadOutputData(LCDDATAL_GPIO_PORT) & (~LCDDATAL_GPIO_PIN)) | dataL));
@@ -164,9 +165,9 @@ void QPYLCD_ProcessData(uint16_t data)
 *************************************************/
 void QPYLCD_WriteData(uint16_t data)
 {
-	QPYLCD_ProcessData(data);
+	QPYLCD_ProcessData(data);																//数据写入IO口
 	
-	QPYLCDRS_HIGH;
+	QPYLCDRS_HIGH;																			//写数据时序
 	QPYLCDRD_HIGH;
 	QPYLCDCS_LOW;
 	QPYLCDWR_LOW;
@@ -190,9 +191,9 @@ void QPYLCD_WriteData(uint16_t data)
 **********************************************/
 void QPYLCD_Clear(void)
 {
-	QPYLCD_WriteCmd(CLR, 0x55);
-	delay_ms(25);
-	QPYLCD_WriteCmd(CLR, 0xAA);
+	QPYLCD_WriteCmd(CLR, 0x55);																//开始清屏
+	delay_ms(25);																			//等待清屏完成
+	QPYLCD_WriteCmd(CLR, 0xAA);																//关闭清屏
 }
 
 
@@ -211,7 +212,7 @@ void QPYLCD_Control(uint8_t backDisable, uint8_t dir, uint8_t led, uint8_t lumin
 	
 	data = (backDisable << 5) | (dir << 4) | (led << 3) | luminance;
 	
-	QPYLCD_WriteCmd(CONTROL, data);
+	QPYLCD_WriteCmd(CONTROL, data);															//CONTOL命令写控制寄存器
 }
 
 
@@ -223,7 +224,7 @@ void QPYLCD_Control(uint8_t backDisable, uint8_t dir, uint8_t led, uint8_t lumin
 ********************************************/
 void QPYLCD_SetFrontColor(uint8_t color)
 {
-	QPYLCD_WriteCmd(FRONTGROUND, (uint16_t)color);
+	QPYLCD_WriteCmd(FRONTGROUND, (uint16_t)color);											//FONTGROUND命令设置前景色
 }
 
 
@@ -235,7 +236,7 @@ void QPYLCD_SetFrontColor(uint8_t color)
 *******************************************/
 void QPYLCD_SetBackColor(uint8_t color)
 {
-	QPYLCD_WriteCmd(BACKGROUND, (uint16_t)color);
+	QPYLCD_WriteCmd(BACKGROUND, (uint16_t)color);											//BACKGROUND命令设置背景色
 }
 
 
@@ -248,7 +249,7 @@ void QPYLCD_SetBackColor(uint8_t color)
 *******************************************/
 void QPYLCD_SetXYLabel(uint16_t xLabel, uint16_t yLabel)
 {
-	QPYLCD_WriteCmd(XLABEL, xLabel);
+	QPYLCD_WriteCmd(XLABEL, xLabel);														//分别设置x轴坐标和y轴坐标
 	QPYLCD_WriteCmd(YLABEL, yLabel);
 }
 
@@ -263,7 +264,7 @@ void QPYLCD_SetXYLabel(uint16_t xLabel, uint16_t yLabel)
 *******************************************/
 uint8_t QPYLCD_NewColor(uint8_t red, uint8_t green, uint8_t blue)
 {
-	return (red << 5) | (green << 2) | blue;
+	return (red << 5) | (green << 2) | blue;												//返回颜色
 }
 
 
@@ -277,9 +278,9 @@ uint8_t QPYLCD_NewColor(uint8_t red, uint8_t green, uint8_t blue)
 ************************************************/
 void QPYLCD_DrawPoint(uint16_t xLabel, uint16_t yLabel, uint8_t color)
 {
-	QPYLCD_SetXYLabel(xLabel, yLabel);
-	QPYLCD_WriteCmd(SINGELPIXEL, NULL);
-	QPYLCD_WriteData(color);
+	QPYLCD_SetXYLabel(xLabel, yLabel);														//设置坐标
+	QPYLCD_WriteCmd(SINGELPIXEL, NULL);														//单点写显存命令
+	QPYLCD_WriteData(color);																//写显存
 }
 
 
@@ -295,40 +296,39 @@ void QPYLCD_DrawPoint(uint16_t xLabel, uint16_t yLabel, uint8_t color)
 **************************************************/
 void QPYLCD_DrawLine(uint16_t startXLabel, uint16_t startYLabel, uint16_t endXLabel, uint16_t endYLabel, uint8_t color)
 {
-	uint16_t xLengthAbs, yLengthAbs, tmpLabel;
-	int16_t xLength, yLength, i;
+	uint16_t xLengthAbs, yLengthAbs, tmpLabel;												//x方向长度，y方向长度，坐标中间变量
+	int16_t xLength, yLength, i;															//x，y方向坐标差值
 	
-	xLengthAbs = xLength = (int16_t)endXLabel - (int16_t)startXLabel;
+	xLengthAbs = xLength = (int16_t)endXLabel - (int16_t)startXLabel;						//计算x，y方向坐标差值
 	yLengthAbs = yLength = (int16_t)endYLabel - (int16_t)startYLabel;
 	
-	if (xLength < 0)
+	if (xLength < 0)																		//长度取正
 		xLengthAbs = -xLength;
 	if (yLength < 0)
 		yLengthAbs = -yLength;
 	
-	if ((xLengthAbs == yLengthAbs) && (xLengthAbs == 0))
+	if ((xLengthAbs == yLengthAbs) && (xLengthAbs == 0))									//若起止点坐标一致，画单点
 	{
 		QPYLCD_DrawPoint(startXLabel, startYLabel, color);
 	}
-	else if (xLengthAbs >= yLengthAbs)
+	else if (xLengthAbs >= yLengthAbs)														//若x方向长度大于y方向，以x方向作为基准划线
 	{
-		tmpLabel = startYLabel;
+		tmpLabel = startYLabel;																//记录起始y坐标
 		for (i = 0; i <= xLengthAbs; i++)
 		{
-			QPYLCD_DrawPoint(startXLabel, startYLabel, color);
-			startXLabel += xLength / xLengthAbs;
-			startYLabel = tmpLabel + (int16_t)((i+1) * ((float)yLength / (float)xLengthAbs));
+			QPYLCD_DrawPoint(startXLabel, startYLabel, color);								//在当前位置绘制一个点
+			startXLabel += xLength / xLengthAbs;											//x方向坐标加(减)1(由起止点坐标差决定画线方向)
+			startYLabel = tmpLabel + (int16_t)((i+1) * ((float)yLength / (float)xLengthAbs));	//根据起止点坐标计算斜率，算出下一点y坐标
 		}
 	}
-	else
-	{
-		
-		tmpLabel = startXLabel;
-		for (i = 0; i <= yLengthAbs; i++)
-		{
-			QPYLCD_DrawPoint(startXLabel, startYLabel, color);
-			startYLabel += yLength / yLengthAbs;
-			startXLabel = tmpLabel + (int16_t)((i+1) * ((float)xLength / (float)yLengthAbs));
+	else																					//若y方向长度大于x方向，以y方向作为基准划线
+	{                                                                                       
+		tmpLabel = startXLabel;                                                             //记录起始x坐标
+		for (i = 0; i <= yLengthAbs; i++)                                                   
+		{                                                                                   
+			QPYLCD_DrawPoint(startXLabel, startYLabel, color);                              //在当前位置绘制一个点
+			startYLabel += yLength / yLengthAbs;                                            //y方向坐标加(减)1(由起止点坐标差决定画线方向)
+			startXLabel = tmpLabel + (int16_t)((i+1) * ((float)xLength / (float)yLengthAbs));	//根据起止点坐标计算斜率，算出下一点x坐标;
 		}
 	}
 }
@@ -348,21 +348,21 @@ void QPYLCD_DrawRectangle(uint16_t xLabel, uint16_t yLabel, uint16_t width, uint
 {
 	uint16_t i, j;
 	
-	QPYLCD_SetFrontColor(color);
+	QPYLCD_SetFrontColor(color);															//设置前景色
 	
 	for (i = 0; i < height; i++)
 	{
-		QPYLCD_SetXYLabel(xLabel, yLabel++);
+		QPYLCD_SetXYLabel(xLabel, yLabel++);												//设置每一行起点坐标，y方向坐标加1
 		
 		for (j = 0; j < (width / 8); j++)													//8点写显存绘制8的整数列
 		{
-			QPYLCD_WriteCmd(EIGHTPIXEL, NULL);
-			QPYLCD_WriteData(0xFF);
+			QPYLCD_WriteCmd(EIGHTPIXEL, NULL);												//8点写显存命令
+			QPYLCD_WriteData(0xFF);															//8点全部填充为前景色
 		}
 		for (j = 0; j < (width % 8) ; j++)													//单点写显存绘制剩余部分
 		{
-			QPYLCD_WriteCmd(SINGELPIXEL, NULL);
-			QPYLCD_WriteData(color);
+			QPYLCD_WriteCmd(SINGELPIXEL, NULL);												//单点写显存命令
+			QPYLCD_WriteData(color);														//填充单点颜色
 		}
 	}
 		
@@ -371,7 +371,7 @@ void QPYLCD_DrawRectangle(uint16_t xLabel, uint16_t yLabel, uint16_t width, uint
 
 /****************************************************
 *函数名称：	QPYLCD_DrawMonochromeImage
-*功能：		显示单色图片
+*功能：		显示单色图片(8点写显存方式)
 *参数：		xLabel：		x轴坐标
 *			yLabel：		y轴坐标
 *			width：			宽度
@@ -384,17 +384,17 @@ void QPYLCD_DrawMonochromeImage(uint16_t xLabel, uint16_t yLabel, uint16_t width
 {
 	uint16_t i, j;
 	
-	QPYLCD_SetFrontColor(color);
+	QPYLCD_SetFrontColor(color);															//设置前景色
 	
 	for (i = 0; i < height; i++)
 	{
-		QPYLCD_SetXYLabel(xLabel, yLabel++);
+		QPYLCD_SetXYLabel(xLabel, yLabel++);												//设置起点坐标，y方向坐标加1
 		
-		QPYLCD_WriteCmd(EIGHTPIXEL, NULL);
+		QPYLCD_WriteCmd(EIGHTPIXEL, NULL);													//八点写显存命令
 		
-		for (j = 0; j < (width / 8); j++)	
+		for (j = 0; j < (width / 8); j++)													//宽度/8，此函数要求宽度需要是8的倍数
 		{
-			QPYLCD_WriteData(*image++);
+			QPYLCD_WriteData(*image++);														//写显存
 		}
 	}
 			
@@ -415,15 +415,15 @@ void QPYLCD_DrawColorImage(uint16_t xLabel, uint16_t yLabel, uint16_t width, uin
 {
 	uint16_t i, j;
 	
-	for (i = 0; i < height; i++)
+	for (i = 0; i < height; i++)															//图片高度
 	{
-		QPYLCD_SetXYLabel(xLabel, yLabel++);
+		QPYLCD_SetXYLabel(xLabel, yLabel++);												//设置起点坐标，y方向坐标加1
 		
-		QPYLCD_WriteCmd(SINGELPIXEL, NULL);
+		QPYLCD_WriteCmd(SINGELPIXEL, NULL);													//单点写显存命令
 		
-		for (j = 0; j < width; j++)	
+		for (j = 0; j < width; j++)															//图片宽度
 		{
-			QPYLCD_WriteData(*image++);
+			QPYLCD_WriteData(*image++);														//写显存
 		}
 	}
 	
@@ -441,9 +441,10 @@ void QPYLCD_DrawColorImage(uint16_t xLabel, uint16_t yLabel, uint16_t width, uin
 ****************************************/
 void QPYLCD_DisplayString(uint16_t xLabel, uint16_t yLabel, uint8_t color, FONT font, const uint8_t *string)
 {
-	const uint8_t *p;
+	const uint8_t *p;																		//字库指针
 	uint8_t i;
-	if (font.width == 8 && font.height == 16)
+	
+	if (font.width == 8 && font.height == 16)												//根据font参数的值，判断字体，并设置字库指针指向对应字库
 	{
 		p = asciiFont8x16;
 	}
@@ -456,15 +457,15 @@ void QPYLCD_DisplayString(uint16_t xLabel, uint16_t yLabel, uint8_t color, FONT 
 		p = asciiFont16x32;
 	}
 	
-	while (*string)
+	while (*string)																			//判断字符串是否结束
 	{
-		for (i = 0; i < (font.width / 8); i++)
+		for (i = 0; i < (font.width / 8); i++)												//由字库取模方式确定
 		{
 			QPYLCD_DrawMonochromeImage(xLabel, yLabel, 8, font.height, color,
-				p + (*string - 32) * font.width * font.height / 8 + font.height * i);
-			xLabel += 8;
+				p + (*string - 32) * font.width * font.height / 8 + font.height * i);		//根据字体确定每列绘制多少行，绘制单色图形
+			xLabel += 8;																	//x方向坐标加8
 		}
-		string++;
+		string++;																			//字符指针加1
 	}
 }
 
@@ -481,7 +482,7 @@ void QPYLCD_DisplayString(uint16_t xLabel, uint16_t yLabel, uint8_t color, FONT 
 void QPYLCD_DisplayCharacter(uint16_t xLabel, uint16_t yLabel, uint8_t color, FONT font, const uint8_t *character)
 {
 	uint8_t i;
-	for (i = 0; i < (font.width / 8); i++)
+	for (i = 0; i < (font.width / 8); i++)													//由取模方式确定显示顺序
 	{
 		QPYLCD_DrawMonochromeImage((xLabel + i * 8), yLabel, 8, font.height, color, (character + i * font.height));
 	}
@@ -501,7 +502,7 @@ void QPYLCD_DisplayCharacter(uint16_t xLabel, uint16_t yLabel, uint8_t color, FO
 void QPYLCD_DisplayCharacters(uint16_t xLabel, uint16_t yLabel, uint8_t color, FONT font, uint8_t characterNumber, const uint8_t *characters)
 {
 	uint8_t i;
-	for (i = 0; i < characterNumber; i++)
+	for (i = 0; i < characterNumber; i++)													//显示指定数量汉字
 	{
 		QPYLCD_DisplayCharacter(xLabel + font.width * i, yLabel, color, font, characters + i * font.height * font.width / 8);
 	}
@@ -523,30 +524,30 @@ void QPYLCD_DisplayInt(uint16_t xLabel, uint16_t yLabel, uint8_t color, FONT fon
 	int8_t	i, j, m;
 	i = 0;
 	
-	if (number == 0)
+	if (number == 0)																		//若数据为0，直接设置字符
 	{
 		tmp[i++] = 48;
 	}
-	else if (number < 0)
+	else if (number < 0)																	//若数据小于0，字符串首位设置为'-'
 	{
 		tmp[i++] = '-';
 	}
 	
-	while (number > 0)
+	while (number > 0)																		//将整形数据处理成字符串
 	{
 		tmp[i++] = number % 10 + 48;
 		number /= 10;
 	}
 	
-	for (j = 0; j < (i / 2); j++)
+	for (j = 0; j < (i / 2); j++)															//整理字符串顺序
 	{
 		m = tmp[j];
 		tmp[j] = tmp[i - j - 1];
 		tmp[i - j - 1] = m;
 	}
-	tmp[i] = NULL;
+	tmp[i] = NULL;																			//字符串结束
 	
-	QPYLCD_DisplayString(xLabel, yLabel, color, font, tmp);
+	QPYLCD_DisplayString(xLabel, yLabel, color, font, tmp);									//显示
 }
 
 
@@ -563,9 +564,9 @@ void QPYLCD_DisplayFloat(uint16_t xLabel, uint16_t yLabel, uint8_t color, FONT f
 {
 	uint8_t tmp[20];
 	
-	sprintf((char *)tmp, "%f", number);
+	sprintf((char *)tmp, "%f", number);														//使用sprintf函数转换小数为字符串
 	
-	QPYLCD_DisplayString(xLabel, yLabel, color, font, tmp);
+	QPYLCD_DisplayString(xLabel, yLabel, color, font, tmp);									//显示
 }
 
 
@@ -576,23 +577,23 @@ void QPYLCD_DisplayFloat(uint16_t xLabel, uint16_t yLabel, uint8_t color, FONT f
 #ifdef		PRINTTOLCD
 int fputc(int ch, FILE *f)
 {
-	if ((uint8_t)ch == '\n')
+	if ((uint8_t)ch == '\n')																//遇到换行符，换行
 	{
-		yLabelForPrint += 16;
-		xLabelForPrint = 0;
+		yLabelForPrint += 16;																//y方向坐标加16
+		xLabelForPrint = 0;																	//x方向坐标重置
 	}
 	else
 	{
-		QPYLCD_SetBackColor(BLACK);
-		QPYLCD_DrawMonochromeImage(xLabelForPrint, yLabelForPrint, 8, 16, WHITE, asciiFont8x16 + (ch - 32) * 16);
-		xLabelForPrint += 8;
-		if (xLabelForPrint >= 480)
+		QPYLCD_SetBackColor(BLACK);															//设置背景色
+		QPYLCD_DrawMonochromeImage(xLabelForPrint, yLabelForPrint, 8, 16, WHITE, asciiFont8x16 + (ch - 32) * 16);	//显示一个字符
+		xLabelForPrint += 8;																//x方向坐标加8
+		if (xLabelForPrint >= 480)															//若显示宽度超出屏幕区域，换行
 		{
 			yLabelForPrint += 16;
 			xLabelForPrint = 0;
 		}
 	}
-	if (yLabelForPrint >= 272)
+	if (yLabelForPrint >= 272)																//若全屏都已用作显示，刷新整个屏幕
 	{
 		yLabelForPrint = 0;
 		QPYLCD_Clear();
