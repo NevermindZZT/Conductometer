@@ -23,7 +23,7 @@
 3. 部分可自定义选项位于相关头文件宏定义区域，可自行修改，说明如下：
 	宏					功能							位置
 	PRINTTOUSART		实现printf函数打印到串口1		usart.h
-	PRINTTILCD			实现printf函数打印到液晶屏		qpylcd.h
+	PRINTTOLCD			实现printf函数打印到液晶屏		qpylcd.h
 	ALLOWBACK			实验中允许返回上一步骤			support.h
 	
 4. WiFi通信中，热点ssid和password以及服务器ip和port位于esp8266.c文件中，修改时留意相关代码

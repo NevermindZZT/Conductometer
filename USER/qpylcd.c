@@ -521,7 +521,7 @@ void QPYLCD_DisplayCharacters(uint16_t xLabel, uint16_t yLabel, uint8_t color, F
 void QPYLCD_DisplayInt(uint16_t xLabel, uint16_t yLabel, uint8_t color, FONT font, int32_t number)
 {
 	uint8_t tmp[10];
-	int8_t	i, j, m;
+	int8_t	i, j, m, flag = 0;
 	i = 0;
 	
 	if (number == 0)																		//若数据为0，直接设置字符
@@ -530,7 +530,9 @@ void QPYLCD_DisplayInt(uint16_t xLabel, uint16_t yLabel, uint8_t color, FONT fon
 	}
 	else if (number < 0)																	//若数据小于0，字符串首位设置为'-'
 	{
-		tmp[i++] = '-';
+		flag = 1;																			//记录值小于0
+//		tmp[i++] = '-';																		
+		number = -number;																	//记录负号后取绝对值
 	}
 	
 	while (number > 0)																		//将整形数据处理成字符串
@@ -547,6 +549,11 @@ void QPYLCD_DisplayInt(uint16_t xLabel, uint16_t yLabel, uint8_t color, FONT fon
 	}
 	tmp[i] = NULL;																			//字符串结束
 	
+	if (flag == 1)																			//数据小于0，显示负号
+	{
+		QPYLCD_DisplayString(xLabel, yLabel, color, font, "-");
+		xLabel += font.width;
+	}
 	QPYLCD_DisplayString(xLabel, yLabel, color, font, tmp);									//显示
 }
 

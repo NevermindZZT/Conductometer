@@ -13,7 +13,7 @@
 #define		ALLOWBACK																//允许长按左键返回上一步骤
 #define		DEBUG																	//DEBUG模式
 
-#define		SOFTWAREVERSION		"0.2Beta"											//软件版本
+#define		SOFTWAREVERSION		"0.2-Beta"											//软件版本
 
 /*----------------------仪器命令宏定义---------------------*/
 #define		DEVICE_CONNECT		0

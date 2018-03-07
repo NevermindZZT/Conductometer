@@ -15,8 +15,8 @@
 *
 *注意：		1. 通信采取字符串的形式接收发送，每条数据都必须以"\r\n"结尾
 *			2. 使用ESP8266_SendString将字符串发送到服务器，若实现了printf函数，则可以直接使用printf函数发送数据
-*			3. ssid[]与password[]分别为ESP8266所需要连接的WiFi名称以及密码，默认采用常量方式定义，可自行修改
-*			4. prot为服务器端口，默认端口8266，可在代码中进行修改
+*			3. 使用宏WIFI_SSID与WIFI_PASSWORD定义Wifi ssid与password
+*			4. 使用宏TCP_PORT定义TCP服务器监听端口
 *			5. 驱动默认服务器即为开启WiFi热点的PC，故服务器ip默认连接至局域网下编号1的设备，若服务器为其他设备，
 *				需自行处理服务器ip，修改处位于ESP8266_Cmd函数中
 */
@@ -26,9 +26,6 @@
 
 uint8_t espFlag = 0;
 uint32_t ip[4];
-uint32_t port = 8266;
-uint8_t ssid[] = "BMZL";
-uint8_t password[] = "csuwlsyzxbmzl";
 uint8_t espBuff[ESPDATALENGTH];
 uint16_t espBuffFlag = 0;
 
@@ -71,7 +68,7 @@ void ESP8266_Cmd(uint8_t espFlag)
 		
 		case 2:
 		{
-			sprintf(string, "AT+CWJAP=\"%s\",\"%s\"\r\n", ssid, password);
+			sprintf(string, "AT+CWJAP=\"%s\",\"%s\"\r\n", WIFI_SSID, WIDI_PASSWORD);
 			ESP8266_SendString(string);
 		}
 		break;
@@ -86,7 +83,7 @@ void ESP8266_Cmd(uint8_t espFlag)
 		
 		case 5:
 		{
-			sprintf(string, "AT+CIPSTART=\"TCP\",\"%d.%d.%d.1\",%d\r\n", ip[0], ip[1], ip[2], port);
+			sprintf(string, "AT+CIPSTART=\"TCP\",\"%d.%d.%d.1\",%d\r\n", ip[0], ip[1], ip[2], TCP_PORT);
 			ESP8266_SendString(string);											//TCP
 		}
 		break;
