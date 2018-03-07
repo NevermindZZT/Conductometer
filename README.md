@@ -31,14 +31,14 @@
 
 ### 部分可自定义选项位于相关头文件宏定义区域，可自行修改，说明如下：
 
-| 宏           | 功能                       | 位置      |
-| ------------ | -------------------------- | --------- |
-| PRINTTOUSART | 实现printf函数打印到串口1  | usart.h   |
-| PRINTTILCD   | 实现printf函数打印到液晶屏 | qpylcd.h  |
-| ALLOWBACK    | 实验中允许返回上一步骤     | support.h |
-
-
-### WiFi通信中，热点ssid和password以及服务器ip和port位于esp8266.c文件中，修改时留意相关代码
+| 宏            | 功能                       | 位置      |
+| ------------- | -------------------------- | --------- |
+| PRINTTOUSART  | 实现printf函数打印到串口1  | usart.h   |
+| PRINTTILCD    | 实现printf函数打印到液晶屏 | qpylcd.h  |
+| ALLOWBACK     | 实验中允许返回上一步骤     | support.h |
+| WIFI_SSID     | 用于连接的WiFi ssid        | esp8266.h |
+| WIFI_PASSWORD | WiFi密码                   | esp8266.h |
+| TCP_PORT      | TCP服务器监听端口          | esp8266.h |
 
 
 ## 软件更新日志：
