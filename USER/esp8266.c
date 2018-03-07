@@ -68,7 +68,7 @@ void ESP8266_Cmd(uint8_t espFlag)
 		
 		case 2:
 		{
-			sprintf(string, "AT+CWJAP=\"%s\",\"%s\"\r\n", WIFI_SSID, WIDI_PASSWORD);
+			sprintf(string, "AT+CWJAP=\"%s\",\"%s\"\r\n", WIFI_SSID, WIFI_PASSWORD);
 			ESP8266_SendString(string);
 		}
 		break;

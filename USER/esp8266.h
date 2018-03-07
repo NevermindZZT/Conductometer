@@ -12,7 +12,7 @@
 
 #define		TCP_PORT				8266
 #define		WIFI_SSID				"CSUDRY"
-#define		WIDI_PASSWORD			"csuwlsyzxdry"
+#define		WIFI_PASSWORD			"csuwlsyzxdry"
 
 #define		ESPDATALENGTH			200							//允许ESP8266发送接收数据的最大长度
 

@@ -16,9 +16,16 @@
 #define		SOFTWAREVERSION		"0.2-Beta"											//软件版本
 
 /*----------------------仪器命令宏定义---------------------*/
-#define		DEVICE_CONNECT		0
-#define		DEVICE_REGISTER		1
-#define		DEVICE_DATA			2
+//#define		DEVICE_CONNECT		0
+//#define		DEVICE_REGISTER		1
+//#define		DEVICE_DATA			2
+
+enum DEVICE_COMMAND
+{
+	DEVICE_CONNECT,																	//设备连接
+	DEVICE_REGISTER,																//设备注册
+	DEVICE_DATA																		//同步数据
+};
 
 /*--------------------------函数声明-----------------------*/
 void DYY_SystemSettingScreen(void);													//设置界面

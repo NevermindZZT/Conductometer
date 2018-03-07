@@ -1,8 +1,8 @@
 #include	"config.h"
 
-DYY_ExperimentalData experimentalData;
-uint8_t screenBrightness;
-uint16_t readFlash[2];
+DYY_ExperimentalData experimentalData;									//实验数据
+uint8_t screenBrightness;												//亮度
+uint16_t readFlash[2];													//读Flash数据
 
 int main()
 {
