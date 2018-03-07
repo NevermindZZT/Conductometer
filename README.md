@@ -55,6 +55,6 @@
 - 增加“实验完成”对话框，提示实验已完成
 
 #### 2018/3/7
-- 修复LCD驱动中QPYLCD_DispInt函数显示负数错误问题
+- 修复LCD驱动中QPYLCD_DisplayInt函数显示负数错误问题
 - 修改ESP8266驱动，ssid password与port修改为宏定义方式
 - 下一步计划加入PID算法控制加热，并完善ESP8266驱动，实现其TCP与UDP通信，加入广播机制，放弃原来死板的TCP连接方式
