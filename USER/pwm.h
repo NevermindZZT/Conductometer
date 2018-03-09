@@ -7,8 +7,8 @@
 #define		PWM_GPIO_PORT		GPIOA
 #define		PWM_GPIO_PIN		GPIO_Pin_12
 
-#define		PWM_ON				TIM_Cmd(TIM4, ENABLE)
-#define		PWM_OFF				TIM_SetCompare4(TIM4, 0)
+#define		PWMEnable()			TIM_Cmd(TIM4, ENABLE)
+#define		PWMDisable()		TIM_SetCompare4(TIM4, 0);TIM_Cmd(TIM4, DISABLE)
 
 extern uint8_t PWM_dutyCycle;
 

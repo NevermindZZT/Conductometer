@@ -12,8 +12,18 @@
 
 #define		ALLOWBACK																//允许长按左键返回上一步骤
 #define		DEBUG																	//DEBUG模式
+//#define		PID_CONTROL																//使用PID算法控制温度
 
-#define		SOFTWAREVERSION		"0.2-Beta"											//软件版本
+#ifdef		PID_CONTROL
+#define		PID_KP				1													//PID算法比例系数
+#define		PID_KI				1													//PID算法积分系数
+#define		PID_KD				1													//PID算法微分系数
+#endif
+
+#define		SOFTWAREVERSION		"0.2.3-Beta"											//软件版本
+
+#define		HeatingEnable()		PWMEnable();temperatureControl.isHeating = TRUE		//开始加热
+#define		HeatingDisable()	PWMDisable();temperatureControl.isHeating = FALSE	//结束加热
 
 /*----------------------仪器命令宏定义---------------------*/
 //#define		DEVICE_CONNECT		0
@@ -26,6 +36,21 @@ enum DEVICE_COMMAND
 	DEVICE_REGISTER,																//设备注册
 	DEVICE_DATA																		//同步数据
 };
+
+/*-----------------------结构体声明---------------------*/
+typedef struct
+{
+	float heatingAimTemperature;
+	bool isHeating;
+#ifdef		PID_CONTROL
+	float pidTemperature[3];
+#endif
+}TEMP_Control;
+
+
+/*------------------------全局变量声明----------------------*/
+extern TEMP_Control temperatureControl;
+
 
 /*--------------------------函数声明-----------------------*/
 void DYY_SystemSettingScreen(void);													//设置界面
@@ -74,7 +99,7 @@ void DYY_DrawEquipment3(uint16_t xLabel, uint16_t yLabel, uint8_t color);			//绘
 
 void DYY_DisplayData(uint8_t group, uint32_t time, float tempB, uint8_t color);		//显示数据
 
-void DYY_TemperatureControl(float temperature);										//温度控制
+void DYY_TemperatureControl(void);													//温度控制
 
 void DYY_UplaodData(uint8_t command);												//上传数据
 

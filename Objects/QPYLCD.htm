@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\QPYLCD.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\QPYLCD.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Wed Mar 07 22:27:34 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Fri Mar 09 20:53:08 2018
 <BR><P>
 <H3>Maximum Stack Usage =        328 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -369,8 +369,8 @@ Global Symbols
 </UL>
 <P><STRONG><a name="[ee]"></a>__aeabi_memcpy</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
 
-<P><STRONG><a name="[a7]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSetting
+<P><STRONG><a name="[a6]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSetting
 </UL>
 
 <P><STRONG><a name="[ef]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
@@ -398,7 +398,7 @@ Global Symbols
 <LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_float_epilogue
 </UL>
 <BR>[Called By]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureControl
+<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureControl
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_frsub
 </UL>
 
@@ -407,7 +407,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureControl
+<BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureControl
 </UL>
 
 <P><STRONG><a name="[58]"></a>__aeabi_frsub</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, fadd.o(.text), UNUSED)
@@ -417,8 +417,8 @@ Global Symbols
 <P><STRONG><a name="[ac]"></a>__aeabi_fmul</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, fmul.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_fmul
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureControl
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureControl
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
 </UL>
 
 <P><STRONG><a name="[59]"></a>__aeabi_fdiv</STRONG> (Thumb, 124 bytes, Stack size 8 bytes, fdiv.o(.text))
@@ -426,7 +426,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_float_round
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
 </UL>
 
 <P><STRONG><a name="[5a]"></a>__aeabi_dmul</STRONG> (Thumb, 228 bytes, Stack size 48 bytes, dmul.o(.text))
@@ -443,7 +443,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_float_epilogue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureSetting
 </UL>
 
@@ -453,23 +453,23 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_float_epilogue
 </UL>
 <BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
 </UL>
 
 <P><STRONG><a name="[ce]"></a>__aeabi_f2iz</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, ffixi.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<BR><BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
 </UL>
 
 <P><STRONG><a name="[ad]"></a>__aeabi_f2uiz</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, ffixui.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureControl
+<BR><BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureControl
 </UL>
 
 <P><STRONG><a name="[87]"></a>__aeabi_f2d</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, f2d.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DisplayData
+<BR><BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DisplayData
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_UplaodData
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowDataScreen
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowDataScreen
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalance
 </UL>
 
@@ -484,11 +484,11 @@ Global Symbols
 <P><STRONG><a name="[f0]"></a>__aeabi_cfcmpeq</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, cfcmple.o(.text), UNUSED)
 
 <P><STRONG><a name="[ae]"></a>__aeabi_cfcmple</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, cfcmple.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureControl
+<BR><BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureControl
 </UL>
 
 <P><STRONG><a name="[aa]"></a>__aeabi_cfrcmple</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, cfrcmple.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureControl
+<BR><BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureControl
 </UL>
 
 <P><STRONG><a name="[f1]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
@@ -741,9 +741,9 @@ Global Symbols
 <LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureControl
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Recording
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
+<BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureControl
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Recording
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalance
 </UL>
 
@@ -777,41 +777,40 @@ Global Symbols
 <LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ConvertTemp
 </UL>
 
-<P><STRONG><a name="[88]"></a>DYY_BuildBalance</STRONG> (Thumb, 560 bytes, Stack size 48 bytes, support.o(i.DYY_BuildBalance))
+<P><STRONG><a name="[88]"></a>DYY_BuildBalance</STRONG> (Thumb, 574 bytes, Stack size 48 bytes, support.o(i.DYY_BuildBalance))
 <BR><BR>[Stack]<UL><LI>Max Depth = 312<LI>Call Chain = DYY_BuildBalance &rArr; DYY_BuildBalanceScreen &rArr; DYY_DrawEquipment3 &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureControl
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialogScreen
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialog
+<BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialogScreen
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialog
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayString
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalanceScreen
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCompare4
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalanceScreen
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCompare4
 <LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[91]"></a>DYY_BuildBalanceScreen</STRONG> (Thumb, 376 bytes, Stack size 16 bytes, support.o(i.DYY_BuildBalanceScreen))
+<P><STRONG><a name="[90]"></a>DYY_BuildBalanceScreen</STRONG> (Thumb, 376 bytes, Stack size 16 bytes, support.o(i.DYY_BuildBalanceScreen))
 <BR><BR>[Stack]<UL><LI>Max Depth = 264<LI>Call Chain = DYY_BuildBalanceScreen &rArr; DYY_DrawEquipment3 &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment3
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment2
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment1
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+<BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment3
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment2
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment1
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
 </UL>
 <BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalance
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[98]"></a>DYY_Complete</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, support.o(i.DYY_Complete))
+<P><STRONG><a name="[97]"></a>DYY_Complete</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, support.o(i.DYY_Complete))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = DYY_Complete &rArr; KEYANDEC11_Scan &rArr; EC11_Scan
 </UL>
 <BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
@@ -819,182 +818,181 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[99]"></a>DYY_CompleteScreen</STRONG> (Thumb, 188 bytes, Stack size 24 bytes, support.o(i.DYY_CompleteScreen))
+<P><STRONG><a name="[98]"></a>DYY_CompleteScreen</STRONG> (Thumb, 188 bytes, Stack size 24 bytes, support.o(i.DYY_CompleteScreen))
 <BR><BR>[Stack]<UL><LI>Max Depth = 240<LI>Call Chain = DYY_CompleteScreen &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_NewColor
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+<BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_NewColor
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[9c]"></a>DYY_DisplayData</STRONG> (Thumb, 362 bytes, Stack size 48 bytes, support.o(i.DYY_DisplayData))
+<P><STRONG><a name="[9b]"></a>DYY_DisplayData</STRONG> (Thumb, 362 bytes, Stack size 48 bytes, support.o(i.DYY_DisplayData))
 <BR><BR>[Stack]<UL><LI>Max Depth = 216<LI>Call Chain = DYY_DisplayData &rArr; QPYLCD_DisplayString &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
 <BR>[Calls]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayString
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Recording
+<BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Recording
 </UL>
 
-<P><STRONG><a name="[95]"></a>DYY_DrawEquipment1</STRONG> (Thumb, 446 bytes, Stack size 32 bytes, support.o(i.DYY_DrawEquipment1))
+<P><STRONG><a name="[94]"></a>DYY_DrawEquipment1</STRONG> (Thumb, 446 bytes, Stack size 32 bytes, support.o(i.DYY_DrawEquipment1))
 <BR><BR>[Stack]<UL><LI>Max Depth = 248<LI>Call Chain = DYY_DrawEquipment1 &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_HeatingScreen
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalanceScreen
+<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_HeatingScreen
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalanceScreen
 </UL>
 
-<P><STRONG><a name="[96]"></a>DYY_DrawEquipment2</STRONG> (Thumb, 152 bytes, Stack size 32 bytes, support.o(i.DYY_DrawEquipment2))
+<P><STRONG><a name="[95]"></a>DYY_DrawEquipment2</STRONG> (Thumb, 152 bytes, Stack size 32 bytes, support.o(i.DYY_DrawEquipment2))
 <BR><BR>[Stack]<UL><LI>Max Depth = 248<LI>Call Chain = DYY_DrawEquipment2 &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
 </UL>
-<BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalanceScreen
+<BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalanceScreen
 </UL>
 
-<P><STRONG><a name="[97]"></a>DYY_DrawEquipment3</STRONG> (Thumb, 156 bytes, Stack size 32 bytes, support.o(i.DYY_DrawEquipment3))
+<P><STRONG><a name="[96]"></a>DYY_DrawEquipment3</STRONG> (Thumb, 156 bytes, Stack size 32 bytes, support.o(i.DYY_DrawEquipment3))
 <BR><BR>[Stack]<UL><LI>Max Depth = 248<LI>Call Chain = DYY_DrawEquipment3 &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_RecordingScreen
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_HeatingScreen
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalanceScreen
+<BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_RecordingScreen
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_HeatingScreen
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalanceScreen
 </UL>
 
-<P><STRONG><a name="[8f]"></a>DYY_EnterDialog</STRONG> (Thumb, 266 bytes, Stack size 24 bytes, support.o(i.DYY_EnterDialog))
+<P><STRONG><a name="[8e]"></a>DYY_EnterDialog</STRONG> (Thumb, 266 bytes, Stack size 24 bytes, support.o(i.DYY_EnterDialog))
 <BR><BR>[Stack]<UL><LI>Max Depth = 240<LI>Call Chain = DYY_EnterDialog &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
 </UL>
 <BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureSetting
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Recording
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumber
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Recording
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumber
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalance
 </UL>
 
-<P><STRONG><a name="[8e]"></a>DYY_EnterDialogScreen</STRONG> (Thumb, 460 bytes, Stack size 24 bytes, support.o(i.DYY_EnterDialogScreen))
+<P><STRONG><a name="[8d]"></a>DYY_EnterDialogScreen</STRONG> (Thumb, 460 bytes, Stack size 24 bytes, support.o(i.DYY_EnterDialogScreen))
 <BR><BR>[Stack]<UL><LI>Max Depth = 240<LI>Call Chain = DYY_EnterDialogScreen &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_NewColor
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+<BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_NewColor
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
 </UL>
 <BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureSetting
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Recording
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumber
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Recording
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumber
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalance
 </UL>
 
-<P><STRONG><a name="[9d]"></a>DYY_Heating</STRONG> (Thumb, 282 bytes, Stack size 48 bytes, support.o(i.DYY_Heating))
+<P><STRONG><a name="[9c]"></a>DYY_Heating</STRONG> (Thumb, 300 bytes, Stack size 48 bytes, support.o(i.DYY_Heating))
 <BR><BR>[Stack]<UL><LI>Max Depth = 312<LI>Call Chain = DYY_Heating &rArr; DYY_HeatingScreen &rArr; DYY_DrawEquipment3 &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureControl
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialogScreen
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialog
+<BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialogScreen
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialog
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayString
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_HeatingScreen
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCompare4
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_HeatingScreen
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCompare4
 <LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[9e]"></a>DYY_HeatingScreen</STRONG> (Thumb, 174 bytes, Stack size 16 bytes, support.o(i.DYY_HeatingScreen))
+<P><STRONG><a name="[9d]"></a>DYY_HeatingScreen</STRONG> (Thumb, 174 bytes, Stack size 16 bytes, support.o(i.DYY_HeatingScreen))
 <BR><BR>[Stack]<UL><LI>Max Depth = 264<LI>Call Chain = DYY_HeatingScreen &rArr; DYY_DrawEquipment3 &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment3
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment1
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+<BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment3
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment1
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
+<BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[9f]"></a>DYY_InputStudentNumber</STRONG> (Thumb, 334 bytes, Stack size 32 bytes, support.o(i.DYY_InputStudentNumber))
+<P><STRONG><a name="[9e]"></a>DYY_InputStudentNumber</STRONG> (Thumb, 334 bytes, Stack size 32 bytes, support.o(i.DYY_InputStudentNumber))
 <BR><BR>[Stack]<UL><LI>Max Depth = 272<LI>Call Chain = DYY_InputStudentNumber &rArr; DYY_EnterDialogScreen &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialogScreen
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialog
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayInt
+<BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialogScreen
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialog
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayInt
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumberScreen
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumberScreen
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a1]"></a>DYY_InputStudentNumberScreen</STRONG> (Thumb, 114 bytes, Stack size 16 bytes, support.o(i.DYY_InputStudentNumberScreen))
+<P><STRONG><a name="[a0]"></a>DYY_InputStudentNumberScreen</STRONG> (Thumb, 114 bytes, Stack size 16 bytes, support.o(i.DYY_InputStudentNumberScreen))
 <BR><BR>[Stack]<UL><LI>Max Depth = 232<LI>Call Chain = DYY_InputStudentNumberScreen &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumber
+<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumber
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a2]"></a>DYY_Recording</STRONG> (Thumb, 282 bytes, Stack size 24 bytes, support.o(i.DYY_Recording))
+<P><STRONG><a name="[a1]"></a>DYY_Recording</STRONG> (Thumb, 282 bytes, Stack size 24 bytes, support.o(i.DYY_Recording))
 <BR><BR>[Stack]<UL><LI>Max Depth = 288<LI>Call Chain = DYY_Recording &rArr; DYY_RecordingScreen &rArr; DYY_DrawEquipment3 &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialogScreen
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialog
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DisplayData
+<BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialogScreen
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialog
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DisplayData
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
-<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_RecordingScreen
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_RecordingScreen
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a3]"></a>DYY_RecordingScreen</STRONG> (Thumb, 528 bytes, Stack size 16 bytes, support.o(i.DYY_RecordingScreen))
+<P><STRONG><a name="[a2]"></a>DYY_RecordingScreen</STRONG> (Thumb, 528 bytes, Stack size 16 bytes, support.o(i.DYY_RecordingScreen))
 <BR><BR>[Stack]<UL><LI>Max Depth = 264<LI>Call Chain = DYY_RecordingScreen &rArr; DYY_DrawEquipment3 &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment3
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+<BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment3
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Recording
+<BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Recording
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a4]"></a>DYY_ShowData</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, support.o(i.DYY_ShowData))
+<P><STRONG><a name="[a3]"></a>DYY_ShowData</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, support.o(i.DYY_ShowData))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = DYY_ShowData &rArr; KEYANDEC11_Scan &rArr; EC11_Scan
 </UL>
 <BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
@@ -1002,50 +1000,50 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a5]"></a>DYY_ShowDataScreen</STRONG> (Thumb, 1434 bytes, Stack size 32 bytes, support.o(i.DYY_ShowDataScreen))
+<P><STRONG><a name="[a4]"></a>DYY_ShowDataScreen</STRONG> (Thumb, 1434 bytes, Stack size 32 bytes, support.o(i.DYY_ShowDataScreen))
 <BR><BR>[Stack]<UL><LI>Max Depth = 248<LI>Call Chain = DYY_ShowDataScreen &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
 <BR>[Calls]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayString
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a6]"></a>DYY_SystemSetting</STRONG> (Thumb, 648 bytes, Stack size 88 bytes, support.o(i.DYY_SystemSetting))
+<P><STRONG><a name="[a5]"></a>DYY_SystemSetting</STRONG> (Thumb, 648 bytes, Stack size 88 bytes, support.o(i.DYY_SystemSetting))
 <BR><BR>[Stack]<UL><LI>Max Depth = 328<LI>Call Chain = DYY_SystemSetting &rArr; QPYLCD_DisplayInt &rArr; QPYLCD_DisplayString &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MemWriteByte
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
+<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MemWriteByte
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayString
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayInt
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayInt
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a9]"></a>DYY_SystemSettingScreen</STRONG> (Thumb, 316 bytes, Stack size 16 bytes, support.o(i.DYY_SystemSettingScreen))
+<P><STRONG><a name="[a8]"></a>DYY_SystemSettingScreen</STRONG> (Thumb, 316 bytes, Stack size 16 bytes, support.o(i.DYY_SystemSettingScreen))
 <BR><BR>[Stack]<UL><LI>Max Depth = 256<LI>Call Chain = DYY_SystemSettingScreen &rArr; QPYLCD_DisplayInt &rArr; QPYLCD_DisplayString &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_NewColor
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_NewColor
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayString
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayInt
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayInt
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[8c]"></a>DYY_TemperatureControl</STRONG> (Thumb, 154 bytes, Stack size 32 bytes, support.o(i.DYY_TemperatureControl))
+<P><STRONG><a name="[a9]"></a>DYY_TemperatureControl</STRONG> (Thumb, 160 bytes, Stack size 32 bytes, support.o(i.DYY_TemperatureControl))
 <BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = DYY_TemperatureControl &rArr; DS18B20_ReadTemp &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
 </UL>
 <BR>[Calls]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
@@ -1057,17 +1055,16 @@ Global Symbols
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalance
+<BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_IRQHandler
 </UL>
 
 <P><STRONG><a name="[af]"></a>DYY_TemperatureSetting</STRONG> (Thumb, 448 bytes, Stack size 32 bytes, support.o(i.DYY_TemperatureSetting))
 <BR><BR>[Stack]<UL><LI>Max Depth = 272<LI>Call Chain = DYY_TemperatureSetting &rArr; DYY_EnterDialogScreen &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialogScreen
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialog
+<BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialogScreen
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialog
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayInt
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayInt
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureSettingScreen
 </UL>
@@ -1077,11 +1074,11 @@ Global Symbols
 <P><STRONG><a name="[b0]"></a>DYY_TemperatureSettingScreen</STRONG> (Thumb, 142 bytes, Stack size 16 bytes, support.o(i.DYY_TemperatureSettingScreen))
 <BR><BR>[Stack]<UL><LI>Max Depth = 232<LI>Call Chain = DYY_TemperatureSettingScreen &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
 </UL>
 <BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureSetting
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1102,13 +1099,13 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 240<LI>Call Chain = DYY_WelcomeScreen &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_Init
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_NewColor
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_NewColor
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawColorImage
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayString
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1182,7 +1179,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_WaitForLastOperation
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MemWriteByte
+<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MemWriteByte
 </UL>
 
 <P><STRONG><a name="[bf]"></a>FLASH_GetBank1Status</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, stm32f10x_flash.o(i.FLASH_GetBank1Status))
@@ -1190,7 +1187,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[c5]"></a>FLASH_Lock</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f10x_flash.o(i.FLASH_Lock))
-<BR><BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MemWriteByte
+<BR><BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MemWriteByte
 </UL>
 
 <P><STRONG><a name="[be]"></a>FLASH_ProgramHalfWord</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, stm32f10x_flash.o(i.FLASH_ProgramHalfWord))
@@ -1198,11 +1195,11 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_WaitForLastOperation
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MemWriteByte
+<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MemWriteByte
 </UL>
 
 <P><STRONG><a name="[c4]"></a>FLASH_Unlock</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f10x_flash.o(i.FLASH_Unlock))
-<BR><BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MemWriteByte
+<BR><BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MemWriteByte
 </UL>
 
 <P><STRONG><a name="[bd]"></a>FLASH_WaitForLastOperation</STRONG> (Thumb, 38 bytes, Stack size 4 bytes, stm32f10x_flash.o(i.FLASH_WaitForLastOperation))
@@ -1280,14 +1277,14 @@ Global Symbols
 <LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY_Read
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialog
+<BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialog
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureSetting
-<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSetting
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowData
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Recording
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumber
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Complete
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSetting
+<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowData
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Recording
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumber
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Complete
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalance
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1323,7 +1320,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a8]"></a>MemWriteByte</STRONG> (Thumb, 82 bytes, Stack size 24 bytes, eeprom.o(i.MemWriteByte))
+<P><STRONG><a name="[a7]"></a>MemWriteByte</STRONG> (Thumb, 82 bytes, Stack size 24 bytes, eeprom.o(i.MemWriteByte))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = MemWriteByte &rArr; FLASH_ProgramHalfWord &rArr; FLASH_WaitForLastOperation
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_Unlock
@@ -1331,7 +1328,7 @@ Global Symbols
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_Lock
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_ErasePage
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSetting
+<BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSetting
 </UL>
 
 <P><STRONG><a name="[72]"></a>NVIC_Init</STRONG> (Thumb, 100 bytes, Stack size 16 bytes, misc.o(i.NVIC_Init))
@@ -1353,12 +1350,12 @@ Global Symbols
 <P><STRONG><a name="[ab]"></a>PWM_SetDutyCycle</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, pwm.o(i.PWM_SetDutyCycle))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = PWM_SetDutyCycle
 </UL>
-<BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCompare4
+<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCompare4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureControl
+<BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureControl
 </UL>
 
-<P><STRONG><a name="[93]"></a>QPYLCD_Clear</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, qpylcd.o(i.QPYLCD_Clear))
+<P><STRONG><a name="[92]"></a>QPYLCD_Clear</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, qpylcd.o(i.QPYLCD_Clear))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = QPYLCD_Clear &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
 <BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
@@ -1367,12 +1364,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Init
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_WelcomeScreen
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureSettingScreen
-<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSettingScreen
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowDataScreen
-<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_RecordingScreen
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumberScreen
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_HeatingScreen
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalanceScreen
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSettingScreen
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowDataScreen
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_RecordingScreen
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumberScreen
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_HeatingScreen
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalanceScreen
 </UL>
 
 <P><STRONG><a name="[c8]"></a>QPYLCD_Control</STRONG> (Thumb, 40 bytes, Stack size 24 bytes, qpylcd.o(i.QPYLCD_Control))
@@ -1389,38 +1386,38 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawMonochromeImage
 </UL>
-<BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
+<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
 </UL>
 
-<P><STRONG><a name="[94]"></a>QPYLCD_DisplayCharacters</STRONG> (Thumb, 76 bytes, Stack size 56 bytes, qpylcd.o(i.QPYLCD_DisplayCharacters))
+<P><STRONG><a name="[93]"></a>QPYLCD_DisplayCharacters</STRONG> (Thumb, 76 bytes, Stack size 56 bytes, qpylcd.o(i.QPYLCD_DisplayCharacters))
 <BR><BR>[Stack]<UL><LI>Max Depth = 216<LI>Call Chain = QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacter
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialogScreen
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialog
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment3
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment2
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment1
+<BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialogScreen
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialog
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment3
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment2
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment1
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_WelcomeScreen
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureSettingScreen
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowDataScreen
-<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_RecordingScreen
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumberScreen
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_HeatingScreen
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_CompleteScreen
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalanceScreen
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowDataScreen
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_RecordingScreen
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumberScreen
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_HeatingScreen
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_CompleteScreen
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalanceScreen
 </UL>
 
-<P><STRONG><a name="[a0]"></a>QPYLCD_DisplayInt</STRONG> (Thumb, 186 bytes, Stack size 72 bytes, qpylcd.o(i.QPYLCD_DisplayInt))
+<P><STRONG><a name="[9f]"></a>QPYLCD_DisplayInt</STRONG> (Thumb, 186 bytes, Stack size 72 bytes, qpylcd.o(i.QPYLCD_DisplayInt))
 <BR><BR>[Stack]<UL><LI>Max Depth = 240<LI>Call Chain = QPYLCD_DisplayInt &rArr; QPYLCD_DisplayString &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayString
 </UL>
 <BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureSetting
-<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSettingScreen
-<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSetting
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumber
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSettingScreen
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSetting
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumber
 </UL>
 
 <P><STRONG><a name="[8b]"></a>QPYLCD_DisplayString</STRONG> (Thumb, 168 bytes, Stack size 56 bytes, qpylcd.o(i.QPYLCD_DisplayString))
@@ -1428,13 +1425,13 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawMonochromeImage
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DisplayData
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayInt
+<BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DisplayData
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayInt
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_WelcomeScreen
-<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSettingScreen
-<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSetting
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowDataScreen
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSettingScreen
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSetting
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowDataScreen
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalance
 </UL>
 
@@ -1448,7 +1445,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_WelcomeScreen
 </UL>
 
-<P><STRONG><a name="[9b]"></a>QPYLCD_DrawLine</STRONG> (Thumb, 248 bytes, Stack size 72 bytes, qpylcd.o(i.QPYLCD_DrawLine))
+<P><STRONG><a name="[9a]"></a>QPYLCD_DrawLine</STRONG> (Thumb, 248 bytes, Stack size 72 bytes, qpylcd.o(i.QPYLCD_DrawLine))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = QPYLCD_DrawLine &rArr; QPYLCD_DrawPoint &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
@@ -1458,16 +1455,16 @@ Global Symbols
 <LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawPoint
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialogScreen
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment3
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment2
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment1
+<BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialogScreen
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment3
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment2
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment1
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureSettingScreen
-<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSettingScreen
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowDataScreen
-<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_RecordingScreen
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumberScreen
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_CompleteScreen
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSettingScreen
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowDataScreen
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_RecordingScreen
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumberScreen
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_CompleteScreen
 </UL>
 
 <P><STRONG><a name="[ca]"></a>QPYLCD_DrawMonochromeImage</STRONG> (Thumb, 98 bytes, Stack size 40 bytes, qpylcd.o(i.QPYLCD_DrawMonochromeImage))
@@ -1489,10 +1486,10 @@ Global Symbols
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
 <LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetXYLabel
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
 </UL>
 
-<P><STRONG><a name="[8d]"></a>QPYLCD_DrawRectangle</STRONG> (Thumb, 128 bytes, Stack size 32 bytes, qpylcd.o(i.QPYLCD_DrawRectangle))
+<P><STRONG><a name="[8c]"></a>QPYLCD_DrawRectangle</STRONG> (Thumb, 128 bytes, Stack size 32 bytes, qpylcd.o(i.QPYLCD_DrawRectangle))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = QPYLCD_DrawRectangle &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
 <BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteData
@@ -1500,23 +1497,23 @@ Global Symbols
 <LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetXYLabel
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetFrontColor
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialogScreen
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialog
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment3
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment2
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment1
+<BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialogScreen
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialog
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment3
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment2
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment1
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_WelcomeScreen
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureSettingScreen
-<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSettingScreen
-<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSetting
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowDataScreen
-<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_RecordingScreen
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumberScreen
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumber
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_HeatingScreen
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_CompleteScreen
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalanceScreen
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSettingScreen
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSetting
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowDataScreen
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_RecordingScreen
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumberScreen
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumber
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_HeatingScreen
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_CompleteScreen
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalanceScreen
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalance
 </UL>
 
@@ -1527,17 +1524,17 @@ Global Symbols
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 <LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_On
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Control
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[9a]"></a>QPYLCD_NewColor</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, qpylcd.o(i.QPYLCD_NewColor))
-<BR><BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialogScreen
+<P><STRONG><a name="[99]"></a>QPYLCD_NewColor</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, qpylcd.o(i.QPYLCD_NewColor))
+<BR><BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialogScreen
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_WelcomeScreen
-<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSettingScreen
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_CompleteScreen
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSettingScreen
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_CompleteScreen
 </UL>
 
 <P><STRONG><a name="[d1]"></a>QPYLCD_On</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, qpylcd.o(i.QPYLCD_On))
@@ -1559,26 +1556,26 @@ Global Symbols
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
 </UL>
 
-<P><STRONG><a name="[92]"></a>QPYLCD_SetBackColor</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, qpylcd.o(i.QPYLCD_SetBackColor))
+<P><STRONG><a name="[91]"></a>QPYLCD_SetBackColor</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, qpylcd.o(i.QPYLCD_SetBackColor))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = QPYLCD_SetBackColor &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialogScreen
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialog
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment3
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment2
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment1
+<BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialogScreen
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialog
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment3
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment2
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment1
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_WelcomeScreen
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureSettingScreen
-<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSettingScreen
-<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSetting
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowDataScreen
-<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_RecordingScreen
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumberScreen
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_HeatingScreen
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_CompleteScreen
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalanceScreen
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSettingScreen
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSetting
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowDataScreen
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_RecordingScreen
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumberScreen
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_HeatingScreen
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_CompleteScreen
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalanceScreen
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1587,7 +1584,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawMonochromeImage
 </UL>
 
@@ -1596,7 +1593,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawPoint
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawMonochromeImage
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawColorImage
@@ -1612,12 +1609,12 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetXYLabel
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetFrontColor
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawPoint
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawMonochromeImage
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawColorImage
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Control
 </UL>
 
@@ -1629,7 +1626,7 @@ Global Symbols
 <LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_ProcessData
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawPoint
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawMonochromeImage
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawColorImage
@@ -1665,12 +1662,13 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(.text)
 </UL>
-<P><STRONG><a name="[26]"></a>TIM2_IRQHandler</STRONG> (Thumb, 164 bytes, Stack size 8 bytes, tim.o(i.TIM2_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = TIM2_IRQHandler &rArr; DYY_UplaodData &rArr; __2sprintf
+<P><STRONG><a name="[26]"></a>TIM2_IRQHandler</STRONG> (Thumb, 186 bytes, Stack size 8 bytes, tim.o(i.TIM2_IRQHandler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = TIM2_IRQHandler &rArr; DYY_TemperatureControl &rArr; DS18B20_ReadTemp &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
 </UL>
 <BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_UplaodData
+<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureControl
 <LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_GetITStatus
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ClearITPendingBit
 </UL>
@@ -1692,7 +1690,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[71]"></a>TIM_Cmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_Cmd))
-<BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
+<BR><BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalance
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM3_Config
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM2_Config
@@ -1720,9 +1718,9 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM4_Config
 </UL>
 
-<P><STRONG><a name="[90]"></a>TIM_SetCompare4</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_SetCompare4))
+<P><STRONG><a name="[8f]"></a>TIM_SetCompare4</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_SetCompare4))
 <BR><BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_SetDutyCycle
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalance
 </UL>
 
@@ -1803,11 +1801,11 @@ Global Symbols
 <P><STRONG><a name="[8a]"></a>__2sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DisplayData
+<BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DisplayData
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Cmd
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_UplaodData
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowDataScreen
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowDataScreen
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalance
 </UL>
 
@@ -1825,7 +1823,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Cmd
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Handler
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_s
 </UL>
 
@@ -1849,7 +1847,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_s
 <LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Config
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
 <LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Init
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Control
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_Init
@@ -1861,19 +1859,19 @@ Global Symbols
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_WelcomeScreen
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureSettingScreen
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureSetting
-<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSettingScreen
-<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSetting
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowDataScreen
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowData
-<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_RecordingScreen
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Recording
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumberScreen
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumber
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_HeatingScreen
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_CompleteScreen
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Complete
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalanceScreen
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSettingScreen
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSetting
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowDataScreen
+<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowData
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_RecordingScreen
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Recording
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumberScreen
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumber
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_HeatingScreen
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_CompleteScreen
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Complete
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalanceScreen
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalance
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BEEP_Init
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM3_Config

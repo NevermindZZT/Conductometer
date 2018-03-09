@@ -145,7 +145,7 @@ void TIM2_IRQHandler(void)
 		
 		if (beepOn == 1)														//蜂鸣器
 		{
-			if ((tim2Count % 2) == 0)
+			if ((tim2Count % 2) == 0)											//一秒为周期
 			{
 				BEEP_HIGH;
 			}
@@ -154,6 +154,18 @@ void TIM2_IRQHandler(void)
 				BEEP_LOW;
 			}
 		}
+		
+		if ((temperatureControl.isHeating ==  TRUE) && ((tim2Count % 2) == 0))						//一秒钟处理一次加热
+		{
+#ifdef		PID_CONTROL																				//PID算法
+			temperatureControl.pidTemperature[0] = temperatureControl.pidTemperature[1];
+			temperatureControl.pidTemperature[1] = temperatureControl.pidTemperature[2];
+			temperatureControl.pidTemperature[2] = DS18B20_ReadTemp(DS18B20B);						//读取加热盘温度
+#endif
+			DYY_TemperatureControl();																
+		}
+
+		
 	}
 	TIM_ClearITPendingBit(TIM2,TIM_IT_Update);									//清除中断标志位
 }

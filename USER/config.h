@@ -54,7 +54,7 @@ typedef struct																//实验数据
 	uint8_t machineNumber;													//机器号5
 	uint8_t studentNumber[12];												//学号
 	uint8_t progress;														//实验进度
-	float settedTemprature;													//设置加热盘温度
+	float settedTemperature;												//设置加热盘温度
 	float balanceTempeatrue;												//稳恒态散热盘温度
 	float heatingTempeatrue;												//升温后散热盘温度
 	DYY_MeasuredData measuredData[20];										//实验数据

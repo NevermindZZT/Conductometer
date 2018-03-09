@@ -7,6 +7,7 @@
 
 #include	"support.h"
 
+TEMP_Control temperatureControl;
 
 /*******************************************
 *函数名称：	DYY_SystemSettingScreen
@@ -353,7 +354,7 @@ void DYY_TemperatureSetting(void)
 						DYY_EnterDialogScreen();												//显示确认弹窗
 						if (DYY_EnterDialog() == 0)												//判断弹窗动作，返回0为确定
 						{
-							experimentalData.settedTemprature = tempData[0] * 10 + tempData[1];	//保存数据
+							experimentalData.settedTemperature = tempData[0] * 10 + tempData[1];//保存数据
 							experimentalData.progress = BUILDBALANCE;							//进入下一步骤
 							return;
 						}
@@ -445,11 +446,13 @@ void DYY_BuildBalance(void)
 	sprintf((char *)str, "%.1f", tempB);
 	QPYLCD_DisplayString(149, 216, BLACK, FONT16X24, str);
 	
-	PWM_ON;																						//开启加热
+	HeatingEnable();																			//开启加热
+	temperatureControl.heatingAimTemperature = 60;												//设置加热目标温度
 	
 	while (1)
 	{
-		DYY_TemperatureControl(experimentalData.settedTemprature);								//温度控制
+//		DYY_TemperatureControl(experimentalData.settedTemperature);								//温度控制
+																								//加入PID算法，温度控制由定时器操作	
 		
 		tempA = DS18B20_ReadTemp(DS18B20A);														//读取温度
 		tempB = DS18B20_ReadTemp(DS18B20B);
@@ -498,7 +501,8 @@ void DYY_BuildBalance(void)
 						{
 							experimentalData.balanceTempeatrue = tempB;							//记录数据
 							experimentalData.progress = HEATTING;								//进入下一步骤
-							PWM_OFF;															//关闭加热
+							
+							HeatingDisable();													//关闭加热
 							return;
 						}
 						else																	//取消，刷新显示
@@ -560,11 +564,13 @@ void DYY_Heating(void)
 	                                                                                            
 	while (KEYANDEC11_Scan() == KEY_ENTER);                                                     //判断按键松开
 	
-	PWM_ON;																						//开启加热
+	HeatingEnable();																			//开启加热
+	temperatureControl.heatingAimTemperature = 80;												//设置加热目标温度
 	
 	while (1)
 	{
-		DYY_TemperatureControl(80);																//温度控制
+//		DYY_TemperatureControl(80);																//温度控制
+																								//加入PID算法，由定时器进行温度控制
 		
 		tempA = DS18B20_ReadTemp(DS18B20A);														//读取温度
 		tempB = DS18B20_ReadTemp(DS18B20B);
@@ -601,7 +607,8 @@ void DYY_Heating(void)
 						{
 							experimentalData.heatingTempeatrue = tempB;							//保存数据
 							experimentalData.progress = RECORDING;								//进入下一步骤
-							PWM_OFF;															//关闭加热
+							
+							HeatingDisable();													//关闭加热
 							
 							return;
 						}
@@ -806,7 +813,7 @@ void DYY_ShowDataScreen(void)
 	QPYLCD_DisplayCharacters(348, 82, BLACK, FONT16X16, 3, jrwdwht + 32 * 10);					//显示“学号”
 	QPYLCD_DisplayString(396, 82, BLACK, FONT8X16, experimentalData.studentNumber);				//显示学号
 	
-	sprintf((char *)str, "%.1f", experimentalData.settedTemprature);							//格式化加热温度并显示
+	sprintf((char *)str, "%.1f", experimentalData.settedTemperature);							//格式化加热温度并显示
 	QPYLCD_DisplayString(20, 95, BLACK, FONT8X16, str);	
 	
 	sprintf((char *)str, "%.1f", experimentalData.balanceTempeatrue);							//格式化稳恒态温度并显示
@@ -1145,35 +1152,69 @@ void DYY_DisplayData(uint8_t group, uint32_t time, float tempB, uint8_t color)
 
 /*******************************************
 *函数名称：	DYY_TemperatureControl
-*功能：		显示实验数据
-*参数：		temprature			加热目标温度
+*功能：		温度控制
+*参数：		temperature			加热目标温度
 *返回值：	无
 *******************************************/
-void DYY_TemperatureControl(float temperature)
+void DYY_TemperatureControl(void)
 {
-	float tempA, tempC;
+	float tempC;
+	
+#ifdef		PID_CONTROL																			//PID算法控制温度
+	static int dutyCycle = 100;																	//占空比
+	float err[3];
+	
+#else																							//比例算法控制温度
+	float tempA;
 	
 	tempA = DS18B20_ReadTemp(DS18B20A);															//读取温度
-	tempC = DS18B20_ReadTemp(DS18B20C);
+#endif
 	
+	tempC = DS18B20_ReadTemp(DS18B20C);															//无关温度控制算法，温度过高停止加热
 	if (tempC > 100)																			//加热盘温度不能超过100度
 	{
 		PWM_SetDutyCycle(0);
 		return;
 	}
 	
-	if (tempA < (temperature - 5))																//比较加热盘当前温度与目标温度	
+#ifdef		PID_CONTROL																			//PID算法控制温度
+	err[0] = temperatureControl.heatingAimTemperature - temperatureControl.pidTemperature[0];
+	err[1] = temperatureControl.heatingAimTemperature - temperatureControl.pidTemperature[1];
+	err[2] = temperatureControl.heatingAimTemperature - temperatureControl.pidTemperature[2];
+	
+	if (temperatureControl.pidTemperature[2] < (temperatureControl.heatingAimTemperature - 5))
 	{
 		PWM_SetDutyCycle(100);
 	}
-	else if (tempA < temperature + 3)
+	else
 	{
-		PWM_SetDutyCycle((uint8_t)(35 + (temperature - tempA) * 13));
+		dutyCycle += PID_KP * (err[2] - err[1]) + PID_KI * err[2]
+				+ PID_KP * (err[2] - 2 * err[1] + err[0]);										//PID算法
+		if (dutyCycle > 100)
+		{
+			dutyCycle = 100;
+		}
+		else if (dutyCycle < 0)
+		{
+			dutyCycle = 0;
+		}
+		PWM_SetDutyCycle(dutyCycle);
 	}
-	else if (tempA > temperature + 3)
+	
+#else																							//比例算法控制温度
+	if (tempA < (temperatureControl.heatingAimTemperature - 5))									//比较加热盘当前温度与目标温度	
+	{
+		PWM_SetDutyCycle(100);
+	}
+	else if (tempA < temperatureControl.heatingAimTemperature + 3)
+	{
+		PWM_SetDutyCycle((uint8_t)(35 + (temperatureControl.heatingAimTemperature - tempA) * 13));
+	}
+	else if (tempA > temperatureControl.heatingAimTemperature + 3)
 	{
 		PWM_SetDutyCycle(0);
 	}
+#endif
 }
 
 
@@ -1209,7 +1250,7 @@ void DYY_UplaodData(uint8_t command)
 			if (experimentalData.progress == TEMPERATURESETTING || experimentalData.progress == BUILDBALANCE
 				|| experimentalData.progress == HEATTING || experimentalData.progress == RECORDING)	//判断当前步骤
 			{
-				sprintf(str, "-%.1f", experimentalData.settedTemprature);						//格式化设置温度并发送
+				sprintf(str, "-%.1f", experimentalData.settedTemperature);						//格式化设置温度并发送
 				ESP8266_SendString(str);
 				if (experimentalData.progress == TEMPERATURESETTING)
 					break;
