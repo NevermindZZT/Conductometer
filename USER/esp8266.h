@@ -16,11 +16,33 @@
 
 #define		ESPDATALENGTH			200							//允许ESP8266发送接收数据的最大长度
 
+typedef enum 
+{
+	ESP8266_NULL,
+	ESP8266_AT,
+	ESP8266_CWMODE,
+	ESP8266_CWJAP,
+	ESP8266_CIPMUX,
+	ESP8266_CIFSR,
+	ESP8266_CIPSTART,
+	ESP8266_CIPMODE,
+	ESP8266_CIPSEND,
+	ESP8266_CONNECT,
+}ESP8266_Command;
+
+typedef struct
+{
+	bool isConnect;
+	ESP8266_Command currentCommand;
+}ESP8266_State;
+
+extern ESP8266_State espState;
 extern uint8_t espFlag;
 
 void ESP8266_Init(void);
 
-void ESP8266_Cmd(uint8_t espFlag);
+void ESP8266_Cmd(uint8_t command, ...);
+//void ESP8266_Cmd(uint8_t espFlag);
 
 void ESP8266_SendByte(uint8_t ch);
 

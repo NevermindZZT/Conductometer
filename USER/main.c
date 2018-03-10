@@ -18,6 +18,7 @@ int main()
 	PWM_Init();															//PWM初始化
 	BEEP_Init();														//蜂鸣器初始化
 	ESP8266_Init();														//ESP8266初始化
+	//ESP8266_Cmd(ESP8266_AT);
 	
 	MemReadByte(readFlash, 2);											//读取flash中保存的机器号和亮度
 	experimentalData.machineNumber = (uint8_t)readFlash[0];

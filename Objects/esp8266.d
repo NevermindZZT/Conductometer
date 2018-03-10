@@ -30,3 +30,5 @@
 .\objects\esp8266.o: USER\pwm.h
 .\objects\esp8266.o: USER\eeprom.h
 .\objects\esp8266.o: USER\beep.h
+.\objects\esp8266.o: D:\Program Files (x86)\keil\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\esp8266.o: D:\Program Files (x86)\keil\ARM\ARMCC\Bin\..\include\string.h

@@ -140,6 +140,8 @@ void DYY_SystemSetting(void)
 *******************************************/
 void DYY_WelcomeScreen(void)
 {
+	uint8_t i;
+	
 	QPYLCD_SetBackColor(WHITE);
 	QPYLCD_Clear();
 //	QPYLCD_DrawColorImage(0, 60, 480, 150, logo1);
@@ -158,6 +160,35 @@ void DYY_WelcomeScreen(void)
 		while(1);																				//初始化失败，程序死机
 #endif
 	}
+	delay_s(1);
+	
+	QPYLCD_DrawRectangle(112, 242, 256, 16, WHITE);
+	QPYLCD_DisplayString(184, 242, QPYLCD_NewColor(0, 2, 2), FONT8X16, "WiFi");
+	QPYLCD_DisplayCharacters(216, 242, QPYLCD_NewColor(0, 2, 2), FONT16X16, 3, wifilj);
+	QPYLCD_DisplayString(264, 242, QPYLCD_NewColor(0, 2, 2), FONT8X16, "...");
+	
+	i = 10;
+	while (i--)
+	{
+		if(espState.isConnect == FALSE)
+		{
+			ESP8266_Cmd(ESP8266_AT);
+			espState.currentCommand = ESP8266_AT;
+			delay_ms(100);
+		}
+		else
+		{
+			break;
+		}
+	}
+	if (espState.isConnect == FALSE)
+	{
+		QPYLCD_DisplayString(136, 242, QPYLCD_NewColor(0, 2, 2), FONT8X16, "WiFi");
+		QPYLCD_DisplayCharacters(168, 242, QPYLCD_NewColor(0, 2, 2), FONT16X16, 2, wifilj);
+		QPYLCD_DisplayCharacters(200, 242, QPYLCD_NewColor(0, 2, 2), FONT16X16, 9, wifilj + 32 * 3);
+		delay_ms(500);
+	}
+	delay_s(1);
 }
 
 

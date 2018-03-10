@@ -11,6 +11,8 @@ extern const uint8_t cshwdcgq[];
 
 extern const uint8_t wdcgqcshsb[];
 	
+extern const uint8_t wifilj[];	
+
 extern const uint8_t qsrxh[];	
 
 extern const uint8_t xuehao[];
