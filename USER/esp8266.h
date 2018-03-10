@@ -10,6 +10,8 @@
 
 #include	"config.h"
 
+#define		GET_HOSTIP_BY_SLAVEIP
+
 #define		TCP_PORT				8266
 #define		WIFI_SSID				"CSUDRY"
 #define		WIFI_PASSWORD			"csuwlsyzxdry"
@@ -34,10 +36,11 @@ typedef struct
 {
 	bool isConnect;
 	ESP8266_Command currentCommand;
+	uint8_t currentIp[16];
+	uint8_t hostIp[16];
 }ESP8266_State;
 
 extern ESP8266_State espState;
-extern uint8_t espFlag;
 
 void ESP8266_Init(void);
 

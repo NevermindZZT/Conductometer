@@ -1260,7 +1260,7 @@ void DYY_UplaodData(uint8_t command)
 	char str[20];
 	uint8_t i = 0;
 	
-	if (espFlag < 8)																			//ESP8266初始化未完成
+	if (espState.currentCommand != ESP8266_CIPSEND)												//ESP8266初始化未完成
 		return;
 	
 	sprintf(str, "send-%d-%d", command, experimentalData.machineNumber);						//格式化命令和机器号并发送
@@ -1278,8 +1278,7 @@ void DYY_UplaodData(uint8_t command)
 			break;
 		
 		case DEVICE_DATA:																		//仪器发送数据
-			if (experimentalData.progress == TEMPERATURESETTING || experimentalData.progress == BUILDBALANCE
-				|| experimentalData.progress == HEATTING || experimentalData.progress == RECORDING)	//判断当前步骤
+			if (experimentalData.progress != INPUTSTUDENTNUMBER)								//判断当前步骤
 			{
 				sprintf(str, "-%.1f", experimentalData.settedTemperature);						//格式化设置温度并发送
 				ESP8266_SendString(str);

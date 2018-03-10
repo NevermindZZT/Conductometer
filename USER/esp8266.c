@@ -27,8 +27,6 @@
 #include	"string.h"
 
 ESP8266_State espState;
-uint8_t espFlag = 0;
-uint32_t ip[4];
 uint8_t espBuff[ESPDATALENGTH];
 uint16_t espBuffFlag = 0;
 
@@ -205,6 +203,7 @@ void ESP8266_SendString(char *string)
 void ESP8266_Handler(uint8_t usartData)
 {
 	uint32_t command = 0, machineNumber = 0;
+	uint16_t tempIp[4];
 	
 	espBuff[espBuffFlag++] = usartData;
 	
@@ -250,11 +249,16 @@ void ESP8266_Handler(uint8_t usartData)
 				
 				case ESP8266_CWJAP:
 					ESP8266_Cmd(ESP8266_CIPMUX, 0);
+					espState.currentCommand = ESP8266_CIPMUX;
+					break;
+				
+				case ESP8266_CIPMUX:
+					ESP8266_Cmd(ESP8266_CIFSR);
 					espState.currentCommand = ESP8266_CIFSR;
 					break;
 				
 				case ESP8266_CIFSR:
-					ESP8266_Cmd(ESP8266_CIPSTART, "TCP", "192.168.137.1", 8266);
+					ESP8266_Cmd(ESP8266_CIPSTART, "TCP", espState.hostIp, TCP_PORT);
 					espState.currentCommand = ESP8266_CIPSTART;
 					break;
 				
@@ -279,7 +283,11 @@ void ESP8266_Handler(uint8_t usartData)
 		}
 		if (espState.currentCommand == ESP8266_CIFSR)
 		{
-			sscanf((const char *)espBuff, "+CIFSR:STAIP,\"%d.%d.%d.%d\"\r\n", &ip[0], &ip[1], &ip[2], &ip[3]);
+			sscanf((const char *)espBuff, "+CIFSR:STAIP,\"%s\"\r\n", espState.currentIp);
+#ifdef		GET_HOSTIP_BY_SLAVEIP
+			sscanf((char*)espState.currentIp, "%hd.%hd.%hd.%hd", &tempIp[0], &tempIp[1], &tempIp[2], &tempIp[3]);
+			sprintf((char*)espState.hostIp, "%d.%d.%d.1", tempIp[0], tempIp[1], tempIp[2]);
+#endif
 		}
 		if (espState.currentCommand == ESP8266_CIPSEND)
 		{

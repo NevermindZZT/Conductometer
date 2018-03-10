@@ -131,7 +131,8 @@ void TIM2_IRQHandler(void)
 		
 		if (tim2Count % 10 == 0)												//5秒同步数据，定时器500ms
 		{
-			if (registerFlag == 0 && espFlag == 8 && (experimentalData.progress == TEMPERATURESETTING || experimentalData.progress == HEATTING
+			if (registerFlag == 0 && espState.currentCommand == ESP8266_CIPSEND
+				&& (experimentalData.progress == TEMPERATURESETTING || experimentalData.progress == HEATTING
 				|| experimentalData.progress == BUILDBALANCE || experimentalData.progress == RECORDING))
 			{
 				DYY_UplaodData(DEVICE_REGISTER);

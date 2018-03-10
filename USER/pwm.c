@@ -1,6 +1,6 @@
 #include	"pwm.h"
 
-uint8_t PWM_dutyCycle;
+
 void PWM_Init(void)
 {
 	BASICTIM4_Config(10000, 719);				//10Hz

@@ -10,7 +10,6 @@
 #define		PWMEnable()			TIM_Cmd(TIM4, ENABLE)
 #define		PWMDisable()		TIM_SetCompare4(TIM4, 0);TIM_Cmd(TIM4, DISABLE)
 
-extern uint8_t PWM_dutyCycle;
 
 void PWM_Init(void);
 
