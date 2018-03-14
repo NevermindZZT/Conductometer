@@ -14,13 +14,21 @@
 #define		DEBUG																	//DEBUG模式
 //#define		PID_CONTROL																//使用PID算法控制温度
 
+#ifdef		DEBUG
+	#define		DEBUG_PrintInfo(info)					printf(info)
+	#define		DEBUG_PrintInfoWithLocation(info)		printf("File:"__FILE__", Line:%d, %s\r\n", __LINE__, info)
+#else
+	#define		DEBUG_PrintInfo(info)
+	#define		DEBUG_PrintInfoWithLocation(info)
+#endif
+
 #ifdef		PID_CONTROL
 #define		PID_KP				1													//PID算法比例系数
 #define		PID_KI				1													//PID算法积分系数
 #define		PID_KD				1													//PID算法微分系数
 #endif
 
-#define		SOFTWAREVERSION		"0.2.3-Beta"											//软件版本
+#define		SOFTWAREVERSION		"0.2.4-Alpha"											//软件版本
 
 #define		HeatingEnable()		PWMEnable();temperatureControl.isHeating = TRUE		//开始加热
 #define		HeatingDisable()	PWMDisable();temperatureControl.isHeating = FALSE	//结束加热

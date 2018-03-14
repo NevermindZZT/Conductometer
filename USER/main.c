@@ -6,6 +6,7 @@ uint16_t readFlash[2];													//读Flash数据
 
 int main()
 {
+	
 	QPYLCD_Init();
 	QPYLCD_SetBackColor(WHITE);
 	
@@ -22,7 +23,6 @@ int main()
 	MemReadByte(readFlash, 2);											//读取flash中保存的机器号和亮度
 	experimentalData.machineNumber = (uint8_t)readFlash[0];
 	screenBrightness = (uint8_t)readFlash[1];
-	
 	
 	if ((KEYANDEC11_Scan()) == KEY_ENTER || experimentalData.machineNumber > 30 || experimentalData.machineNumber < 1
 		|| screenBrightness > 7 || screenBrightness < 1)				//进入系统设置
