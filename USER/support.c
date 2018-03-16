@@ -474,7 +474,8 @@ void DYY_BuildBalance(void)
 	
 	tim3Count = 0;																				//计时器归零
 	tempB = DS18B20_ReadTemp(DS18B20B);															//默认刷新一次数据
-	sprintf((char *)str, "%.1f", tempB);
+	tempB = DS18B20_ReadTemp(DS18B20B);															//重读温度，保证不出错
+	sprintf((char *)str, "%-5.1f", tempB);
 	QPYLCD_DisplayString(149, 216, BLACK, FONT16X24, str);
 	
 	HeatingEnable();																			//开启加热
@@ -488,17 +489,17 @@ void DYY_BuildBalance(void)
 		tempA = DS18B20_ReadTemp(DS18B20A);														//读取温度
 		tempB = DS18B20_ReadTemp(DS18B20B);
 		
-		sprintf((char *)str, "%.1f", tempA);													//显示加热盘温度
-		QPYLCD_DrawRectangle(149, 96, 80, 24, WHITE);
+		sprintf((char *)str, "%-5.1f", tempA);													//显示加热盘温度
+//		QPYLCD_DrawRectangle(149, 96, 80, 24, WHITE);
 		QPYLCD_DisplayString(149, 96, BLACK, FONT16X24, str);
 		
-		sprintf((char *)str, "%.1f", tempB);													//显示散热盘温度
-		QPYLCD_DrawRectangle(149, 136, 80, 24, WHITE);
+		sprintf((char *)str, "%-5.1f", tempB);													//显示散热盘温度
+//		QPYLCD_DrawRectangle(149, 136, 80, 24, WHITE);
 		QPYLCD_DisplayString(149, 136, BLACK, FONT16X24, str);
 		QPYLCD_DisplayString(400, 216, BLACK, FONT16X24, str);									//当前温度
 		
 		sprintf((char *)str, "%d:%02d", tim3Count / 60, tim3Count % 60);						//显示计时时间
-		QPYLCD_DrawRectangle(149, 176, 80, 24, WHITE);
+//		QPYLCD_DrawRectangle(149, 176, 80, 24, WHITE);
 		QPYLCD_DisplayString(149, 176, BLACK, FONT16X24, str);
 		
 		scanData = KEYANDEC11_Scan();															//扫描按键和编码器
@@ -519,8 +520,8 @@ void DYY_BuildBalance(void)
 				
 				case KEY_COUNT:																	//按键计时，重新计时
 					tim3Count = 0;																//计时器归零
-					sprintf((char *)str, "%.1f", tempB);										//刷新计时时温度
-					QPYLCD_DrawRectangle(149, 216, 80, 24, WHITE);
+					sprintf((char *)str, "%-5.1f", tempB);										//刷新计时时温度
+//					QPYLCD_DrawRectangle(149, 216, 80, 24, WHITE);
 					QPYLCD_DisplayString(149, 216, BLACK, FONT16X24, str);
 					break;
 				
@@ -541,7 +542,7 @@ void DYY_BuildBalance(void)
 							DYY_BuildBalanceScreen();											//刷新显示
 							
 							tempB = DS18B20_ReadTemp(DS18B20B);									//刷新数据
-							sprintf((char *)str, "%.1f", tempB);
+							sprintf((char *)str, "%-5.1f", tempB);
 							QPYLCD_DisplayString(149, 216, BLACK, FONT16X24, str);
 						}
 					}
@@ -606,12 +607,12 @@ void DYY_Heating(void)
 		tempA = DS18B20_ReadTemp(DS18B20A);														//读取温度
 		tempB = DS18B20_ReadTemp(DS18B20B);
 		
-		sprintf((char *)str, "%.1f", tempA);													//显示加热盘温度
-		QPYLCD_DrawRectangle(149, 124, 80, 24, WHITE);
+		sprintf((char *)str, "%-5.1f", tempA);													//显示加热盘温度
+//		QPYLCD_DrawRectangle(149, 124, 80, 24, WHITE);
 		QPYLCD_DisplayString(149, 124, BLACK, FONT16X24, str);
 		
-		sprintf((char *)str, "%.1f", tempB);													//显示散热盘温度
-		QPYLCD_DrawRectangle(149, 188, 80, 24, WHITE);
+		sprintf((char *)str, "%-5.1f", tempB);													//显示散热盘温度
+//		QPYLCD_DrawRectangle(149, 188, 80, 24, WHITE);
 		QPYLCD_DisplayString(149, 188, BLACK, FONT16X24, str);
 
 		scanData = KEYANDEC11_Scan();															//扫描按键和编码器
@@ -1192,7 +1193,7 @@ void DYY_TemperatureControl(void)
 	float tempC;
 	
 #ifdef		PID_CONTROL																			//PID算法控制温度
-	static int dutyCycle = 100;																	//占空比
+	static float dutyCycle = 100;																	//占空比
 	float err[3];
 	
 #else																							//比例算法控制温度
@@ -1217,7 +1218,7 @@ void DYY_TemperatureControl(void)
 	{
 		PWM_SetDutyCycle(100);
 	}
-	else
+	else if (temperatureControl.pidTemperature[2] < (temperatureControl.heatingAimTemperature + 5))
 	{
 		dutyCycle += PID_KP * (err[2] - err[1]) + PID_KI * err[2]
 				+ PID_KP * (err[2] - 2 * err[1] + err[0]);										//PID算法
@@ -1229,7 +1230,11 @@ void DYY_TemperatureControl(void)
 		{
 			dutyCycle = 0;
 		}
-		PWM_SetDutyCycle(dutyCycle);
+		PWM_SetDutyCycle((int)dutyCycle);
+	}
+	else
+	{
+		PWM_SetDutyCycle(0);
 	}
 	
 #else																							//比例算法控制温度

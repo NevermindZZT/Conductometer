@@ -23,12 +23,12 @@
 #endif
 
 #ifdef		PID_CONTROL
-#define		PID_KP				1													//PID算法比例系数
-#define		PID_KI				1													//PID算法积分系数
-#define		PID_KD				1													//PID算法微分系数
+#define		PID_KP				4													//PID算法比例系数
+#define		PID_KI				2													//PID算法积分系数
+#define		PID_KD				8													//PID算法微分系数
 #endif
 
-#define		SOFTWAREVERSION		"0.2.4-Alpha"											//软件版本
+#define		SOFTWAREVERSION		"0.3-Beta"											//软件版本
 
 #define		HeatingEnable()		PWMEnable();temperatureControl.isHeating = TRUE		//开始加热
 #define		HeatingDisable()	PWMDisable();temperatureControl.isHeating = FALSE	//结束加热
