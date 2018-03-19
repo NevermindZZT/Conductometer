@@ -10,12 +10,12 @@
 TEMP_Control temperatureControl;
 
 /*******************************************
-*函数名称：	DYY_SystemSettingScreen
+*函数名称：	DRY_SystemSettingScreen
 *功能：		显示仪器设置界面
 *参数：		无
 *返回值：	无
 *******************************************/
-void DYY_SystemSettingScreen(void)
+void DRY_SystemSettingScreen(void)
 {
 	QPYLCD_SetBackColor(WHITE);
 	QPYLCD_Clear();
@@ -41,12 +41,12 @@ void DYY_SystemSettingScreen(void)
 
 
 /*******************************************
-*函数名称：	DYY_SystemSetting
+*函数名称：	DRY_SystemSetting
 *功能：		仪器设置
 *参数：		无
 *返回值：	无
 *******************************************/
-void DYY_SystemSetting(void)
+void DRY_SystemSetting(void)
 {
 	uint8_t scanData;																			//按键键值
 	uint8_t tempData[3];																		//设置数据
@@ -133,12 +133,12 @@ void DYY_SystemSetting(void)
 
 
 /*******************************************
-*函数名称：	DYY_WelcomeScreen
+*函数名称：	DRY_WelcomeScreen
 *功能：		显示仪器初始化界面
 *参数：		无
 *返回值：	无
 *******************************************/
-void DYY_WelcomeScreen(void)
+void DRY_WelcomeScreen(void)
 {
 	uint8_t i;
 	
@@ -155,7 +155,7 @@ void DYY_WelcomeScreen(void)
 		QPYLCD_DrawRectangle(168, 242, 152, 16, WHITE);
 		QPYLCD_DisplayCharacters(112, 242, QPYLCD_NewColor(0, 2, 2), FONT16X16, 16, wdcgqcshsb);//显示“温度传感器初始化失败”
 
-#ifndef		DEBUG																				//DEBUG模式关闭报警
+#ifndef		DEBUG_TEST																				//DEBUG模式关闭报警
 		BEEP_ON;																				//蜂鸣器报警
 		while(1);																				//初始化失败，程序死机
 #endif
@@ -193,12 +193,12 @@ void DYY_WelcomeScreen(void)
 
 
 /*******************************************
-*函数名称：	DYY_InputStudentNumberScreen
+*函数名称：	DRY_InputStudentNumberScreen
 *功能：		显示仪器输入学号界面
 *参数：		无
 *返回值：	无
 *******************************************/
-void DYY_InputStudentNumberScreen(void)
+void DRY_InputStudentNumberScreen(void)
 {
 	QPYLCD_SetBackColor(WHITE);
 	QPYLCD_Clear();
@@ -214,12 +214,12 @@ void DYY_InputStudentNumberScreen(void)
 
 
 /*******************************************
-*函数名称：	DYY_InputStudentNumber
+*函数名称：	DRY_InputStudentNumber
 *功能：		学号输入
 *参数：		无
 *返回值：	无
 *******************************************/
-void DYY_InputStudentNumber(void)
+void DRY_InputStudentNumber(void)
 {
 	uint8_t scanData;																			//按键键值
 	uint8_t tempData = 0;																		//当前光标位置数据
@@ -261,8 +261,8 @@ void DYY_InputStudentNumber(void)
 				case KEY_ENTER:																	//按键确定
 					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
 					{
-						DYY_EnterDialogScreen();												//显示确认弹窗
-						if (DYY_EnterDialog() == 0)												//判断弹窗动作，返回0为确定
+						DRY_EnterDialogScreen();												//显示确认弹窗
+						if (DRY_EnterDialog() == 0)												//判断弹窗动作，返回0为确定
 						{
 							experimentalData.studentNumber[i++] = tempData + 48;				//保存最后一次数据
 							experimentalData.studentNumber[i] = NULL;							//学号结束
@@ -271,7 +271,7 @@ void DYY_InputStudentNumber(void)
 						}
 						else																	//取消，刷新显示
 						{
-							DYY_InputStudentNumberScreen();										//刷新显示
+							DRY_InputStudentNumberScreen();										//刷新显示
 							xLabel = 196;
 							for (j = 0; j < i; j++)												//恢复一输入学号数据显示
 							{
@@ -306,12 +306,12 @@ void DYY_InputStudentNumber(void)
 
 
 /*******************************************
-*函数名称：	DYY_TemperatureSettingScreen
+*函数名称：	DRY_TemperatureSettingScreen
 *功能：		显示仪器温度设置界面
 *参数：		无
 *返回值：	无
 *******************************************/
-void DYY_TemperatureSettingScreen(void)
+void DRY_TemperatureSettingScreen(void)
 {
 	QPYLCD_SetBackColor(WHITE);
 	QPYLCD_Clear();
@@ -328,12 +328,12 @@ void DYY_TemperatureSettingScreen(void)
 
 
 /*******************************************
-*函数名称：	DYY_TemperatureSetting
+*函数名称：	DRY_TemperatureSetting
 *功能：		加热温度设置
 *参数：		无
 *返回值：	无
 *******************************************/
-void DYY_TemperatureSetting(void)
+void DRY_TemperatureSetting(void)
 {
 	uint8_t scanData;																			//按键键值
 	uint8_t tempData[2] = {0, 0};																//设置温度十位，个位
@@ -382,8 +382,8 @@ void DYY_TemperatureSetting(void)
 				case KEY_ENTER:																	//按键确认
 					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
 					{
-						DYY_EnterDialogScreen();												//显示确认弹窗
-						if (DYY_EnterDialog() == 0)												//判断弹窗动作，返回0为确定
+						DRY_EnterDialogScreen();												//显示确认弹窗
+						if (DRY_EnterDialog() == 0)												//判断弹窗动作，返回0为确定
 						{
 							experimentalData.settedTemperature = tempData[0] * 10 + tempData[1];//保存数据
 							experimentalData.progress = BUILDBALANCE;							//进入下一步骤
@@ -391,7 +391,7 @@ void DYY_TemperatureSetting(void)
 						}
 						else																	//取消，刷新显示
 						{
-							DYY_TemperatureSettingScreen();										//刷新显示
+							DRY_TemperatureSettingScreen();										//刷新显示
 							
 							QPYLCD_DisplayInt(316, 168, BLACK, FONT16X24, tempData[0]);			//恢复数据显示
 							QPYLCD_DisplayInt(332, 168, BLACK, FONT16X24, tempData[1]);
@@ -422,12 +422,12 @@ void DYY_TemperatureSetting(void)
 
 
 /*******************************************
-*函数名称：	DYY_BuildBalanceScreen
+*函数名称：	DRY_BuildBalanceScreen
 *功能：		显示仪器建立稳恒态界面
 *参数：		无
 *返回值：	无
 *******************************************/
-void DYY_BuildBalanceScreen(void)
+void DRY_BuildBalanceScreen(void)
 {
 	QPYLCD_SetBackColor(WHITE);
 	QPYLCD_Clear();
@@ -435,9 +435,9 @@ void DYY_BuildBalanceScreen(void)
 	QPYLCD_SetBackColor(BLUE);
 	QPYLCD_DisplayCharacters(160, 16, WHITE, FONT32X32, 5, jlwht);								//显示“建立稳恒态”
 	
-	DYY_DrawEquipment1(320, 80, YELLOW);														//绘制图形
-	DYY_DrawEquipment2(320, 144, YELLOW);
-	DYY_DrawEquipment3(320, 160, YELLOW);
+	DRY_DrawEquipment1(320, 80, YELLOW);														//绘制图形
+	DRY_DrawEquipment2(320, 144, YELLOW);
+	DRY_DrawEquipment3(320, 160, YELLOW);
 	
 	QPYLCD_SetBackColor(WHITE);
 	
@@ -459,12 +459,12 @@ void DYY_BuildBalanceScreen(void)
 
 
 /*******************************************
-*函数名称：	DYY_BuildBalance
+*函数名称：	DRY_BuildBalance
 *功能：		建立稳恒态
 *参数：		无
 *返回值：	无
 *******************************************/
-void DYY_BuildBalance(void)
+void DRY_BuildBalance(void)
 {
 	float tempA, tempB;																			//加热盘，散热盘温度
 	uint8_t str[10];
@@ -479,11 +479,11 @@ void DYY_BuildBalance(void)
 	QPYLCD_DisplayString(149, 216, BLACK, FONT16X24, str);
 	
 	HeatingEnable();																			//开启加热
-	temperatureControl.heatingAimTemperature = 60;												//设置加热目标温度
+	temperatureControl.heatingAimTemperature = experimentalData.settedTemperature;				//设置加热目标温度
 	
 	while (1)
 	{
-//		DYY_TemperatureControl(experimentalData.settedTemperature);								//温度控制
+//		DRY_TemperatureControl(experimentalData.settedTemperature);								//温度控制
 																								//加入PID算法，温度控制由定时器操作	
 		
 		tempA = DS18B20_ReadTemp(DS18B20A);														//读取温度
@@ -512,6 +512,7 @@ void DYY_BuildBalance(void)
 					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_LEFT)
 						&& KEYANDEC11_Scan() == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_LEFT))	//超级长按,返回上一步骤
 					{
+						HeatingDisable();														//关闭加热
 						experimentalData.progress = TEMPERATURESETTING;							//进入上一步骤
 						return;
 					}
@@ -528,8 +529,8 @@ void DYY_BuildBalance(void)
 				case KEY_ENTER:																	//按键确认
 					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
 					{
-						DYY_EnterDialogScreen();												//显示确认弹窗
-						if (DYY_EnterDialog() == 0)												//判断弹窗动作，返回0为确定
+						DRY_EnterDialogScreen();												//显示确认弹窗
+						if (DRY_EnterDialog() == 0)												//判断弹窗动作，返回0为确定
 						{
 							experimentalData.balanceTempeatrue = tempB;							//记录数据
 							experimentalData.progress = HEATTING;								//进入下一步骤
@@ -539,7 +540,7 @@ void DYY_BuildBalance(void)
 						}
 						else																	//取消，刷新显示
 						{
-							DYY_BuildBalanceScreen();											//刷新显示
+							DRY_BuildBalanceScreen();											//刷新显示
 							
 							tempB = DS18B20_ReadTemp(DS18B20B);									//刷新数据
 							sprintf((char *)str, "%-5.1f", tempB);
@@ -557,12 +558,12 @@ void DYY_BuildBalance(void)
 
 
 /*******************************************
-*函数名称：	DYY_HeatingScreen
+*函数名称：	DRY_HeatingScreen
 *功能：		显示仪器散热盘升温界面
 *参数：		无
 *返回值：	无
 *******************************************/
-void DYY_HeatingScreen(void)
+void DRY_HeatingScreen(void)
 {
 	QPYLCD_SetBackColor(WHITE);
 	QPYLCD_Clear();
@@ -570,8 +571,8 @@ void DYY_HeatingScreen(void)
 	QPYLCD_SetBackColor(BLUE);
 	QPYLCD_DisplayCharacters(160, 16, WHITE, FONT32X32, 5, srpsw);								//显示“散热盘升温”
 	
-	DYY_DrawEquipment1(320, 100, YELLOW);														//绘制图形
-	DYY_DrawEquipment3(320, 164, YELLOW);
+	DRY_DrawEquipment1(320, 100, YELLOW);														//绘制图形
+	DRY_DrawEquipment3(320, 164, YELLOW);
 	
 	QPYLCD_SetBackColor(WHITE);	
 	
@@ -583,12 +584,12 @@ void DYY_HeatingScreen(void)
 
 
 /*******************************************
-*函数名称：	DYY_Heating
+*函数名称：	DRY_Heating
 *功能：		散热盘升温
 *参数：		无
 *返回值：	无
 *******************************************/
-void DYY_Heating(void)
+void DRY_Heating(void)
 {
 	float tempA, tempB;																			//加热盘，散热盘温度
 	uint8_t str[10];                                                                            
@@ -597,11 +598,11 @@ void DYY_Heating(void)
 	while (KEYANDEC11_Scan() == KEY_ENTER);                                                     //判断按键松开
 	
 	HeatingEnable();																			//开启加热
-	temperatureControl.heatingAimTemperature = 80;												//设置加热目标温度
+	temperatureControl.heatingAimTemperature = experimentalData.settedTemperature;			//设置加热目标温度
 	
 	while (1)
 	{
-//		DYY_TemperatureControl(80);																//温度控制
+//		DRY_TemperatureControl(80);																//温度控制
 																								//加入PID算法，由定时器进行温度控制
 		
 		tempA = DS18B20_ReadTemp(DS18B20A);														//读取温度
@@ -625,6 +626,7 @@ void DYY_Heating(void)
 					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_LEFT)
 						&& KEYANDEC11_Scan() == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_LEFT))	//超级长按,返回上一步骤
 					{
+						HeatingDisable();														//关闭加热
 						experimentalData.progress = BUILDBALANCE;								//进入上一步骤
 						return;
 					}
@@ -634,8 +636,8 @@ void DYY_Heating(void)
 				case KEY_ENTER:																	//按键确认
 					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
 					{
-						DYY_EnterDialogScreen();												//显示确认弹窗
-						if (DYY_EnterDialog() == 0)												//判断弹窗动作，返回0为确定
+						DRY_EnterDialogScreen();												//显示确认弹窗
+						if (DRY_EnterDialog() == 0)												//判断弹窗动作，返回0为确定
 						{
 							experimentalData.heatingTempeatrue = tempB;							//保存数据
 							experimentalData.progress = RECORDING;								//进入下一步骤
@@ -646,7 +648,7 @@ void DYY_Heating(void)
 						}
 						else																	//取消，刷新显示
 						{
-							DYY_HeatingScreen();												//刷新显示
+							DRY_HeatingScreen();												//刷新显示
 						}
 					}
 					break;
@@ -660,12 +662,12 @@ void DYY_Heating(void)
 
 
 /*******************************************
-*函数名称：	DYY_RecordingScreen
+*函数名称：	DRY_RecordingScreen
 *功能：		显示仪器记录数据界面
 *参数：		无
 *返回值：	无
 *******************************************/
-void DYY_RecordingScreen(void)
+void DRY_RecordingScreen(void)
 {
 	QPYLCD_SetBackColor(WHITE);
 	QPYLCD_Clear();
@@ -673,7 +675,7 @@ void DYY_RecordingScreen(void)
 	QPYLCD_SetBackColor(BLUE);
 	QPYLCD_DisplayCharacters(144, 16, WHITE, FONT32X32, 6, srslcl);								//显示“散热速率测量”
 	
-	DYY_DrawEquipment3(352, 66, YELLOW);														//绘制图形
+	DRY_DrawEquipment3(352, 66, YELLOW);														//绘制图形
 	
 	QPYLCD_DrawLine(0, 64, 320, 64, BLACK);														//绘制数据表格
 	QPYLCD_DrawLine(0, 90, 320, 90, BLACK);
@@ -707,12 +709,12 @@ void DYY_RecordingScreen(void)
 
 
 /*******************************************
-*函数名称：	DYY_Recording
+*函数名称：	DRY_Recording
 *功能：		记录数据
 *参数：		无
 *返回值：	无
 *******************************************/
-void DYY_Recording(void)
+void DRY_Recording(void)
 {
 	uint8_t group = 1;																			//数据编号
 	uint8_t scanData;																			//按键键值
@@ -726,7 +728,7 @@ void DYY_Recording(void)
 	while(1)
 	{
 		tempB = DS18B20_ReadTemp(DS18B20B);														//读取散热盘温度
-		DYY_DisplayData(group, tim3Count, tempB, RED);											//显示一组数据
+		DRY_DisplayData(group, tim3Count, tempB, RED);											//显示一组数据
 		
 		scanData = KEYANDEC11_Scan();															//扫描按键和编码器
 		if (scanData)
@@ -749,32 +751,32 @@ void DYY_Recording(void)
 					{
 						experimentalData.measuredData[group - 1].time = tim3Count;				//记录一组数据
 						experimentalData.measuredData[group - 1].temperature = tempB;
-						DYY_DisplayData(group++, tim3Count, tempB, BLACK);						//刷新数据显示
+						DRY_DisplayData(group++, tim3Count, tempB, BLACK);						//刷新数据显示
 					}
 					break;
 				
 				case KEY_ENTER:																	//按键确认
 					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
 					{
-						DYY_EnterDialogScreen();												//显示确认弹窗
-						if (DYY_EnterDialog() == 0)												//判断弹窗动作，返回0为确定
+						DRY_EnterDialogScreen();												//显示确认弹窗
+						if (DRY_EnterDialog() == 0)												//判断弹窗动作，返回0为确定
 						{
 							if (group <= 20)													//记录最后一组数据
 							{
 								experimentalData.measuredData[group - 1].time = tim3Count;
 								experimentalData.measuredData[group - 1].temperature = tempB;
-								DYY_DisplayData(group++, tim3Count, tempB, BLACK);
+								DRY_DisplayData(group++, tim3Count, tempB, BLACK);
 							}
 							experimentalData.progress = SHOWDATA;								//进入下一步骤
 							return;
 						}
 						else																	//取消，刷新显示	
 						{
-							DYY_RecordingScreen();												//刷新显示
+							DRY_RecordingScreen();												//刷新显示
 							
 							for (j = 0; j < group - 1; j++)										//刷新数据
 							{
-								DYY_DisplayData(j + 1, experimentalData.measuredData[j].time,
+								DRY_DisplayData(j + 1, experimentalData.measuredData[j].time,
 									experimentalData.measuredData[j].temperature, BLACK);
 							}
 						}
@@ -790,12 +792,12 @@ void DYY_Recording(void)
 
 
 /*******************************************
-*函数名称：	DYY_ShowDataScreen
+*函数名称：	DRY_ShowDataScreen
 *功能：		显示所有实验数据
 *参数：		无
 *返回值：	无
 *******************************************/
-void DYY_ShowDataScreen(void)
+void DRY_ShowDataScreen(void)
 {
 	uint8_t str[5];
 	uint8_t i;
@@ -880,7 +882,7 @@ void DYY_ShowDataScreen(void)
 }
 
 
-void DYY_ShowData(void)
+void DRY_ShowData(void)
 {
 	uint8_t scanData;
 	
@@ -916,12 +918,12 @@ void DYY_ShowData(void)
 
 
 /*******************************************
-*函数名称：	DYY_EnterDialogScreen
+*函数名称：	DRY_EnterDialogScreen
 *功能：		显示确认对话框
 *参数：		无
 *返回值：	无
 *******************************************/
-void DYY_EnterDialogScreen(void)
+void DRY_EnterDialogScreen(void)
 {
 	QPYLCD_DrawRectangle(132, 88, 216, 96, WHITE);												//清除对话框区域
 	
@@ -952,13 +954,13 @@ void DYY_EnterDialogScreen(void)
 
 
 /*******************************************
-*函数名称：	DYY_EnterDialog
+*函数名称：	DRY_EnterDialog
 *功能：		确认对话框操作
 *参数：		无
 *返回值：	0			确认
 *			1			取消
 *******************************************/
-uint8_t DYY_EnterDialog(void)
+uint8_t DRY_EnterDialog(void)
 {
 	uint8_t scanData;
 	uint8_t i = 0;
@@ -1013,12 +1015,12 @@ uint8_t DYY_EnterDialog(void)
 
 
 /*******************************************
-*函数名称：	DYY_CompleteScreen
+*函数名称：	DRY_CompleteScreen
 *功能：		显示实验完成提示
 *参数：		无
 *返回值：	无
 *******************************************/
-void DYY_CompleteScreen(void)
+void DRY_CompleteScreen(void)
 {
 	QPYLCD_DrawRectangle(156, 88, 168, 96, WHITE);												//清除对话框区域
 	
@@ -1034,12 +1036,12 @@ void DYY_CompleteScreen(void)
 
 
 /*******************************************
-*函数名称：	DYY_Complete
+*函数名称：	DRY_Complete
 *功能：		实验完成
 *参数：		无
 *返回值：	无
 *******************************************/
-void DYY_Complete(void)
+void DRY_Complete(void)
 {
 	uint8_t scanData;
 	
@@ -1072,14 +1074,14 @@ void DYY_Complete(void)
 
 
 /*******************************************
-*函数名称：	DYY_DrawEquipment1
+*函数名称：	DRY_DrawEquipment1
 *功能：		显示仪器图案加热盘
 *参数：		xLabel			x坐标
 *			yLabel			y坐标
 *			color			填充颜色
 *返回值：	无
 *******************************************/
-void DYY_DrawEquipment1(uint16_t xLabel, uint16_t yLabel, uint8_t color)
+void DRY_DrawEquipment1(uint16_t xLabel, uint16_t yLabel, uint8_t color)
 {
 	QPYLCD_DrawRectangle(xLabel +32, yLabel, 32, 8, color);
 	QPYLCD_DrawRectangle(xLabel + 40, yLabel + 8, 16, 8, color);
@@ -1106,14 +1108,14 @@ void DYY_DrawEquipment1(uint16_t xLabel, uint16_t yLabel, uint8_t color)
 
 
 /*******************************************
-*函数名称：	DYY_DrawEquipment2
+*函数名称：	DRY_DrawEquipment2
 *功能：		显示仪器图案不良热导体
 *参数：		xLabel			x坐标
 *			yLabel			y坐标
 *			color			填充颜色
 *返回值：	无
 *******************************************/
-void DYY_DrawEquipment2(uint16_t xLabel, uint16_t yLabel, uint8_t color)
+void DRY_DrawEquipment2(uint16_t xLabel, uint16_t yLabel, uint8_t color)
 {
 	QPYLCD_DrawRectangle(xLabel, yLabel, 96, 16, color);
 	QPYLCD_SetBackColor(color);
@@ -1126,14 +1128,14 @@ void DYY_DrawEquipment2(uint16_t xLabel, uint16_t yLabel, uint8_t color)
 
 
 /*******************************************
-*函数名称：	DYY_DrawEquipment3
+*函数名称：	DRY_DrawEquipment3
 *功能：		显示仪器散热盘
 *参数：		xLabel			x坐标
 *			yLabel			y坐标
 *			color			填充颜色
 *返回值：	无
 *******************************************/
-void DYY_DrawEquipment3(uint16_t xLabel, uint16_t yLabel, uint8_t color)
+void DRY_DrawEquipment3(uint16_t xLabel, uint16_t yLabel, uint8_t color)
 {
 	QPYLCD_DrawRectangle(xLabel, yLabel, 96, 48, color);
 	QPYLCD_DrawLine(xLabel, yLabel, xLabel + 96, yLabel, BLACK);
@@ -1147,14 +1149,14 @@ void DYY_DrawEquipment3(uint16_t xLabel, uint16_t yLabel, uint8_t color)
 
 
 /*******************************************
-*函数名称：	DYY_DisplayData
+*函数名称：	DRY_DisplayData
 *功能：		显示实验数据
 *参数：		group			数据编号
 *			tempB			温度
 *			color			字体颜色
 *返回值：	无
 *******************************************/
-void DYY_DisplayData(uint8_t group, uint32_t time, float tempB, uint8_t color)
+void DRY_DisplayData(uint8_t group, uint32_t time, float tempB, uint8_t color)
 {
 	uint8_t str[10];
 
@@ -1183,12 +1185,12 @@ void DYY_DisplayData(uint8_t group, uint32_t time, float tempB, uint8_t color)
 
 
 /*******************************************
-*函数名称：	DYY_TemperatureControl
+*函数名称：	DRY_TemperatureControl
 *功能：		温度控制
 *参数：		temperature			加热目标温度
 *返回值：	无
 *******************************************/
-void DYY_TemperatureControl(void)
+void DRY_TemperatureControl(void)
 {
 	float tempC;
 	
@@ -1237,6 +1239,15 @@ void DYY_TemperatureControl(void)
 		PWM_SetDutyCycle(0);
 	}
 	
+	/*-----------------输出PID调试信息--------------*/
+#ifdef		DEBUG
+	DEBUG_LOG("temp[k]:%.1f, temp[k-1]:%.1f, temp[k-2]:%.1f; PWM_DutyCycle:%f",
+				temperatureControl.pidTemperature[2],
+				temperatureControl.pidTemperature[1],
+				temperatureControl.pidTemperature[0],
+				dutyCycle);
+#endif
+	
 #else																							//比例算法控制温度
 	if (tempA < (temperatureControl.heatingAimTemperature - 5))									//比较加热盘当前温度与目标温度	
 	{
@@ -1255,12 +1266,12 @@ void DYY_TemperatureControl(void)
 
 
 /*******************************************
-*函数名称：	DYY_UplaodData
+*函数名称：	DRY_UplaodData
 *功能：		上传数据至服务器
 *参数：		command			命令
 *返回值：	无
 *******************************************/
-void DYY_UplaodData(uint8_t command)
+void DRY_UplaodData(uint8_t command)
 {
 	char str[20];
 	uint8_t i = 0;

@@ -278,7 +278,7 @@ void ESP8266_Handler(uint8_t usartData)
 			
 			if (espState.currentCommand == ESP8266_CIPSEND)											//ESP8266初始化完成，主动建立连接
 			{
-				DYY_UplaodData(DEVICE_CONNECT);
+				DRY_UplaodData(DEVICE_CONNECT);
 			}
 		}
 		if (espState.currentCommand == ESP8266_CIFSR)
@@ -296,11 +296,11 @@ void ESP8266_Handler(uint8_t usartData)
 			sscanf((const char *)espBuff, "rcv-%d-%d\r\n", &command, &machineNumber);
 			if (machineNumber == experimentalData.machineNumber)
 			{
-				DYY_UplaodData(command);
+				DRY_UplaodData(command);
 			}
 			else if(machineNumber == 0)
 			{
-				DYY_UplaodData(DEVICE_CONNECT);
+				DRY_UplaodData(DEVICE_CONNECT);
 			}
 			
 			//数据处理结束

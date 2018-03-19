@@ -18,9 +18,10 @@
 .\objects\qpylcd.o: .\FWLB\inc\stm32f10x_usart.h
 .\objects\qpylcd.o: USER\tim.h
 .\objects\qpylcd.o: .\FWLB\inc\stm32f10x_tim.h
+.\objects\qpylcd.o: USER\iic.h
+.\objects\qpylcd.o: USER\config.h
 .\objects\qpylcd.o: .\asciifont.h
 .\objects\qpylcd.o: .\font.h
-.\objects\qpylcd.o: .\USER\config.h
 .\objects\qpylcd.o: USER\qpylcd.h
 .\objects\qpylcd.o: USER\ds18b20.h
 .\objects\qpylcd.o: USER\esp8266.h
@@ -30,3 +31,4 @@
 .\objects\qpylcd.o: USER\pwm.h
 .\objects\qpylcd.o: USER\eeprom.h
 .\objects\qpylcd.o: USER\beep.h
+.\objects\qpylcd.o: USER\at24cxx.h

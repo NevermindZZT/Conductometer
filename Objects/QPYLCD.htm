@@ -3,11 +3,11 @@
 <title>Static Call Graph - [.\Objects\QPYLCD.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\QPYLCD.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Fri Mar 16 21:20:56 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Mon Mar 19 19:29:14 2018
 <BR><P>
 <H3>Maximum Stack Usage =        328 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-main &rArr; DYY_SystemSetting &rArr; QPYLCD_DisplayInt &rArr; QPYLCD_DisplayString &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
+main &rArr; DRY_SystemSetting &rArr; QPYLCD_DisplayInt &rArr; QPYLCD_DisplayString &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 <P>
 <H3>
 Mutually Recursive functions
@@ -112,7 +112,7 @@ Global Symbols
 <P><STRONG><a name="[48]"></a>__main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry.o(.ARM.Collect$$$$00000000))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(.text)
 </UL>
-<P><STRONG><a name="[e9]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
+<P><STRONG><a name="[ea]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
 
 <P><STRONG><a name="[4e]"></a>_main_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
 <BR><BR>[Calls]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
@@ -122,15 +122,15 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
-<P><STRONG><a name="[ea]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
+<P><STRONG><a name="[eb]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
 
-<P><STRONG><a name="[eb]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
+<P><STRONG><a name="[ec]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
 
-<P><STRONG><a name="[ec]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
+<P><STRONG><a name="[ed]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
 
-<P><STRONG><a name="[ed]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
+<P><STRONG><a name="[ee]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
 
-<P><STRONG><a name="[ee]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
+<P><STRONG><a name="[ef]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
 
 <P><STRONG><a name="[0]"></a>Reset_Handler</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, startup_stm32f10x_hd.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(RESET)
@@ -367,18 +367,18 @@ Global Symbols
 <P><STRONG><a name="[a]"></a>WWDG_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32f10x_hd.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(RESET)
 </UL>
-<P><STRONG><a name="[ef]"></a>__aeabi_memcpy</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
+<P><STRONG><a name="[f0]"></a>__aeabi_memcpy</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
 
-<P><STRONG><a name="[a6]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSetting
+<P><STRONG><a name="[9f]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_SystemSetting
 </UL>
 
-<P><STRONG><a name="[f0]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
+<P><STRONG><a name="[f1]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
 
-<P><STRONG><a name="[ba]"></a>strcmp</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, strcmp.o(.text))
+<P><STRONG><a name="[bc]"></a>strcmp</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, strcmp.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = strcmp
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Handler
+<BR>[Called By]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Handler
 </UL>
 
 <P><STRONG><a name="[50]"></a>__0sscanf</STRONG> (Thumb, 48 bytes, Stack size 72 bytes, __0sscanf.o(.text))
@@ -386,7 +386,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__vfscanf_char
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Handler
+<BR>[Called By]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Handler
 </UL>
 
 <P><STRONG><a name="[52]"></a>_scanf_int</STRONG> (Thumb, 332 bytes, Stack size 56 bytes, _scanf_int.o(.text))
@@ -410,8 +410,8 @@ Global Symbols
 <LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_float_epilogue
 </UL>
 <BR>[Called By]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
-<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureControl
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_frsub
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_TemperatureControl
 </UL>
 
 <P><STRONG><a name="[57]"></a>__aeabi_fsub</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, fadd.o(.text))
@@ -419,18 +419,22 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureControl
+<BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_TemperatureControl
 </UL>
 
-<P><STRONG><a name="[58]"></a>__aeabi_frsub</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, fadd.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
+<P><STRONG><a name="[58]"></a>__aeabi_frsub</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, fadd.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = __aeabi_frsub &rArr; __aeabi_fadd &rArr; _float_epilogue
+</UL>
+<BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
+</UL>
+<BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_TemperatureControl
 </UL>
 
-<P><STRONG><a name="[ac]"></a>__aeabi_fmul</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, fmul.o(.text))
+<P><STRONG><a name="[a5]"></a>__aeabi_fmul</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, fmul.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_fmul
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureControl
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_TemperatureControl
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
 </UL>
 
 <P><STRONG><a name="[59]"></a>__aeabi_fdiv</STRONG> (Thumb, 124 bytes, Stack size 8 bytes, fdiv.o(.text))
@@ -438,7 +442,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_float_round
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
 </UL>
 
 <P><STRONG><a name="[5a]"></a>__aeabi_dmul</STRONG> (Thumb, 228 bytes, Stack size 48 bytes, dmul.o(.text))
@@ -446,8 +450,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
 
 <P><STRONG><a name="[5c]"></a>__aeabi_i2f</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, fflti.o(.text))
@@ -455,8 +459,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_float_epilogue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureSetting
+<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_TemperatureSetting
 </UL>
 
 <P><STRONG><a name="[5d]"></a>__aeabi_ui2f</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, ffltui.o(.text))
@@ -464,25 +468,22 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_float_epilogue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
 </UL>
 
-<P><STRONG><a name="[cf]"></a>__aeabi_f2iz</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, ffixi.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<P><STRONG><a name="[a7]"></a>__aeabi_f2iz</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, ffixi.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_TemperatureControl
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
 </UL>
 
-<P><STRONG><a name="[ad]"></a>__aeabi_f2uiz</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, ffixui.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureControl
-</UL>
-
-<P><STRONG><a name="[87]"></a>__aeabi_f2d</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, f2d.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DisplayData
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_UplaodData
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowDataScreen
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalance
+<P><STRONG><a name="[81]"></a>__aeabi_f2d</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, f2d.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_DisplayData
+<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_UplaodData
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_ShowDataScreen
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_Heating
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_BuildBalance
 </UL>
 
 <P><STRONG><a name="[5e]"></a>__aeabi_d2f</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, d2f.o(.text))
@@ -490,31 +491,31 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_float_round
 </UL>
-<BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
+<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
 </UL>
 
-<P><STRONG><a name="[f1]"></a>__aeabi_cfcmpeq</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, cfcmple.o(.text), UNUSED)
+<P><STRONG><a name="[f2]"></a>__aeabi_cfcmpeq</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, cfcmple.o(.text), UNUSED)
 
-<P><STRONG><a name="[ae]"></a>__aeabi_cfcmple</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, cfcmple.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureControl
+<P><STRONG><a name="[a6]"></a>__aeabi_cfcmple</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, cfcmple.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_TemperatureControl
 </UL>
 
-<P><STRONG><a name="[aa]"></a>__aeabi_cfrcmple</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, cfrcmple.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureControl
+<P><STRONG><a name="[a3]"></a>__aeabi_cfrcmple</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, cfrcmple.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_TemperatureControl
 </UL>
 
-<P><STRONG><a name="[f2]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
+<P><STRONG><a name="[f3]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
 
-<P><STRONG><a name="[e6]"></a>__aeabi_uidivmod</STRONG> (Thumb, 44 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<P><STRONG><a name="[e7]"></a>__aeabi_uidivmod</STRONG> (Thumb, 44 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
 <P><STRONG><a name="[5f]"></a>__aeabi_uldivmod</STRONG> (Thumb, 98 bytes, Stack size 40 bytes, uldiv.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
 <LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsl
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
 
 <P><STRONG><a name="[53]"></a>_chval</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, _chval.o(.text))
@@ -535,7 +536,7 @@ Global Symbols
 <P><STRONG><a name="[4a]"></a>_sbackspace</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, _sgetc.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> __0sscanf.o(.text)
 </UL>
-<P><STRONG><a name="[f3]"></a>__I$use$fp</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, iusefp.o(.text), UNUSED)
+<P><STRONG><a name="[f4]"></a>__I$use$fp</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, iusefp.o(.text), UNUSED)
 
 <P><STRONG><a name="[56]"></a>_float_round</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, fepilogue.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
@@ -578,7 +579,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
 
 <P><STRONG><a name="[66]"></a>__aeabi_dsub</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, dadd.o(.text), UNUSED)
@@ -592,18 +593,18 @@ Global Symbols
 <P><STRONG><a name="[68]"></a>__aeabi_ddiv</STRONG> (Thumb, 222 bytes, Stack size 32 bytes, ddiv.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_round
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
 
 <P><STRONG><a name="[69]"></a>__aeabi_d2ulz</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, dfixul.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
 <LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsl
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
 
-<P><STRONG><a name="[e3]"></a>__aeabi_cdrcmple</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, cdrcmple.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<P><STRONG><a name="[e4]"></a>__aeabi_cdrcmple</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, cdrcmple.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
 
 <P><STRONG><a name="[4f]"></a>__scatterload</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, init.o(.text))
@@ -612,7 +613,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
 </UL>
 
-<P><STRONG><a name="[f4]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+<P><STRONG><a name="[f5]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
 <P><STRONG><a name="[61]"></a>__aeabi_llsl</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, llshl.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
@@ -621,7 +622,7 @@ Global Symbols
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2ulz
 </UL>
 
-<P><STRONG><a name="[f5]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llshl.o(.text), UNUSED)
+<P><STRONG><a name="[f6]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llshl.o(.text), UNUSED)
 
 <P><STRONG><a name="[60]"></a>__aeabi_llsr</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, llushr.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
@@ -629,13 +630,13 @@ Global Symbols
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2ulz
 </UL>
 
-<P><STRONG><a name="[f6]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llushr.o(.text), UNUSED)
+<P><STRONG><a name="[f7]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llushr.o(.text), UNUSED)
 
 <P><STRONG><a name="[65]"></a>__aeabi_lasr</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, llsshr.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 
-<P><STRONG><a name="[f7]"></a>_ll_sshift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llsshr.o(.text), UNUSED)
+<P><STRONG><a name="[f8]"></a>_ll_sshift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llsshr.o(.text), UNUSED)
 
 <P><STRONG><a name="[4c]"></a>isspace</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, isspace_c.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ctype_lookup
@@ -655,1087 +656,1115 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isspace
 </UL>
 
-<P><STRONG><a name="[6d]"></a>BASICTIM2_Config</STRONG> (Thumb, 108 bytes, Stack size 40 bytes, tim.o(i.BASICTIM2_Config))
+<P><STRONG><a name="[6d]"></a>AT24CXX_Init</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, at24cxx.o(i.AT24CXX_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = AT24CXX_Init &rArr; IIC_Init &rArr; GPIO_Init
+</UL>
+<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Init
+</UL>
+<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[6f]"></a>BASICTIM2_Config</STRONG> (Thumb, 108 bytes, Stack size 40 bytes, tim.o(i.BASICTIM2_Config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = BASICTIM2_Config &rArr; NVIC_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
-<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
-<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
-<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ITConfig
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
-<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ClearITPendingBit
+<BR>[Calls]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
+<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
+<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
+<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ITConfig
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
+<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ClearITPendingBit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[74]"></a>BASICTIM3_Config</STRONG> (Thumb, 106 bytes, Stack size 40 bytes, tim.o(i.BASICTIM3_Config))
+<P><STRONG><a name="[76]"></a>BASICTIM3_Config</STRONG> (Thumb, 106 bytes, Stack size 40 bytes, tim.o(i.BASICTIM3_Config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = BASICTIM3_Config &rArr; NVIC_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
-<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
-<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
-<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ITConfig
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
-<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ClearITPendingBit
+<BR>[Calls]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
+<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
+<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
+<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ITConfig
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
+<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ClearITPendingBit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[75]"></a>BASICTIM4_Config</STRONG> (Thumb, 128 bytes, Stack size 48 bytes, tim.o(i.BASICTIM4_Config))
+<P><STRONG><a name="[77]"></a>BASICTIM4_Config</STRONG> (Thumb, 128 bytes, Stack size 48 bytes, tim.o(i.BASICTIM4_Config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = BASICTIM4_Config &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinRemapConfig
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
-<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
-<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
-<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
-<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC4PreloadConfig
-<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC4Init
+<BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinRemapConfig
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
+<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
+<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
+<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC4PreloadConfig
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC4Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_Init
+<BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_Init
 </UL>
 
-<P><STRONG><a name="[7b]"></a>BEEP_Init</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, beep.o(i.BEEP_Init))
+<P><STRONG><a name="[7d]"></a>BEEP_Init</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, beep.o(i.BEEP_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = BEEP_Init &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
-<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
+<BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[7c]"></a>DS18B20_ConvertTemp</STRONG> (Thumb, 32 bytes, Stack size 16 bytes, ds18b20.o(i.DS18B20_ConvertTemp))
+<P><STRONG><a name="[7e]"></a>DRY_BuildBalance</STRONG> (Thumb, 576 bytes, Stack size 48 bytes, support.o(i.DRY_BuildBalance))
+<BR><BR>[Stack]<UL><LI>Max Depth = 312<LI>Call Chain = DRY_BuildBalance &rArr; DRY_BuildBalanceScreen &rArr; DRY_DrawEquipment3 &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
+</UL>
+<BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_EnterDialogScreen
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_EnterDialog
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayString
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_BuildBalanceScreen
+<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCompare4
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+</UL>
+<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[88]"></a>DRY_BuildBalanceScreen</STRONG> (Thumb, 376 bytes, Stack size 16 bytes, support.o(i.DRY_BuildBalanceScreen))
+<BR><BR>[Stack]<UL><LI>Max Depth = 264<LI>Call Chain = DRY_BuildBalanceScreen &rArr; DRY_DrawEquipment3 &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
+</UL>
+<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_DrawEquipment3
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_DrawEquipment2
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_DrawEquipment1
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+</UL>
+<BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_BuildBalance
+<LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[90]"></a>DRY_Complete</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, support.o(i.DRY_Complete))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = DRY_Complete &rArr; KEYANDEC11_Scan &rArr; EC11_Scan
+</UL>
+<BR>[Calls]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
+</UL>
+<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[91]"></a>DRY_CompleteScreen</STRONG> (Thumb, 188 bytes, Stack size 24 bytes, support.o(i.DRY_CompleteScreen))
+<BR><BR>[Stack]<UL><LI>Max Depth = 240<LI>Call Chain = DRY_CompleteScreen &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
+</UL>
+<BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_NewColor
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+</UL>
+<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[94]"></a>DRY_DisplayData</STRONG> (Thumb, 362 bytes, Stack size 48 bytes, support.o(i.DRY_DisplayData))
+<BR><BR>[Stack]<UL><LI>Max Depth = 216<LI>Call Chain = DRY_DisplayData &rArr; QPYLCD_DisplayString &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
+</UL>
+<BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayString
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+</UL>
+<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_Recording
+</UL>
+
+<P><STRONG><a name="[8d]"></a>DRY_DrawEquipment1</STRONG> (Thumb, 446 bytes, Stack size 32 bytes, support.o(i.DRY_DrawEquipment1))
+<BR><BR>[Stack]<UL><LI>Max Depth = 248<LI>Call Chain = DRY_DrawEquipment1 &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
+</UL>
+<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+</UL>
+<BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_HeatingScreen
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_BuildBalanceScreen
+</UL>
+
+<P><STRONG><a name="[8e]"></a>DRY_DrawEquipment2</STRONG> (Thumb, 152 bytes, Stack size 32 bytes, support.o(i.DRY_DrawEquipment2))
+<BR><BR>[Stack]<UL><LI>Max Depth = 248<LI>Call Chain = DRY_DrawEquipment2 &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
+</UL>
+<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+</UL>
+<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_BuildBalanceScreen
+</UL>
+
+<P><STRONG><a name="[8f]"></a>DRY_DrawEquipment3</STRONG> (Thumb, 156 bytes, Stack size 32 bytes, support.o(i.DRY_DrawEquipment3))
+<BR><BR>[Stack]<UL><LI>Max Depth = 248<LI>Call Chain = DRY_DrawEquipment3 &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
+</UL>
+<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+</UL>
+<BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_RecordingScreen
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_HeatingScreen
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_BuildBalanceScreen
+</UL>
+
+<P><STRONG><a name="[87]"></a>DRY_EnterDialog</STRONG> (Thumb, 266 bytes, Stack size 24 bytes, support.o(i.DRY_EnterDialog))
+<BR><BR>[Stack]<UL><LI>Max Depth = 240<LI>Call Chain = DRY_EnterDialog &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
+</UL>
+<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
+</UL>
+<BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_TemperatureSetting
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_Recording
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_InputStudentNumber
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_Heating
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_BuildBalance
+</UL>
+
+<P><STRONG><a name="[86]"></a>DRY_EnterDialogScreen</STRONG> (Thumb, 460 bytes, Stack size 24 bytes, support.o(i.DRY_EnterDialogScreen))
+<BR><BR>[Stack]<UL><LI>Max Depth = 240<LI>Call Chain = DRY_EnterDialogScreen &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
+</UL>
+<BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_NewColor
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+</UL>
+<BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_TemperatureSetting
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_Recording
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_InputStudentNumber
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_Heating
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_BuildBalance
+</UL>
+
+<P><STRONG><a name="[95]"></a>DRY_Heating</STRONG> (Thumb, 316 bytes, Stack size 48 bytes, support.o(i.DRY_Heating))
+<BR><BR>[Stack]<UL><LI>Max Depth = 312<LI>Call Chain = DRY_Heating &rArr; DRY_HeatingScreen &rArr; DRY_DrawEquipment3 &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
+</UL>
+<BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_EnterDialogScreen
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_EnterDialog
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayString
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_HeatingScreen
+<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCompare4
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+</UL>
+<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[96]"></a>DRY_HeatingScreen</STRONG> (Thumb, 174 bytes, Stack size 16 bytes, support.o(i.DRY_HeatingScreen))
+<BR><BR>[Stack]<UL><LI>Max Depth = 264<LI>Call Chain = DRY_HeatingScreen &rArr; DRY_DrawEquipment3 &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
+</UL>
+<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_DrawEquipment3
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_DrawEquipment1
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+</UL>
+<BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_Heating
+<LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[97]"></a>DRY_InputStudentNumber</STRONG> (Thumb, 334 bytes, Stack size 32 bytes, support.o(i.DRY_InputStudentNumber))
+<BR><BR>[Stack]<UL><LI>Max Depth = 272<LI>Call Chain = DRY_InputStudentNumber &rArr; DRY_EnterDialogScreen &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
+</UL>
+<BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_EnterDialogScreen
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_EnterDialog
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayInt
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_InputStudentNumberScreen
+</UL>
+<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[99]"></a>DRY_InputStudentNumberScreen</STRONG> (Thumb, 114 bytes, Stack size 16 bytes, support.o(i.DRY_InputStudentNumberScreen))
+<BR><BR>[Stack]<UL><LI>Max Depth = 232<LI>Call Chain = DRY_InputStudentNumberScreen &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
+</UL>
+<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+</UL>
+<BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_InputStudentNumber
+<LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[9a]"></a>DRY_Recording</STRONG> (Thumb, 284 bytes, Stack size 24 bytes, support.o(i.DRY_Recording))
+<BR><BR>[Stack]<UL><LI>Max Depth = 288<LI>Call Chain = DRY_Recording &rArr; DRY_RecordingScreen &rArr; DRY_DrawEquipment3 &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
+</UL>
+<BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_EnterDialogScreen
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_EnterDialog
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_DisplayData
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_RecordingScreen
+</UL>
+<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[9b]"></a>DRY_RecordingScreen</STRONG> (Thumb, 528 bytes, Stack size 16 bytes, support.o(i.DRY_RecordingScreen))
+<BR><BR>[Stack]<UL><LI>Max Depth = 264<LI>Call Chain = DRY_RecordingScreen &rArr; DRY_DrawEquipment3 &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
+</UL>
+<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_DrawEquipment3
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+</UL>
+<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_Recording
+<LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[9c]"></a>DRY_ShowData</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, support.o(i.DRY_ShowData))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = DRY_ShowData &rArr; KEYANDEC11_Scan &rArr; EC11_Scan
+</UL>
+<BR>[Calls]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
+</UL>
+<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[9d]"></a>DRY_ShowDataScreen</STRONG> (Thumb, 1434 bytes, Stack size 32 bytes, support.o(i.DRY_ShowDataScreen))
+<BR><BR>[Stack]<UL><LI>Max Depth = 248<LI>Call Chain = DRY_ShowDataScreen &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
+</UL>
+<BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayString
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+</UL>
+<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[9e]"></a>DRY_SystemSetting</STRONG> (Thumb, 648 bytes, Stack size 88 bytes, support.o(i.DRY_SystemSetting))
+<BR><BR>[Stack]<UL><LI>Max Depth = 328<LI>Call Chain = DRY_SystemSetting &rArr; QPYLCD_DisplayInt &rArr; QPYLCD_DisplayString &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
+</UL>
+<BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MemWriteByte
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayString
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayInt
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
+</UL>
+<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[a1]"></a>DRY_SystemSettingScreen</STRONG> (Thumb, 316 bytes, Stack size 16 bytes, support.o(i.DRY_SystemSettingScreen))
+<BR><BR>[Stack]<UL><LI>Max Depth = 256<LI>Call Chain = DRY_SystemSettingScreen &rArr; QPYLCD_DisplayInt &rArr; QPYLCD_DisplayString &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
+</UL>
+<BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_NewColor
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayString
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayInt
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+</UL>
+<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[a2]"></a>DRY_TemperatureControl</STRONG> (Thumb, 292 bytes, Stack size 48 bytes, support.o(i.DRY_TemperatureControl))
+<BR><BR>[Stack]<UL><LI>Max Depth = 208<LI>Call Chain = DRY_TemperatureControl &rArr; DS18B20_ReadTemp &rArr; DS18B20_ConvertTemp &rArr; DS18B20_WriteByte &rArr; DS18B20_SetIOMode &rArr; GPIO_Init
+</UL>
+<BR>[Calls]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
+<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_frsub
+<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
+<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
+<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_SetDutyCycle
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
+</UL>
+<BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_IRQHandler
+</UL>
+
+<P><STRONG><a name="[a8]"></a>DRY_TemperatureSetting</STRONG> (Thumb, 448 bytes, Stack size 32 bytes, support.o(i.DRY_TemperatureSetting))
+<BR><BR>[Stack]<UL><LI>Max Depth = 272<LI>Call Chain = DRY_TemperatureSetting &rArr; DRY_EnterDialogScreen &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
+</UL>
+<BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_EnterDialogScreen
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_EnterDialog
+<LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayInt
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
+<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_TemperatureSettingScreen
+</UL>
+<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[a9]"></a>DRY_TemperatureSettingScreen</STRONG> (Thumb, 142 bytes, Stack size 16 bytes, support.o(i.DRY_TemperatureSettingScreen))
+<BR><BR>[Stack]<UL><LI>Max Depth = 232<LI>Call Chain = DRY_TemperatureSettingScreen &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
+</UL>
+<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+</UL>
+<BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_TemperatureSetting
+<LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[aa]"></a>DRY_UplaodData</STRONG> (Thumb, 278 bytes, Stack size 48 bytes, support.o(i.DRY_UplaodData))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = DRY_UplaodData &rArr; __2sprintf
+</UL>
+<BR>[Calls]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SendString
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+</UL>
+<BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_IRQHandler
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Handler
+</UL>
+
+<P><STRONG><a name="[ac]"></a>DRY_WelcomeScreen</STRONG> (Thumb, 580 bytes, Stack size 24 bytes, support.o(i.DRY_WelcomeScreen))
+<BR><BR>[Stack]<UL><LI>Max Depth = 288<LI>Call Chain = DRY_WelcomeScreen &rArr; ESP8266_Cmd &rArr; __2sprintf
+</UL>
+<BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Cmd
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_Init
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_s
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_NewColor
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawColorImage
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayString
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+</UL>
+<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[b2]"></a>DS18B20_ConvertTemp</STRONG> (Thumb, 32 bytes, Stack size 16 bytes, ds18b20.o(i.DS18B20_ConvertTemp))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = DS18B20_ConvertTemp &rArr; DS18B20_WriteByte &rArr; DS18B20_SetIOMode &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_WriteByte
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_Init
+<BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_WriteByte
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
+<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
 </UL>
 
-<P><STRONG><a name="[7d]"></a>DS18B20_Init</STRONG> (Thumb, 152 bytes, Stack size 24 bytes, ds18b20.o(i.DS18B20_Init))
+<P><STRONG><a name="[ae]"></a>DS18B20_Init</STRONG> (Thumb, 152 bytes, Stack size 24 bytes, ds18b20.o(i.DS18B20_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = DS18B20_Init &rArr; DS18B20_SetIOMode &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_SetIOMode
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
+<BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_SetIOMode
+<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
 </UL>
-<BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
-<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ConvertTemp
-<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_WelcomeScreen
+<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ConvertTemp
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_WelcomeScreen
 </UL>
 
-<P><STRONG><a name="[84]"></a>DS18B20_ReadByte</STRONG> (Thumb, 96 bytes, Stack size 24 bytes, ds18b20.o(i.DS18B20_ReadByte))
+<P><STRONG><a name="[b8]"></a>DS18B20_ReadByte</STRONG> (Thumb, 96 bytes, Stack size 24 bytes, ds18b20.o(i.DS18B20_ReadByte))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = DS18B20_ReadByte &rArr; DS18B20_SetIOMode &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_SetIOMode
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
+<BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_SetIOMode
+<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
 </UL>
-<BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
+<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
 </UL>
 
-<P><STRONG><a name="[85]"></a>DS18B20_ReadTemp</STRONG> (Thumb, 170 bytes, Stack size 56 bytes, ds18b20.o(i.DS18B20_ReadTemp))
+<P><STRONG><a name="[80]"></a>DS18B20_ReadTemp</STRONG> (Thumb, 170 bytes, Stack size 56 bytes, ds18b20.o(i.DS18B20_ReadTemp))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = DS18B20_ReadTemp &rArr; DS18B20_ConvertTemp &rArr; DS18B20_WriteByte &rArr; DS18B20_SetIOMode &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_WriteByte
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadByte
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_Init
-<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ConvertTemp
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_WriteByte
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadByte
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_Init
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ConvertTemp
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 <LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureControl
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Recording
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalance
+<BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_TemperatureControl
+<LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_IRQHandler
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_Recording
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_Heating
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_BuildBalance
 </UL>
 
-<P><STRONG><a name="[7f]"></a>DS18B20_SetIOMode</STRONG> (Thumb, 56 bytes, Stack size 32 bytes, ds18b20.o(i.DS18B20_SetIOMode))
+<P><STRONG><a name="[b4]"></a>DS18B20_SetIOMode</STRONG> (Thumb, 56 bytes, Stack size 32 bytes, ds18b20.o(i.DS18B20_SetIOMode))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = DS18B20_SetIOMode &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
-<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
+<BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_WriteByte
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadByte
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_Init
+<BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_WriteByte
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadByte
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_Init
 </UL>
 
-<P><STRONG><a name="[7e]"></a>DS18B20_WriteByte</STRONG> (Thumb, 96 bytes, Stack size 32 bytes, ds18b20.o(i.DS18B20_WriteByte))
+<P><STRONG><a name="[b3]"></a>DS18B20_WriteByte</STRONG> (Thumb, 96 bytes, Stack size 32 bytes, ds18b20.o(i.DS18B20_WriteByte))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = DS18B20_WriteByte &rArr; DS18B20_SetIOMode &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_SetIOMode
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
+<BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_SetIOMode
+<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
 </UL>
-<BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
-<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ConvertTemp
-</UL>
-
-<P><STRONG><a name="[88]"></a>DYY_BuildBalance</STRONG> (Thumb, 526 bytes, Stack size 48 bytes, support.o(i.DYY_BuildBalance))
-<BR><BR>[Stack]<UL><LI>Max Depth = 312<LI>Call Chain = DYY_BuildBalance &rArr; DYY_BuildBalanceScreen &rArr; DYY_DrawEquipment3 &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialogScreen
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialog
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayString
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalanceScreen
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCompare4
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
-</UL>
-<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ConvertTemp
 </UL>
 
-<P><STRONG><a name="[8f]"></a>DYY_BuildBalanceScreen</STRONG> (Thumb, 376 bytes, Stack size 16 bytes, support.o(i.DYY_BuildBalanceScreen))
-<BR><BR>[Stack]<UL><LI>Max Depth = 264<LI>Call Chain = DYY_BuildBalanceScreen &rArr; DYY_DrawEquipment3 &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment3
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment2
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment1
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
-</UL>
-<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalance
-<LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[97]"></a>DYY_Complete</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, support.o(i.DYY_Complete))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = DYY_Complete &rArr; KEYANDEC11_Scan &rArr; EC11_Scan
-</UL>
-<BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
-</UL>
-<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[98]"></a>DYY_CompleteScreen</STRONG> (Thumb, 188 bytes, Stack size 24 bytes, support.o(i.DYY_CompleteScreen))
-<BR><BR>[Stack]<UL><LI>Max Depth = 240<LI>Call Chain = DYY_CompleteScreen &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_NewColor
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
-</UL>
-<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[9b]"></a>DYY_DisplayData</STRONG> (Thumb, 362 bytes, Stack size 48 bytes, support.o(i.DYY_DisplayData))
-<BR><BR>[Stack]<UL><LI>Max Depth = 216<LI>Call Chain = DYY_DisplayData &rArr; QPYLCD_DisplayString &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayString
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
-</UL>
-<BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Recording
-</UL>
-
-<P><STRONG><a name="[94]"></a>DYY_DrawEquipment1</STRONG> (Thumb, 446 bytes, Stack size 32 bytes, support.o(i.DYY_DrawEquipment1))
-<BR><BR>[Stack]<UL><LI>Max Depth = 248<LI>Call Chain = DYY_DrawEquipment1 &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
-</UL>
-<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_HeatingScreen
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalanceScreen
-</UL>
-
-<P><STRONG><a name="[95]"></a>DYY_DrawEquipment2</STRONG> (Thumb, 152 bytes, Stack size 32 bytes, support.o(i.DYY_DrawEquipment2))
-<BR><BR>[Stack]<UL><LI>Max Depth = 248<LI>Call Chain = DYY_DrawEquipment2 &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
-</UL>
-<BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalanceScreen
-</UL>
-
-<P><STRONG><a name="[96]"></a>DYY_DrawEquipment3</STRONG> (Thumb, 156 bytes, Stack size 32 bytes, support.o(i.DYY_DrawEquipment3))
-<BR><BR>[Stack]<UL><LI>Max Depth = 248<LI>Call Chain = DYY_DrawEquipment3 &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
-</UL>
-<BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_RecordingScreen
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_HeatingScreen
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalanceScreen
-</UL>
-
-<P><STRONG><a name="[8d]"></a>DYY_EnterDialog</STRONG> (Thumb, 266 bytes, Stack size 24 bytes, support.o(i.DYY_EnterDialog))
-<BR><BR>[Stack]<UL><LI>Max Depth = 240<LI>Call Chain = DYY_EnterDialog &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
-</UL>
-<BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureSetting
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Recording
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumber
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalance
-</UL>
-
-<P><STRONG><a name="[8c]"></a>DYY_EnterDialogScreen</STRONG> (Thumb, 460 bytes, Stack size 24 bytes, support.o(i.DYY_EnterDialogScreen))
-<BR><BR>[Stack]<UL><LI>Max Depth = 240<LI>Call Chain = DYY_EnterDialogScreen &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_NewColor
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
-</UL>
-<BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureSetting
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Recording
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumber
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalance
-</UL>
-
-<P><STRONG><a name="[9c]"></a>DYY_Heating</STRONG> (Thumb, 272 bytes, Stack size 48 bytes, support.o(i.DYY_Heating))
-<BR><BR>[Stack]<UL><LI>Max Depth = 312<LI>Call Chain = DYY_Heating &rArr; DYY_HeatingScreen &rArr; DYY_DrawEquipment3 &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialogScreen
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialog
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayString
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_HeatingScreen
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCompare4
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
-</UL>
-<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[9d]"></a>DYY_HeatingScreen</STRONG> (Thumb, 174 bytes, Stack size 16 bytes, support.o(i.DYY_HeatingScreen))
-<BR><BR>[Stack]<UL><LI>Max Depth = 264<LI>Call Chain = DYY_HeatingScreen &rArr; DYY_DrawEquipment3 &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment3
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment1
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
-</UL>
-<BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
-<LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[9e]"></a>DYY_InputStudentNumber</STRONG> (Thumb, 334 bytes, Stack size 32 bytes, support.o(i.DYY_InputStudentNumber))
-<BR><BR>[Stack]<UL><LI>Max Depth = 272<LI>Call Chain = DYY_InputStudentNumber &rArr; DYY_EnterDialogScreen &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialogScreen
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialog
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayInt
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumberScreen
-</UL>
-<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[a0]"></a>DYY_InputStudentNumberScreen</STRONG> (Thumb, 114 bytes, Stack size 16 bytes, support.o(i.DYY_InputStudentNumberScreen))
-<BR><BR>[Stack]<UL><LI>Max Depth = 232<LI>Call Chain = DYY_InputStudentNumberScreen &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
-</UL>
-<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumber
-<LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[a1]"></a>DYY_Recording</STRONG> (Thumb, 284 bytes, Stack size 24 bytes, support.o(i.DYY_Recording))
-<BR><BR>[Stack]<UL><LI>Max Depth = 288<LI>Call Chain = DYY_Recording &rArr; DYY_RecordingScreen &rArr; DYY_DrawEquipment3 &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialogScreen
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialog
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DisplayData
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_RecordingScreen
-</UL>
-<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[a2]"></a>DYY_RecordingScreen</STRONG> (Thumb, 528 bytes, Stack size 16 bytes, support.o(i.DYY_RecordingScreen))
-<BR><BR>[Stack]<UL><LI>Max Depth = 264<LI>Call Chain = DYY_RecordingScreen &rArr; DYY_DrawEquipment3 &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment3
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
-</UL>
-<BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Recording
-<LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[a3]"></a>DYY_ShowData</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, support.o(i.DYY_ShowData))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = DYY_ShowData &rArr; KEYANDEC11_Scan &rArr; EC11_Scan
-</UL>
-<BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
-</UL>
-<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[a4]"></a>DYY_ShowDataScreen</STRONG> (Thumb, 1434 bytes, Stack size 32 bytes, support.o(i.DYY_ShowDataScreen))
-<BR><BR>[Stack]<UL><LI>Max Depth = 248<LI>Call Chain = DYY_ShowDataScreen &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayString
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
-</UL>
-<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[a5]"></a>DYY_SystemSetting</STRONG> (Thumb, 648 bytes, Stack size 88 bytes, support.o(i.DYY_SystemSetting))
-<BR><BR>[Stack]<UL><LI>Max Depth = 328<LI>Call Chain = DYY_SystemSetting &rArr; QPYLCD_DisplayInt &rArr; QPYLCD_DisplayString &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
-<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MemWriteByte
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayString
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayInt
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
-</UL>
-<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[a8]"></a>DYY_SystemSettingScreen</STRONG> (Thumb, 316 bytes, Stack size 16 bytes, support.o(i.DYY_SystemSettingScreen))
-<BR><BR>[Stack]<UL><LI>Max Depth = 256<LI>Call Chain = DYY_SystemSettingScreen &rArr; QPYLCD_DisplayInt &rArr; QPYLCD_DisplayString &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_NewColor
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayString
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayInt
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
-</UL>
-<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[a9]"></a>DYY_TemperatureControl</STRONG> (Thumb, 164 bytes, Stack size 32 bytes, support.o(i.DYY_TemperatureControl))
-<BR><BR>[Stack]<UL><LI>Max Depth = 192<LI>Call Chain = DYY_TemperatureControl &rArr; DS18B20_ReadTemp &rArr; DS18B20_ConvertTemp &rArr; DS18B20_WriteByte &rArr; DS18B20_SetIOMode &rArr; GPIO_Init
-</UL>
-<BR>[Calls]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
-<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
-<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2uiz
-<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
-<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
-<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_SetDutyCycle
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
-<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
-</UL>
-<BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_IRQHandler
-</UL>
-
-<P><STRONG><a name="[af]"></a>DYY_TemperatureSetting</STRONG> (Thumb, 448 bytes, Stack size 32 bytes, support.o(i.DYY_TemperatureSetting))
-<BR><BR>[Stack]<UL><LI>Max Depth = 272<LI>Call Chain = DYY_TemperatureSetting &rArr; DYY_EnterDialogScreen &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialogScreen
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialog
-<LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayInt
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureSettingScreen
-</UL>
-<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[b0]"></a>DYY_TemperatureSettingScreen</STRONG> (Thumb, 142 bytes, Stack size 16 bytes, support.o(i.DYY_TemperatureSettingScreen))
-<BR><BR>[Stack]<UL><LI>Max Depth = 232<LI>Call Chain = DYY_TemperatureSettingScreen &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
-</UL>
-<BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureSetting
-<LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[b1]"></a>DYY_UplaodData</STRONG> (Thumb, 278 bytes, Stack size 48 bytes, support.o(i.DYY_UplaodData))
-<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = DYY_UplaodData &rArr; __2sprintf
-</UL>
-<BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SendString
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
-</UL>
-<BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_IRQHandler
-<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Handler
-</UL>
-
-<P><STRONG><a name="[b3]"></a>DYY_WelcomeScreen</STRONG> (Thumb, 570 bytes, Stack size 24 bytes, support.o(i.DYY_WelcomeScreen))
-<BR><BR>[Stack]<UL><LI>Max Depth = 288<LI>Call Chain = DYY_WelcomeScreen &rArr; ESP8266_Cmd &rArr; __2sprintf
-</UL>
-<BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Cmd
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_Init
-<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_s
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_NewColor
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawColorImage
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayString
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
-</UL>
-<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[b7]"></a>EC11_Init</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, ec11.o(i.EC11_Init))
+<P><STRONG><a name="[b9]"></a>EC11_Init</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, ec11.o(i.EC11_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = EC11_Init &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
-<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
+<BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[b8]"></a>EC11_Scan</STRONG> (Thumb, 366 bytes, Stack size 8 bytes, ec11.o(i.EC11_Scan))
+<P><STRONG><a name="[ba]"></a>EC11_Scan</STRONG> (Thumb, 366 bytes, Stack size 8 bytes, ec11.o(i.EC11_Scan))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = EC11_Scan
 </UL>
-<BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
+<BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
+<BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
 </UL>
 
-<P><STRONG><a name="[b6]"></a>ESP8266_Cmd</STRONG> (Thumb, 250 bytes, Stack size 240 bytes, esp8266.o(i.ESP8266_Cmd))
+<P><STRONG><a name="[b0]"></a>ESP8266_Cmd</STRONG> (Thumb, 250 bytes, Stack size 240 bytes, esp8266.o(i.ESP8266_Cmd))
 <BR><BR>[Stack]<UL><LI>Max Depth = 264<LI>Call Chain = ESP8266_Cmd &rArr; __2sprintf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SendString
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+<BR>[Calls]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SendString
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Handler
-<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_WelcomeScreen
+<BR>[Called By]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Handler
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_WelcomeScreen
 </UL>
 
-<P><STRONG><a name="[b9]"></a>ESP8266_Handler</STRONG> (Thumb, 438 bytes, Stack size 32 bytes, esp8266.o(i.ESP8266_Handler))
+<P><STRONG><a name="[bb]"></a>ESP8266_Handler</STRONG> (Thumb, 438 bytes, Stack size 32 bytes, esp8266.o(i.ESP8266_Handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 296<LI>Call Chain = ESP8266_Handler &rArr; ESP8266_Cmd &rArr; __2sprintf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
-<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Cmd
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_UplaodData
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
+<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Cmd
+<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_UplaodData
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 <LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0sscanf
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
 </UL>
 
-<P><STRONG><a name="[e7]"></a>ESP8266_Init</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, esp8266.o(i.ESP8266_Init))
+<P><STRONG><a name="[e8]"></a>ESP8266_Init</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, esp8266.o(i.ESP8266_Init))
 <BR><BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[bb]"></a>ESP8266_SendByte</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, esp8266.o(i.ESP8266_SendByte))
+<P><STRONG><a name="[bd]"></a>ESP8266_SendByte</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, esp8266.o(i.ESP8266_SendByte))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = ESP8266_SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Send
+<BR>[Calls]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Send
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SendString
+<BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SendString
 </UL>
 
-<P><STRONG><a name="[b2]"></a>ESP8266_SendString</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, esp8266.o(i.ESP8266_SendString))
+<P><STRONG><a name="[ab]"></a>ESP8266_SendString</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, esp8266.o(i.ESP8266_SendString))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = ESP8266_SendString &rArr; ESP8266_SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SendByte
+<BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SendByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Cmd
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_UplaodData
+<BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Cmd
+<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_UplaodData
 </UL>
 
-<P><STRONG><a name="[bd]"></a>FLASH_ErasePage</STRONG> (Thumb, 76 bytes, Stack size 12 bytes, stm32f10x_flash.o(i.FLASH_ErasePage))
+<P><STRONG><a name="[bf]"></a>FLASH_ErasePage</STRONG> (Thumb, 76 bytes, Stack size 12 bytes, stm32f10x_flash.o(i.FLASH_ErasePage))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = FLASH_ErasePage &rArr; FLASH_WaitForLastOperation
 </UL>
-<BR>[Calls]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_WaitForLastOperation
+<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_WaitForLastOperation
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MemWriteByte
-</UL>
-
-<P><STRONG><a name="[c0]"></a>FLASH_GetBank1Status</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, stm32f10x_flash.o(i.FLASH_GetBank1Status))
-<BR><BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_WaitForLastOperation
+<BR>[Called By]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MemWriteByte
 </UL>
 
-<P><STRONG><a name="[c6]"></a>FLASH_Lock</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f10x_flash.o(i.FLASH_Lock))
-<BR><BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MemWriteByte
+<P><STRONG><a name="[c2]"></a>FLASH_GetBank1Status</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, stm32f10x_flash.o(i.FLASH_GetBank1Status))
+<BR><BR>[Called By]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_WaitForLastOperation
 </UL>
 
-<P><STRONG><a name="[bf]"></a>FLASH_ProgramHalfWord</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, stm32f10x_flash.o(i.FLASH_ProgramHalfWord))
+<P><STRONG><a name="[c8]"></a>FLASH_Lock</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f10x_flash.o(i.FLASH_Lock))
+<BR><BR>[Called By]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MemWriteByte
+</UL>
+
+<P><STRONG><a name="[c1]"></a>FLASH_ProgramHalfWord</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, stm32f10x_flash.o(i.FLASH_ProgramHalfWord))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = FLASH_ProgramHalfWord &rArr; FLASH_WaitForLastOperation
 </UL>
-<BR>[Calls]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_WaitForLastOperation
+<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_WaitForLastOperation
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MemWriteByte
-</UL>
-
-<P><STRONG><a name="[c5]"></a>FLASH_Unlock</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f10x_flash.o(i.FLASH_Unlock))
-<BR><BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MemWriteByte
+<BR>[Called By]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MemWriteByte
 </UL>
 
-<P><STRONG><a name="[be]"></a>FLASH_WaitForLastOperation</STRONG> (Thumb, 38 bytes, Stack size 4 bytes, stm32f10x_flash.o(i.FLASH_WaitForLastOperation))
+<P><STRONG><a name="[c7]"></a>FLASH_Unlock</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f10x_flash.o(i.FLASH_Unlock))
+<BR><BR>[Called By]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MemWriteByte
+</UL>
+
+<P><STRONG><a name="[c0]"></a>FLASH_WaitForLastOperation</STRONG> (Thumb, 38 bytes, Stack size 4 bytes, stm32f10x_flash.o(i.FLASH_WaitForLastOperation))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = FLASH_WaitForLastOperation
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_GetBank1Status
+<BR>[Calls]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_GetBank1Status
 </UL>
-<BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_ProgramHalfWord
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_ErasePage
+<BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_ProgramHalfWord
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_ErasePage
 </UL>
 
-<P><STRONG><a name="[78]"></a>GPIO_Init</STRONG> (Thumb, 278 bytes, Stack size 24 bytes, stm32f10x_gpio.o(i.GPIO_Init))
+<P><STRONG><a name="[7a]"></a>GPIO_Init</STRONG> (Thumb, 278 bytes, Stack size 24 bytes, stm32f10x_gpio.o(i.GPIO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = GPIO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM4_Config
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_SetIOMode
-<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Config
-<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Init
-<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY_Init
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EC11_Init
-<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BEEP_Init
+<BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Init
+<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM4_Config
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_SetIOMode
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Config
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Init
+<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY_Init
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EC11_Init
+<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BEEP_Init
 </UL>
 
-<P><STRONG><a name="[77]"></a>GPIO_PinRemapConfig</STRONG> (Thumb, 138 bytes, Stack size 20 bytes, stm32f10x_gpio.o(i.GPIO_PinRemapConfig))
+<P><STRONG><a name="[79]"></a>GPIO_PinRemapConfig</STRONG> (Thumb, 138 bytes, Stack size 20 bytes, stm32f10x_gpio.o(i.GPIO_PinRemapConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = GPIO_PinRemapConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM4_Config
+<BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM4_Config
 </UL>
 
-<P><STRONG><a name="[83]"></a>GPIO_ReadInputDataBit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_ReadInputDataBit))
-<BR><BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EC11_Scan
-<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY_Read
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadByte
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_Init
+<P><STRONG><a name="[b7]"></a>GPIO_ReadInputDataBit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_ReadInputDataBit))
+<BR><BR>[Called By]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EC11_Scan
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY_Read
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadByte
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_Init
 </UL>
 
-<P><STRONG><a name="[d4]"></a>GPIO_ReadOutputData</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_ReadOutputData))
-<BR><BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_ProcessData
+<P><STRONG><a name="[d5]"></a>GPIO_ReadOutputData</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_ReadOutputData))
+<BR><BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_ProcessData
 </UL>
 
-<P><STRONG><a name="[82]"></a>GPIO_ResetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_ResetBits))
+<P><STRONG><a name="[b6]"></a>GPIO_ResetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_ResetBits))
 <BR><BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_IRQHandler
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_WriteByte
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadByte
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_Init
-<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteData
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_On
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_WriteByte
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadByte
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_Init
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteData
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_On
 </UL>
 
-<P><STRONG><a name="[80]"></a>GPIO_SetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_SetBits))
-<BR><BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_IRQHandler
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_WriteByte
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadByte
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_Init
-<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteData
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_On
-<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Init
+<P><STRONG><a name="[85]"></a>GPIO_SetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_SetBits))
+<BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Init
+<LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_IRQHandler
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_WriteByte
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadByte
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_Init
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteData
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_On
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Init
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_Heating
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_BuildBalance
 </UL>
 
-<P><STRONG><a name="[d5]"></a>GPIO_Write</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_Write))
-<BR><BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_ProcessData
+<P><STRONG><a name="[d6]"></a>GPIO_Write</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_Write))
+<BR><BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_ProcessData
 </UL>
 
-<P><STRONG><a name="[c4]"></a>GPIO_WriteBit</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_WriteBit))
-<BR><BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY_Write
+<P><STRONG><a name="[c6]"></a>GPIO_WriteBit</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_WriteBit))
+<BR><BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY_Write
 </UL>
 
-<P><STRONG><a name="[89]"></a>KEYANDEC11_Scan</STRONG> (Thumb, 156 bytes, Stack size 32 bytes, key.o(i.KEYANDEC11_Scan))
+<P><STRONG><a name="[6e]"></a>IIC_Init</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, iic.o(i.IIC_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = IIC_Init &rArr; GPIO_Init
+</UL>
+<BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
+</UL>
+<BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AT24CXX_Init
+</UL>
+
+<P><STRONG><a name="[7f]"></a>KEYANDEC11_Scan</STRONG> (Thumb, 156 bytes, Stack size 32 bytes, key.o(i.KEYANDEC11_Scan))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = KEYANDEC11_Scan &rArr; EC11_Scan
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EC11_Scan
-<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY_Write
-<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY_Read
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
+<BR>[Calls]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EC11_Scan
+<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY_Write
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY_Read
+<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialog
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureSetting
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSetting
-<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowData
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Recording
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumber
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Complete
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalance
+<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_EnterDialog
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_TemperatureSetting
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_SystemSetting
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_ShowData
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_Recording
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_InputStudentNumber
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_Heating
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_Complete
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_BuildBalance
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[c3]"></a>KEY_Init</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, key.o(i.KEY_Init))
+<P><STRONG><a name="[c5]"></a>KEY_Init</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, key.o(i.KEY_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = KEY_Init &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
-<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
+<BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[c2]"></a>KEY_Read</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, key.o(i.KEY_Read))
+<P><STRONG><a name="[c4]"></a>KEY_Read</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, key.o(i.KEY_Read))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = KEY_Read
 </UL>
-<BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
+<BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
+<BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
 </UL>
 
-<P><STRONG><a name="[c1]"></a>KEY_Write</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, key.o(i.KEY_Write))
+<P><STRONG><a name="[c3]"></a>KEY_Write</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, key.o(i.KEY_Write))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = KEY_Write
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_WriteBit
+<BR>[Calls]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_WriteBit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
+<BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
 </UL>
 
-<P><STRONG><a name="[e8]"></a>MemReadByte</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, eeprom.o(i.MemReadByte))
+<P><STRONG><a name="[e9]"></a>MemReadByte</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, eeprom.o(i.MemReadByte))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = MemReadByte
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a7]"></a>MemWriteByte</STRONG> (Thumb, 82 bytes, Stack size 24 bytes, eeprom.o(i.MemWriteByte))
+<P><STRONG><a name="[a0]"></a>MemWriteByte</STRONG> (Thumb, 82 bytes, Stack size 24 bytes, eeprom.o(i.MemWriteByte))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = MemWriteByte &rArr; FLASH_ProgramHalfWord &rArr; FLASH_WaitForLastOperation
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_Unlock
-<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_ProgramHalfWord
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_Lock
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_ErasePage
+<BR>[Calls]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_Unlock
+<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_ProgramHalfWord
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_Lock
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_ErasePage
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSetting
+<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_SystemSetting
 </UL>
 
-<P><STRONG><a name="[73]"></a>NVIC_Init</STRONG> (Thumb, 100 bytes, Stack size 16 bytes, misc.o(i.NVIC_Init))
+<P><STRONG><a name="[75]"></a>NVIC_Init</STRONG> (Thumb, 100 bytes, Stack size 16 bytes, misc.o(i.NVIC_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = NVIC_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Config
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM3_Config
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM2_Config
+<BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Config
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM3_Config
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM2_Config
 </UL>
 
-<P><STRONG><a name="[c7]"></a>PWM_Init</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, pwm.o(i.PWM_Init))
+<P><STRONG><a name="[c9]"></a>PWM_Init</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, pwm.o(i.PWM_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = PWM_Init &rArr; BASICTIM4_Config &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM4_Config
+<BR>[Calls]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM4_Config
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ab]"></a>PWM_SetDutyCycle</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, pwm.o(i.PWM_SetDutyCycle))
+<P><STRONG><a name="[a4]"></a>PWM_SetDutyCycle</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, pwm.o(i.PWM_SetDutyCycle))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = PWM_SetDutyCycle
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCompare4
+<BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCompare4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureControl
+<BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_TemperatureControl
 </UL>
 
-<P><STRONG><a name="[91]"></a>QPYLCD_Clear</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, qpylcd.o(i.QPYLCD_Clear))
+<P><STRONG><a name="[8a]"></a>QPYLCD_Clear</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, qpylcd.o(i.QPYLCD_Clear))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = QPYLCD_Clear &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
+<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Init
-<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_WelcomeScreen
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureSettingScreen
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSettingScreen
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowDataScreen
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_RecordingScreen
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumberScreen
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_HeatingScreen
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalanceScreen
+<BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Init
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_WelcomeScreen
+<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_TemperatureSettingScreen
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_SystemSettingScreen
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_ShowDataScreen
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_RecordingScreen
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_InputStudentNumberScreen
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_HeatingScreen
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_BuildBalanceScreen
 </UL>
 
-<P><STRONG><a name="[c9]"></a>QPYLCD_Control</STRONG> (Thumb, 40 bytes, Stack size 24 bytes, qpylcd.o(i.QPYLCD_Control))
+<P><STRONG><a name="[cb]"></a>QPYLCD_Control</STRONG> (Thumb, 40 bytes, Stack size 24 bytes, qpylcd.o(i.QPYLCD_Control))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = QPYLCD_Control &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
+<BR>[Calls]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Init
+<BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Init
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ca]"></a>QPYLCD_DisplayCharacter</STRONG> (Thumb, 76 bytes, Stack size 48 bytes, qpylcd.o(i.QPYLCD_DisplayCharacter))
+<P><STRONG><a name="[cc]"></a>QPYLCD_DisplayCharacter</STRONG> (Thumb, 76 bytes, Stack size 48 bytes, qpylcd.o(i.QPYLCD_DisplayCharacter))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawMonochromeImage
+<BR>[Calls]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawMonochromeImage
 </UL>
-<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
+<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
 </UL>
 
-<P><STRONG><a name="[93]"></a>QPYLCD_DisplayCharacters</STRONG> (Thumb, 76 bytes, Stack size 56 bytes, qpylcd.o(i.QPYLCD_DisplayCharacters))
+<P><STRONG><a name="[8c]"></a>QPYLCD_DisplayCharacters</STRONG> (Thumb, 76 bytes, Stack size 56 bytes, qpylcd.o(i.QPYLCD_DisplayCharacters))
 <BR><BR>[Stack]<UL><LI>Max Depth = 216<LI>Call Chain = QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacter
+<BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacter
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialogScreen
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialog
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment3
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment2
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment1
-<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_WelcomeScreen
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureSettingScreen
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowDataScreen
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_RecordingScreen
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumberScreen
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_HeatingScreen
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_CompleteScreen
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalanceScreen
+<BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_EnterDialogScreen
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_EnterDialog
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_DrawEquipment3
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_DrawEquipment2
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_DrawEquipment1
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_WelcomeScreen
+<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_TemperatureSettingScreen
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_ShowDataScreen
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_RecordingScreen
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_InputStudentNumberScreen
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_HeatingScreen
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_CompleteScreen
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_BuildBalanceScreen
 </UL>
 
-<P><STRONG><a name="[9f]"></a>QPYLCD_DisplayInt</STRONG> (Thumb, 186 bytes, Stack size 72 bytes, qpylcd.o(i.QPYLCD_DisplayInt))
+<P><STRONG><a name="[98]"></a>QPYLCD_DisplayInt</STRONG> (Thumb, 186 bytes, Stack size 72 bytes, qpylcd.o(i.QPYLCD_DisplayInt))
 <BR><BR>[Stack]<UL><LI>Max Depth = 240<LI>Call Chain = QPYLCD_DisplayInt &rArr; QPYLCD_DisplayString &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayString
+<BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayString
 </UL>
-<BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureSetting
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSettingScreen
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSetting
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumber
+<BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_TemperatureSetting
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_SystemSettingScreen
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_SystemSetting
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_InputStudentNumber
 </UL>
 
-<P><STRONG><a name="[8b]"></a>QPYLCD_DisplayString</STRONG> (Thumb, 168 bytes, Stack size 56 bytes, qpylcd.o(i.QPYLCD_DisplayString))
+<P><STRONG><a name="[83]"></a>QPYLCD_DisplayString</STRONG> (Thumb, 168 bytes, Stack size 56 bytes, qpylcd.o(i.QPYLCD_DisplayString))
 <BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = QPYLCD_DisplayString &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawMonochromeImage
+<BR>[Calls]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawMonochromeImage
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DisplayData
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayInt
-<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_WelcomeScreen
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSettingScreen
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSetting
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowDataScreen
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalance
+<BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_DisplayData
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayInt
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_WelcomeScreen
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_SystemSettingScreen
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_SystemSetting
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_ShowDataScreen
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_Heating
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_BuildBalance
 </UL>
 
-<P><STRONG><a name="[b4]"></a>QPYLCD_DrawColorImage</STRONG> (Thumb, 82 bytes, Stack size 32 bytes, qpylcd.o(i.QPYLCD_DrawColorImage))
+<P><STRONG><a name="[ad]"></a>QPYLCD_DrawColorImage</STRONG> (Thumb, 82 bytes, Stack size 32 bytes, qpylcd.o(i.QPYLCD_DrawColorImage))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = QPYLCD_DrawColorImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteData
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetXYLabel
+<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteData
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetXYLabel
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_WelcomeScreen
+<BR>[Called By]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_WelcomeScreen
 </UL>
 
-<P><STRONG><a name="[9a]"></a>QPYLCD_DrawLine</STRONG> (Thumb, 248 bytes, Stack size 72 bytes, qpylcd.o(i.QPYLCD_DrawLine))
+<P><STRONG><a name="[93]"></a>QPYLCD_DrawLine</STRONG> (Thumb, 248 bytes, Stack size 72 bytes, qpylcd.o(i.QPYLCD_DrawLine))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = QPYLCD_DrawLine &rArr; QPYLCD_DrawPoint &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
-<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
-<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawPoint
+<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawPoint
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialogScreen
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment3
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment2
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment1
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureSettingScreen
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSettingScreen
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowDataScreen
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_RecordingScreen
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumberScreen
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_CompleteScreen
+<BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_EnterDialogScreen
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_DrawEquipment3
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_DrawEquipment2
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_DrawEquipment1
+<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_TemperatureSettingScreen
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_SystemSettingScreen
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_ShowDataScreen
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_RecordingScreen
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_InputStudentNumberScreen
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_CompleteScreen
 </UL>
 
-<P><STRONG><a name="[cb]"></a>QPYLCD_DrawMonochromeImage</STRONG> (Thumb, 98 bytes, Stack size 40 bytes, qpylcd.o(i.QPYLCD_DrawMonochromeImage))
+<P><STRONG><a name="[cd]"></a>QPYLCD_DrawMonochromeImage</STRONG> (Thumb, 98 bytes, Stack size 40 bytes, qpylcd.o(i.QPYLCD_DrawMonochromeImage))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteData
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetXYLabel
-<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetFrontColor
+<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteData
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetXYLabel
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetFrontColor
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayString
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacter
+<BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayString
+<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacter
 </UL>
 
-<P><STRONG><a name="[ce]"></a>QPYLCD_DrawPoint</STRONG> (Thumb, 32 bytes, Stack size 16 bytes, qpylcd.o(i.QPYLCD_DrawPoint))
+<P><STRONG><a name="[d0]"></a>QPYLCD_DrawPoint</STRONG> (Thumb, 32 bytes, Stack size 16 bytes, qpylcd.o(i.QPYLCD_DrawPoint))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = QPYLCD_DrawPoint &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteData
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetXYLabel
+<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteData
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetXYLabel
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
+<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
 </UL>
 
-<P><STRONG><a name="[92]"></a>QPYLCD_DrawRectangle</STRONG> (Thumb, 128 bytes, Stack size 32 bytes, qpylcd.o(i.QPYLCD_DrawRectangle))
+<P><STRONG><a name="[8b]"></a>QPYLCD_DrawRectangle</STRONG> (Thumb, 128 bytes, Stack size 32 bytes, qpylcd.o(i.QPYLCD_DrawRectangle))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = QPYLCD_DrawRectangle &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteData
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetXYLabel
-<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetFrontColor
+<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteData
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetXYLabel
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetFrontColor
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialogScreen
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialog
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment3
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment2
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment1
-<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_WelcomeScreen
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureSettingScreen
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSettingScreen
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSetting
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowDataScreen
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_RecordingScreen
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumberScreen
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumber
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_HeatingScreen
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_CompleteScreen
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalanceScreen
+<BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_EnterDialogScreen
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_EnterDialog
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_DrawEquipment3
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_DrawEquipment2
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_DrawEquipment1
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_WelcomeScreen
+<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_TemperatureSettingScreen
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_SystemSettingScreen
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_SystemSetting
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_ShowDataScreen
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_RecordingScreen
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_InputStudentNumberScreen
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_InputStudentNumber
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_HeatingScreen
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_CompleteScreen
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_BuildBalanceScreen
 </UL>
 
-<P><STRONG><a name="[d1]"></a>QPYLCD_Init</STRONG> (Thumb, 146 bytes, Stack size 8 bytes, qpylcd.o(i.QPYLCD_Init))
+<P><STRONG><a name="[d2]"></a>QPYLCD_Init</STRONG> (Thumb, 146 bytes, Stack size 8 bytes, qpylcd.o(i.QPYLCD_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = QPYLCD_Init &rArr; QPYLCD_Control &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
-<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_On
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Control
+<BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_On
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Control
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[99]"></a>QPYLCD_NewColor</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, qpylcd.o(i.QPYLCD_NewColor))
-<BR><BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialogScreen
-<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_WelcomeScreen
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSettingScreen
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_CompleteScreen
+<P><STRONG><a name="[92]"></a>QPYLCD_NewColor</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, qpylcd.o(i.QPYLCD_NewColor))
+<BR><BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_EnterDialogScreen
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_WelcomeScreen
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_SystemSettingScreen
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_CompleteScreen
 </UL>
 
-<P><STRONG><a name="[d2]"></a>QPYLCD_On</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, qpylcd.o(i.QPYLCD_On))
+<P><STRONG><a name="[d3]"></a>QPYLCD_On</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, qpylcd.o(i.QPYLCD_On))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = QPYLCD_On
 </UL>
-<BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Init
+<BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Init
 </UL>
 
-<P><STRONG><a name="[d3]"></a>QPYLCD_ProcessData</STRONG> (Thumb, 62 bytes, Stack size 24 bytes, qpylcd.o(i.QPYLCD_ProcessData))
+<P><STRONG><a name="[d4]"></a>QPYLCD_ProcessData</STRONG> (Thumb, 62 bytes, Stack size 24 bytes, qpylcd.o(i.QPYLCD_ProcessData))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Write
-<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadOutputData
+<BR>[Calls]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Write
+<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadOutputData
 </UL>
-<BR>[Called By]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteData
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
+<BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteData
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
 </UL>
 
-<P><STRONG><a name="[90]"></a>QPYLCD_SetBackColor</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, qpylcd.o(i.QPYLCD_SetBackColor))
+<P><STRONG><a name="[89]"></a>QPYLCD_SetBackColor</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, qpylcd.o(i.QPYLCD_SetBackColor))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = QPYLCD_SetBackColor &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
+<BR>[Calls]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialogScreen
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_EnterDialog
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment3
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment2
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DrawEquipment1
-<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_WelcomeScreen
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureSettingScreen
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSettingScreen
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSetting
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowDataScreen
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_RecordingScreen
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumberScreen
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_HeatingScreen
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_CompleteScreen
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalanceScreen
+<BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_EnterDialogScreen
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_EnterDialog
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_DrawEquipment3
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_DrawEquipment2
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_DrawEquipment1
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_WelcomeScreen
+<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_TemperatureSettingScreen
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_SystemSettingScreen
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_SystemSetting
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_ShowDataScreen
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_RecordingScreen
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_InputStudentNumberScreen
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_HeatingScreen
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_CompleteScreen
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_BuildBalanceScreen
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[d0]"></a>QPYLCD_SetFrontColor</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, qpylcd.o(i.QPYLCD_SetFrontColor))
+<P><STRONG><a name="[d1]"></a>QPYLCD_SetFrontColor</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, qpylcd.o(i.QPYLCD_SetFrontColor))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = QPYLCD_SetFrontColor &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
+<BR>[Calls]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawMonochromeImage
+<BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawMonochromeImage
 </UL>
 
-<P><STRONG><a name="[cc]"></a>QPYLCD_SetXYLabel</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, qpylcd.o(i.QPYLCD_SetXYLabel))
+<P><STRONG><a name="[ce]"></a>QPYLCD_SetXYLabel</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, qpylcd.o(i.QPYLCD_SetXYLabel))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
+<BR>[Calls]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawPoint
-<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawMonochromeImage
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawColorImage
+<BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawPoint
+<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawMonochromeImage
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawColorImage
 </UL>
 
-<P><STRONG><a name="[c8]"></a>QPYLCD_WriteCmd</STRONG> (Thumb, 136 bytes, Stack size 24 bytes, qpylcd.o(i.QPYLCD_WriteCmd))
+<P><STRONG><a name="[ca]"></a>QPYLCD_WriteCmd</STRONG> (Thumb, 136 bytes, Stack size 24 bytes, qpylcd.o(i.QPYLCD_WriteCmd))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
-<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteData
-<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_ProcessData
+<BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteData
+<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_ProcessData
 </UL>
-<BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetXYLabel
-<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetFrontColor
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawPoint
-<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawMonochromeImage
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawColorImage
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Control
+<BR>[Called By]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetXYLabel
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetFrontColor
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawPoint
+<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawMonochromeImage
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawColorImage
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Control
 </UL>
 
-<P><STRONG><a name="[cd]"></a>QPYLCD_WriteData</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, qpylcd.o(i.QPYLCD_WriteData))
+<P><STRONG><a name="[cf]"></a>QPYLCD_WriteData</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, qpylcd.o(i.QPYLCD_WriteData))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = QPYLCD_WriteData &rArr; QPYLCD_ProcessData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
-<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_ProcessData
+<BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_ProcessData
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawPoint
-<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawMonochromeImage
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawColorImage
-</UL>
-
-<P><STRONG><a name="[6e]"></a>RCC_APB1PeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_rcc.o(i.RCC_APB1PeriphClockCmd))
-<BR><BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM4_Config
-<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Config
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM3_Config
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM2_Config
+<BR>[Called By]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_WriteCmd
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawPoint
+<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawMonochromeImage
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawColorImage
 </UL>
 
-<P><STRONG><a name="[76]"></a>RCC_APB2PeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd))
-<BR><BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM4_Config
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_SetIOMode
-<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Config
-<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Init
-<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY_Init
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EC11_Init
-<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BEEP_Init
+<P><STRONG><a name="[70]"></a>RCC_APB1PeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_rcc.o(i.RCC_APB1PeriphClockCmd))
+<BR><BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM4_Config
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Config
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM3_Config
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM2_Config
 </UL>
 
-<P><STRONG><a name="[df]"></a>RCC_GetClocksFreq</STRONG> (Thumb, 192 bytes, Stack size 12 bytes, stm32f10x_rcc.o(i.RCC_GetClocksFreq))
+<P><STRONG><a name="[78]"></a>RCC_APB2PeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd))
+<BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Init
+<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM4_Config
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_SetIOMode
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Config
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Init
+<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY_Init
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EC11_Init
+<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BEEP_Init
+</UL>
+
+<P><STRONG><a name="[e0]"></a>RCC_GetClocksFreq</STRONG> (Thumb, 192 bytes, Stack size 12 bytes, stm32f10x_rcc.o(i.RCC_GetClocksFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = RCC_GetClocksFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
+<BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
 </UL>
 
 <P><STRONG><a name="[47]"></a>SystemInit</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, system_stm32f10x.o(i.SystemInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = SystemInit &rArr; SetSysClock &rArr; SetSysClockTo72
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSysClock
+<BR>[Calls]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSysClock
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(.text)
 </UL>
-<P><STRONG><a name="[26]"></a>TIM2_IRQHandler</STRONG> (Thumb, 186 bytes, Stack size 8 bytes, tim.o(i.TIM2_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 200<LI>Call Chain = TIM2_IRQHandler &rArr; DYY_TemperatureControl &rArr; DS18B20_ReadTemp &rArr; DS18B20_ConvertTemp &rArr; DS18B20_WriteByte &rArr; DS18B20_SetIOMode &rArr; GPIO_Init
+<P><STRONG><a name="[26]"></a>TIM2_IRQHandler</STRONG> (Thumb, 212 bytes, Stack size 8 bytes, tim.o(i.TIM2_IRQHandler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 216<LI>Call Chain = TIM2_IRQHandler &rArr; DRY_TemperatureControl &rArr; DS18B20_ReadTemp &rArr; DS18B20_ConvertTemp &rArr; DS18B20_WriteByte &rArr; DS18B20_SetIOMode &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_UplaodData
-<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureControl
-<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_GetITStatus
-<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ClearITPendingBit
+<BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_UplaodData
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_TemperatureControl
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
+<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_GetITStatus
+<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ClearITPendingBit
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(RESET)
 </UL>
 <P><STRONG><a name="[27]"></a>TIM3_IRQHandler</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, tim.o(i.TIM3_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = TIM3_IRQHandler &rArr; TIM_GetITStatus
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_GetITStatus
-<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ClearITPendingBit
+<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_GetITStatus
+<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ClearITPendingBit
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(RESET)
 </UL>
-<P><STRONG><a name="[70]"></a>TIM_ClearITPendingBit</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_ClearITPendingBit))
+<P><STRONG><a name="[72]"></a>TIM_ClearITPendingBit</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_ClearITPendingBit))
 <BR><BR>[Called By]<UL><LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM3_IRQHandler
 <LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_IRQHandler
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM3_Config
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM2_Config
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM3_Config
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM2_Config
 </UL>
 
-<P><STRONG><a name="[72]"></a>TIM_Cmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_Cmd))
-<BR><BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalance
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM3_Config
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM2_Config
+<P><STRONG><a name="[74]"></a>TIM_Cmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_Cmd))
+<BR><BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_Heating
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_BuildBalance
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM3_Config
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM2_Config
 </UL>
 
-<P><STRONG><a name="[d8]"></a>TIM_GetITStatus</STRONG> (Thumb, 34 bytes, Stack size 12 bytes, stm32f10x_tim.o(i.TIM_GetITStatus))
+<P><STRONG><a name="[d9]"></a>TIM_GetITStatus</STRONG> (Thumb, 34 bytes, Stack size 12 bytes, stm32f10x_tim.o(i.TIM_GetITStatus))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = TIM_GetITStatus
 </UL>
 <BR>[Called By]<UL><LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM3_IRQHandler
 <LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_IRQHandler
 </UL>
 
-<P><STRONG><a name="[71]"></a>TIM_ITConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_ITConfig))
-<BR><BR>[Called By]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM3_Config
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM2_Config
+<P><STRONG><a name="[73]"></a>TIM_ITConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_ITConfig))
+<BR><BR>[Called By]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM3_Config
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM2_Config
 </UL>
 
-<P><STRONG><a name="[79]"></a>TIM_OC4Init</STRONG> (Thumb, 114 bytes, Stack size 16 bytes, stm32f10x_tim.o(i.TIM_OC4Init))
+<P><STRONG><a name="[7b]"></a>TIM_OC4Init</STRONG> (Thumb, 114 bytes, Stack size 16 bytes, stm32f10x_tim.o(i.TIM_OC4Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = TIM_OC4Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM4_Config
+<BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM4_Config
 </UL>
 
-<P><STRONG><a name="[7a]"></a>TIM_OC4PreloadConfig</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_OC4PreloadConfig))
-<BR><BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM4_Config
+<P><STRONG><a name="[7c]"></a>TIM_OC4PreloadConfig</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_OC4PreloadConfig))
+<BR><BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM4_Config
 </UL>
 
-<P><STRONG><a name="[8e]"></a>TIM_SetCompare4</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_SetCompare4))
-<BR><BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_SetDutyCycle
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalance
+<P><STRONG><a name="[84]"></a>TIM_SetCompare4</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_SetCompare4))
+<BR><BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_SetDutyCycle
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_Heating
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_BuildBalance
 </UL>
 
-<P><STRONG><a name="[6f]"></a>TIM_TimeBaseInit</STRONG> (Thumb, 122 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_TimeBaseInit))
-<BR><BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM4_Config
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM3_Config
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM2_Config
+<P><STRONG><a name="[71]"></a>TIM_TimeBaseInit</STRONG> (Thumb, 122 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_TimeBaseInit))
+<BR><BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM4_Config
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM3_Config
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM2_Config
 </UL>
 
 <P><STRONG><a name="[2f]"></a>USART1_IRQHandler</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, usart.o(i.USART1_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 304<LI>Call Chain = USART1_IRQHandler &rArr; ESP8266_Handler &rArr; ESP8266_Cmd &rArr; __2sprintf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Handler
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ReceiveData
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetITStatus
+<BR>[Calls]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Handler
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ReceiveData
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetITStatus
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(RESET)
 </UL>
@@ -1745,188 +1774,189 @@ Global Symbols
 <P><STRONG><a name="[31]"></a>USART3_IRQHandler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, usart.o(i.USART3_IRQHandler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(RESET)
 </UL>
-<P><STRONG><a name="[de]"></a>USART_Cmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_usart.o(i.USART_Cmd))
-<BR><BR>[Called By]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Config
+<P><STRONG><a name="[df]"></a>USART_Cmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_usart.o(i.USART_Cmd))
+<BR><BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Config
 </UL>
 
-<P><STRONG><a name="[db]"></a>USART_Config</STRONG> (Thumb, 314 bytes, Stack size 48 bytes, usart.o(i.USART_Config))
+<P><STRONG><a name="[dc]"></a>USART_Config</STRONG> (Thumb, 314 bytes, Stack size 48 bytes, usart.o(i.USART_Config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 116<LI>Call Chain = USART_Config &rArr; USART_Init &rArr; RCC_GetClocksFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
-<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
-<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ITConfig
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Cmd
+<BR>[Calls]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
+<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ITConfig
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Cmd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[d9]"></a>USART_GetITStatus</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, stm32f10x_usart.o(i.USART_GetITStatus))
+<P><STRONG><a name="[da]"></a>USART_GetITStatus</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, stm32f10x_usart.o(i.USART_GetITStatus))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = USART_GetITStatus
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
 </UL>
 
-<P><STRONG><a name="[dd]"></a>USART_ITConfig</STRONG> (Thumb, 74 bytes, Stack size 20 bytes, stm32f10x_usart.o(i.USART_ITConfig))
+<P><STRONG><a name="[de]"></a>USART_ITConfig</STRONG> (Thumb, 74 bytes, Stack size 20 bytes, stm32f10x_usart.o(i.USART_ITConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = USART_ITConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Config
+<BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Config
 </UL>
 
-<P><STRONG><a name="[dc]"></a>USART_Init</STRONG> (Thumb, 210 bytes, Stack size 56 bytes, stm32f10x_usart.o(i.USART_Init))
+<P><STRONG><a name="[dd]"></a>USART_Init</STRONG> (Thumb, 210 bytes, Stack size 56 bytes, stm32f10x_usart.o(i.USART_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = USART_Init &rArr; RCC_GetClocksFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_GetClocksFreq
+<BR>[Calls]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_GetClocksFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Config
+<BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Config
 </UL>
 
-<P><STRONG><a name="[da]"></a>USART_ReceiveData</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f10x_usart.o(i.USART_ReceiveData))
+<P><STRONG><a name="[db]"></a>USART_ReceiveData</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f10x_usart.o(i.USART_ReceiveData))
 <BR><BR>[Called By]<UL><LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
 </UL>
 
-<P><STRONG><a name="[bc]"></a>USART_Send</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, usart.o(i.USART_Send))
-<BR><BR>[Called By]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SendByte
+<P><STRONG><a name="[be]"></a>USART_Send</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, usart.o(i.USART_Send))
+<BR><BR>[Called By]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SendByte
 </UL>
 
-<P><STRONG><a name="[e0]"></a>__0sprintf</STRONG> (Thumb, 34 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
+<P><STRONG><a name="[e1]"></a>__0sprintf</STRONG> (Thumb, 34 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sputc
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[f8]"></a>__1sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
+<P><STRONG><a name="[f9]"></a>__1sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
 
-<P><STRONG><a name="[8a]"></a>__2sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf))
+<P><STRONG><a name="[82]"></a>__2sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_DisplayData
-<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Cmd
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_UplaodData
-<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Handler
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowDataScreen
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalance
+<BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_DisplayData
+<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Cmd
+<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_UplaodData
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Handler
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_ShowDataScreen
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_Heating
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_BuildBalance
 </UL>
 
-<P><STRONG><a name="[f9]"></a>__c89sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
+<P><STRONG><a name="[fa]"></a>__c89sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
 
-<P><STRONG><a name="[fa]"></a>sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
+<P><STRONG><a name="[fb]"></a>sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
 
-<P><STRONG><a name="[fb]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[fc]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
 
-<P><STRONG><a name="[fc]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+<P><STRONG><a name="[fd]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
 
-<P><STRONG><a name="[fd]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+<P><STRONG><a name="[fe]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
-<P><STRONG><a name="[86]"></a>delay_ms</STRONG> (Thumb, 56 bytes, Stack size 0 bytes, delay.o(i.delay_ms))
-<BR><BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Handler
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
-<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_s
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
-<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_WelcomeScreen
+<P><STRONG><a name="[b1]"></a>delay_ms</STRONG> (Thumb, 56 bytes, Stack size 0 bytes, delay.o(i.delay_ms))
+<BR><BR>[Called By]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Handler
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadTemp
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_s
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Clear
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_WelcomeScreen
 </UL>
 
-<P><STRONG><a name="[b5]"></a>delay_s</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, delay.o(i.delay_s))
+<P><STRONG><a name="[af]"></a>delay_s</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, delay.o(i.delay_s))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = delay_s
 </UL>
-<BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_WelcomeScreen
-</UL>
-
-<P><STRONG><a name="[81]"></a>delay_us</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, delay.o(i.delay_us))
-<BR><BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_WriteByte
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadByte
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_Init
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
+<BR>[Called By]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_WelcomeScreen
 </UL>
 
-<P><STRONG><a name="[46]"></a>main</STRONG> (Thumb, 292 bytes, Stack size 0 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 328<LI>Call Chain = main &rArr; DYY_SystemSetting &rArr; QPYLCD_DisplayInt &rArr; QPYLCD_DisplayString &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
+<P><STRONG><a name="[b5]"></a>delay_us</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, delay.o(i.delay_us))
+<BR><BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_WriteByte
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_ReadByte
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_Init
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
 </UL>
-<BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Config
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
-<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Init
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Control
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_Init
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MemReadByte
-<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY_Init
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Init
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EC11_Init
-<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_WelcomeScreen
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureSettingScreen
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_TemperatureSetting
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSettingScreen
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_SystemSetting
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowDataScreen
-<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_ShowData
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_RecordingScreen
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Recording
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumberScreen
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_InputStudentNumber
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_HeatingScreen
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Heating
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_CompleteScreen
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_Complete
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalanceScreen
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DYY_BuildBalance
-<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BEEP_Init
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM3_Config
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM2_Config
+
+<P><STRONG><a name="[46]"></a>main</STRONG> (Thumb, 296 bytes, Stack size 0 bytes, main.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 328<LI>Call Chain = main &rArr; DRY_SystemSetting &rArr; QPYLCD_DisplayInt &rArr; QPYLCD_DisplayString &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData &rArr; QPYLCD_ProcessData
+</UL>
+<BR>[Calls]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Config
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Init
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_Control
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_Init
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MemReadByte
+<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY_Init
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Init
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EC11_Init
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_WelcomeScreen
+<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_TemperatureSettingScreen
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_TemperatureSetting
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_SystemSettingScreen
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_SystemSetting
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_ShowDataScreen
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_ShowData
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_RecordingScreen
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_Recording
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_InputStudentNumberScreen
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_InputStudentNumber
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_HeatingScreen
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_Heating
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_CompleteScreen
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_Complete
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_BuildBalanceScreen
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_BuildBalance
+<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BEEP_Init
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM3_Config
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASICTIM2_Config
+<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AT24CXX_Init
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL><P>
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[d6]"></a>SetSysClock</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, system_stm32f10x.o(i.SetSysClock))
+<P><STRONG><a name="[d7]"></a>SetSysClock</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, system_stm32f10x.o(i.SetSysClock))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = SetSysClock &rArr; SetSysClockTo72
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSysClockTo72
+<BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSysClockTo72
 </UL>
 <BR>[Called By]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
 </UL>
 
-<P><STRONG><a name="[d7]"></a>SetSysClockTo72</STRONG> (Thumb, 214 bytes, Stack size 12 bytes, system_stm32f10x.o(i.SetSysClockTo72))
+<P><STRONG><a name="[d8]"></a>SetSysClockTo72</STRONG> (Thumb, 214 bytes, Stack size 12 bytes, system_stm32f10x.o(i.SetSysClockTo72))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = SetSysClockTo72
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSysClock
+<BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSysClock
 </UL>
 
-<P><STRONG><a name="[e2]"></a>_fp_digits</STRONG> (Thumb, 366 bytes, Stack size 64 bytes, printfa.o(i._fp_digits), UNUSED)
+<P><STRONG><a name="[e3]"></a>_fp_digits</STRONG> (Thumb, 366 bytes, Stack size 64 bytes, printfa.o(i._fp_digits), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2ulz
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[e1]"></a>_printf_core</STRONG> (Thumb, 1744 bytes, Stack size 136 bytes, printfa.o(i._printf_core), UNUSED)
+<P><STRONG><a name="[e2]"></a>_printf_core</STRONG> (Thumb, 1744 bytes, Stack size 136 bytes, printfa.o(i._printf_core), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
-<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0sprintf
-</UL>
-
-<P><STRONG><a name="[e5]"></a>_printf_post_padding</STRONG> (Thumb, 36 bytes, Stack size 24 bytes, printfa.o(i._printf_post_padding), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<BR>[Called By]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0sprintf
 </UL>
 
-<P><STRONG><a name="[e4]"></a>_printf_pre_padding</STRONG> (Thumb, 46 bytes, Stack size 24 bytes, printfa.o(i._printf_pre_padding), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<P><STRONG><a name="[e6]"></a>_printf_post_padding</STRONG> (Thumb, 36 bytes, Stack size 24 bytes, printfa.o(i._printf_post_padding), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+</UL>
+
+<P><STRONG><a name="[e5]"></a>_printf_pre_padding</STRONG> (Thumb, 46 bytes, Stack size 24 bytes, printfa.o(i._printf_pre_padding), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
 <P><STRONG><a name="[4d]"></a>_sputc</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, printfa.o(i._sputc))
-<BR><BR>[Called By]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0sprintf
+<BR><BR>[Called By]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0sprintf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> printfa.o(i.__0sprintf)
 </UL>

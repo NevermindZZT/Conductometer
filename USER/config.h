@@ -8,6 +8,7 @@
 #include	"delay.h"
 #include	"usart.h"
 #include	"tim.h"
+#include	"iic.h"
 
 #include	"asciifont.h"
 #include	"font.h"
@@ -21,6 +22,7 @@
 #include	"pwm.h"
 #include	"eeprom.h"
 #include	"beep.h"
+#include	"at24cxx.h"
 
 /*---------------------实验步骤宏定义-------------------*/
 //#define		INPUTSTUDENTNUMBER		1
@@ -47,7 +49,7 @@ typedef struct																//单次记录数据
 {
 	uint32_t time;															//记录数据的时间
 	float temperature;														//记录数据的温度
-}DYY_MeasuredData;
+}DRY_MeasuredData;
 
 typedef struct																//实验数据
 {
@@ -57,11 +59,11 @@ typedef struct																//实验数据
 	float settedTemperature;												//设置加热盘温度
 	float balanceTempeatrue;												//稳恒态散热盘温度
 	float heatingTempeatrue;												//升温后散热盘温度
-	DYY_MeasuredData measuredData[20];										//实验数据
-}DYY_ExperimentalData;
+	DRY_MeasuredData measuredData[20];										//实验数据
+}DRY_ExperimentalData;
 
 /*---------------------变量声明----------------------*/
-extern DYY_ExperimentalData experimentalData;
+extern DRY_ExperimentalData experimentalData;
 
 extern uint8_t screenBrightness;
 

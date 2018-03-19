@@ -18,9 +18,10 @@
 .\objects\usart.o: .\FWLB\inc\stm32f10x_usart.h
 .\objects\usart.o: USER\tim.h
 .\objects\usart.o: .\FWLB\inc\stm32f10x_tim.h
+.\objects\usart.o: USER\iic.h
+.\objects\usart.o: USER\config.h
 .\objects\usart.o: .\asciifont.h
 .\objects\usart.o: .\font.h
-.\objects\usart.o: .\USER\config.h
 .\objects\usart.o: USER\qpylcd.h
 .\objects\usart.o: USER\ds18b20.h
 .\objects\usart.o: USER\esp8266.h
@@ -30,3 +31,4 @@
 .\objects\usart.o: USER\pwm.h
 .\objects\usart.o: USER\eeprom.h
 .\objects\usart.o: USER\beep.h
+.\objects\usart.o: USER\at24cxx.h

@@ -8,7 +8,7 @@
 #define		PWM_GPIO_PIN		GPIO_Pin_12
 
 #define		PWMEnable()			TIM_Cmd(TIM4, ENABLE)
-#define		PWMDisable()		TIM_SetCompare4(TIM4, 0);TIM_Cmd(TIM4, DISABLE)
+#define		PWMDisable()		TIM_SetCompare4(TIM4, 0);TIM_Cmd(TIM4, DISABLE);GPIO_SetBits(GPIOD, GPIO_Pin_15)
 
 
 void PWM_Init(void);

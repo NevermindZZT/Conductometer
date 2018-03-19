@@ -95,7 +95,9 @@
 #define		YELLOW					0xFC												//黄色
 #define		WHITE					0xFF												//白色
 
+#ifndef		NULL
 #define		NULL					0
+#endif
 
 /*--------------------LCD操作端口宏定义--------------------*/
 #define		QPYLCDRS_LOW			GPIO_ResetBits(LCDRS_GPIO_PORT, LCDRS_GPIO_PIN)		//RS低电平

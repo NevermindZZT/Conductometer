@@ -135,12 +135,12 @@ void TIM2_IRQHandler(void)
 				&& (experimentalData.progress == TEMPERATURESETTING || experimentalData.progress == HEATTING
 				|| experimentalData.progress == BUILDBALANCE || experimentalData.progress == RECORDING))
 			{
-				DYY_UplaodData(DEVICE_REGISTER);
+				DRY_UplaodData(DEVICE_REGISTER);
 				registerFlag = 1;
 			}
 			else if (registerFlag == 1)
 			{
-				DYY_UplaodData(DEVICE_DATA);
+				DRY_UplaodData(DEVICE_DATA);
 			}
 		}
 		
@@ -163,7 +163,7 @@ void TIM2_IRQHandler(void)
 			temperatureControl.pidTemperature[1] = temperatureControl.pidTemperature[2];
 			temperatureControl.pidTemperature[2] = DS18B20_ReadTemp(DS18B20B);						//读取加热盘温度
 #endif
-			DYY_TemperatureControl();																
+			DRY_TemperatureControl();																
 		}
 
 		

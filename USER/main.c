@@ -1,11 +1,12 @@
 #include	"config.h"
 
-DYY_ExperimentalData experimentalData;									//实验数据
+DRY_ExperimentalData experimentalData;									//实验数据
 uint8_t screenBrightness;												//亮度
 uint16_t readFlash[2];													//读Flash数据
 
 int main()
 {
+//	uint8_t a[20];
 	
 	QPYLCD_Init();
 	QPYLCD_SetBackColor(WHITE);
@@ -19,6 +20,14 @@ int main()
 	PWM_Init();															//PWM初始化
 	BEEP_Init();														//蜂鸣器初始化
 	ESP8266_Init();														//ESP8266初始化
+	AT24CXX_Init();
+	
+//	printf("AT24C02 Init\r\n");
+//	AT24CXX_WriteOneByte(1, 'A');
+//	printf("read a byte:%c\r\n", AT24CXX_ReadOneByte(1));
+//	AT24CXX_Write(5, "data from at24c02", 17);
+//	AT24CXX_Read(5, a, 17);
+//	printf("read : %s\r\n", a);
 	
 	MemReadByte(readFlash, 2);											//读取flash中保存的机器号和亮度
 	experimentalData.machineNumber = (uint8_t)readFlash[0];
@@ -27,8 +36,8 @@ int main()
 	if ((KEYANDEC11_Scan()) == KEY_ENTER || experimentalData.machineNumber > 30 || experimentalData.machineNumber < 1
 		|| screenBrightness > 7 || screenBrightness < 1)				//进入系统设置
 	{
-		DYY_SystemSettingScreen();
-		DYY_SystemSetting();
+		DRY_SystemSettingScreen();
+		DRY_SystemSetting();
 	}
 	
 	if (screenBrightness < 1 || screenBrightness > 7)					//调节亮度
@@ -37,7 +46,7 @@ int main()
 	}
 	QPYLCD_Control(0, 0, 0, screenBrightness);
 	
-	DYY_WelcomeScreen();												//显示初始化界面(温度传感器初始化)
+	DRY_WelcomeScreen();												//显示初始化界面(温度传感器初始化)
 
 	experimentalData.progress = INPUTSTUDENTNUMBER;						//实验步骤起点
 	
@@ -46,38 +55,38 @@ int main()
 		switch (experimentalData.progress)
 		{
 			case INPUTSTUDENTNUMBER:
-				DYY_InputStudentNumberScreen();
-				DYY_InputStudentNumber();
+				DRY_InputStudentNumberScreen();
+				DRY_InputStudentNumber();
 				break;
 			
 			case TEMPERATURESETTING:
-				DYY_TemperatureSettingScreen();
-				DYY_TemperatureSetting();
+				DRY_TemperatureSettingScreen();
+				DRY_TemperatureSetting();
 				break;
 			
 			case BUILDBALANCE:
-				DYY_BuildBalanceScreen();
-				DYY_BuildBalance();
+				DRY_BuildBalanceScreen();
+				DRY_BuildBalance();
 				break;
 			
 			case HEATTING:
-				DYY_HeatingScreen();
-				DYY_Heating();
+				DRY_HeatingScreen();
+				DRY_Heating();
 				break;
 			
 			case RECORDING:
-				DYY_RecordingScreen();
-				DYY_Recording();
+				DRY_RecordingScreen();
+				DRY_Recording();
 				break;
 			
 			case SHOWDATA:
-				DYY_ShowDataScreen();
-				DYY_ShowData();
+				DRY_ShowDataScreen();
+				DRY_ShowData();
 				break;
 			
 			case COMPLETE:
-				DYY_CompleteScreen();
-				DYY_Complete();
+				DRY_CompleteScreen();
+				DRY_Complete();
 				break;
 			
 			default:
