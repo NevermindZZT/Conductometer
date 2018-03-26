@@ -122,58 +122,130 @@ uint8_t KEY_Scan(void)
 *参数：		无
 *返回值：	键值(1~23,0为无按键按下，17~23为EC11状态)
 ***********************************************/
-uint8_t KEYANDEC11_Scan(void)	
+//uint8_t KEYANDEC11_Scan(void)	
+//{
+//	static uint8_t lastKeyValue;
+//	uint8_t i;
+//	uint8_t scanData = 0;
+//	uint8_t keyValue = 0;
+//	int8_t ec11Data;
+//	const uint8_t writeData[] = {0x0E, 0x0D, 0x0B, 0x07};
+//	uint16_t count;
+//	
+//	for (i = 0; i < 4; i++)
+//	{
+//		KEY_Write(writeData[i]);
+//		
+//		//delay_ms(10);
+//				
+//		count = 25000;
+//		while (count--)
+//		{
+//			ec11Data = EC11_Scan();
+//			if (ec11Data != 0)
+//			{
+//				return 20 + ec11Data;
+//			}
+//			delay_us(1);
+//		}
+////		if (KEY_Read() != 0x0F)
+////			delay_ms(10);
+//		
+//		switch (KEY_Read())
+//		{
+//			case 0x0E:
+//				scanData += 1;
+////				return scanData;
+//				keyValue = scanData;
+//				break;
+//			
+//			case 0x0D:
+//				scanData += 2;
+////				return scanData;
+//				keyValue = scanData;
+//				break;
+//			
+//			case 0x0B:
+//				scanData += 3;
+////				return scanData;
+//				keyValue = scanData;
+//				break;
+//			
+//			case 0x07:
+//				scanData += 4;
+////				return scanData;
+//				keyValue = scanData;
+//				break;
+//			
+//			default:
+//				break;
+//		}
+//		scanData += 4;
+//	}
+//	
+//	if (keyValue == lastKeyValue)													//防止按键连续动作
+//	{
+//		keyValue  = 0;
+//	}
+//	lastKeyValue = keyValue;
+//	
+//	return keyValue;
+//}
+
+
+uint8_t KEYANDEC11_Scan(void)
 {
 	static uint8_t lastKeyValue;
+	uint16_t count;
 	uint8_t i;
+	int8_t ec11Data;
 	uint8_t scanData = 0;
 	uint8_t keyValue = 0;
-	int8_t ec11Data;
 	const uint8_t writeData[] = {0x0E, 0x0D, 0x0B, 0x07};
-	uint16_t count;
+	
+	KEY_Write(0x00);
+	count = 10000;
+	while((KEY_Read() == 0x0F) && (count != 0))
+	{
+		ec11Data = EC11_Scan();
+		if (ec11Data != 0)
+		{
+			return 40 + ec11Data;
+		}
+		delay_us(1);
+		count--;
+	}
+	if (count == 0)
+	{
+		lastKeyValue = 0;
+		return 0;
+	}
+	
+	delay_ms(5);
 	
 	for (i = 0; i < 4; i++)
 	{
 		KEY_Write(writeData[i]);
-		
-		//delay_ms(10);
-				
-		count = 25000;
-		while (count--)
-		{
-			ec11Data = EC11_Scan();
-			if (ec11Data != 0)
-			{
-				return 20 + ec11Data;
-			}
-			delay_us(1);
-		}
-//		if (KEY_Read() != 0x0F)
-//			delay_ms(10);
-		
+		delay_us(1);
 		switch (KEY_Read())
 		{
 			case 0x0E:
 				scanData += 1;
-//				return scanData;
 				keyValue = scanData;
 				break;
 			
 			case 0x0D:
 				scanData += 2;
-//				return scanData;
 				keyValue = scanData;
 				break;
 			
 			case 0x0B:
 				scanData += 3;
-//				return scanData;
 				keyValue = scanData;
 				break;
 			
 			case 0x07:
 				scanData += 4;
-//				return scanData;
 				keyValue = scanData;
 				break;
 			
@@ -182,12 +254,31 @@ uint8_t KEYANDEC11_Scan(void)
 		}
 		scanData += 4;
 	}
-	
-	if (keyValue == lastKeyValue)													//防止按键连续动作
+	if (keyValue == 0)
 	{
-		keyValue  = 0;
+		lastKeyValue = 0;
+		return keyValue;
+	}
+	
+	KEY_Write(0x00);
+	count = 0;
+	while ((KEY_Read() != 0x0F) && count < 1000)
+	{
+		count++;
+		delay_ms(1);
+	}
+	
+	if (count > 500)
+	{
+		keyValue += 20;
+	}
+	if ((lastKeyValue == keyValue) || (lastKeyValue == keyValue + 20) || (lastKeyValue == keyValue -20))
+	{
+		keyValue = 0;
+		return 0;
 	}
 	lastKeyValue = keyValue;
 	
 	return keyValue;
 }
+

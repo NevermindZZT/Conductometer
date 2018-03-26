@@ -91,15 +91,15 @@ void DRY_SystemSetting(void)
 					}
 					break;
 				
-				case KEY_ENTER:																	//按键确认
-					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
-					{
+				case KEY_ENTER_LONG:																	//按键确认
+//					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
+//					{
 						readFlash[0] = experimentalData.machineNumber = tempData[0];			//保存设置数据
 						readFlash[1] = screenBrightness = tempData[1];
 						MemWriteByte(readFlash, 2);												//写入Flash
 						return;
-					}
-					break;
+//					}
+//					break;
 				
 				case EC11_UP:																	//编码器顺时针
 					tempData[i]++ ;																//设置数据增加
@@ -258,9 +258,9 @@ void DRY_InputStudentNumber(void)
 					}
 					break;
 				
-				case KEY_ENTER:																	//按键确定
-					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
-					{
+				case KEY_ENTER_LONG:																	//按键确定
+//					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
+//					{
 						DRY_EnterDialogScreen();												//显示确认弹窗
 						if (DRY_EnterDialog() == 0)												//判断弹窗动作，返回0为确定
 						{
@@ -280,7 +280,7 @@ void DRY_InputStudentNumber(void)
 							}
 						}
 						
-					}
+//					}
 					break;
 				
 				case EC11_UP:																	//编码器顺时针
@@ -359,16 +359,19 @@ void DRY_TemperatureSetting(void)
 						i--;
 						xLabel -= 16;
 					}
+					break;
+					
 #ifdef		ALLOWBACK																			//允许长按返回上一步骤
-					QPYLCD_DisplayInt(xLabel, 168, RED, FONT16X24, tempData[i]);				//刷新显示，消除由于长按返回造成的显示延迟
-					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_LEFT)
-						&& KEYANDEC11_Scan() == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_LEFT))	//超级长按,返回上一步骤
-					{
+				case KEY_LEFT_LONG:
+//					QPYLCD_DisplayInt(xLabel, 168, RED, FONT16X24, tempData[i]);				//刷新显示，消除由于长按返回造成的显示延迟
+//					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_LEFT)
+//						&& KEYANDEC11_Scan() == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_LEFT))	//超级长按,返回上一步骤
+//					{
 						experimentalData.progress = INPUTSTUDENTNUMBER;							//进入上一步骤
 						return;
-					}
+//					}
+//					break;
 #endif
-					break;
 				
 				case KEY_RIGHT:																	//按键右，光标右移
 					if (i < 1)
@@ -379,9 +382,9 @@ void DRY_TemperatureSetting(void)
 					}	
 					break;
 				
-				case KEY_ENTER:																	//按键确认
-					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
-					{
+				case KEY_ENTER_LONG:																	//按键确认
+//					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
+//					{
 						DRY_EnterDialogScreen();												//显示确认弹窗
 						if (DRY_EnterDialog() == 0)												//判断弹窗动作，返回0为确定
 						{
@@ -396,7 +399,7 @@ void DRY_TemperatureSetting(void)
 							QPYLCD_DisplayInt(316, 168, BLACK, FONT16X24, tempData[0]);			//恢复数据显示
 							QPYLCD_DisplayInt(332, 168, BLACK, FONT16X24, tempData[1]);
 						}
-					}
+//					}
 					break;
 				
 				case EC11_UP:																	//编码器顺时针
@@ -507,17 +510,17 @@ void DRY_BuildBalance(void)
 		{
 			switch (scanData)
 			{
-				case KEY_LEFT:																	//按键左
 #ifdef		ALLOWBACK																			//允许长按返回上一步骤
-					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_LEFT)
-						&& KEYANDEC11_Scan() == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_LEFT))	//超级长按,返回上一步骤
-					{
+				case KEY_LEFT_LONG:																	//按键左
+//					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_LEFT)
+//						&& KEYANDEC11_Scan() == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_LEFT))	//超级长按,返回上一步骤
+//					{
 						HeatingDisable();														//关闭加热
 						experimentalData.progress = TEMPERATURESETTING;							//进入上一步骤
 						return;
-					}
+//					}
 #endif
-					break;
+//					break;
 				
 				case KEY_COUNT:																	//按键计时，重新计时
 					tim3Count = 0;																//计时器归零
@@ -526,9 +529,9 @@ void DRY_BuildBalance(void)
 					QPYLCD_DisplayString(149, 216, BLACK, FONT16X24, str);
 					break;
 				
-				case KEY_ENTER:																	//按键确认
-					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
-					{
+				case KEY_ENTER_LONG:																	//按键确认
+//					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
+//					{
 						DRY_EnterDialogScreen();												//显示确认弹窗
 						if (DRY_EnterDialog() == 0)												//判断弹窗动作，返回0为确定
 						{
@@ -546,7 +549,7 @@ void DRY_BuildBalance(void)
 							sprintf((char *)str, "%-5.1f", tempB);
 							QPYLCD_DisplayString(149, 216, BLACK, FONT16X24, str);
 						}
-					}
+//					}
 					break;
 				
 				default:
@@ -621,21 +624,21 @@ void DRY_Heating(void)
 		{
 			switch (scanData)
 			{
-				case KEY_LEFT:																	//按键左
 #ifdef		ALLOWBACK																			//允许长按返回上一步骤
-					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_LEFT)
-						&& KEYANDEC11_Scan() == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_LEFT))	//超级长按,返回上一步骤
-					{
+				case KEY_LEFT_LONG:																	//按键左
+//					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_LEFT)
+//						&& KEYANDEC11_Scan() == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_LEFT))	//超级长按,返回上一步骤
+//					{
 						HeatingDisable();														//关闭加热
 						experimentalData.progress = BUILDBALANCE;								//进入上一步骤
 						return;
-					}
+//					}
 #endif
-					break;
+//					break;
 				
-				case KEY_ENTER:																	//按键确认
-					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
-					{
+				case KEY_ENTER_LONG:																	//按键确认
+//					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
+//					{
 						DRY_EnterDialogScreen();												//显示确认弹窗
 						if (DRY_EnterDialog() == 0)												//判断弹窗动作，返回0为确定
 						{
@@ -650,7 +653,7 @@ void DRY_Heating(void)
 						{
 							DRY_HeatingScreen();												//刷新显示
 						}
-					}
+//					}
 					break;
 				
 				default:
@@ -735,16 +738,16 @@ void DRY_Recording(void)
 		{
 			switch (scanData)
 			{
-				case KEY_LEFT:																	//按键左
 #ifdef		ALLOWBACK																			//允许长按返回上一步骤
-					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_LEFT)
-						&& KEYANDEC11_Scan() == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_LEFT))	//超级长按,返回上一步骤
-					{
+				case KEY_LEFT_LONG:																	//按键左
+//					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_LEFT)
+//						&& KEYANDEC11_Scan() == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_LEFT))	//超级长按,返回上一步骤
+//					{
 						experimentalData.progress = HEATTING;									//进入上一步骤
 						return;
-					}
+//					}
 #endif
-					break;
+//					break;
 				
 				case KEY_COUNT:																	//按键计数
 					if (group <= 20)
@@ -755,9 +758,9 @@ void DRY_Recording(void)
 					}
 					break;
 				
-				case KEY_ENTER:																	//按键确认
-					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
-					{
+				case KEY_ENTER_LONG:																	//按键确认
+//					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
+//					{
 						DRY_EnterDialogScreen();												//显示确认弹窗
 						if (DRY_EnterDialog() == 0)												//判断弹窗动作，返回0为确定
 						{
@@ -780,7 +783,7 @@ void DRY_Recording(void)
 									experimentalData.measuredData[j].temperature, BLACK);
 							}
 						}
-					}
+//					}
 					break;
 				
 				default:
@@ -893,24 +896,24 @@ void DRY_ShowData(void)
 		{
 			switch (scanData)
 			{
-				case KEY_LEFT:																	//按键左
 #ifdef		ALLOWBACK																			//允许长按返回上一步骤
-					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_LEFT)
-						&& KEYANDEC11_Scan() == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_LEFT))	//超级长按,返回上一步骤
-					{
+				case KEY_LEFT_LONG:																	//按键左
+//					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_LEFT)
+//						&& KEYANDEC11_Scan() == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_LEFT))	//超级长按,返回上一步骤
+//					{
 						experimentalData.progress = RECORDING;									//进入上一步骤
 						return;
-					}
+//					}
 #endif
-					break;
+//					break;
 					
-				case KEY_ENTER:																	//按键确认
-					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
-					{
+				case KEY_ENTER_LONG:																	//按键确认
+//					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
+//					{
 						experimentalData.progress = COMPLETE;									//进入下一步骤
 						return;
-					}
-					break;
+//					}
+//					break;
 			}
 		}
 	}

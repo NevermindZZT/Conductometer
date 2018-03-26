@@ -42,11 +42,11 @@ void IIC_Start(void)
 	IIC_SdaSet();
 	IIC_SclSet();
 	
-	delay_us(4);
+	delay_us(6);
 	
 	IIC_SdaReset();
 	
-	delay_us(4);
+	delay_us(6);
 	
 	IIC_SclReset();
 }
@@ -59,13 +59,13 @@ void IIC_Stop(void)
 	IIC_SclReset();
 	IIC_SdaReset();
 	
-	delay_us(4);
+	delay_us(6);
 	
 	IIC_SclSet();
 	
-	IIC_SdaSet();
+	delay_us(6);
 	
-	delay_us(4);
+	IIC_SdaSet();
 }
 
 
@@ -109,7 +109,7 @@ void IIC_Ack(void)
 	
 	delay_us(2);
 	IIC_SclSet();
-	delay_us(2);
+	delay_us(5);
 	IIC_SclReset();
 }
 
@@ -125,7 +125,7 @@ void IIC_Nack(void)
 	
 	delay_us(2);
 	IIC_SclSet();
-	delay_us(2);
+	delay_us(5);
 	IIC_SclReset();
 }
 

@@ -57,8 +57,14 @@
 #define		KEY_COUNT			12
 #define		KEY_UP				13
 
-#define		EC11_UP				21
-#define		EC11_DOWN			19
+#define		KEY_ENTER_LONG		36
+#define		KEY_RIGHT_LONG		23
+#define		KEY_LEFT_LONG		27
+#define		KEY_COUNT_LONG		32
+#define		KEY_UP_LONG			33
+
+#define		EC11_UP				41
+#define		EC11_DOWN			39
 
 void KEY_Init(void);
 
