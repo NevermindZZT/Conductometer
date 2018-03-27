@@ -4,7 +4,7 @@ DRY_ExperimentalData experimentalData;									//实验数据
 uint8_t screenBrightness;												//亮度
 uint16_t readFlash[2];													//读Flash数据
 
-int main()
+int main(void)
 {
 	uint8_t a[20];
 	

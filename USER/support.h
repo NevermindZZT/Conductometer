@@ -35,7 +35,7 @@
 #define		PID_KD				8													//PID算法微分系数
 #endif
 
-#define		SOFTWAREVERSION		"0.3.2-Alpha"											//软件版本
+#define		SOFTWAREVERSION		"0.3.3-Alpha"											//软件版本
 
 #define		HeatingEnable()		PWMEnable();temperatureControl.isHeating = TRUE		//开始加热
 #define		HeatingDisable()	temperatureControl.isHeating = FALSE;PWMDisable()	//结束加热

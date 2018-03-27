@@ -210,7 +210,7 @@ uint8_t KEYANDEC11_Scan(void)
 		ec11Data = EC11_Scan();
 		if (ec11Data != 0)
 		{
-			return 40 + ec11Data;
+			return 60 + ec11Data;
 		}
 		delay_us(1);
 		count--;
@@ -262,7 +262,7 @@ uint8_t KEYANDEC11_Scan(void)
 	
 	KEY_Write(0x00);
 	count = 0;
-	while ((KEY_Read() != 0x0F) && count < 1000)
+	while ((KEY_Read() != 0x0F) && count < 10000)
 	{
 		count++;
 		delay_ms(1);
@@ -272,6 +272,26 @@ uint8_t KEYANDEC11_Scan(void)
 	{
 		keyValue += 20;
 	}
+#ifdef	KEY_DOUBLE_CLICK
+	else
+	{
+		KEY_Write(0x00);
+		delay_ms(100);
+		if (KEY_Read() != 0x0F)
+		{
+			keyValue += 40;
+			delay_ms(10);
+			KEY_Write(0x00);
+			count = 0;
+			while ((KEY_Read() != 0x0F) && count < 500)
+			{
+				count++;
+				delay_ms(1);
+			}
+		}
+	}
+#endif
+	
 	if ((lastKeyValue == keyValue) || (lastKeyValue == keyValue + 20) || (lastKeyValue == keyValue -20))
 	{
 		keyValue = 0;

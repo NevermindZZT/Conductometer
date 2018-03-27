@@ -10,6 +10,8 @@
 
 #include	"config.h"
 
+//#define		KEY_DOUBLE_CLICK														//ÔÊÐíË«»÷
+
 #define		KEYC_GPIO_CLK		RCC_APB2Periph_GPIOA
 #define		KEYC_GPIO_PORT		GPIOA
 #define		KEYC_GPIO_PIN		GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3
@@ -63,8 +65,8 @@
 #define		KEY_COUNT_LONG		32
 #define		KEY_UP_LONG			33
 
-#define		EC11_UP				41
-#define		EC11_DOWN			39
+#define		EC11_UP				61
+#define		EC11_DOWN			59
 
 void KEY_Init(void);
 
