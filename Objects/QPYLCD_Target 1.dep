@@ -593,7 +593,7 @@ I (USER\pwm.h)(0x5AAF9E8A)
 I (USER\eeprom.h)(0x5A7BAACA)
 I (USER\beep.h)(0x5A7C0E58)
 I (USER\at24cxx.h)(0x5AAE2AFB)
-F (.\USER\key.c)(0x5ABA4253)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\CMSIS -I .\FWLB\inc -I .\STARTUP -I .\USER -I .-I.\RTE\_Target_1-I"D:\Program Files (x86)\keil\ARM\PACK\Keil\STM32F1xx_DFP\2.0.0\Device\Include"-I"D:\Program Files (x86)\keil\ARM\CMSIS\Include"-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\key.o --omf_browse .\objects\key.crf --depend .\objects\key.d)
+F (.\USER\key.c)(0x5ABA45E8)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\CMSIS -I .\FWLB\inc -I .\STARTUP -I .\USER -I .-I.\RTE\_Target_1-I"D:\Program Files (x86)\keil\ARM\PACK\Keil\STM32F1xx_DFP\2.0.0\Device\Include"-I"D:\Program Files (x86)\keil\ARM\CMSIS\Include"-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\key.o --omf_browse .\objects\key.crf --depend .\objects\key.d)
 I (USER\key.h)(0x5ABA4280)
 I (USER\config.h)(0x5AAE1DD8)
 I (.\CMSIS\stm32f10x.h)(0x4C207638)
@@ -798,4 +798,4 @@ I (USER\ec11.h)(0x5A93B236)
 I (USER\pwm.h)(0x5AAF9E8A)
 I (USER\eeprom.h)(0x5A7BAACA)
 I (USER\beep.h)(0x5A7C0E58)
-F (.\README.md)(0x5AB8FFE0)()
+F (.\README.md)(0x5ABA4550)()

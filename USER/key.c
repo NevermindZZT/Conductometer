@@ -262,7 +262,7 @@ uint8_t KEYANDEC11_Scan(void)
 	
 	KEY_Write(0x00);
 	count = 0;
-	while ((KEY_Read() != 0x0F) && count < 10000)
+	while ((KEY_Read() != 0x0F) && count < 1000)
 	{
 		count++;
 		delay_ms(1);
