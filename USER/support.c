@@ -2,7 +2,7 @@
 *             导热仪支持函数                 *
 *         中南大学物理与电子学院             *
 *                张克强                      *
-*                2018/2                      *
+*                2018/3                      *
 *********************************************/
 
 #include	"support.h"
@@ -476,8 +476,10 @@ void DRY_BuildBalance(void)
 	while (KEYANDEC11_Scan() == KEY_ENTER);														//判断按键松开
 	
 	tim3Count = 0;																				//计时器归零
+	
+	while (DS18B20_ReadTemp(DS18B20B) == 85.0)
+		;
 	tempB = DS18B20_ReadTemp(DS18B20B);															//默认刷新一次数据
-	tempB = DS18B20_ReadTemp(DS18B20B);															//重读温度，保证不出错
 	sprintf((char *)str, "%-5.1f", tempB);
 	QPYLCD_DisplayString(149, 216, BLACK, FONT16X24, str);
 	

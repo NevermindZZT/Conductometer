@@ -31,15 +31,18 @@
 
  ### 部分可自定义选项位于相关头文件宏定义区域，可自行修改，说明如下：
 
-| 宏               | 功能                       | 位置      |
-| ---------------- | -------------------------- | --------- |
-| PRINTTOUSART     | 实现printf函数打印到串口1  | usart.h   |
-| PRINTTILCD       | 实现printf函数打印到液晶屏 | qpylcd.h  |
-| ALLOWBACK        | 实验中允许返回上一步骤     | support.h |
-| WIFI_SSID        | 用于连接的WiFi ssid        | esp8266.h |
-| WIFI_PASSWORD    | WiFi密码                   | esp8266.h |
-| TCP_PORT         | TCP服务器监听端口          | esp8266.h |
-| KEY_DOUBLI_CLICK | 按键双击                   | key.h     |
+| 宏                       | 功能                       | 位置      |
+| ------------------------ | -------------------------- | --------- |
+| PRINTTOUSART             | 实现printf函数打印到串口1  | usart.h   |
+| PRINTTILCD               | 实现printf函数打印到液晶屏 | qpylcd.h  |
+| ALLOWBACK                | 实验中允许返回上一步骤     | support.h |
+| WIFI_SSID                | 用于连接的WiFi ssid        | esp8266.h |
+| WIFI_PASSWORD            | WiFi密码                   | esp8266.h |
+| TCP_PORT                 | TCP服务器监听端口          | esp8266.h |
+| KEY_DOUBLE_CLICK         | 按键双击                   | key.h     |
+| KEY_SHORT_PRESS_MAX_TIME | 按键短按最长时间           | key.h     |
+| KEY_LONG_PRESS_MAX_TIME  | 按键长按最长时间           | key.h     |
+| KEY_DOUBLE_CLICK_DELAY   | 按键双击检测延时           | key.h     |
 
 
  ## 软件更新日志：
@@ -105,3 +108,10 @@
  #### 2018/3/27	0.3.3-Alpha
 - 新增按键双击驱动，可通过宏KEY_DOUBLE_CLICK开启，默认关闭
 - 需要注意，若开启按键双击，则按键单击会产生一个小的延时
+
+
+ #### 2018/3/28 0.4-Beta
+- 修复加热不停止的问题（这次是真的修复了）
+- 修复第一次读取温度，显示85度的问题
+- 优化按键双击的判断
+- 新增几个按键相关的宏，用于控制按键的灵敏度

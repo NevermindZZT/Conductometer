@@ -2,7 +2,7 @@
 *              矩阵按键驱动                  *
 *         中南大学物理与电子学院             *
 *                张克强                      *
-*                2018/2                      *
+*                2018/3                      *
 *********************************************/
 
 #ifndef		__KEY_H__
@@ -11,6 +11,10 @@
 #include	"config.h"
 
 //#define		KEY_DOUBLE_CLICK														//允许双击
+
+#define		KEY_SHORT_PRESS_MAX_TIME		500										//短按最大时间，单位ms
+#define		KEY_LONG_PRESS_MAX_TIME			1000									//长按最大时间，单位ms
+#define		KEY_DOUBLE_CLICK_DELAY			100										//双击延时，单位ms
 
 #define		KEYC_GPIO_CLK		RCC_APB2Periph_GPIOA
 #define		KEYC_GPIO_PORT		GPIOA

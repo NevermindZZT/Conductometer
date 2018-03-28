@@ -6,7 +6,7 @@ uint16_t readFlash[2];													//读Flash数据
 
 int main(void)
 {
-	uint8_t a[20];
+//	uint8_t a[20];
 	
 	QPYLCD_Init();
 	QPYLCD_SetBackColor(WHITE);
@@ -22,12 +22,12 @@ int main(void)
 	ESP8266_Init();														//ESP8266初始化
 	AT24CXX_Init();
 	
-	printf("AT24C02 Init\r\n");
-	AT24CXX_WriteOneByte(1, 'A');
-	printf("read a byte:%c\r\n", AT24CXX_ReadOneByte(1));
-	AT24CXX_Write(5, "data from at24c02", 17);
-	AT24CXX_Read(5, a, 17);
-	printf("read : %s\r\n", a);
+//	printf("AT24C02 Init\r\n");
+//	AT24CXX_WriteOneByte(1, 'A');
+//	printf("read a byte:%c\r\n", AT24CXX_ReadOneByte(1));
+//	AT24CXX_Write(5, "data from at24c02", 17);
+//	AT24CXX_Read(5, a, 17);
+//	printf("read : %s\r\n", a);
 	
 	MemReadByte(readFlash, 2);											//读取flash中保存的机器号和亮度
 	experimentalData.machineNumber = (uint8_t)readFlash[0];
