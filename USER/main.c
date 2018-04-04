@@ -33,7 +33,7 @@ int main(void)
 	experimentalData.machineNumber = (uint8_t)readFlash[0];
 	screenBrightness = (uint8_t)readFlash[1];
 	
-	if ((KEYANDEC11_Scan()) == KEY_ENTER || (KEYANDEC11_Scan()) == KEY_ENTER_LONG
+	if ((KEYANDEC11_Scan()) == KEY_ENTER_LONG
 		|| experimentalData.machineNumber > 30 || experimentalData.machineNumber < 1
 		|| screenBrightness > 7 || screenBrightness < 1)				//进入系统设置
 	{

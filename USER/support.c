@@ -770,7 +770,7 @@ void DRY_Recording(void)
 							{
 								experimentalData.measuredData[group - 1].time = tim3Count;
 								experimentalData.measuredData[group - 1].temperature = tempB;
-								DRY_DisplayData(group++, tim3Count, tempB, BLACK);
+//								DRY_DisplayData(group++, tim3Count, tempB, BLACK);				//此处注释，没有必要刷新
 							}
 							experimentalData.progress = SHOWDATA;								//进入下一步骤
 							return;
