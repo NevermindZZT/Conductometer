@@ -23,12 +23,12 @@
 
 #define		IIC_SdaRead()			GPIO_ReadInputDataBit(IICSDA_GPIO_PORT, IICSDA_GPIO_PIN)
 
-#define		IIC_SdaIn()				IIC_SetSdaIOMode(0)//IICSDA_GPIO_PORT->CRL&=0X0FFFFFFF;IICSDA_GPIO_PORT->CRL|=8u<<28
-#define		IIC_SdaOut()			IIC_SetSdaIOMode(1)//IICSDA_GPIO_PORT->CRL&=0X0FFFFFFF;IICSDA_GPIO_PORT->CRL|=3<<28
+#define		IIC_SdaIn()				IICSDA_GPIO_PORT->CRL&=0X0FFFFFFF;IICSDA_GPIO_PORT->CRL|=8u<<28
+#define		IIC_SdaOut()			IICSDA_GPIO_PORT->CRL&=0X0FFFFFFF;IICSDA_GPIO_PORT->CRL|=3<<28
 
 void IIC_Init(void);
 
-void IIC_SetSdaIOMode(uint8_t mode);
+//void IIC_SetSdaIOMode(uint8_t mode);
 
 void IIC_Start(void);
 

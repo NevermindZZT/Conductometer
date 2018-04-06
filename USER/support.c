@@ -2,7 +2,7 @@
 *             导热仪支持函数                 *
 *         中南大学物理与电子学院             *
 *                张克强                      *
-*                2018/3                      *
+*                2018/4                      *
 *********************************************/
 
 #include	"support.h"
@@ -751,6 +751,13 @@ void DRY_Recording(void)
 #endif
 //					break;
 				
+				case KEY_LEFT:
+					if (group > 1)
+					{
+						DRY_DisplayData(group--, tim3Count, tempB, WHITE);						//删除一条记录(使用背景色显示，减少代码量)
+					}
+					break;
+				
 				case KEY_COUNT:																	//按键计数
 					if (group <= 20)
 					{
@@ -771,6 +778,12 @@ void DRY_Recording(void)
 								experimentalData.measuredData[group - 1].time = tim3Count;
 								experimentalData.measuredData[group - 1].temperature = tempB;
 //								DRY_DisplayData(group++, tim3Count, tempB, BLACK);				//此处注释，没有必要刷新
+							}
+							
+							if (AT24CXX_Check() == TRUE)
+							{
+								DRY_DataSaveDialog(1);
+								AT24CXX_Write(0, (uint8_t *)(&experimentalData), sizeof(DRY_ExperimentalData));	//保存所有实验数据至AT24C02
 							}
 							experimentalData.progress = SHOWDATA;								//进入下一步骤
 							return;
@@ -1076,6 +1089,37 @@ void DRY_Complete(void)
 	}
 }
 	
+
+/*******************************************
+*函数名称：	DRY_DataSaveDialog
+*功能：		数据保存，读取对话框
+*参数：		mode		0			读取
+*						1			保存
+*返回值：	无
+*******************************************/
+void DRY_DataSaveDialog(uint8_t mode)
+{
+	QPYLCD_DrawRectangle(156, 88, 168, 96, WHITE);												//清除对话框区域
+	
+	QPYLCD_DrawLine(156, 88, 324, 88, QPYLCD_NewColor(4, 4, 2));								//绘制对话框外框
+	QPYLCD_DrawLine(156, 184, 324, 184, QPYLCD_NewColor(4, 4, 2));
+	QPYLCD_DrawLine(156, 88, 156, 184, QPYLCD_NewColor(4, 4, 2));
+	QPYLCD_DrawLine(324, 88, 324, 184, QPYLCD_NewColor(4, 4, 2));
+	
+	QPYLCD_SetBackColor(WHITE);
+	if (mode == 1)
+	{
+		QPYLCD_DisplayCharacters(168, 100, BLACK, FONT24X24, 6, zzbcsj);						//显示"正在保存数据"
+	}
+	else
+	{
+		QPYLCD_DisplayCharacters(168, 100, BLACK, FONT24X24, 2, zzbcsj);						//显示“正在读取数据”
+		QPYLCD_DisplayCharacters(216, 100, BLACK, FONT24X24, 2, zzbcsj + 72 * 9);
+		QPYLCD_DisplayCharacters(264, 100, BLACK, FONT24X24, 2, zzbcsj + 72 * 4);
+	}
+	QPYLCD_DisplayCharacters(204, 148, BLACK, FONT24X24, 3, zzbcsj + 72 * 6);					//显示“请等待”
+}
+
 
 
 /*******************************************

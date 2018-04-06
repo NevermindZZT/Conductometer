@@ -6,7 +6,8 @@ uint16_t readFlash[2];													//读Flash数据
 
 int main(void)
 {
-//	uint8_t a[20];
+	uint8_t keyScanData;
+	DRY_ExperimentalData *tmpExperimentalDataPointer;
 	
 	QPYLCD_Init();
 	QPYLCD_SetBackColor(WHITE);
@@ -22,23 +23,27 @@ int main(void)
 	ESP8266_Init();														//ESP8266初始化
 	AT24CXX_Init();
 	
-//	printf("AT24C02 Init\r\n");
-//	AT24CXX_WriteOneByte(1, 'A');
-//	printf("read a byte:%c\r\n", AT24CXX_ReadOneByte(1));
-//	AT24CXX_Write(5, "data from at24c02", 17);
-//	AT24CXX_Read(5, a, 17);
-//	printf("read : %s\r\n", a);
-	
 	MemReadByte(readFlash, 2);											//读取flash中保存的机器号和亮度
 	experimentalData.machineNumber = (uint8_t)readFlash[0];
 	screenBrightness = (uint8_t)readFlash[1];
 	
-	if ((KEYANDEC11_Scan()) == KEY_ENTER_LONG
+	keyScanData = KEYANDEC11_Scan();
+	if (keyScanData == KEY_ENTER_LONG
 		|| experimentalData.machineNumber > 30 || experimentalData.machineNumber < 1
 		|| screenBrightness > 7 || screenBrightness < 1)				//进入系统设置
 	{
 		DRY_SystemSettingScreen();
 		DRY_SystemSetting();
+	}
+	else if ((keyScanData == KEY_COUNT_LONG) && (AT24CXX_Check() == TRUE))	//查看上一次实验数据
+	{
+		DRY_DataSaveDialog(0);
+		tmpExperimentalDataPointer = &experimentalData;
+		AT24CXX_Read(0, (uint8_t *)tmpExperimentalDataPointer, sizeof(DRY_ExperimentalData));
+		DRY_ShowDataScreen();
+		DRY_ShowData();
+		__set_FAULTMASK(1);												//关闭所有中断
+		NVIC_SystemReset();												//系统复位
 	}
 	
 	if (screenBrightness < 1 || screenBrightness > 7)					//调节亮度

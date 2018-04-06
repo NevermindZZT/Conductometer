@@ -12,7 +12,7 @@
 #include	"stm32f10x.h"
 #include	"stm32f10x_usart.h"
 
-#define		PRINTTOUSART												//printf函数打印到串口,不使用或使用printf函数做他用需要注释此行
+//#define		PRINTTOUSART												//printf函数打印到串口,不使用或使用printf函数做他用需要注释此行
 
 #define		USARTRECLENGTH		200
 

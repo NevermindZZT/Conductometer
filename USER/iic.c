@@ -16,23 +16,23 @@ void IIC_Init(void)
 }
 
 
-void IIC_SetSdaIOMode(uint8_t mode)
-{
-	GPIO_InitTypeDef GPIO_InitStructure;
-	if (mode == 1)
-	{
-		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-	}
-	else 
-	{
-		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPD;
-	}
-	
-	GPIO_InitStructure.GPIO_Pin = IICSDA_GPIO_PIN;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	
-	GPIO_Init(IICSDA_GPIO_PORT, &GPIO_InitStructure);	
-}
+//void IIC_SetSdaIOMode(uint8_t mode)
+//{
+//	GPIO_InitTypeDef GPIO_InitStructure;
+//	if (mode == 1)
+//	{
+//		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+//	}
+//	else 
+//	{
+//		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPD;
+//	}
+//	
+//	GPIO_InitStructure.GPIO_Pin = IICSDA_GPIO_PIN;
+//	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+//	
+//	GPIO_Init(IICSDA_GPIO_PORT, &GPIO_InitStructure);	
+//}
 
 
 void IIC_Start(void)
@@ -85,7 +85,6 @@ bool IIC_WaitAck(void)
 		waitTime ++;
 		if (waitTime > 250)
 		{
-			printf("ack failed\r\n");
 			IIC_Stop();
 			return FALSE;
 		}
@@ -93,7 +92,6 @@ bool IIC_WaitAck(void)
 	
 	IIC_SclReset();
 	
-	printf("ack sucess\r\n");
 	return TRUE;
 }
 

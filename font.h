@@ -43,6 +43,8 @@ extern const uint8_t jrwdwht[];
 
 extern const  uint8_t nywcsy[];
 
+extern const uint8_t zzbcsj[];
+
 extern const uint8_t jrpsrp[];
 	
 extern const unsigned char logo[];

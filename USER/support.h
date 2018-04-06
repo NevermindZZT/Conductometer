@@ -2,7 +2,7 @@
 *             导热仪支持函数                 *
 *         中南大学物理与电子学院             *
 *                张克强                      *
-*                2018/3                      *
+*                2018/4                      *
 *********************************************/
 
 #ifndef		__SUPPORT_H__
@@ -35,7 +35,7 @@
 #define		PID_KD				8													//PID算法微分系数
 #endif
 
-#define		SOFTWAREVERSION		"0.4.1-Beta"											//软件版本
+#define		SOFTWAREVERSION		"0.5-Beta"											//软件版本
 
 #define		HeatingEnable()		PWMEnable();temperatureControl.isHeating = TRUE		//开始加热
 #define		HeatingDisable()	temperatureControl.isHeating = FALSE;PWMDisable()	//结束加热
@@ -105,6 +105,8 @@ uint8_t DRY_EnterDialog(void);														//确认对话框
 void DRY_CompleteScreen(void);														//实验完成对话框界面
 
 void DRY_Complete(void);															//实验完成对话框
+
+void DRY_DataSaveDialog(uint8_t mode);												//保存/读取数据对话框
 
 void DRY_DrawEquipment1(uint16_t xLabel, uint16_t yLabel, uint8_t color);			//绘制加热盘
 
