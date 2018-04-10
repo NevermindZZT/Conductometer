@@ -73,21 +73,21 @@ uint8_t KEY_Read(void)
 ***********************************************/
 uint8_t KEY_Scan(void)	
 {
-	static uint8_t lastKeyValue;
+	static uint8_t lastKeyValue;                                //记录上次键值，防止连按触发
 	uint16_t count;
 	uint8_t i;
 	uint8_t scanData = 0;
 	uint8_t keyValue = 0;
 	const uint8_t writeData[] = {0x0E, 0x0D, 0x0B, 0x07};
 	
-	KEY_Write(0x00);
+	KEY_Write(0x00);                                            //写键盘列
 	count = 10000;
-	while((KEY_Read() == 0x0F) && (count != 0))
+	while((KEY_Read() == 0x0F) && (count != 0))                 //等待键盘按下，10ms超时
 	{
 		delay_us(1);
 		count--;
 	}
-	if (count == 0)
+	if (count == 0)                                             //若等待超时，按键无效
 	{
 		lastKeyValue = 0;
 		return 0;
@@ -95,15 +95,15 @@ uint8_t KEY_Scan(void)
 	
 	delay_ms(5);
 	
-	for (i = 0; i < 4; i++)
+	for (i = 0; i < 4; i++)                                     //按列扫描
 	{
-		KEY_Write(writeData[i]);
+		KEY_Write(writeData[i]);                                //写列数据
 		delay_us(1);
-		switch (KEY_Read())
+		switch (KEY_Read())                                     //读行数据并处理
 		{
 			case 0x0E:
 				scanData += 1;
-				keyValue = scanData;
+				keyValue = scanData;                            //记录键值
 				break;
 			
 			case 0x0D:
@@ -126,37 +126,37 @@ uint8_t KEY_Scan(void)
 		}
 		scanData += 4;
 	}
-	if (keyValue == 0)
+	if (keyValue == 0)                                          //若无按键按下，返回
 	{
 		lastKeyValue = 0;
 		return keyValue;
 	}
 	
-	KEY_Write(0x00);
+	KEY_Write(0x00);                                            //列全写0
 	count = 0;
-	while ((KEY_Read() != 0x0F) && count < KEY_LONG_PRESS_MAX_TIME)
+	while ((KEY_Read() != 0x0F) && count < KEY_LONG_PRESS_MAX_TIME) //读行键值，若有按键按下则计时
 	{
 		count++;
 		delay_ms(1);
 	}
 	
-	if (count > KEY_SHORT_PRESS_MAX_TIME)
+	if (count > KEY_SHORT_PRESS_MAX_TIME)                       //若计时超过KEY_SHORT_PRESS_MAX_TIME，为长按
 	{
 		keyValue += 20;
 	}
-#ifdef	KEY_DOUBLE_CLICK
+#ifdef	KEY_DOUBLE_CLICK                                        //双击
 	else
 	{
-		delay_ms(KEY_DOUBLE_CLICK_DELAY);
+		delay_ms(KEY_DOUBLE_CLICK_DELAY);                       //延时一段时间，等待双击的第二次按下
 		KEY_Write(writeData[(keyValue - 1) / 4]);
 		delay_us(1);
-		if (KEY_Read() == writeData[(keyValue - 1) % 4])
+		if (KEY_Read() == writeData[(keyValue - 1) % 4])        //若读取到的按键和第一次按下的键值一样，为双击
 		{
 			keyValue += 40;
 			delay_ms(10);
 			KEY_Write(0x00);
 			count = 0;
-			while ((KEY_Read() != 0x0F) && count < 500)
+			while ((KEY_Read() != 0x0F) && count < 500)         //等待按键释放
 			{
 				count++;
 				delay_ms(1);
@@ -165,7 +165,7 @@ uint8_t KEY_Scan(void)
 	}
 #endif
 	
-	if ((lastKeyValue == keyValue) || (lastKeyValue == keyValue + 20) || (lastKeyValue == keyValue -20))
+	if ((lastKeyValue == keyValue) || (lastKeyValue == keyValue + 20) || (lastKeyValue == keyValue -20))    //防止连按触发
 	{
 		keyValue = 0;
 		return 0;

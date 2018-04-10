@@ -32,7 +32,7 @@ int main(void)
 		|| experimentalData.machineNumber > 30 || experimentalData.machineNumber < 1
 		|| screenBrightness > 7 || screenBrightness < 1)				//进入系统设置
 	{
-		DRY_SystemSettingScreen();
+//		DRY_SystemSettingScreen();
 		DRY_SystemSetting();
 	}
 	else if ((keyScanData == KEY_COUNT_LONG) && (AT24CXX_Check() == TRUE))	//查看上一次实验数据

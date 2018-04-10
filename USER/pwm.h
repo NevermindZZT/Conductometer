@@ -1,3 +1,10 @@
+/*******************************************************************************
+*                                   PWM                                        *
+*                           中南大学物理与电子学院                             *
+*                                  张克强                                      *
+*                                  2018/2                                      *
+*******************************************************************************/
+
 #ifndef		__PWM_H__
 #define		__PWM_H__
 
@@ -11,8 +18,8 @@
 #define		PWMDisable()		TIM_SetCompare4(TIM4, 0)//;TIM_Cmd(TIM4, DISABLE);GPIO_SetBits(GPIOD, GPIO_Pin_15)
 
 
-void PWM_Init(void);
+void PWM_Init(void);                                                    //初始化
 
-void PWM_SetDutyCycle(uint8_t dutyCycle);
+void PWM_SetDutyCycle(uint8_t dutyCycle);                               //设置占空比
 
 #endif

@@ -443,7 +443,10 @@ void QPYLCD_DisplayString(uint16_t xLabel, uint16_t yLabel, uint8_t color, FONT 
 {
 	const uint8_t *p;																		//字库指针
 	uint8_t i;
-	
+    uint16_t xLabelCopy;
+    
+	xLabelCopy = xLabel;
+    
 	if (font.width == 8 && font.height == 16)												//根据font参数的值，判断字体，并设置字库指针指向对应字库
 	{
 		p = asciiFont8x16;
@@ -459,12 +462,20 @@ void QPYLCD_DisplayString(uint16_t xLabel, uint16_t yLabel, uint8_t color, FONT 
 	
 	while (*string)																			//判断字符串是否结束
 	{
+        if (*string == '\n')                                                                //换行符判定
+        {
+            xLabel = xLabelCopy;
+            yLabel += font.height;
+        }
+        else
+        {
 		for (i = 0; i < (font.width / 8); i++)												//由字库取模方式确定
-		{
-			QPYLCD_DrawMonochromeImage(xLabel, yLabel, 8, font.height, color,
-				p + (*string - 32) * font.width * font.height / 8 + font.height * i);		//根据字体确定每列绘制多少行，绘制单色图形
-			xLabel += 8;																	//x方向坐标加8
-		}
+            {
+                QPYLCD_DrawMonochromeImage(xLabel, yLabel, 8, font.height, color,
+                    p + (*string - 32) * font.width * font.height / 8 + font.height * i);		//根据字体确定每列绘制多少行，绘制单色图形
+                xLabel += 8;																	//x方向坐标加8
+            }
+        }
 		string++;																			//字符指针加1
 	}
 }

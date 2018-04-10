@@ -33,3 +33,4 @@
 .\objects\support.o: USER\eeprom.h
 .\objects\support.o: USER\beep.h
 .\objects\support.o: USER\at24cxx.h
+.\objects\support.o: D:\Program Files (x86)\keil\ARM\ARMCC\Bin\..\include\string.h

@@ -22,11 +22,11 @@
 	
 	#define		DEBUG_PrintInfo(info)					printf(info)
 	#define		DEBUG_PrintInfoWithLocation(info)		printf("File:"__FILE__", Line:%d, %s\r\n", __LINE__, info)
-	#define		DEBUG_LOG								printf
+	#define		DEBUG_LOG(...)							printf(__VA_ARGS__)
 #else
 	#define		DEBUG_PrintInfo(info)
 	#define		DEBUG_PrintInfoWithLocation(info)
-	#define		DEBUG_LOG
+	#define		DEBUG_LOG(...)
 #endif
 
 #ifdef		PID_CONTROL
@@ -35,7 +35,8 @@
 #define		PID_KD				8													//PID算法微分系数
 #endif
 
-#define		SOFTWAREVERSION		"0.5-Beta"											//软件版本
+#define		SOFTWAREVERSION		"0.6-Beta"											//软件版本
+#define     BUILDDATE           __DATE__"  \n"__TIME__                              //编译时间
 
 #define		HeatingEnable()		PWMEnable();temperatureControl.isHeating = TRUE		//开始加热
 #define		HeatingDisable()	temperatureControl.isHeating = FALSE;PWMDisable()	//结束加热
@@ -52,15 +53,41 @@ enum DEVICE_COMMAND
 	DEVICE_DATA																		//同步数据
 };
 
-/*-----------------------结构体声明---------------------*/
-typedef struct
+typedef enum                                                                        //仪器设置项属性
 {
-	float heatingAimTemperature;
-	bool isHeating;
+    ITEM_COUNT,                                                                     //数字设置项
+    ITEM_BOOL,                                                                      //开关设置项
+    ITEM_STRING                                                                     //字符显示项
+}DRY_SettingType;
+
+
+/*-----------------------结构体声明---------------------*/
+typedef struct                                                                      //温度控制结构体
+{
+	float heatingAimTemperature;                                                    //加热目标温度
+	bool isHeating;                                                                 //加热状态
 #ifdef		PID_CONTROL
-	float pidTemperature[3];
-#endif
+	float pidTemperature[3];                                                        //PID
+#endif  
 }TEMP_Control;
+
+
+typedef union                                                                       //设置项数据
+{
+    int8_t countData;                                                               //数字值
+    bool isTrue;                                                                    //开关真假值
+    uint8_t *stringData;                                                            //字符串
+}DRY_SettingItemData;
+
+
+typedef struct                                                                      //设置项条目结构体
+{
+    uint8_t *id;                                                                    //设置项名称
+    uint8_t minCount;                                                               //设置数据最小值(仅类型为数字设置项可用)
+    uint8_t maxCount;                                                               //设置数据最大值(仅类型为数字设置项可用)
+    DRY_SettingType type;                                                           //设置项类型
+    DRY_SettingItemData itemData;                                                   //设置项数据
+}DRY_SettingItem;
 
 
 /*------------------------全局变量声明----------------------*/
@@ -71,6 +98,8 @@ extern TEMP_Control temperatureControl;
 void DRY_SystemSettingScreen(void);													//设置界面
 
 void DRY_SystemSetting(void);														//系统设置
+
+void DRY_DisplaySettingItem(uint16_t location, uint8_t color, DRY_SettingItem settingItem);
 
 void DRY_WelcomeScreen(void);														//初始化界面
 
