@@ -3,16 +3,20 @@
 *                8位彩屏                     *
 *         中南大学物理与电子学院             *
 *                张克强                      *
-*                2018/1                      *
+*                2018/4                      *
 *********************************************/
 
-/*
+/**
 *说明：		1.此文件为武汉中显科技8位液晶彩屏驱动，分辨率为480*272
 *			2.此液晶驱动已经实现了画点，线，矩形，依赖字库可显示ASCII字符和汉字
 *			3.默认提供asciifont.c文件，其中包括8*16，16*24，16*32三种ASCII字库，可直接显示数字，字母和英文符号
 *			4.由于汉字字库过大，本驱动尚未实现通过字库的方式显示汉字，而是提供函数，通过提供指定汉字的字模显示汉字
 *			5.驱动简单地实现了使用printf函数打印字符串到液晶屏的功能，若需要使用，在qpylcd.h文件中定义PRINTTOLCD宏即可
 *			6.若修改液晶屏对应的IO口，需修改宏定义，并注意QPYLCD_Init函数与QPYLCD_ProcessData需要改动
+*/
+
+/**
+*更改：     2018/4/11：修改时序以及IO口操作为寄存器方式，提高屏幕的显示速度
 */
 
 //#include		"qpylcd.h"
@@ -146,14 +150,17 @@ void QPYLCD_WriteCmd(uint16_t cmd, uint16_t data)
 *************************************************/
 void QPYLCD_ProcessData(uint16_t data)
 {
-	uint16_t dataL;
-	uint16_t dataM;
+//	uint16_t dataL;
+//	uint16_t dataM;
+//	
+//	dataL = data & 0x0007;																	//根据LCD数据位与MCU的连接方式，确定数据处理方式
+//	dataM = data & 0x00F8;
 	
-	dataL = data & 0x0007;																	//根据LCD数据位与MCU的连接方式，确定数据处理方式
-	dataM = data & 0x00F8;
-	
-	GPIO_Write(LCDDATAL_GPIO_PORT, ((GPIO_ReadOutputData(LCDDATAL_GPIO_PORT) & (~LCDDATAL_GPIO_PIN)) | dataL));
-	GPIO_Write(LCDDATAM_GPIO_PORT, ((GPIO_ReadOutputData(LCDDATAM_GPIO_PORT) & (~LCDDATAM_GPIO_PIN)) | (dataM << 4)));
+    LCDDATAL_GPIO_PORT -> ODR = (LCDDATAL_GPIO_PORT -> ODR & (~LCDDATAL_GPIO_PIN)) | (data & 0x0007);
+    LCDDATAM_GPIO_PORT -> ODR = (LCDDATAM_GPIO_PORT -> ODR & (~LCDDATAM_GPIO_PIN)) | ((data & 0x00F8) << 4);
+    
+//	GPIO_Write(LCDDATAL_GPIO_PORT, ((GPIO_ReadOutputData(LCDDATAL_GPIO_PORT) & (~LCDDATAL_GPIO_PIN)) | dataL));
+//	GPIO_Write(LCDDATAM_GPIO_PORT, ((GPIO_ReadOutputData(LCDDATAM_GPIO_PORT) & (~LCDDATAM_GPIO_PIN)) | (dataM << 4)));
 }
 
 

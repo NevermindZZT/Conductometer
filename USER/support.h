@@ -13,7 +13,7 @@
 #define		ALLOWBACK																//允许长按左键返回上一步骤
 //#define		DEBUG																	//DEBUG模式
 //#define		DEBUG_TEST
-#define		PID_CONTROL																//使用PID算法控制温度
+//#define		PID_CONTROL																//使用PID算法控制温度
 
 #ifdef		DEBUG
 	#ifndef		PRINTTOUSART
@@ -35,7 +35,7 @@
 #define		PID_KD				8													//PID算法微分系数
 #endif
 
-#define		SOFTWAREVERSION		"0.6-Beta"											//软件版本
+#define		SOFTWAREVERSION		"0.6.1-Beta"											//软件版本
 #define     BUILDDATE           __DATE__"  \n"__TIME__                              //编译时间
 
 #define		HeatingEnable()		PWMEnable();temperatureControl.isHeating = TRUE		//开始加热

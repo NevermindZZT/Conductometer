@@ -317,6 +317,7 @@ void DRY_InputStudentNumber(void)
 					}
 					break;
 				
+                case KEY_ENTER:
 				case KEY_ENTER_LONG:																	//按键确定
 //					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
 //					{
@@ -441,6 +442,7 @@ void DRY_TemperatureSetting(void)
 					}	
 					break;
 				
+                case KEY_ENTER:
 				case KEY_ENTER_LONG:																	//按键确认
 //					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
 //					{
@@ -528,7 +530,7 @@ void DRY_BuildBalanceScreen(void)
 *******************************************/
 void DRY_BuildBalance(void)
 {
-	float tempA, tempB;																			//加热盘，散热盘温度
+	float tempA, tempB, tempT;																			//加热盘，散热盘温度
 	uint8_t str[10];
 	uint8_t scanData;																			//按键键值
 	
@@ -548,10 +550,18 @@ void DRY_BuildBalance(void)
 	while (1)
 	{
 //		DRY_TemperatureControl(experimentalData.settedTemperature);								//温度控制
-																								//加入PID算法，温度控制由定时器操作	
-		
-		tempA = DS18B20_ReadTemp(DS18B20A);														//读取温度
-		tempB = DS18B20_ReadTemp(DS18B20B);
+
+        do
+        {
+            tempA = DS18B20_ReadTemp(DS18B20A);														//读取温度
+            tempT = DS18B20_ReadTemp(DS18B20A);                                                     //读两次，过滤错误
+        } while ((((tempA - tempT) > 0) ? (tempA - tempT) : (tempT - tempA)) > 10);
+        
+        do 
+        {
+            tempB = DS18B20_ReadTemp(DS18B20B);
+            tempT = DS18B20_ReadTemp(DS18B20B);
+        } while ((((tempB - tempT) > 0) ? (tempB - tempT) : (tempT - tempB)) > 10);
 		
 		sprintf((char *)str, "%-5.1f", tempA);													//显示加热盘温度
 //		QPYLCD_DrawRectangle(149, 96, 80, 24, WHITE);
@@ -590,6 +600,7 @@ void DRY_BuildBalance(void)
 					QPYLCD_DisplayString(149, 216, BLACK, FONT16X24, str);
 					break;
 				
+                case KEY_ENTER:
 				case KEY_ENTER_LONG:																	//按键确认
 //					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
 //					{
@@ -606,7 +617,7 @@ void DRY_BuildBalance(void)
 						{
 							DRY_BuildBalanceScreen();											//刷新显示
 							
-							tempB = DS18B20_ReadTemp(DS18B20B);									//刷新数据
+//							tempB = DS18B20_ReadTemp(DS18B20B);									//刷新数据
 							sprintf((char *)str, "%-5.1f", tempB);
 							QPYLCD_DisplayString(149, 216, BLACK, FONT16X24, str);
 						}
@@ -655,7 +666,7 @@ void DRY_HeatingScreen(void)
 *******************************************/
 void DRY_Heating(void)
 {
-	float tempA, tempB;																			//加热盘，散热盘温度
+	float tempA, tempB, tempT;																			//加热盘，散热盘温度
 	uint8_t str[10];                                                                            
 	uint8_t scanData;                                                                           //按键键值
 	                                                                                            
@@ -668,9 +679,17 @@ void DRY_Heating(void)
 	{
 //		DRY_TemperatureControl(80);																//温度控制
 																								//加入PID算法，由定时器进行温度控制
-		
-		tempA = DS18B20_ReadTemp(DS18B20A);														//读取温度
-		tempB = DS18B20_ReadTemp(DS18B20B);
+        do
+        {
+            tempA = DS18B20_ReadTemp(DS18B20A);														//读取温度
+            tempT = DS18B20_ReadTemp(DS18B20A);                                                     //读两次，过滤错误
+        } while ((((tempA - tempT) > 0) ? (tempA - tempT) : (tempT - tempA)) > 10);
+        
+        do 
+        {
+            tempB = DS18B20_ReadTemp(DS18B20B);
+            tempT = DS18B20_ReadTemp(DS18B20B);
+        } while ((((tempB - tempT) > 0) ? (tempB - tempT) : (tempT - tempB)) > 10);
 		
 		sprintf((char *)str, "%-5.1f", tempA);													//显示加热盘温度
 //		QPYLCD_DrawRectangle(149, 124, 80, 24, WHITE);
@@ -697,6 +716,7 @@ void DRY_Heating(void)
 #endif
 //					break;
 				
+                case KEY_ENTER:
 				case KEY_ENTER_LONG:																	//按键确认
 //					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
 //					{
@@ -762,11 +782,11 @@ void DRY_RecordingScreen(void)
 	
 	QPYLCD_DisplayCharacters(16, 69, BLACK, FONT16X16, 1, sjwd);								//显示表头“时间”
 	QPYLCD_DisplayCharacters(48, 69, BLACK, FONT16X16, 1, sjwd + 32);
-	QPYLCD_DisplayCharacters(176, 69, BLACK, FONT16X16, 1, sjwd + 64);
-	QPYLCD_DisplayCharacters(208, 69, BLACK, FONT16X16, 1, sjwd + 96);
+	QPYLCD_DisplayCharacters(176, 69, BLACK, FONT16X16, 1, sjwd);
+	QPYLCD_DisplayCharacters(208, 69, BLACK, FONT16X16, 1, sjwd + 32);
 	
-	QPYLCD_DisplayCharacters(96, 69, BLACK, FONT16X16, 1, sjwd);								//显示表头“温度”
-	QPYLCD_DisplayCharacters(128, 69, BLACK, FONT16X16, 1, sjwd + 32);
+	QPYLCD_DisplayCharacters(96, 69, BLACK, FONT16X16, 1, sjwd + 64);								//显示表头“温度”
+	QPYLCD_DisplayCharacters(128, 69, BLACK, FONT16X16, 1, sjwd + 96);
 	QPYLCD_DisplayCharacters(256, 69, BLACK, FONT16X16, 1, sjwd + 64);
 	QPYLCD_DisplayCharacters(288, 69, BLACK, FONT16X16, 1, sjwd + 96);
 }
@@ -826,6 +846,7 @@ void DRY_Recording(void)
 					}
 					break;
 				
+                case KEY_ENTER:
 				case KEY_ENTER_LONG:																	//按键确认
 //					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
 //					{
@@ -907,11 +928,11 @@ void DRY_ShowDataScreen(void)
 	
 	QPYLCD_DisplayCharacters(82, 69, BLACK, FONT16X16, 1, sjwd);								//显示表头“时间”
 	QPYLCD_DisplayCharacters(114, 69, BLACK, FONT16X16, 1, sjwd + 32);
-	QPYLCD_DisplayCharacters(218, 69, BLACK, FONT16X16, 1, sjwd + 64);
-	QPYLCD_DisplayCharacters(250, 69, BLACK, FONT16X16, 1, sjwd + 96);
+	QPYLCD_DisplayCharacters(218, 69, BLACK, FONT16X16, 1, sjwd);
+	QPYLCD_DisplayCharacters(250, 69, BLACK, FONT16X16, 1, sjwd + 32);
 	
-	QPYLCD_DisplayCharacters(150, 69, BLACK, FONT16X16, 1, sjwd);								//显示表头“温度”
-	QPYLCD_DisplayCharacters(182, 69, BLACK, FONT16X16, 1, sjwd + 32);
+	QPYLCD_DisplayCharacters(150, 69, BLACK, FONT16X16, 1, sjwd + 64);								//显示表头“温度”
+	QPYLCD_DisplayCharacters(182, 69, BLACK, FONT16X16, 1, sjwd + 96);
 	QPYLCD_DisplayCharacters(286, 69, BLACK, FONT16X16, 1, sjwd + 64);
 	QPYLCD_DisplayCharacters(318, 69, BLACK, FONT16X16, 1, sjwd + 96);
 	
@@ -980,7 +1001,8 @@ void DRY_ShowData(void)
 //					}
 #endif
 //					break;
-					
+				
+                case KEY_ENTER:
 				case KEY_ENTER_LONG:																	//按键确认
 //					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
 //					{
@@ -1331,7 +1353,7 @@ void DRY_TemperatureControl(void)
 	else if (temperatureControl.pidTemperature[2] < (temperatureControl.heatingAimTemperature + 5))
 	{
 		dutyCycle += PID_KP * (err[2] - err[1]) + PID_KI * err[2]
-				+ PID_KP * (err[2] - 2 * err[1] + err[0]);										//PID算法
+				+ PID_KD * (err[2] - 2 * err[1] + err[0]);										//PID算法
 		if (dutyCycle > 100)
 		{
 			dutyCycle = 100;

@@ -3,7 +3,7 @@
 *                8位彩屏                     *
 *         中南大学物理与电子学院             *
 *                张克强                      *
-*                2018/1                      *
+*                2018/4                      *
 *********************************************/
 
 
@@ -100,16 +100,27 @@
 #endif
 
 /*--------------------LCD操作端口宏定义--------------------*/
-#define		QPYLCDRS_LOW			GPIO_ResetBits(LCDRS_GPIO_PORT, LCDRS_GPIO_PIN)		//RS低电平
-#define		QPYLCDRS_HIGH			GPIO_SetBits(LCDRS_GPIO_PORT, LCDRS_GPIO_PIN)		//RS高电平
-#define		QPYLCDRD_LOW			GPIO_ResetBits(LCDRD_GPIO_PORT, LCDRD_GPIO_PIN)		//RD低电平
-#define		QPYLCDRD_HIGH			GPIO_SetBits(LCDRD_GPIO_PORT, LCDRD_GPIO_PIN)		//RD高电平
-#define		QPYLCDWR_LOW			GPIO_ResetBits(LCDWR_GPIO_PORT, LCDWR_GPIO_PIN)		//WR低电平
-#define		QPYLCDWR_HIGH			GPIO_SetBits(LCDWR_GPIO_PORT, LCDWR_GPIO_PIN)		//WR高电平
-#define		QPYLCDCS_LOW			GPIO_ResetBits(LCDCS_GPIO_PORT, LCDCS_GPIO_PIN)		//CS低电平
-#define		QPYLCDCS_HIGH			GPIO_SetBits(LCDCS_GPIO_PORT, LCDCS_GPIO_PIN)		//CS高电平
-#define		QPYLCDDISP_LOW			GPIO_ResetBits(LCDDISP_GPIO_PORT, LCDDISP_GPIO_PIN)	//DISP低电平
-#define		QPYLCDDISP_HIGH			GPIO_SetBits(LCDDISP_GPIO_PORT, LCDDISP_GPIO_PIN)	//DISP高电平
+#define		QPYLCDRS_LOW			LCDRS_GPIO_PORT -> BRR = LCDRS_GPIO_PIN		//RS低电平
+#define		QPYLCDRS_HIGH			LCDRS_GPIO_PORT -> BSRR = LCDRS_GPIO_PIN		//RS高电平
+#define		QPYLCDRD_LOW			LCDRD_GPIO_PORT -> BRR = LCDRD_GPIO_PIN		//RD低电平
+#define		QPYLCDRD_HIGH			LCDRD_GPIO_PORT -> BSRR = LCDRD_GPIO_PIN		//RD高电平
+#define		QPYLCDWR_LOW			LCDWR_GPIO_PORT -> BRR = LCDWR_GPIO_PIN		//WR低电平
+#define		QPYLCDWR_HIGH			LCDWR_GPIO_PORT -> BSRR = LCDWR_GPIO_PIN		//WR高电平
+#define		QPYLCDCS_LOW			LCDCS_GPIO_PORT -> BRR = LCDCS_GPIO_PIN		//CS低电平
+#define		QPYLCDCS_HIGH			LCDCS_GPIO_PORT -> BSRR = LCDCS_GPIO_PIN		//CS高电平
+#define		QPYLCDDISP_LOW			LCDDISP_GPIO_PORT -> BRR = LCDDISP_GPIO_PIN	//DISP低电平
+#define		QPYLCDDISP_HIGH			LCDDISP_GPIO_PORT -> BSRR = LCDDISP_GPIO_PIN	//DISP高电平
+
+//#define		QPYLCDRS_LOW			GPIO_ResetBits(LCDRS_GPIO_PORT, LCDRS_GPIO_PIN)		//RS低电平
+//#define		QPYLCDRS_HIGH			GPIO_SetBits(LCDRS_GPIO_PORT, LCDRS_GPIO_PIN)		//RS高电平
+//#define		QPYLCDRD_LOW			GPIO_ResetBits(LCDRD_GPIO_PORT, LCDRD_GPIO_PIN)		//RD低电平
+//#define		QPYLCDRD_HIGH			GPIO_SetBits(LCDRD_GPIO_PORT, LCDRD_GPIO_PIN)		//RD高电平
+//#define		QPYLCDWR_LOW			GPIO_ResetBits(LCDWR_GPIO_PORT, LCDWR_GPIO_PIN)		//WR低电平
+//#define		QPYLCDWR_HIGH			GPIO_SetBits(LCDWR_GPIO_PORT, LCDWR_GPIO_PIN)		//WR高电平
+//#define		QPYLCDCS_LOW			GPIO_ResetBits(LCDCS_GPIO_PORT, LCDCS_GPIO_PIN)		//CS低电平
+//#define		QPYLCDCS_HIGH			GPIO_SetBits(LCDCS_GPIO_PORT, LCDCS_GPIO_PIN)		//CS高电平
+//#define		QPYLCDDISP_LOW			GPIO_ResetBits(LCDDISP_GPIO_PORT, LCDDISP_GPIO_PIN)	//DISP低电平
+//#define		QPYLCDDISP_HIGH			GPIO_SetBits(LCDDISP_GPIO_PORT, LCDDISP_GPIO_PIN)	//DISP高电平
 
 /*----------------------结构体定义-------------------------*/
 typedef struct																			//字体结构体定义
