@@ -22,6 +22,7 @@ void DRY_SystemSetting(void)
 {
     uint8_t scanData;
     int8_t cursorLocation = 0;
+    int8_t cursorOffset = 0;
     
     DRY_SettingItem settingItem[] =                                                             //设置项数组，可自由增减
     {
@@ -29,12 +30,14 @@ void DRY_SystemSetting(void)
         {(uint8_t *)"Brightness", 1, 7, ITEM_COUNT, 0},
         {(uint8_t *)"Software Version", 0, 0, ITEM_STRING, 0},
         {(uint8_t *)"Build Date", 0, 0, ITEM_STRING, 0},
+        {(uint8_t *)"Romer", 0, 0, ITEM_STRING, 0},
     };
     
     settingItem[0].itemData.countData = experimentalData.machineNumber;                         //设置项数据初值
     settingItem[1].itemData.countData = screenBrightness;
     settingItem[2].itemData.stringData = (uint8_t *)SOFTWAREVERSION;
     settingItem[3].itemData.stringData = (uint8_t *)BUILDDATE;
+    settingItem[4].itemData.stringData = (uint8_t *)"Letter";
     
     QPYLCD_SetBackColor(WHITE);
 	QPYLCD_Clear();
@@ -44,7 +47,7 @@ void DRY_SystemSetting(void)
 	
     QPYLCD_SetBackColor(WHITE);
     
-    for (uint8_t i = 0; i < sizeof(settingItem) / sizeof(DRY_SettingItem); i++)                 //显示设置项
+    for (uint8_t i = 0; (i < sizeof(settingItem) / sizeof(DRY_SettingItem)) && (64 + 48 * i <= 272); i++)                 //显示设置项
     {
         if (i == 0)
         {
@@ -66,20 +69,43 @@ void DRY_SystemSetting(void)
                 case KEY_LEFT:
                     if (cursorLocation > 0)
                     {
-                        DRY_DisplaySettingItem(64 + 48 * cursorLocation, WHITE, settingItem[cursorLocation]);
-                        
+                        if (cursorLocation - cursorOffset <= 0)
+                        {
+                            for (uint8_t i = 0; 64 + 48 * i <= 272; i++)
+                            {
+                                DRY_DisplaySettingItem(64 + 48 * i, WHITE, 
+                                    settingItem[cursorLocation - 1 + i]);
+                            }
+                            cursorOffset--;
+                        }
+                        else
+                        {
+                            
+                            DRY_DisplaySettingItem(64 + 48 * (cursorLocation - cursorOffset), 
+                                                        WHITE, settingItem[cursorLocation]);
+                            
+                        }
                         cursorLocation--;
-                        
-//                        QPYLCD_SetBackColor(CYAN);
-//                        QPYLCD_DrawRectangle(0, 64 + 48 * cursorLocation, 480, 47, CYAN);
                     }
                     break;
                 
                 case KEY_RIGHT:
                     if (cursorLocation < sizeof(settingItem) / sizeof(DRY_SettingItem) - 1)
                     {
-                        DRY_DisplaySettingItem(64 + 48 * cursorLocation, WHITE, settingItem[cursorLocation]);
-                        
+                        if (cursorLocation - cursorOffset >= 3)
+                        {
+                            for (uint8_t i = 0; 64 + 48 * i <= 272; i++)
+                            {
+                                DRY_DisplaySettingItem(64 + 48 * i, WHITE, 
+                                    settingItem[cursorLocation - 2 + i]);
+                            }
+                            cursorOffset++;
+                        }
+                        else
+                        {
+                            DRY_DisplaySettingItem(64 + 48 * (cursorLocation - cursorOffset), 
+                                                        WHITE, settingItem[cursorLocation]);
+                        }
                         cursorLocation++;
                     }
                     break;
@@ -136,7 +162,8 @@ void DRY_SystemSetting(void)
                 default :
                     break;
             }
-            DRY_DisplaySettingItem(64 + 48 * cursorLocation, CYAN, settingItem[cursorLocation]);
+            DRY_DisplaySettingItem(64 + 48 * (cursorLocation - cursorOffset), 
+                                    CYAN, settingItem[cursorLocation]);
         }
     }
 }

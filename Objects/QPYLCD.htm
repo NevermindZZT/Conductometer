@@ -3,9 +3,9 @@
 <title>Static Call Graph - [.\Objects\QPYLCD.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\QPYLCD.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Wed Apr 11 20:14:32 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Thu Apr 12 19:45:54 2018
 <BR><P>
-<H3>Maximum Stack Usage =        320 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        328 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 main &rArr; DRY_SystemSetting &rArr; DRY_DisplaySettingItem &rArr; QPYLCD_DisplayInt &rArr; QPYLCD_DisplayString &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData
 <P>
@@ -1049,8 +1049,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ad]"></a>DRY_SystemSetting</STRONG> (Thumb, 668 bytes, Stack size 80 bytes, support.o(i.DRY_SystemSetting))
-<BR><BR>[Stack]<UL><LI>Max Depth = 320<LI>Call Chain = DRY_SystemSetting &rArr; DRY_DisplaySettingItem &rArr; QPYLCD_DisplayInt &rArr; QPYLCD_DisplayString &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData
+<P><STRONG><a name="[ad]"></a>DRY_SystemSetting</STRONG> (Thumb, 872 bytes, Stack size 88 bytes, support.o(i.DRY_SystemSetting))
+<BR><BR>[Stack]<UL><LI>Max Depth = 328<LI>Call Chain = DRY_SystemSetting &rArr; DRY_DisplaySettingItem &rArr; QPYLCD_DisplayInt &rArr; QPYLCD_DisplayString &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MemWriteByte
@@ -2033,7 +2033,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[46]"></a>main</STRONG> (Thumb, 372 bytes, Stack size 0 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 320<LI>Call Chain = main &rArr; DRY_SystemSetting &rArr; DRY_DisplaySettingItem &rArr; QPYLCD_DisplayInt &rArr; QPYLCD_DisplayString &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData
+<BR><BR>[Stack]<UL><LI>Max Depth = 328<LI>Call Chain = main &rArr; DRY_SystemSetting &rArr; DRY_DisplaySettingItem &rArr; QPYLCD_DisplayInt &rArr; QPYLCD_DisplayString &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Config
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor

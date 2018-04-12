@@ -35,7 +35,7 @@
 #define		PID_KD				8													//PID算法微分系数
 #endif
 
-#define		SOFTWAREVERSION		"0.6.1-Beta"											//软件版本
+#define		SOFTWAREVERSION		"0.6.2-Beta"											//软件版本
 #define     BUILDDATE           __DATE__"  \n"__TIME__                              //编译时间
 
 #define		HeatingEnable()		PWMEnable();temperatureControl.isHeating = TRUE		//开始加热
