@@ -20,6 +20,8 @@
 .\objects\main.o: .\FWLB\inc\stm32f10x_tim.h
 .\objects\main.o: USER\iic.h
 .\objects\main.o: USER\config.h
+.\objects\main.o: USER\spi.h
+.\objects\main.o: .\FWLB\inc\stm32f10x_spi.h
 .\objects\main.o: .\asciifont.h
 .\objects\main.o: .\font.h
 .\objects\main.o: USER\qpylcd.h
@@ -32,3 +34,4 @@
 .\objects\main.o: USER\eeprom.h
 .\objects\main.o: USER\beep.h
 .\objects\main.o: USER\at24cxx.h
+.\objects\main.o: USER\w25x16.h

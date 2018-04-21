@@ -9,6 +9,7 @@
 #include	"usart.h"
 #include	"tim.h"
 #include	"iic.h"
+#include	"spi.h"
 
 #include	"asciifont.h"
 #include	"font.h"
@@ -23,6 +24,7 @@
 #include	"eeprom.h"
 #include	"beep.h"
 #include	"at24cxx.h"
+#include	"w25x16.h"
 
 /*---------------------实验步骤宏定义-------------------*/
 //#define		INPUTSTUDENTNUMBER		1

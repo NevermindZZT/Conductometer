@@ -34,7 +34,7 @@
 | 宏                       | 功能                       | 位置      |
 | ------------------------ | -------------------------- | --------- |
 | PRINTTOUSART             | 实现printf函数打印到串口1  | usart.h   |
-| PRINTTILCD               | 实现printf函数打印到液晶屏 | qpylcd.h  |
+| PRINTTOLCD               | 实现printf函数打印到液晶屏 | qpylcd.h  |
 | ALLOWBACK                | 实验中允许返回上一步骤     | support.h |
 | WIFI_SSID                | 用于连接的WiFi ssid        | esp8266.h |
 | WIFI_PASSWORD            | WiFi密码                   | esp8266.h |
@@ -148,3 +148,6 @@
  #### 2018/4/12 0.6.2-Beta
 - 新增设置界面的滚动动作，可以添加不限数量的设置项了
 
+
+ #### 2018/4/21 0.6.3-Alpha
+- 新增SPI和W25X16 SPI Flash驱动

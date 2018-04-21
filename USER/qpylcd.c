@@ -156,9 +156,9 @@ void QPYLCD_ProcessData(uint16_t data)
 //	dataL = data & 0x0007;																	//根据LCD数据位与MCU的连接方式，确定数据处理方式
 //	dataM = data & 0x00F8;
 	
-    LCDDATAL_GPIO_PORT -> ODR = (LCDDATAL_GPIO_PORT -> ODR & (~LCDDATAL_GPIO_PIN)) | (data & 0x0007);
-    LCDDATAM_GPIO_PORT -> ODR = (LCDDATAM_GPIO_PORT -> ODR & (~LCDDATAM_GPIO_PIN)) | ((data & 0x00F8) << 4);
-    
+	LCDDATAL_GPIO_PORT -> ODR = (LCDDATAL_GPIO_PORT -> ODR & (~LCDDATAL_GPIO_PIN)) | (data & 0x0007);
+	LCDDATAM_GPIO_PORT -> ODR = (LCDDATAM_GPIO_PORT -> ODR & (~LCDDATAM_GPIO_PIN)) | ((data & 0x00F8) << 4);
+	
 //	GPIO_Write(LCDDATAL_GPIO_PORT, ((GPIO_ReadOutputData(LCDDATAL_GPIO_PORT) & (~LCDDATAL_GPIO_PIN)) | dataL));
 //	GPIO_Write(LCDDATAM_GPIO_PORT, ((GPIO_ReadOutputData(LCDDATAM_GPIO_PORT) & (~LCDDATAM_GPIO_PIN)) | (dataM << 4)));
 }
@@ -329,12 +329,12 @@ void QPYLCD_DrawLine(uint16_t startXLabel, uint16_t startYLabel, uint16_t endXLa
 		}
 	}
 	else																					//若y方向长度大于x方向，以y方向作为基准划线
-	{                                                                                       
-		tmpLabel = startXLabel;                                                             //记录起始x坐标
-		for (i = 0; i <= yLengthAbs; i++)                                                   
-		{                                                                                   
-			QPYLCD_DrawPoint(startXLabel, startYLabel, color);                              //在当前位置绘制一个点
-			startYLabel += yLength / yLengthAbs;                                            //y方向坐标加(减)1(由起止点坐标差决定画线方向)
+	{																					   
+		tmpLabel = startXLabel;															 //记录起始x坐标
+		for (i = 0; i <= yLengthAbs; i++)												   
+		{																				   
+			QPYLCD_DrawPoint(startXLabel, startYLabel, color);							  //在当前位置绘制一个点
+			startYLabel += yLength / yLengthAbs;											//y方向坐标加(减)1(由起止点坐标差决定画线方向)
 			startXLabel = tmpLabel + (int16_t)((i+1) * ((float)xLength / (float)yLengthAbs));	//根据起止点坐标计算斜率，算出下一点x坐标;
 		}
 	}
@@ -450,10 +450,10 @@ void QPYLCD_DisplayString(uint16_t xLabel, uint16_t yLabel, uint8_t color, FONT 
 {
 	const uint8_t *p;																		//字库指针
 	uint8_t i;
-    uint16_t xLabelCopy;
-    
+	uint16_t xLabelCopy;
+	
 	xLabelCopy = xLabel;
-    
+	
 	if (font.width == 8 && font.height == 16)												//根据font参数的值，判断字体，并设置字库指针指向对应字库
 	{
 		p = asciiFont8x16;
@@ -469,20 +469,20 @@ void QPYLCD_DisplayString(uint16_t xLabel, uint16_t yLabel, uint8_t color, FONT 
 	
 	while (*string)																			//判断字符串是否结束
 	{
-        if (*string == '\n')                                                                //换行符判定
-        {
-            xLabel = xLabelCopy;
-            yLabel += font.height;
-        }
-        else
-        {
+		if (*string == '\n')																//换行符判定
+		{
+			xLabel = xLabelCopy;
+			yLabel += font.height;
+		}
+		else
+		{
 		for (i = 0; i < (font.width / 8); i++)												//由字库取模方式确定
-            {
-                QPYLCD_DrawMonochromeImage(xLabel, yLabel, 8, font.height, color,
-                    p + (*string - 32) * font.width * font.height / 8 + font.height * i);		//根据字体确定每列绘制多少行，绘制单色图形
-                xLabel += 8;																	//x方向坐标加8
-            }
-        }
+			{
+				QPYLCD_DrawMonochromeImage(xLabel, yLabel, 8, font.height, color,
+					p + (*string - 32) * font.width * font.height / 8 + font.height * i);		//根据字体确定每列绘制多少行，绘制单色图形
+				xLabel += 8;																	//x方向坐标加8
+			}
+		}
 		string++;																			//字符指针加1
 	}
 }

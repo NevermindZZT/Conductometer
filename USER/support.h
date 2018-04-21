@@ -1,8 +1,8 @@
 /*********************************************
 *             导热仪支持函数                 *
 *         中南大学物理与电子学院             *
-*                张克强                      *
-*                2018/4                      *
+*                 张克强                     *
+*                 2018/4                     *
 *********************************************/
 
 #ifndef		__SUPPORT_H__
@@ -35,8 +35,8 @@
 #define		PID_KD				8													//PID算法微分系数
 #endif
 
-#define		SOFTWAREVERSION		"0.6.2-Beta"											//软件版本
-#define     BUILDDATE           __DATE__"  \n"__TIME__                              //编译时间
+#define		SOFTWAREVERSION		"0.6.3-Alpha"											//软件版本
+#define		BUILDDATE		   __DATE__"  \n"__TIME__							  //编译时间
 
 #define		HeatingEnable()		PWMEnable();temperatureControl.isHeating = TRUE		//开始加热
 #define		HeatingDisable()	temperatureControl.isHeating = FALSE;PWMDisable()	//结束加热
@@ -53,40 +53,40 @@ enum DEVICE_COMMAND
 	DEVICE_DATA																		//同步数据
 };
 
-typedef enum                                                                        //仪器设置项属性
+typedef enum																		//仪器设置项属性
 {
-    ITEM_COUNT,                                                                     //数字设置项
-    ITEM_BOOL,                                                                      //开关设置项
-    ITEM_STRING                                                                     //字符显示项
+	ITEM_COUNT,																	 //数字设置项
+	ITEM_BOOL,																	  //开关设置项
+	ITEM_STRING																	 //字符显示项
 }DRY_SettingType;
 
 
 /*-----------------------结构体声明---------------------*/
-typedef struct                                                                      //温度控制结构体
+typedef struct																	  //温度控制结构体
 {
-	float heatingAimTemperature;                                                    //加热目标温度
-	bool isHeating;                                                                 //加热状态
+	float heatingAimTemperature;													//加热目标温度
+	bool isHeating;																 //加热状态
 #ifdef		PID_CONTROL
-	float pidTemperature[3];                                                        //PID
+	float pidTemperature[3];														//PID
 #endif  
 }TEMP_Control;
 
 
-typedef union                                                                       //设置项数据
+typedef union																	   //设置项数据
 {
-    int8_t countData;                                                               //数字值
-    bool isTrue;                                                                    //开关真假值
-    uint8_t *stringData;                                                            //字符串
+	int8_t countData;															   //数字值
+	bool isTrue;																	//开关真假值
+	uint8_t *stringData;															//字符串
 }DRY_SettingItemData;
 
 
-typedef struct                                                                      //设置项条目结构体
+typedef struct																	  //设置项条目结构体
 {
-    uint8_t *id;                                                                    //设置项名称
-    uint8_t minCount;                                                               //设置数据最小值(仅类型为数字设置项可用)
-    uint8_t maxCount;                                                               //设置数据最大值(仅类型为数字设置项可用)
-    DRY_SettingType type;                                                           //设置项类型
-    DRY_SettingItemData itemData;                                                   //设置项数据
+	uint8_t *id;																	//设置项名称
+	uint8_t minCount;															   //设置数据最小值(仅类型为数字设置项可用)
+	uint8_t maxCount;															   //设置数据最大值(仅类型为数字设置项可用)
+	DRY_SettingType type;														   //设置项类型
+	DRY_SettingItemData itemData;												   //设置项数据
 }DRY_SettingItem;
 
 

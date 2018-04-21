@@ -20,6 +20,8 @@
 .\objects\ds18b20.o: .\FWLB\inc\stm32f10x_tim.h
 .\objects\ds18b20.o: USER\iic.h
 .\objects\ds18b20.o: USER\config.h
+.\objects\ds18b20.o: USER\spi.h
+.\objects\ds18b20.o: .\FWLB\inc\stm32f10x_spi.h
 .\objects\ds18b20.o: .\asciifont.h
 .\objects\ds18b20.o: .\font.h
 .\objects\ds18b20.o: USER\qpylcd.h
@@ -32,3 +34,4 @@
 .\objects\ds18b20.o: USER\eeprom.h
 .\objects\ds18b20.o: USER\beep.h
 .\objects\ds18b20.o: USER\at24cxx.h
+.\objects\ds18b20.o: USER\w25x16.h

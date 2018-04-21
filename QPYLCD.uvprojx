@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>Target 1</TargetName>
+      <TargetName>Conductormeter</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <pCCUsed>5060422::V5.06 update 4 (build 422)::ARMCC</pCCUsed>
@@ -608,6 +608,16 @@
               <FileName>at24cxx.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\USER\at24cxx.c</FilePath>
+            </File>
+            <File>
+              <FileName>spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\USER\spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>w25x16.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\USER\w25x16.c</FilePath>
             </File>
           </Files>
         </Group>

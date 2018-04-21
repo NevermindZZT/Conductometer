@@ -1,12 +1,12 @@
-/****************** ***************************
-*             导热仪支持函数                 *
-*         中南大学物理与电子学院             *
-*                张克强                      *
-*                2018/4                      *
-*********************************************/
+/**********************************************
+*             导热仪支持函数                  *
+*         中南大学物理与电子学院              *
+*                张克强	                      *
+*                2018/4                       *
+**********************************************/
 
 #include	"support.h"
-#include    "string.h"
+#include	"string.h"
 
 TEMP_Control temperatureControl;
 
@@ -20,201 +20,201 @@ TEMP_Control temperatureControl;
 
 void DRY_SystemSetting(void)
 {
-    uint8_t scanData;
-    int8_t cursorLocation = 0;
-    int8_t cursorOffset = 0;
-    
-    DRY_SettingItem settingItem[] =                                                             //设置项数组，可自由增减
-    {
-        {(uint8_t *)"Machine Number", 1, 30, ITEM_COUNT, 0},
-        {(uint8_t *)"Brightness", 1, 7, ITEM_COUNT, 0},
-        {(uint8_t *)"Software Version", 0, 0, ITEM_STRING, 0},
-        {(uint8_t *)"Build Date", 0, 0, ITEM_STRING, 0},
-        {(uint8_t *)"Romer", 0, 0, ITEM_STRING, 0},
-    };
-    
-    settingItem[0].itemData.countData = experimentalData.machineNumber;                         //设置项数据初值
-    settingItem[1].itemData.countData = screenBrightness;
-    settingItem[2].itemData.stringData = (uint8_t *)SOFTWAREVERSION;
-    settingItem[3].itemData.stringData = (uint8_t *)BUILDDATE;
-    settingItem[4].itemData.stringData = (uint8_t *)"Letter";
-    
-    QPYLCD_SetBackColor(WHITE);
+	uint8_t scanData;
+	int8_t cursorLocation = 0;
+	int8_t cursorOffset = 0;
+	
+	DRY_SettingItem settingItem[] =															 //设置项数组，可自由增减
+	{
+		{(uint8_t *)"Machine Number", 1, 30, ITEM_COUNT, 0},
+		{(uint8_t *)"Brightness", 1, 7, ITEM_COUNT, 0},
+		{(uint8_t *)"Software Version", 0, 0, ITEM_STRING, 0},
+		{(uint8_t *)"Build Date", 0, 0, ITEM_STRING, 0},
+		{(uint8_t *)"Romer", 0, 0, ITEM_STRING, 0},
+	};
+	
+	settingItem[0].itemData.countData = experimentalData.machineNumber;						 //设置项数据初值
+	settingItem[1].itemData.countData = screenBrightness;
+	settingItem[2].itemData.stringData = (uint8_t *)SOFTWAREVERSION;
+	settingItem[3].itemData.stringData = (uint8_t *)BUILDDATE;
+	settingItem[4].itemData.stringData = (uint8_t *)"Letter";
+	
+	QPYLCD_SetBackColor(WHITE);
 	QPYLCD_Clear();
 	QPYLCD_DrawRectangle(0, 0, 480, 64, BLUE);
 	QPYLCD_SetBackColor(BLUE);
 	QPYLCD_DisplayString(176, 16, WHITE, FONT16X32, "Settings");								//显示“Settings”
 	
-    QPYLCD_SetBackColor(WHITE);
-    
-    for (uint8_t i = 0; (i < sizeof(settingItem) / sizeof(DRY_SettingItem)) && (64 + 48 * i <= 272); i++)                 //显示设置项
-    {
-        if (i == 0)
-        {
-            DRY_DisplaySettingItem(64 + 48 * i, CYAN, settingItem[i]);
-        }
-        else
-        {
-            DRY_DisplaySettingItem(64 + 48 * i, WHITE, settingItem[i]);
-        }
-    }
-    
-    while (1)
-    {
-        scanData = KEYANDEC11_Scan();
-        if (scanData != 0)
-        {
-            switch (scanData)
-            {
-                case KEY_LEFT:
-                    if (cursorLocation > 0)
-                    {
-                        if (cursorLocation - cursorOffset <= 0)
-                        {
-                            for (uint8_t i = 0; 64 + 48 * i <= 272; i++)
-                            {
-                                DRY_DisplaySettingItem(64 + 48 * i, WHITE, 
-                                    settingItem[cursorLocation - 1 + i]);
-                            }
-                            cursorOffset--;
-                        }
-                        else
-                        {
-                            
-                            DRY_DisplaySettingItem(64 + 48 * (cursorLocation - cursorOffset), 
-                                                        WHITE, settingItem[cursorLocation]);
-                            
-                        }
-                        cursorLocation--;
-                    }
-                    break;
-                
-                case KEY_RIGHT:
-                    if (cursorLocation < sizeof(settingItem) / sizeof(DRY_SettingItem) - 1)
-                    {
-                        if (cursorLocation - cursorOffset >= 3)
-                        {
-                            for (uint8_t i = 0; 64 + 48 * i <= 272; i++)
-                            {
-                                DRY_DisplaySettingItem(64 + 48 * i, WHITE, 
-                                    settingItem[cursorLocation - 2 + i]);
-                            }
-                            cursorOffset++;
-                        }
-                        else
-                        {
-                            DRY_DisplaySettingItem(64 + 48 * (cursorLocation - cursorOffset), 
-                                                        WHITE, settingItem[cursorLocation]);
-                        }
-                        cursorLocation++;
-                    }
-                    break;
-                
-                case KEY_ENTER_LONG:
+	QPYLCD_SetBackColor(WHITE);
+	
+	for (uint8_t i = 0; (i < sizeof(settingItem) / sizeof(DRY_SettingItem)) && (64 + 48 * i <= 272); i++)				 //显示设置项
+	{
+		if (i == 0)
+		{
+			DRY_DisplaySettingItem(64 + 48 * i, CYAN, settingItem[i]);
+		}
+		else
+		{
+			DRY_DisplaySettingItem(64 + 48 * i, WHITE, settingItem[i]);
+		}
+	}
+	
+	while (1)
+	{
+		scanData = KEYANDEC11_Scan();
+		if (scanData != 0)
+		{
+			switch (scanData)
+			{
+				case KEY_LEFT:
+					if (cursorLocation > 0)
+					{
+						if (cursorLocation - cursorOffset <= 0)
+						{
+							for (uint8_t i = 0; 64 + 48 * i <= 272; i++)
+							{
+								DRY_DisplaySettingItem(64 + 48 * i, WHITE, 
+									settingItem[cursorLocation - 1 + i]);
+							}
+							cursorOffset--;
+						}
+						else
+						{
+							
+							DRY_DisplaySettingItem(64 + 48 * (cursorLocation - cursorOffset), 
+														WHITE, settingItem[cursorLocation]);
+							
+						}
+						cursorLocation--;
+					}
+					break;
+				
+				case KEY_RIGHT:
+					if (cursorLocation < sizeof(settingItem) / sizeof(DRY_SettingItem) - 1)
+					{
+						if (cursorLocation - cursorOffset >= 3)
+						{
+							for (uint8_t i = 0; 64 + 48 * i <= 272; i++)
+							{
+								DRY_DisplaySettingItem(64 + 48 * i, WHITE, 
+									settingItem[cursorLocation - 2 + i]);
+							}
+							cursorOffset++;
+						}
+						else
+						{
+							DRY_DisplaySettingItem(64 + 48 * (cursorLocation - cursorOffset), 
+														WHITE, settingItem[cursorLocation]);
+						}
+						cursorLocation++;
+					}
+					break;
+				
+				case KEY_ENTER_LONG:
 						readFlash[0] = experimentalData.machineNumber = settingItem[0].itemData.countData;
 						readFlash[1] = screenBrightness = settingItem[1].itemData.countData;
 						MemWriteByte(readFlash, 2);					
-                    return;
-//                    break;
-                
-                case EC11_UP:
-                    switch ((uint8_t)settingItem[cursorLocation].type)
-                    {
-                        case ITEM_COUNT:
-                            if (++settingItem[cursorLocation].itemData.countData
-                                > settingItem[cursorLocation].maxCount)
-                            {
-                                settingItem[cursorLocation].itemData.countData
-                                 = settingItem[cursorLocation].minCount;
-                            }
-                            break;
-                        case ITEM_BOOL:
-                            settingItem[cursorLocation].itemData.isTrue = TRUE;
-                            break;
-                        case ITEM_STRING:
-                            break;
-                        default:
-                            break;
-                    }
-                    break;
-                
-                case EC11_DOWN:
-                    switch ((uint8_t)settingItem[cursorLocation].type)
-                    {
-                        case ITEM_COUNT:
-                            if (--settingItem[cursorLocation].itemData.countData
-                                < settingItem[cursorLocation].minCount)
-                            {
-                                settingItem[cursorLocation].itemData.countData
-                                 = settingItem[cursorLocation].maxCount;
-                            }
-                            break;
-                        case ITEM_BOOL:
-                            settingItem[cursorLocation].itemData.isTrue = FALSE;
-                            break;
-                        case ITEM_STRING:
-                            break;
-                        default:
-                            break;
-                    }
-                    break;
-                
-                default :
-                    break;
-            }
-            DRY_DisplaySettingItem(64 + 48 * (cursorLocation - cursorOffset), 
-                                    CYAN, settingItem[cursorLocation]);
-        }
-    }
+					return;
+//					break;
+				
+				case EC11_UP:
+					switch ((uint8_t)settingItem[cursorLocation].type)
+					{
+						case ITEM_COUNT:
+							if (++settingItem[cursorLocation].itemData.countData
+								> settingItem[cursorLocation].maxCount)
+							{
+								settingItem[cursorLocation].itemData.countData
+								 = settingItem[cursorLocation].minCount;
+							}
+							break;
+						case ITEM_BOOL:
+							settingItem[cursorLocation].itemData.isTrue = TRUE;
+							break;
+						case ITEM_STRING:
+							break;
+						default:
+							break;
+					}
+					break;
+				
+				case EC11_DOWN:
+					switch ((uint8_t)settingItem[cursorLocation].type)
+					{
+						case ITEM_COUNT:
+							if (--settingItem[cursorLocation].itemData.countData
+								< settingItem[cursorLocation].minCount)
+							{
+								settingItem[cursorLocation].itemData.countData
+								 = settingItem[cursorLocation].maxCount;
+							}
+							break;
+						case ITEM_BOOL:
+							settingItem[cursorLocation].itemData.isTrue = FALSE;
+							break;
+						case ITEM_STRING:
+							break;
+						default:
+							break;
+					}
+					break;
+				
+				default :
+					break;
+			}
+			DRY_DisplaySettingItem(64 + 48 * (cursorLocation - cursorOffset), 
+									CYAN, settingItem[cursorLocation]);
+		}
+	}
 }
 
 
 /*******************************************
 *函数名称：	DRY_DisplaySettingItem
 *功能：		显示仪器设置的条目
-*参数：		location        位置(此处为y轴坐标)
-*           color           背景色
-*           settingItem     设置条目，使用结构体定义
+*参数：		location		位置(此处为y轴坐标)
+*		   color		   背景色
+*		   settingItem	 设置条目，使用结构体定义
 *返回值：	无
 *******************************************/
 void DRY_DisplaySettingItem(uint16_t location, uint8_t color, DRY_SettingItem settingItem)
 {
-    QPYLCD_SetBackColor(color);
-    QPYLCD_DrawRectangle(0, location, 480, 47, color);
-    QPYLCD_DisplayString(5, location + 12, BLACK, FONT16X24, settingItem.id);
-    switch ((uint8_t)settingItem.type)
-    {
-        case ITEM_COUNT:
-            QPYLCD_DisplayInt(320, location + 12, BLACK, FONT16X24, settingItem.itemData.countData);
-            break;
-        
-        case ITEM_BOOL:
-            if (settingItem.itemData.isTrue == TRUE)
-            {
-                QPYLCD_DisplayString(320, location + 12, BLACK, FONT16X24, (uint8_t *)"ON");
-            }
-            else
-            {
-                QPYLCD_DisplayString(320, location + 12, BLACK, FONT16X24, (uint8_t *)"OFF");
-            }
-            break;
-            
-        case ITEM_STRING:
-            if (strlen((const char *)settingItem.itemData.stringData) <= 10)
-            {
-                QPYLCD_DisplayString(320, location + 12, BLACK, FONT16X24, settingItem.itemData.stringData);
-            }
-            else if (strlen((const char *)settingItem.itemData.stringData) <= 20)
-            {
-                QPYLCD_DisplayString(320, location + 16, BLACK, FONT8X16, settingItem.itemData.stringData);
-            }
-            else
-            {
-                QPYLCD_DisplayString(320, location + 8, BLACK, FONT8X16, settingItem.itemData.stringData);
-            }
-            break;
-    }
-    QPYLCD_DrawLine(0, location + 47, 479, location + 47, QPYLCD_NewColor(1, 1, 1));
+	QPYLCD_SetBackColor(color);
+	QPYLCD_DrawRectangle(0, location, 480, 47, color);
+	QPYLCD_DisplayString(5, location + 12, BLACK, FONT16X24, settingItem.id);
+	switch ((uint8_t)settingItem.type)
+	{
+		case ITEM_COUNT:
+			QPYLCD_DisplayInt(320, location + 12, BLACK, FONT16X24, settingItem.itemData.countData);
+			break;
+		
+		case ITEM_BOOL:
+			if (settingItem.itemData.isTrue == TRUE)
+			{
+				QPYLCD_DisplayString(320, location + 12, BLACK, FONT16X24, (uint8_t *)"ON");
+			}
+			else
+			{
+				QPYLCD_DisplayString(320, location + 12, BLACK, FONT16X24, (uint8_t *)"OFF");
+			}
+			break;
+			
+		case ITEM_STRING:
+			if (strlen((const char *)settingItem.itemData.stringData) <= 10)
+			{
+				QPYLCD_DisplayString(320, location + 12, BLACK, FONT16X24, settingItem.itemData.stringData);
+			}
+			else if (strlen((const char *)settingItem.itemData.stringData) <= 20)
+			{
+				QPYLCD_DisplayString(320, location + 16, BLACK, FONT8X16, settingItem.itemData.stringData);
+			}
+			else
+			{
+				QPYLCD_DisplayString(320, location + 8, BLACK, FONT8X16, settingItem.itemData.stringData);
+			}
+			break;
+	}
+	QPYLCD_DrawLine(0, location + 47, 479, location + 47, QPYLCD_NewColor(1, 1, 1));
 }
 
 
@@ -344,7 +344,7 @@ void DRY_InputStudentNumber(void)
 					}
 					break;
 				
-                case KEY_ENTER:
+				case KEY_ENTER:
 				case KEY_ENTER_LONG:																	//按键确定
 //					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
 //					{
@@ -377,8 +377,8 @@ void DRY_InputStudentNumber(void)
 					break;
 					
 				case EC11_DOWN:																	//编码器逆时针
-					tempData--;                                                                 //光标位置数据减少
-					if (tempData > 9)                                                           //数据范围限制
+					tempData--;																    //光标位置数据减少
+					if (tempData > 9)														    //数据范围限制
 						tempData = 9;
 					break;
 				
@@ -469,7 +469,7 @@ void DRY_TemperatureSetting(void)
 					}	
 					break;
 				
-                case KEY_ENTER:
+				case KEY_ENTER:
 				case KEY_ENTER_LONG:																	//按键确认
 //					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
 //					{
@@ -491,14 +491,14 @@ void DRY_TemperatureSetting(void)
 					break;
 				
 				case EC11_UP:																	//编码器顺时针
-					tempData[i]++;                                                              //光标位置数据增加
-					if (tempData[i] > 9)                                                        //数据范围限制
-						tempData[i] = 0;                                                        
-					break;                                                                      
-					                                                                            
-				case EC11_DOWN:                                                                 //编码器逆时针
-					tempData[i]--;                                                              //光标位置数据减少
-					if (tempData[i] > 9)                                                        //数据范围限制
+					tempData[i]++;															    //光标位置数据增加
+					if (tempData[i] > 9)														//数据范围限制
+						tempData[i] = 0;														
+					break;																	  
+																								
+				case EC11_DOWN:																    //编码器逆时针
+					tempData[i]--;															    //光标位置数据减少
+					if (tempData[i] > 9)														//数据范围限制
 						tempData[i] = 9;
 					break;
 				
@@ -578,17 +578,17 @@ void DRY_BuildBalance(void)
 	{
 //		DRY_TemperatureControl(experimentalData.settedTemperature);								//温度控制
 
-        do
-        {
-            tempA = DS18B20_ReadTemp(DS18B20A);														//读取温度
-            tempT = DS18B20_ReadTemp(DS18B20A);                                                     //读两次，过滤错误
-        } while ((((tempA - tempT) > 0) ? (tempA - tempT) : (tempT - tempA)) > 10);
-        
-        do 
-        {
-            tempB = DS18B20_ReadTemp(DS18B20B);
-            tempT = DS18B20_ReadTemp(DS18B20B);
-        } while ((((tempB - tempT) > 0) ? (tempB - tempT) : (tempT - tempB)) > 10);
+		do
+		{
+			tempA = DS18B20_ReadTemp(DS18B20A);													//读取温度
+			tempT = DS18B20_ReadTemp(DS18B20A);												    //读两次，过滤错误
+		} while ((((tempA - tempT) > 0) ? (tempA - tempT) : (tempT - tempA)) > 10);
+		
+		do 
+		{
+			tempB = DS18B20_ReadTemp(DS18B20B);
+			tempT = DS18B20_ReadTemp(DS18B20B);
+		} while ((((tempB - tempT) > 0) ? (tempB - tempT) : (tempT - tempB)) > 10);
 		
 		sprintf((char *)str, "%-5.1f", tempA);													//显示加热盘温度
 //		QPYLCD_DrawRectangle(149, 96, 80, 24, WHITE);
@@ -627,7 +627,7 @@ void DRY_BuildBalance(void)
 					QPYLCD_DisplayString(149, 216, BLACK, FONT16X24, str);
 					break;
 				
-                case KEY_ENTER:
+				case KEY_ENTER:
 				case KEY_ENTER_LONG:																	//按键确认
 //					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
 //					{
@@ -694,10 +694,10 @@ void DRY_HeatingScreen(void)
 void DRY_Heating(void)
 {
 	float tempA, tempB, tempT;																			//加热盘，散热盘温度
-	uint8_t str[10];                                                                            
-	uint8_t scanData;                                                                           //按键键值
-	                                                                                            
-	while (KEYANDEC11_Scan() == KEY_ENTER);                                                     //判断按键松开
+	uint8_t str[10];																			
+	uint8_t scanData;																		   //按键键值
+																								
+	while (KEYANDEC11_Scan() == KEY_ENTER);													 //判断按键松开
 	
 	HeatingEnable();																			//开启加热
 	temperatureControl.heatingAimTemperature = experimentalData.settedTemperature;			//设置加热目标温度
@@ -706,17 +706,17 @@ void DRY_Heating(void)
 	{
 //		DRY_TemperatureControl(80);																//温度控制
 																								//加入PID算法，由定时器进行温度控制
-        do
-        {
-            tempA = DS18B20_ReadTemp(DS18B20A);														//读取温度
-            tempT = DS18B20_ReadTemp(DS18B20A);                                                     //读两次，过滤错误
-        } while ((((tempA - tempT) > 0) ? (tempA - tempT) : (tempT - tempA)) > 10);
-        
-        do 
-        {
-            tempB = DS18B20_ReadTemp(DS18B20B);
-            tempT = DS18B20_ReadTemp(DS18B20B);
-        } while ((((tempB - tempT) > 0) ? (tempB - tempT) : (tempT - tempB)) > 10);
+		do
+		{
+			tempA = DS18B20_ReadTemp(DS18B20A);														//读取温度
+			tempT = DS18B20_ReadTemp(DS18B20A);													 //读两次，过滤错误
+		} while ((((tempA - tempT) > 0) ? (tempA - tempT) : (tempT - tempA)) > 10);
+		
+		do 
+		{
+			tempB = DS18B20_ReadTemp(DS18B20B);
+			tempT = DS18B20_ReadTemp(DS18B20B);
+		} while ((((tempB - tempT) > 0) ? (tempB - tempT) : (tempT - tempB)) > 10);
 		
 		sprintf((char *)str, "%-5.1f", tempA);													//显示加热盘温度
 //		QPYLCD_DrawRectangle(149, 124, 80, 24, WHITE);
@@ -743,7 +743,7 @@ void DRY_Heating(void)
 #endif
 //					break;
 				
-                case KEY_ENTER:
+				case KEY_ENTER:
 				case KEY_ENTER_LONG:																	//按键确认
 //					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
 //					{
@@ -873,7 +873,7 @@ void DRY_Recording(void)
 					}
 					break;
 				
-                case KEY_ENTER:
+				case KEY_ENTER:
 				case KEY_ENTER_LONG:																	//按键确认
 //					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
 //					{
@@ -1029,7 +1029,7 @@ void DRY_ShowData(void)
 #endif
 //					break;
 				
-                case KEY_ENTER:
+				case KEY_ENTER:
 				case KEY_ENTER_LONG:																	//按键确认
 //					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
 //					{
@@ -1325,18 +1325,18 @@ void DRY_DisplayData(uint8_t group, uint32_t time, float tempB, uint8_t color)
 		QPYLCD_DisplayString(85, 69 + 26 * group, color, FONT8X16, str);						//显示温度
 	}
 	else if (group < 15)																		//7-14组数据
-	{                                                                                           
-		sprintf((char *)str, "%d:%02d", time / 60, time % 60);                      			//格式化时间
-		QPYLCD_DisplayString(165, 69 + 26 * (group - 7), color, FONT8X16, str);                 //显示时间
-		sprintf((char *)str, "%.1f", tempB);                                                    //格式化温度
-		QPYLCD_DisplayString(245, 69 + 26 * (group - 7), color, FONT8X16, str);                 //显示温度
+	{																						   
+		sprintf((char *)str, "%d:%02d", time / 60, time % 60);					  			//格式化时间
+		QPYLCD_DisplayString(165, 69 + 26 * (group - 7), color, FONT8X16, str);				 //显示时间
+		sprintf((char *)str, "%.1f", tempB);													//格式化温度
+		QPYLCD_DisplayString(245, 69 + 26 * (group - 7), color, FONT8X16, str);				 //显示温度
 	}
 	else if (group < 21)																		//15-20组数据
-	{                                                                                           
+	{																						   
 		sprintf((char *)str, "%d:%02d", time / 60, time % 60);									//格式化时间
-		QPYLCD_DisplayString(325, 69 + 26 * (group - 13), color, FONT8X16, str);                //显示时间
-		sprintf((char *)str, "%.1f", tempB);                                                    //格式化温度
-		QPYLCD_DisplayString(405, 69 + 26 * (group - 13), color, FONT8X16, str);                //显示温度
+		QPYLCD_DisplayString(325, 69 + 26 * (group - 13), color, FONT8X16, str);				//显示时间
+		sprintf((char *)str, "%.1f", tempB);													//格式化温度
+		QPYLCD_DisplayString(405, 69 + 26 * (group - 13), color, FONT8X16, str);				//显示温度
 	}
 }
 

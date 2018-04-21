@@ -5,7 +5,7 @@
 *                                  2018/4                                      *
 *******************************************************************************/
 
-#include	"at24cxx.h"
+#include    "at24cxx.h"
 
 /*******************************************************************************
 *函数名称： AT24CXX_Init
@@ -15,7 +15,7 @@
 *******************************************************************************/
 void AT24CXX_Init(void)
 {
-	IIC_Init();                                                 //初始化I2C
+    IIC_Init();                                                 //初始化I2C
 }
 
 
@@ -29,19 +29,19 @@ void AT24CXX_Init(void)
 *******************************************************************************/
 bool AT24CXX_Check(void)
 {
-	if (AT24CXX_ReadOneByte(255) == 0x55)                       //读最后一字节数据并判断
-	{
-		return TRUE;                                            //若数据为0x55,连接成功
-	}
-	else
-	{
-		AT24CXX_WriteOneByte(255, 0x55);                        //不为0x55,重写数据并读取判断
-		if (AT24CXX_ReadOneByte(255) == 0x55)
-		{
-			return TRUE;
-		}
-		return FALSE;
-	}
+    if (AT24CXX_ReadOneByte(255) == 0x55)                       //读最后一字节数据并判断
+    {
+        return TRUE;                                            //若数据为0x55,连接成功
+    }
+    else
+    {
+        AT24CXX_WriteOneByte(255, 0x55);                        //不为0x55,重写数据并读取判断
+        if (AT24CXX_ReadOneByte(255) == 0x55)
+        {
+            return TRUE;
+        }
+        return FALSE;
+    }
 }
 
 
@@ -53,30 +53,30 @@ bool AT24CXX_Check(void)
 *******************************************************************************/
 uint8_t AT24CXX_ReadOneByte(uint16_t readAddress)
 {
-	uint8_t readData;
-	
-	IIC_Start();                                                //I2C开始信号
-	
-	if (AT24CXX_TYPE > AT24C16)                                 //写地址，大容量芯片需写两次
-	{
-		IIC_SendByte(0xA0);
-		IIC_WaitAck();
-		IIC_SendByte(readAddress >> 8);
-	}
-	else
-	{
-		IIC_SendByte(0xA0 + ((readAddress / 256) << 1));
-	}
-	IIC_WaitAck();                                              //等待应答
-	IIC_SendByte(readAddress % 256);
-	IIC_WaitAck();
-	IIC_Start();
-	IIC_SendByte(0xA1);                                         //开始读数据
-	IIC_WaitAck();
-	readData = IIC_ReadByte(0);                                 //读取数据
-	IIC_Stop();                                                 //I2C停止信号
-	
-	return readData;
+    uint8_t readData;
+    
+    IIC_Start();                                                //I2C开始信号
+    
+    if (AT24CXX_TYPE > AT24C16)                                 //写地址，大容量芯片需写两次
+    {
+        IIC_SendByte(0xA0);
+        IIC_WaitAck();
+        IIC_SendByte(readAddress >> 8);
+    }
+    else
+    {
+        IIC_SendByte(0xA0 + ((readAddress / 256) << 1));
+    }
+    IIC_WaitAck();                                              //等待应答
+    IIC_SendByte(readAddress % 256);
+    IIC_WaitAck();
+    IIC_Start();
+    IIC_SendByte(0xA1);                                         //开始读数据
+    IIC_WaitAck();
+    readData = IIC_ReadByte(0);                                 //读取数据
+    IIC_Stop();                                                 //I2C停止信号
+    
+    return readData;
 }
 
 
@@ -89,24 +89,24 @@ uint8_t AT24CXX_ReadOneByte(uint16_t readAddress)
 *******************************************************************************/
 void AT24CXX_WriteOneByte(uint16_t writeAddress, uint8_t writeData)
 {
-	IIC_Start();
-	if (AT24CXX_TYPE > AT24C16)                                 //写地址
-	{
-		IIC_SendByte(0xA0);
-		IIC_WaitAck();
-		IIC_SendByte(writeAddress >> 8);
-	}
-	else
-	{
-		IIC_SendByte(0xA0 + ((writeAddress / 256) << 1));
-	}
-	IIC_WaitAck();
-	IIC_SendByte(writeAddress % 256);
-	IIC_WaitAck();
-	IIC_SendByte(writeData);                                    //写数据
-	IIC_WaitAck();
-	IIC_Stop();
-	delay_ms(10);                                               //每次写数据需等待
+    IIC_Start();
+    if (AT24CXX_TYPE > AT24C16)                                 //写地址
+    {
+        IIC_SendByte(0xA0);
+        IIC_WaitAck();
+        IIC_SendByte(writeAddress >> 8);
+    }
+    else
+    {
+        IIC_SendByte(0xA0 + ((writeAddress / 256) << 1));
+    }
+    IIC_WaitAck();
+    IIC_SendByte(writeAddress % 256);
+    IIC_WaitAck();
+    IIC_SendByte(writeData);                                    //写数据
+    IIC_WaitAck();
+    IIC_Stop();
+    delay_ms(10);                                               //每次写数据需等待
 }
 
 
@@ -120,11 +120,11 @@ void AT24CXX_WriteOneByte(uint16_t writeAddress, uint8_t writeData)
 *******************************************************************************/
 void AT24CXX_Write(uint16_t writeAddress, uint8_t *data, uint16_t dataLength)
 {
-	while (dataLength --)
-	{
-		AT24CXX_WriteOneByte(writeAddress ++, *data);
-		data ++;
-	}
+    while (dataLength --)
+    {
+        AT24CXX_WriteOneByte(writeAddress ++, *data);
+        data ++;
+    }
 }
 
 
@@ -138,9 +138,9 @@ void AT24CXX_Write(uint16_t writeAddress, uint8_t *data, uint16_t dataLength)
 *******************************************************************************/
 void AT24CXX_Read(uint16_t writeAddress, uint8_t *data, uint16_t dataLength)
 {
-	while (dataLength --)
-	{
-		*data = AT24CXX_ReadOneByte(writeAddress++);
-		data ++;
-	}
+    while (dataLength --)
+    {
+        *data = AT24CXX_ReadOneByte(writeAddress++);
+        data ++;
+    }
 }

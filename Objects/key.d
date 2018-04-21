@@ -21,6 +21,8 @@
 .\objects\key.o: .\FWLB\inc\stm32f10x_tim.h
 .\objects\key.o: USER\iic.h
 .\objects\key.o: USER\config.h
+.\objects\key.o: USER\spi.h
+.\objects\key.o: .\FWLB\inc\stm32f10x_spi.h
 .\objects\key.o: .\asciifont.h
 .\objects\key.o: .\font.h
 .\objects\key.o: USER\qpylcd.h
@@ -33,3 +35,4 @@
 .\objects\key.o: USER\eeprom.h
 .\objects\key.o: USER\beep.h
 .\objects\key.o: USER\at24cxx.h
+.\objects\key.o: USER\w25x16.h

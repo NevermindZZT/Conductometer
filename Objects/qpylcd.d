@@ -20,6 +20,8 @@
 .\objects\qpylcd.o: .\FWLB\inc\stm32f10x_tim.h
 .\objects\qpylcd.o: USER\iic.h
 .\objects\qpylcd.o: USER\config.h
+.\objects\qpylcd.o: USER\spi.h
+.\objects\qpylcd.o: .\FWLB\inc\stm32f10x_spi.h
 .\objects\qpylcd.o: .\asciifont.h
 .\objects\qpylcd.o: .\font.h
 .\objects\qpylcd.o: USER\qpylcd.h
@@ -32,3 +34,4 @@
 .\objects\qpylcd.o: USER\eeprom.h
 .\objects\qpylcd.o: USER\beep.h
 .\objects\qpylcd.o: USER\at24cxx.h
+.\objects\qpylcd.o: USER\w25x16.h

@@ -21,6 +21,8 @@
 .\objects\support.o: .\FWLB\inc\stm32f10x_tim.h
 .\objects\support.o: USER\iic.h
 .\objects\support.o: USER\config.h
+.\objects\support.o: USER\spi.h
+.\objects\support.o: .\FWLB\inc\stm32f10x_spi.h
 .\objects\support.o: .\asciifont.h
 .\objects\support.o: .\font.h
 .\objects\support.o: USER\qpylcd.h
@@ -33,4 +35,5 @@
 .\objects\support.o: USER\eeprom.h
 .\objects\support.o: USER\beep.h
 .\objects\support.o: USER\at24cxx.h
+.\objects\support.o: USER\w25x16.h
 .\objects\support.o: D:\Program Files (x86)\keil\ARM\ARMCC\Bin\..\include\string.h

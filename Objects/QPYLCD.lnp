@@ -42,6 +42,8 @@
 ".\objects\beep.o"
 ".\objects\iic.o"
 ".\objects\at24cxx.o"
+".\objects\spi.o"
+".\objects\w25x16.o"
 --library_type=microlib --strict --scatter ".\Objects\QPYLCD.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

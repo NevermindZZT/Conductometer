@@ -20,6 +20,8 @@
 .\objects\esp8266.o: .\FWLB\inc\stm32f10x_tim.h
 .\objects\esp8266.o: USER\iic.h
 .\objects\esp8266.o: USER\config.h
+.\objects\esp8266.o: USER\spi.h
+.\objects\esp8266.o: .\FWLB\inc\stm32f10x_spi.h
 .\objects\esp8266.o: .\asciifont.h
 .\objects\esp8266.o: .\font.h
 .\objects\esp8266.o: USER\qpylcd.h
@@ -32,5 +34,6 @@
 .\objects\esp8266.o: USER\eeprom.h
 .\objects\esp8266.o: USER\beep.h
 .\objects\esp8266.o: USER\at24cxx.h
+.\objects\esp8266.o: USER\w25x16.h
 .\objects\esp8266.o: D:\Program Files (x86)\keil\ARM\ARMCC\Bin\..\include\stdarg.h
 .\objects\esp8266.o: D:\Program Files (x86)\keil\ARM\ARMCC\Bin\..\include\string.h
