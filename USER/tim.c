@@ -156,12 +156,12 @@ void TIM2_IRQHandler(void)
 			}
 		}
 		
-		if ((temperatureControl.isHeating ==  TRUE) && ((tim2Count % 2) == 0))						//一秒钟处理一次加热
+		if ((temperatureControl.isHeating ==  TRUE) && ((tim2Count % 20) == 0))						//一秒钟处理一次加热
 		{
 #ifdef		PID_CONTROL																				//PID算法
 			temperatureControl.pidTemperature[0] = temperatureControl.pidTemperature[1];
 			temperatureControl.pidTemperature[1] = temperatureControl.pidTemperature[2];
-			temperatureControl.pidTemperature[2] = DS18B20_ReadTemp(DS18B20B);						//读取加热盘温度
+			temperatureControl.pidTemperature[2] = DS18B20_ReadTemp(DS18B20A);						//读取加热盘温度
 #endif
 			DRY_TemperatureControl();																
 		}

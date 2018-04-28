@@ -32,10 +32,10 @@
 #ifdef		PID_CONTROL
 #define		PID_KP				4													//PID算法比例系数
 #define		PID_KI				2													//PID算法积分系数
-#define		PID_KD				8													//PID算法微分系数
+#define		PID_KD				0													//PID算法微分系数
 #endif
 
-#define		SOFTWAREVERSION		"0.6.3-Alpha"											//软件版本
+#define		SOFTWAREVERSION		"0.6.4-Beta"											//软件版本
 #define		BUILDDATE		   __DATE__"  \n"__TIME__							  //编译时间
 
 #define		HeatingEnable()		PWMEnable();temperatureControl.isHeating = TRUE		//开始加热
@@ -101,7 +101,7 @@ void DRY_SystemSetting(void);														//系统设置
 
 void DRY_DisplaySettingItem(uint16_t location, uint8_t color, DRY_SettingItem settingItem);
 
-void DRY_WelcomeScreen(void);														//初始化界面
+void DRY_Booting(void);														//初始化界面
 
 void DRY_InputStudentNumberScreen(void);											//学号输入界面
 

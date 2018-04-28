@@ -58,6 +58,11 @@ void W25X16_EraseSector(uint32_t sectorAddress)
 	sectorAddress = (sectorAddress >> 12) << 12;
 	
 	W25X16_Enable();
+	W25X16_WriteByte(W25X16_WRITE_ENABLE);
+	W25X16_Disable();
+	__nop();
+	
+	W25X16_Enable();
 	
 	W25X16_WriteByte(W25X16_SECTOR_ERASE);
 	
@@ -65,6 +70,11 @@ void W25X16_EraseSector(uint32_t sectorAddress)
 	W25X16_WriteByte((sectorAddress & 0x00FF00) >> 8);
 	W25X16_WriteByte(sectorAddress & 0x0000FF);
 	
+	W25X16_Disable();
+	
+	__nop();
+	W25X16_Enable();
+	W25X16_WriteByte(W25X16_WRITE_DISABLE);
 	W25X16_Disable();
 }
 
@@ -109,6 +119,11 @@ void W25X16_Read(uint8_t *data, uint32_t readAddress, uint8_t dataLength)
 void W25X16_PageWrite(uint8_t *data, uint32_t writeAddress, uint8_t dataLength)
 {
 	W25X16_Enable();
+	W25X16_WriteByte(W25X16_WRITE_ENABLE);
+	W25X16_Disable();
+	__nop();
+	
+	W25X16_Enable();
 	
 	W25X16_WriteByte(W25X16_WRITE_ENABLE);
 	
@@ -122,6 +137,11 @@ void W25X16_PageWrite(uint8_t *data, uint32_t writeAddress, uint8_t dataLength)
 		W25X16_WriteByte(*data++);
 	}
 	
+	W25X16_WriteByte(W25X16_WRITE_DISABLE);
+	W25X16_Disable();
+	
+	__nop();
+	W25X16_Enable();
 	W25X16_WriteByte(W25X16_WRITE_DISABLE);
 	W25X16_Disable();
 }

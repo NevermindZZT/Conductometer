@@ -218,14 +218,13 @@ void DRY_DisplaySettingItem(uint16_t location, uint8_t color, DRY_SettingItem se
 }
 
 
-
 /*******************************************
-*函数名称：	DRY_WelcomeScreen
-*功能：		显示仪器初始化界面
+*函数名称：	DRY_Booting
+*功能：		仪器启动
 *参数：		无
 *返回值：	无
 *******************************************/
-void DRY_WelcomeScreen(void)
+void DRY_Booting(void)
 {
 	uint8_t i;
 	
@@ -313,6 +312,8 @@ void DRY_InputStudentNumber(void)
 	uint8_t i = 0;
 	uint8_t j;
 	
+	DRY_InputStudentNumberScreen();
+	
 	while (KEYANDEC11_Scan() == KEY_ENTER);														//由上一步长按确认键进入此程序，判断确认键被松开
 	
 	QPYLCD_DisplayInt(xLabel, 168, RED, FONT16X24, tempData);									//默认刷新一次数据
@@ -348,7 +349,7 @@ void DRY_InputStudentNumber(void)
 				case KEY_ENTER_LONG:																	//按键确定
 //					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
 //					{
-						DRY_EnterDialogScreen();												//显示确认弹窗
+						//DRY_EnterDialogScreen();												//显示确认弹窗
 						if (DRY_EnterDialog() == 0)												//判断弹窗动作，返回0为确定
 						{
 							experimentalData.studentNumber[i++] = tempData + 48;				//保存最后一次数据
@@ -427,6 +428,8 @@ void DRY_TemperatureSetting(void)
 	uint16_t xLabel = 316;																		//光标x坐标
 	uint8_t i = 0;
 	
+	DRY_TemperatureSettingScreen();
+	
 	QPYLCD_DisplayInt(xLabel, 168, RED, FONT16X24, tempData[0]);								//默认刷新一次数据
 	QPYLCD_DisplayInt(xLabel + 16, 168, BLACK, FONT16X24, tempData[1]);
 	
@@ -473,7 +476,7 @@ void DRY_TemperatureSetting(void)
 				case KEY_ENTER_LONG:																	//按键确认
 //					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
 //					{
-						DRY_EnterDialogScreen();												//显示确认弹窗
+						//DRY_EnterDialogScreen();												//显示确认弹窗
 						if (DRY_EnterDialog() == 0)												//判断弹窗动作，返回0为确定
 						{
 							experimentalData.settedTemperature = tempData[0] * 10 + tempData[1];//保存数据
@@ -561,6 +564,8 @@ void DRY_BuildBalance(void)
 	uint8_t str[10];
 	uint8_t scanData;																			//按键键值
 	
+	DRY_BuildBalanceScreen();
+	
 	while (KEYANDEC11_Scan() == KEY_ENTER);														//判断按键松开
 	
 	tim3Count = 0;																				//计时器归零
@@ -631,7 +636,7 @@ void DRY_BuildBalance(void)
 				case KEY_ENTER_LONG:																	//按键确认
 //					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
 //					{
-						DRY_EnterDialogScreen();												//显示确认弹窗
+						//DRY_EnterDialogScreen();												//显示确认弹窗
 						if (DRY_EnterDialog() == 0)												//判断弹窗动作，返回0为确定
 						{
 							experimentalData.balanceTempeatrue = tempB;							//记录数据
@@ -696,7 +701,9 @@ void DRY_Heating(void)
 	float tempA, tempB, tempT;																			//加热盘，散热盘温度
 	uint8_t str[10];																			
 	uint8_t scanData;																		   //按键键值
-																								
+						
+	DRY_HeatingScreen();
+	
 	while (KEYANDEC11_Scan() == KEY_ENTER);													 //判断按键松开
 	
 	HeatingEnable();																			//开启加热
@@ -747,7 +754,7 @@ void DRY_Heating(void)
 				case KEY_ENTER_LONG:																	//按键确认
 //					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
 //					{
-						DRY_EnterDialogScreen();												//显示确认弹窗
+						//DRY_EnterDialogScreen();												//显示确认弹窗
 						if (DRY_EnterDialog() == 0)												//判断弹窗动作，返回0为确定
 						{
 							experimentalData.heatingTempeatrue = tempB;							//保存数据
@@ -832,6 +839,8 @@ void DRY_Recording(void)
 	float tempB;
 	uint8_t j;
 	
+	DRY_RecordingScreen();
+	
 	while (KEYANDEC11_Scan() == KEY_ENTER);														//判断按键松开
 	
 	tim3Count = 0;																				//计时器归零
@@ -877,7 +886,7 @@ void DRY_Recording(void)
 				case KEY_ENTER_LONG:																	//按键确认
 //					if ((KEYANDEC11_Scan()) == KEY_DEFALUT && (KEYANDEC11_Scan() == KEY_ENTER))	//长按
 //					{
-						DRY_EnterDialogScreen();												//显示确认弹窗
+						//DRY_EnterDialogScreen();												//显示确认弹窗
 						if (DRY_EnterDialog() == 0)												//判断弹窗动作，返回0为确定
 						{
 							if (group <= 20)													//记录最后一组数据
@@ -1011,6 +1020,8 @@ void DRY_ShowData(void)
 {
 	uint8_t scanData;
 	
+	DRY_ShowDataScreen();
+	
 	while (1)
 	{
 		scanData = KEYANDEC11_Scan();															//扫描按键和编码器
@@ -1091,6 +1102,8 @@ uint8_t DRY_EnterDialog(void)
 	uint8_t scanData;
 	uint8_t i = 0;
 	
+	DRY_EnterDialogScreen();
+	
 	while (1)
 	{
 		scanData = KEYANDEC11_Scan();															//扫描按键和编码器
@@ -1129,6 +1142,7 @@ uint8_t DRY_EnterDialog(void)
 					break;
 				
 				case KEY_ENTER:																	//按键确认，返回选中值
+				case KEY_ENTER_LONG:
 					return i;
 //					break;
 					
@@ -1170,6 +1184,8 @@ void DRY_CompleteScreen(void)
 void DRY_Complete(void)
 {
 	uint8_t scanData;
+	
+	DRY_CompleteScreen();
 	
 	while (1)
 	{
@@ -1397,13 +1413,11 @@ void DRY_TemperatureControl(void)
 	}
 	
 	/*-----------------输出PID调试信息--------------*/
-#ifdef		DEBUG
-	DEBUG_LOG("temp[k]:%.1f, temp[k-1]:%.1f, temp[k-2]:%.1f; PWM_DutyCycle:%f",
+	DEBUG_LOG("temp[k]:%.1f, temp[k-1]:%.1f, temp[k-2]:%.1f; PWM_DutyCycle:%f\r\n",
 				temperatureControl.pidTemperature[2],
 				temperatureControl.pidTemperature[1],
 				temperatureControl.pidTemperature[0],
 				dutyCycle);
-#endif
 	
 #else																							//比例算法控制温度
 	if (tempA < (temperatureControl.heatingAimTemperature - 5))									//比较加热盘当前温度与目标温度	
@@ -1472,7 +1486,8 @@ void DRY_UplaodData(uint8_t command)
 				{
 					if (i > 19)
 						break;
-					sprintf(str, "-%d-%.1f", experimentalData.measuredData[i].time, experimentalData.measuredData[i].temperature);
+					sprintf(str, "-%d-%.1f", experimentalData.measuredData[i].time,
+							experimentalData.measuredData[i].temperature);
 					ESP8266_SendString(str);
 					i++;
 				}

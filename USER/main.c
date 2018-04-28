@@ -32,7 +32,6 @@ int main(void)
 		|| experimentalData.machineNumber > 30 || experimentalData.machineNumber < 1
 		|| screenBrightness > 7 || screenBrightness < 1)				//进入系统设置
 	{
-//		DRY_SystemSettingScreen();
 		DRY_SystemSetting();
 	}
 	else if ((keyScanData == KEY_COUNT_LONG) && (AT24CXX_Check() == TRUE))	//查看上一次实验数据
@@ -40,7 +39,6 @@ int main(void)
 		DRY_DataSaveDialog(0);
 		tmpExperimentalDataPointer = &experimentalData;
 		AT24CXX_Read(0, (uint8_t *)tmpExperimentalDataPointer, sizeof(DRY_ExperimentalData));
-		DRY_ShowDataScreen();
 		DRY_ShowData();
 		__set_FAULTMASK(1);												//关闭所有中断
 		NVIC_SystemReset();												//系统复位
@@ -52,7 +50,7 @@ int main(void)
 	}
 	QPYLCD_Control(0, 0, 0, screenBrightness);
 	
-	DRY_WelcomeScreen();												//显示初始化界面(温度传感器初始化)
+	DRY_Booting();												//显示初始化界面(温度传感器初始化)
 
 	experimentalData.progress = INPUTSTUDENTNUMBER;						//实验步骤起点
 	
@@ -61,37 +59,30 @@ int main(void)
 		switch (experimentalData.progress)
 		{
 			case INPUTSTUDENTNUMBER:
-				DRY_InputStudentNumberScreen();
 				DRY_InputStudentNumber();
 				break;
 			
 			case TEMPERATURESETTING:
-				DRY_TemperatureSettingScreen();
 				DRY_TemperatureSetting();
 				break;
 			
 			case BUILDBALANCE:
-				DRY_BuildBalanceScreen();
 				DRY_BuildBalance();
 				break;
 			
 			case HEATTING:
-				DRY_HeatingScreen();
 				DRY_Heating();
 				break;
 			
 			case RECORDING:
-				DRY_RecordingScreen();
 				DRY_Recording();
 				break;
 			
 			case SHOWDATA:
-				DRY_ShowDataScreen();
 				DRY_ShowData();
 				break;
 			
 			case COMPLETE:
-				DRY_CompleteScreen();
 				DRY_Complete();
 				break;
 			

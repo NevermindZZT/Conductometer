@@ -27,6 +27,10 @@
 | pwm.c       | PWM驱动                             | 通过PWM调节加热功率                               |
 | eeprom.c    | 模拟EEPROM驱动                      | 使用STM32ROM最后1K作为EEPROM                      |
 | beep.c      | 蜂鸣器驱动                          |                                                   |
+| iic.c       | 模拟I2C驱动                         | 使用普通IO口模拟I2C                               |
+| at24cxx.c   | AT24CXX系列EEPROM驱动               |                                                   |
+| spi.c       | 硬件SPI配置                         | 使用了SPI2，未使用SPI中断                         |
+| w25x16.c    | W25X16 Flash驱动                    | 用于保存数据                                      |
 
 
  ### 部分可自定义选项位于相关头文件宏定义区域，可自行修改，说明如下：
@@ -151,3 +155,7 @@
 
  #### 2018/4/21 0.6.3-Alpha
 - 新增SPI和W25X16 SPI Flash驱动
+
+ #### 2018/4/28 0.6.4-Beta
+- 部分代码结构优化
+- 修复PID算法温度无法控制的问题
