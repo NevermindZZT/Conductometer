@@ -10,10 +10,16 @@
 
 #include	"config.h"
 
+
+#define		SOFTWAREVERSION		"0.7-Beta"										//软件版本
+#define		BUILDDATE		   __DATE__"  \n"__TIME__								//编译时间
+
 #define		ALLOWBACK																//允许长按左键返回上一步骤
 //#define		DEBUG																	//DEBUG模式
 //#define		DEBUG_TEST
-//#define		PID_CONTROL																//使用PID算法控制温度
+
+#define		PID_CONTROL			1													//使用PID算法控制温度(0:不使用  1:位置式  2:增量式)
+
 
 #ifdef		DEBUG
 	#ifndef		PRINTTOUSART
@@ -29,15 +35,7 @@
 	#define		DEBUG_LOG(...)
 #endif
 
-#ifdef		PID_CONTROL
-#define		PID_KP				4													//PID算法比例系数
-#define		PID_KI				2													//PID算法积分系数
-#define		PID_KD				0													//PID算法微分系数
-#endif
-
-#define		SOFTWAREVERSION		"0.6.4-Beta"											//软件版本
-#define		BUILDDATE		   __DATE__"  \n"__TIME__							  //编译时间
-
+	
 #define		HeatingEnable()		PWMEnable();temperatureControl.isHeating = TRUE		//开始加热
 #define		HeatingDisable()	temperatureControl.isHeating = FALSE;PWMDisable()	//结束加热
 
@@ -55,38 +53,46 @@ enum DEVICE_COMMAND
 
 typedef enum																		//仪器设置项属性
 {
-	ITEM_COUNT,																	 //数字设置项
-	ITEM_BOOL,																	  //开关设置项
-	ITEM_STRING																	 //字符显示项
+	ITEM_COUNT,																		//数字设置项
+	ITEM_BOOL,																		//开关设置项
+	ITEM_STRING																		//字符显示项
 }DRY_SettingType;
 
 
 /*-----------------------结构体声明---------------------*/
-typedef struct																	  //温度控制结构体
+typedef struct																		//温度控制结构体
 {
 	float heatingAimTemperature;													//加热目标温度
-	bool isHeating;																 //加热状态
-#ifdef		PID_CONTROL
+	bool isHeating;																	//加热状态
+#if		PID_CONTROL != 0
+	float pidKP;
+	float pidKI;
+	float pidKD;
+	
+	#if PID_CONTROL == 1
+	long double pidErr;
+	#endif
+	
 	float pidTemperature[3];														//PID
 #endif  
 }TEMP_Control;
 
 
-typedef union																	   //设置项数据
+typedef union																		//设置项数据
 {
-	int8_t countData;															   //数字值
+	int8_t countData;																//数字值
 	bool isTrue;																	//开关真假值
 	uint8_t *stringData;															//字符串
 }DRY_SettingItemData;
 
 
-typedef struct																	  //设置项条目结构体
+typedef struct																		//设置项条目结构体
 {
 	uint8_t *id;																	//设置项名称
-	uint8_t minCount;															   //设置数据最小值(仅类型为数字设置项可用)
-	uint8_t maxCount;															   //设置数据最大值(仅类型为数字设置项可用)
-	DRY_SettingType type;														   //设置项类型
-	DRY_SettingItemData itemData;												   //设置项数据
+	uint8_t minCount;																//设置数据最小值(仅类型为数字设置项可用)
+	uint8_t maxCount;																//设置数据最大值(仅类型为数字设置项可用)
+	DRY_SettingType type;															//设置项类型
+	DRY_SettingItemData itemData;													//设置项数据
 }DRY_SettingItem;
 
 
@@ -101,7 +107,7 @@ void DRY_SystemSetting(void);														//系统设置
 
 void DRY_DisplaySettingItem(uint16_t location, uint8_t color, DRY_SettingItem settingItem);
 
-void DRY_Booting(void);														//初始化界面
+void DRY_Booting(void);																//初始化界面
 
 void DRY_InputStudentNumberScreen(void);											//学号输入界面
 

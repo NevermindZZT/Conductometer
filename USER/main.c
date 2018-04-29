@@ -22,6 +22,23 @@ int main(void)
 	BEEP_Init();														//蜂鸣器初始化
 	ESP8266_Init();														//ESP8266初始化
 	AT24CXX_Init();
+	W25X16_Init();
+	
+	/*- code for debug -*/
+//	while (1)
+//	{
+//		uint8_t dataread[10];
+//		W25X16_EraseSector(0x00000000);
+//		for (int n = 1000000; n > 0; n--) ;
+//		W25X16_PageWrite("hello\0", 0x00000000, 6);
+//		for (int n = 1000000; n > 0; n--) ;
+//		W25X16_Read(dataread, 0x00000000, 6);
+//		printf("data:%s\r\n", dataread);
+//		for (int n = 1000000; n > 0; n--) ;
+//		delay_s(5);
+//	}
+	
+	/*- code for debug -*/
 	
 	MemReadByte(readFlash, 2);											//读取flash中保存的机器号和亮度
 	experimentalData.machineNumber = (uint8_t)readFlash[0];

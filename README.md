@@ -40,6 +40,7 @@
 | PRINTTOUSART             | 实现printf函数打印到串口1  | usart.h   |
 | PRINTTOLCD               | 实现printf函数打印到液晶屏 | qpylcd.h  |
 | ALLOWBACK                | 实验中允许返回上一步骤     | support.h |
+| PID_CONTROL              | PID温度控制                | support.h |
 | WIFI_SSID                | 用于连接的WiFi ssid        | esp8266.h |
 | WIFI_PASSWORD            | WiFi密码                   | esp8266.h |
 | TCP_PORT                 | TCP服务器监听端口          | esp8266.h |
@@ -156,6 +157,17 @@
  #### 2018/4/21 0.6.3-Alpha
 - 新增SPI和W25X16 SPI Flash驱动
 
+
  #### 2018/4/28 0.6.4-Beta
 - 部分代码结构优化
 - 修复PID算法温度无法控制的问题
+
+
+ #### 2018/4/29 0.7-Beta
+- 加入位置式PID算法，具体选用还需要看调试结果
+- 移除PID参数的宏定义，采用变量定义，便于PID参数的动态调节
+- 线性温度算法加入对目标温度修改的修正
+- SPI驱动已知bug修复
+- PID算法调试完成，重新启用PID算法，屏蔽线性算法
+- 建议采用位置式PID算法(PID_CONTROL = 1)
+- bug:SPI时钟线没有输出，导致SPI Flash驱动失败

@@ -8,7 +8,18 @@
 #include	"support.h"
 #include	"string.h"
 
-TEMP_Control temperatureControl;
+TEMP_Control temperatureControl = 
+{
+	.isHeating = FALSE,
+#if PID_CONTROL != 0
+	.pidKP = 20,
+	.pidKI = 0.5,
+	.pidKD = 0,
+	#if PID_CONTROL == 1
+	.pidErr = 0,
+	#endif
+#endif
+};
 
 
 /*******************************************
@@ -1367,15 +1378,15 @@ void DRY_TemperatureControl(void)
 {
 	float tempC;
 	
-#ifdef		PID_CONTROL																			//PID算法控制温度
-	static float dutyCycle = 100;																	//占空比
+#if		PID_CONTROL != 0 																		//PID算法控制温度
+	static float dutyCycle = 100;																//占空比
 	float err[3];
 	
-#else																							//比例算法控制温度
+#else	/*- PID_CONTROL != 0 -*/																//比例算法控制温度
 	float tempA;
 	
 	tempA = DS18B20_ReadTemp(DS18B20A);															//读取温度
-#endif
+#endif	/*- PID_CONTROL != 0 -*/
 	
 	tempC = DS18B20_ReadTemp(DS18B20C);															//无关温度控制算法，温度过高停止加热
 	if (tempC > 100)																			//加热盘温度不能超过100度
@@ -1384,7 +1395,7 @@ void DRY_TemperatureControl(void)
 		return;
 	}
 	
-#ifdef		PID_CONTROL																			//PID算法控制温度
+#if		PID_CONTROL != 0																		//PID算法控制温度
 	err[0] = temperatureControl.heatingAimTemperature - temperatureControl.pidTemperature[0];
 	err[1] = temperatureControl.heatingAimTemperature - temperatureControl.pidTemperature[1];
 	err[2] = temperatureControl.heatingAimTemperature - temperatureControl.pidTemperature[2];
@@ -1395,8 +1406,17 @@ void DRY_TemperatureControl(void)
 	}
 	else if (temperatureControl.pidTemperature[2] < (temperatureControl.heatingAimTemperature + 5))
 	{
-		dutyCycle += PID_KP * (err[2] - err[1]) + PID_KI * err[2]
-				+ PID_KD * (err[2] - 2 * err[1] + err[0]);										//PID算法
+	#if PID_CONTROL == 1																		//位置式PID算法
+		temperatureControl.pidErr += err[2];
+		dutyCycle = temperatureControl.pidKP * err[2]
+					+ temperatureControl.pidKI * temperatureControl.pidErr
+					+ temperatureControl.pidKD * (err[2] - err [1]);
+	#else /*- PID_CONTROL == 1 -*/																//增量式PID算法
+		dutyCycle += temperatureControl.pidKP * (err[2] - err[1])
+					+ temperatureControl.pidKI * err[2]
+					+ temperatureControl.pidKD * (err[2] - 2 * err[1] + err[0]);
+	#endif /*- PID_CONTROL == 1 -*/
+		
 		if (dutyCycle > 100)
 		{
 			dutyCycle = 100;
@@ -1413,26 +1433,32 @@ void DRY_TemperatureControl(void)
 	}
 	
 	/*-----------------输出PID调试信息--------------*/
+	DEBUG_LOG("%d:\t", tim3Count);
+	#if	PID_CONTROL == 1
+		DEBUG_LOG("err:%Lf, ", temperatureControl.pidErr);
+	#endif
+	
 	DEBUG_LOG("temp[k]:%.1f, temp[k-1]:%.1f, temp[k-2]:%.1f; PWM_DutyCycle:%f\r\n",
 				temperatureControl.pidTemperature[2],
 				temperatureControl.pidTemperature[1],
 				temperatureControl.pidTemperature[0],
 				dutyCycle);
 	
-#else																							//比例算法控制温度
+#else	/*- PID_CONTROL != 0 - */																//比例算法控制温度
 	if (tempA < (temperatureControl.heatingAimTemperature - 5))									//比较加热盘当前温度与目标温度	
 	{
 		PWM_SetDutyCycle(100);
 	}
 	else if (tempA < temperatureControl.heatingAimTemperature + 3)
 	{
-		PWM_SetDutyCycle((uint8_t)(35 + (temperatureControl.heatingAimTemperature - tempA) * 13));
+		PWM_SetDutyCycle((uint8_t)((temperatureControl.heatingAimTemperature - 25)
+						+ (temperatureControl.heatingAimTemperature - tempA) * 13));
 	}
 	else if (tempA > temperatureControl.heatingAimTemperature + 3)
 	{
 		PWM_SetDutyCycle(0);
 	}
-#endif
+#endif	/*- PID_CONTROL != 0 - */
 }
 
 
