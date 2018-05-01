@@ -1425,7 +1425,7 @@ void DRY_TemperatureControl(void)
 		{
 			dutyCycle = 0;
 		}
-		PWM_SetDutyCycle((int)dutyCycle);
+		PWM_SetDutyCycle(dutyCycle);
 	}
 	else
 	{
@@ -1451,7 +1451,7 @@ void DRY_TemperatureControl(void)
 	}
 	else if (tempA < temperatureControl.heatingAimTemperature + 3)
 	{
-		PWM_SetDutyCycle((uint8_t)((temperatureControl.heatingAimTemperature - 25)
+		PWM_SetDutyCycle(((temperatureControl.heatingAimTemperature - 25)
 						+ (temperatureControl.heatingAimTemperature - tempA) * 13));
 	}
 	else if (tempA > temperatureControl.heatingAimTemperature + 3)

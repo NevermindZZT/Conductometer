@@ -20,6 +20,6 @@
 
 void PWM_Init(void);                                                    //初始化
 
-void PWM_SetDutyCycle(uint8_t dutyCycle);                               //设置占空比
+void PWM_SetDutyCycle(float dutyCycle);                               //设置占空比
 
 #endif

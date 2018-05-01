@@ -45,12 +45,20 @@ uint8_t W25X16_ReadWriteByte(uint8_t data)
 *******************************************************************************/
 void W25X16_EraseSector(uint32_t sectorAddress)
 {
+	uint32_t timeout = 0;
+	
+	while (W25X16_IsBusy() == TRUE)
+	{
+		if (timeout++ > W25X16_TIMEOUT)
+		{
+			return;
+		}
+	}
+	
 	sectorAddress = (sectorAddress >> 12) << 12;
 	
 	W25X16_Enable();
-	__nop();
 	W25X16_ReadWriteByte(W25X16_WRITE_ENABLE);
-	__nop();
 	W25X16_Disable();
 	__nop();
 	
@@ -58,9 +66,9 @@ void W25X16_EraseSector(uint32_t sectorAddress)
 	
 	W25X16_ReadWriteByte(W25X16_SECTOR_ERASE);
 	
-	W25X16_ReadWriteByte((sectorAddress & 0xFF0000) >> 16);
-	W25X16_ReadWriteByte((sectorAddress & 0x00FF00) >> 8);
-	W25X16_ReadWriteByte(sectorAddress & 0x0000FF);
+	W25X16_ReadWriteByte((sectorAddress & 0x00FF0000) >> 16);
+	W25X16_ReadWriteByte((sectorAddress & 0x0000FF00) >> 8);
+	W25X16_ReadWriteByte(sectorAddress & 0x000000FF);
 	
 	W25X16_Disable();
 	
@@ -82,17 +90,27 @@ void W25X16_EraseSector(uint32_t sectorAddress)
 *******************************************************************************/
 void W25X16_Read(uint8_t *data, uint32_t readAddress, uint8_t dataLength)
 {
+	uint32_t timeout = 0;
+	
+	while (W25X16_IsBusy() == TRUE)
+	{
+		if (timeout++ > W25X16_TIMEOUT)
+		{
+			return;
+		}
+	}
+	
 	W25X16_Enable();
 	
 	W25X16_ReadWriteByte(W25X16_READ_DATA);
 	
-	W25X16_ReadWriteByte((readAddress & 0xFF0000) >> 16);
-	W25X16_ReadWriteByte((readAddress & 0x00FF00) >> 8);
-	W25X16_ReadWriteByte(readAddress & 0x0000FF);
+	W25X16_ReadWriteByte((readAddress & 0x00FF0000) >> 16);
+	W25X16_ReadWriteByte((readAddress & 0x0000FF00) >> 8);
+	W25X16_ReadWriteByte(readAddress & 0x000000FF);
 	
 	while (dataLength --)
 	{
-		*data++ = W25X16_ReadWriteByte(NULL);
+		*data++ = W25X16_ReadWriteByte(0x00);
 	}
 	
 	W25X16_Disable();
@@ -110,6 +128,16 @@ void W25X16_Read(uint8_t *data, uint32_t readAddress, uint8_t dataLength)
 *******************************************************************************/
 void W25X16_PageWrite(uint8_t *data, uint32_t writeAddress, uint8_t dataLength)
 {
+	uint32_t timeout = 0;
+
+	while (W25X16_IsBusy() == TRUE)
+	{
+		if (timeout++ > W25X16_TIMEOUT)
+		{
+			return;
+		}
+	}
+	
 	W25X16_Enable();
 	W25X16_ReadWriteByte(W25X16_WRITE_ENABLE);
 	W25X16_Disable();
@@ -117,24 +145,87 @@ void W25X16_PageWrite(uint8_t *data, uint32_t writeAddress, uint8_t dataLength)
 	
 	W25X16_Enable();
 	
-	W25X16_ReadWriteByte(W25X16_WRITE_ENABLE);
-	
 	W25X16_ReadWriteByte(W25X16_PAGE_PROGRAM);
-	W25X16_ReadWriteByte((writeAddress & 0xFF0000) >> 16);
-	W25X16_ReadWriteByte((writeAddress & 0x00FF00) >> 8);
-	W25X16_ReadWriteByte(writeAddress & 0x0000FF);
+	W25X16_ReadWriteByte((writeAddress & 0x00FF0000) >> 16);
+	W25X16_ReadWriteByte((writeAddress & 0x0000FF00) >> 8);
+	W25X16_ReadWriteByte(writeAddress & 0x000000FF);
 	
 	while (dataLength --)
 	{
 		W25X16_ReadWriteByte(*data++);
 	}
 	
-	W25X16_ReadWriteByte(W25X16_WRITE_DISABLE);
 	W25X16_Disable();
 	
 	__nop();
 	W25X16_Enable();
 	W25X16_ReadWriteByte(W25X16_WRITE_DISABLE);
 	W25X16_Disable();
+}
+
+
+
+/*******************************************************************************
+*函数名称：	W25X16_ReadJedecID
+*功能：		读JEDEC ID
+*参数：		无
+*返回值：	ID(对于W25X16 返回值应为0x00EF4015)
+*******************************************************************************/
+uint32_t W25X16_ReadJedecID(void)
+{
+	uint32_t id = 0x00000000;
+	uint32_t timeout = 0;
+
+	while (W25X16_IsBusy() == TRUE)
+	{
+		if (timeout++ > W25X16_TIMEOUT)
+		{
+			return 0x00000000;
+		}
+	}
+	
+	W25X16_Enable();
+	
+	W25X16_ReadWriteByte(W25X16_JEDEC_ID);
+	
+	for (uint8_t i = 0; i < 3; i++)
+	{
+		id |= (uint8_t)W25X16_ReadWriteByte(0x00) << ((2 - i) * 8);
+	}
+	
+	W25X16_Disable();
+	
+	return id;
+}
+
+
+
+/*******************************************************************************
+*函数名称：	W25X16_IsBusy
+*功能：		读忙
+*参数：		无
+*返回值：	FALSE		空闲
+*			TRUE		忙
+*******************************************************************************/
+bool W25X16_IsBusy(void)
+{
+	uint8_t status;
+	
+	W25X16_Enable();
+	
+	W25X16_ReadWriteByte(W25X16_READ_STATUS_REG);
+	
+	status = W25X16_ReadWriteByte(0x00);
+	
+	W25X16_Disable();
+	
+	if ((status & 0x01) == 0x00)
+	{
+		return FALSE;
+	}
+	else
+	{
+		return TRUE;
+	}
 }
 

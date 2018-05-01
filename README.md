@@ -171,3 +171,11 @@
 - PID算法调试完成，重新启用PID算法，屏蔽线性算法
 - 建议采用位置式PID算法(PID_CONTROL = 1)
 - bug:SPI时钟线没有输出，导致SPI Flash驱动失败
+
+
+ #### 2018/4/30 0.7.1-Beta
+- PWM加入对非整数占空比的支持，占空比调节更加精密
+- SPI Flash驱动加入对芯片忙状态的判断
+- 修复SPI驱动
+- 修复W25X16 SPI Flash驱动
+- 新增SPI Flash JEDEC ID的读取，可用于判断芯片是否工作

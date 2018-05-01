@@ -81,6 +81,7 @@ void QPYLCD_Init(void)
 	
 	QPYLCDCS_HIGH;																			//拉高CS引脚，默认保持
 	QPYLCD_On(TRUE);																		//开显示
+	QPYLCD_SetBackColor(BLACK);
 	QPYLCD_Clear();																			//清屏
 	QPYLCD_Control(0, 0, 0, 2);																//设置默认亮度级别2
 }

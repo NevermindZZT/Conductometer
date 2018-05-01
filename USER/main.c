@@ -10,7 +10,6 @@ int main(void)
 	DRY_ExperimentalData *tmpExperimentalDataPointer;
 	
 	QPYLCD_Init();
-	QPYLCD_SetBackColor(WHITE);
 	
 	USART_Config(USART1, 115200, 0, 3);									//串口
 	BASICTIM3_Config(10000, 7199, 0, 1);								//定时器3，秒定时
@@ -23,19 +22,21 @@ int main(void)
 	ESP8266_Init();														//ESP8266初始化
 	AT24CXX_Init();
 	W25X16_Init();
+	SPI2_Config();
 	
 	/*- code for debug -*/
 //	while (1)
 //	{
+//		printf("mmp\r\n");
 //		uint8_t dataread[10];
+//		printf("id:%x\r\n", W25X16_ReadJedecID());
 //		W25X16_EraseSector(0x00000000);
-//		for (int n = 1000000; n > 0; n--) ;
+//		printf("erase\r\n");
 //		W25X16_PageWrite("hello\0", 0x00000000, 6);
-//		for (int n = 1000000; n > 0; n--) ;
+//		printf("write\r\n");
 //		W25X16_Read(dataread, 0x00000000, 6);
-//		printf("data:%s\r\n", dataread);
-//		for (int n = 1000000; n > 0; n--) ;
-//		delay_s(5);
+//		printf("data:%s\r\n\r\n", dataread);
+//		delay_s(2);
 //	}
 	
 	/*- code for debug -*/

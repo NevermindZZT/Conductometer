@@ -26,6 +26,7 @@
 #define		W25X16_MANUFACT_ID			0x90
 #define		W25X16_JEDEC_ID				0x9F
 
+#define		W25X16_TIMEOUT				0x0000FFFF
 
 #define		W25X16_CS_PIN				GPIO_Pin_12
 #define		W25X16_CS_PORT				GPIOB
@@ -38,14 +39,16 @@
 
 void W25X16_Init(void);
 
-void W25X16_WriteByte(uint8_t data);
-
-uint8_t W25X16_ReadByte(void);
+uint8_t W25X16_ReadWriteByte(uint8_t data);
 
 void W25X16_EraseSector(uint32_t sectorAddress);
 
 void W25X16_Read(uint8_t *data, uint32_t readAddress, uint8_t dataLength);
 
 void W25X16_PageWrite(uint8_t *data, uint32_t writeAddress, uint8_t dataLength);
+
+uint32_t W25X16_ReadJedecID(void);
+
+bool W25X16_IsBusy(void);
 
 #endif

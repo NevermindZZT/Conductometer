@@ -26,7 +26,7 @@ void PWM_Init(void)
 *参数：     dutyCycle       占空比
 *返回值：   无
 *******************************************************************************/
-void PWM_SetDutyCycle(uint8_t dutyCycle)
+void PWM_SetDutyCycle(float dutyCycle)
 {
-	TIM_SetCompare4(TIM4, (uint16_t)dutyCycle * 100);
+	TIM_SetCompare4(TIM4, (uint16_t)(dutyCycle * 100 + 0.5));
 }
