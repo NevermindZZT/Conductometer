@@ -13,7 +13,7 @@ TEMP_Control temperatureControl =
 	.isHeating = FALSE,
 #if PID_CONTROL != 0
 	.pidKP = 20,
-	.pidKI = 0.5,
+	.pidKI = 0.445,
 	.pidKD = 0,
 	#if PID_CONTROL == 1
 	.pidErr = 0,
@@ -641,6 +641,7 @@ void DRY_BuildBalance(void)
 					sprintf((char *)str, "%-5.1f", tempB);										//刷新计时时温度
 //					QPYLCD_DrawRectangle(149, 216, 80, 24, WHITE);
 					QPYLCD_DisplayString(149, 216, BLACK, FONT16X24, str);
+					QPYLCD_DrawRectangle(149, 176, 96, 24, WHITE);								//清除时间显示区域
 					break;
 				
 				case KEY_ENTER:
@@ -1389,7 +1390,7 @@ void DRY_TemperatureControl(void)
 #endif	/*- PID_CONTROL != 0 -*/
 	
 	tempC = DS18B20_ReadTemp(DS18B20C);															//无关温度控制算法，温度过高停止加热
-	if (tempC > 100)																			//加热盘温度不能超过100度
+	if (tempC > temperatureControl.heatingAimTemperature + 10)									//加热盘温度不能超过目标值10度
 	{
 		PWM_SetDutyCycle(0);
 		return;
@@ -1526,4 +1527,40 @@ void DRY_UplaodData(uint8_t command)
 	ESP8266_SendString("\r\n");																	//数据尾
 }
 
+
+
+/*******************************************
+*函数名称：	DRY_SaveExperimentalData
+*功能：		保存数据至Flash
+*参数：		experimentalData	实验数据
+*返回值：	DRY_OK				保存成功
+*			DRY_ERROR			保存失败
+*说明：		一个扇区大小4K(0x1000 Byte)，每组实验数据储存在256字节的空间里，一个
+*			扇区可以储存16组数据，地址0x00000000至0x000010000(第一个扇区)用于储存
+*			数据数量等信息
+*******************************************/
+DRY_Status DRY_SaveExperimentalData(DRY_ExperimentalData experimentalData)
+{
+	DRY_DataSaveController dataSaveController;
+	DRY_DataSaveController *dataSaveControllerPointer;
+	
+	dataSaveControllerPointer = &dataSaveController;
+	
+	if (W25X16_Read((uint8_t *)dataSaveControllerPointer,
+					DATA_CONTROL_ADDRESS,
+					sizeof(DRY_DataSaveController)) != W25X16_OK)
+	{
+		return DRY_ERROR;
+	}
+	else if ((dataSaveController.dataCount != ((dataSaveController.endAddress - dataSaveController.startAddress) / 256))
+			|| (dataSaveController.startAddress < DATA_SATRT_ADDRESS)
+			|| (dataSaveController.endAddress > DATA_END_ADDRESS))
+	{
+		dataSaveController.dataCount = 0;
+		dataSaveController.startAddress = DATA_SATRT_ADDRESS;
+		dataSaveController.endAddress = DATA_SATRT_ADDRESS;
+	}
+	
+	return DRY_OK;
+}
 

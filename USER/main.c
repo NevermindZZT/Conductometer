@@ -1,6 +1,9 @@
 #include	"config.h"
 
-DRY_ExperimentalData experimentalData;									//实验数据
+DRY_ExperimentalData experimentalData =
+{
+	.studentNumber = "0",
+};									//实验数据
 uint8_t screenBrightness;												//亮度
 uint16_t readFlash[2];													//读Flash数据
 

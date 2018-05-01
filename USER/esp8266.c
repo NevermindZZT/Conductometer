@@ -281,8 +281,9 @@ void ESP8266_Handler(uint8_t usartData)
 				DRY_UplaodData(DEVICE_CONNECT);
 			}
 		}
-		if (espState.currentCommand == ESP8266_CIFSR)
+		if ((espState.currentCommand == ESP8266_CIFSR) && (espBuff[0] == '+') && (espBuff[10] == 'I'))
 		{
+			//sscanf((const char *)espBuff, "+CIFSR:STAIP,\"%d.%d.%d.%d\"\r\n", &tempIp[0], &tempIp[1], &tempIp[2], &tempIp[3]);
 			sscanf((const char *)espBuff, "+CIFSR:STAIP,\"%s\"\r\n", espState.currentIp);
 #ifdef		GET_HOSTIP_BY_SLAVEIP
 			sscanf((char*)espState.currentIp, "%hd.%hd.%hd.%hd", &tempIp[0], &tempIp[1], &tempIp[2], &tempIp[3]);

@@ -43,15 +43,15 @@ uint8_t W25X16_ReadWriteByte(uint8_t data)
 *参数：		sectorAddress		地址
 *返回值：	无
 *******************************************************************************/
-void W25X16_EraseSector(uint32_t sectorAddress)
+W25X16_Status W25X16_EraseSector(uint32_t sectorAddress)
 {
 	uint32_t timeout = 0;
 	
 	while (W25X16_IsBusy() == TRUE)
 	{
-		if (timeout++ > W25X16_TIMEOUT)
+		if (timeout++ > W25X16_MAX_DELAY)
 		{
-			return;
+			return W25X16_TIMEOUT;
 		}
 	}
 	
@@ -76,6 +76,8 @@ void W25X16_EraseSector(uint32_t sectorAddress)
 	W25X16_Enable();
 	W25X16_ReadWriteByte(W25X16_WRITE_DISABLE);
 	W25X16_Disable();
+	
+	return W25X16_OK;
 }
 
 
@@ -88,25 +90,26 @@ void W25X16_EraseSector(uint32_t sectorAddress)
 *			dataLength			数据长度
 *返回值：	无
 *******************************************************************************/
-void W25X16_Read(uint8_t *data, uint32_t readAddress, uint8_t dataLength)
+W25X16_Status W25X16_Read(uint8_t *data, uint32_t readAddress, uint8_t dataLength)
 {
 	uint32_t timeout = 0;
 	
 	while (W25X16_IsBusy() == TRUE)
 	{
-		if (timeout++ > W25X16_TIMEOUT)
+		if (timeout++ > W25X16_MAX_DELAY)
 		{
-			return;
+			return W25X16_TIMEOUT;
 		}
 	}
 	
 	W25X16_Enable();
 	
-	W25X16_ReadWriteByte(W25X16_READ_DATA);
+	W25X16_ReadWriteByte(W25X16_FAST_READ);
 	
 	W25X16_ReadWriteByte((readAddress & 0x00FF0000) >> 16);
 	W25X16_ReadWriteByte((readAddress & 0x0000FF00) >> 8);
 	W25X16_ReadWriteByte(readAddress & 0x000000FF);
+	W25X16_ReadWriteByte(0x00);
 	
 	while (dataLength --)
 	{
@@ -114,6 +117,8 @@ void W25X16_Read(uint8_t *data, uint32_t readAddress, uint8_t dataLength)
 	}
 	
 	W25X16_Disable();
+	
+	return W25X16_OK;
 }
 
 
@@ -126,15 +131,15 @@ void W25X16_Read(uint8_t *data, uint32_t readAddress, uint8_t dataLength)
 *			dataLength			数据长度
 *返回值：	无
 *******************************************************************************/
-void W25X16_PageWrite(uint8_t *data, uint32_t writeAddress, uint8_t dataLength)
+W25X16_Status W25X16_PageWrite(uint8_t *data, uint32_t writeAddress, uint8_t dataLength)
 {
 	uint32_t timeout = 0;
 
 	while (W25X16_IsBusy() == TRUE)
 	{
-		if (timeout++ > W25X16_TIMEOUT)
+		if (timeout++ > W25X16_MAX_DELAY)
 		{
-			return;
+			return W25X16_TIMEOUT;
 		}
 	}
 	
@@ -161,6 +166,8 @@ void W25X16_PageWrite(uint8_t *data, uint32_t writeAddress, uint8_t dataLength)
 	W25X16_Enable();
 	W25X16_ReadWriteByte(W25X16_WRITE_DISABLE);
 	W25X16_Disable();
+	
+	return W25X16_OK;
 }
 
 

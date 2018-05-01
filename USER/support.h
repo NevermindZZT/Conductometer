@@ -11,7 +11,7 @@
 #include	"config.h"
 
 
-#define		SOFTWAREVERSION		"0.7.1-Beta"										//软件版本
+#define		SOFTWAREVERSION		"0.7.2-Beta"										//软件版本
 #define		BUILDDATE		   __DATE__"  \n"__TIME__								//编译时间
 
 #define		ALLOWBACK																//允许长按左键返回上一步骤
@@ -19,6 +19,11 @@
 //#define		DEBUG_TEST
 
 #define		PID_CONTROL			1													//使用PID算法控制温度(0:不使用  1:位置式  2:增量式)
+
+
+#define		DATA_CONTROL_ADDRESS						0x00000000
+#define		DATA_SATRT_ADDRESS							0x00001000
+#define		DATA_END_ADDRESS							0x001FFFFF
 
 
 #ifdef		DEBUG
@@ -58,6 +63,11 @@ typedef enum																		//仪器设置项属性
 	ITEM_STRING																		//字符显示项
 }DRY_SettingType;
 
+typedef enum
+{
+	DRY_OK,
+	DRY_ERROR,
+}DRY_Status;
 
 /*-----------------------结构体声明---------------------*/
 typedef struct																		//温度控制结构体
@@ -95,6 +105,13 @@ typedef struct																		//设置项条目结构体
 	DRY_SettingItemData itemData;													//设置项数据
 }DRY_SettingItem;
 
+
+typedef struct
+{
+	uint16_t dataCount;
+	uint32_t startAddress;
+	uint32_t endAddress;
+}DRY_DataSaveController;
 
 /*------------------------全局变量声明----------------------*/
 extern TEMP_Control temperatureControl;

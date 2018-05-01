@@ -26,7 +26,7 @@
 #define		W25X16_MANUFACT_ID			0x90
 #define		W25X16_JEDEC_ID				0x9F
 
-#define		W25X16_TIMEOUT				0x0000FFFF
+#define		W25X16_MAX_DELAY			0x0000FFFF
 
 #define		W25X16_CS_PIN				GPIO_Pin_12
 #define		W25X16_CS_PORT				GPIOB
@@ -36,16 +36,23 @@
 #define		W25X16_Disable()			GPIO_SetBits(W25X16_CS_PORT, W25X16_CS_PIN);
 
 
+typedef enum
+{
+	W25X16_OK,
+	W25X16_ERROR,
+	W25X16_TIMEOUT,
+}W25X16_Status;
+
 
 void W25X16_Init(void);
 
 uint8_t W25X16_ReadWriteByte(uint8_t data);
 
-void W25X16_EraseSector(uint32_t sectorAddress);
+W25X16_Status W25X16_EraseSector(uint32_t sectorAddress);
 
-void W25X16_Read(uint8_t *data, uint32_t readAddress, uint8_t dataLength);
+W25X16_Status W25X16_Read(uint8_t *data, uint32_t readAddress, uint8_t dataLength);
 
-void W25X16_PageWrite(uint8_t *data, uint32_t writeAddress, uint8_t dataLength);
+W25X16_Status W25X16_PageWrite(uint8_t *data, uint32_t writeAddress, uint8_t dataLength);
 
 uint32_t W25X16_ReadJedecID(void);
 
