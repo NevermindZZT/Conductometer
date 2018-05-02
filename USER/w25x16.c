@@ -81,6 +81,88 @@ W25X16_Status W25X16_EraseSector(uint32_t sectorAddress)
 }
 
 
+/*******************************************************************************
+*函数名称：	W25X16_EraseBlock
+*功能：		按快擦除
+*参数：		blockAddress		地址
+*返回值：	无
+*******************************************************************************/
+W25X16_Status W25X16_EraseBlock(uint32_t blockAddress)
+{
+	uint32_t timeout = 0;
+	
+	while (W25X16_IsBusy() == TRUE)
+	{
+		if (timeout++ > W25X16_MAX_DELAY)
+		{
+			return W25X16_TIMEOUT;
+		}
+	}
+	
+	blockAddress = (blockAddress >> 16) << 16;
+	
+	W25X16_Enable();
+	W25X16_ReadWriteByte(W25X16_WRITE_ENABLE);
+	W25X16_Disable();
+	__nop();
+	
+	W25X16_Enable();
+	
+	W25X16_ReadWriteByte(W25X16_BLOCK_ERASE);
+	
+	W25X16_ReadWriteByte((blockAddress & 0x00FF0000) >> 16);
+	W25X16_ReadWriteByte((blockAddress & 0x0000FF00) >> 8);
+	W25X16_ReadWriteByte(blockAddress & 0x000000FF);
+	
+	W25X16_Disable();
+	
+	__nop();
+	W25X16_Enable();
+	W25X16_ReadWriteByte(W25X16_WRITE_DISABLE);
+	W25X16_Disable();
+	
+	return W25X16_OK;
+}
+
+
+
+/*******************************************************************************
+*函数名称：	W25X16_EraseChip
+*功能：		整片擦除
+*参数：		无
+*返回值：	无
+*******************************************************************************/
+W25X16_Status W25X16_EraseChip(void)
+{
+	uint32_t timeout = 0;
+	
+	while (W25X16_IsBusy() == TRUE)
+	{
+		if (timeout++ > W25X16_MAX_DELAY)
+		{
+			return W25X16_TIMEOUT;
+		}
+	}
+	
+	W25X16_Enable();
+	W25X16_ReadWriteByte(W25X16_WRITE_ENABLE);
+	W25X16_Disable();
+	__nop();
+	
+	W25X16_Enable();
+	W25X16_ReadWriteByte(W25X16_CHIP_ERASE);
+	W25X16_Disable();
+	
+	__nop();
+	W25X16_Enable();
+	W25X16_ReadWriteByte(W25X16_WRITE_DISABLE);
+	W25X16_Disable();
+	
+	return W25X16_OK;
+	
+}
+
+
 
 /*******************************************************************************
 *函数名称：	W25X16_Read
@@ -233,6 +315,27 @@ bool W25X16_IsBusy(void)
 	else
 	{
 		return TRUE;
+	}
+}
+
+
+
+/*******************************************************************************
+*函数名称：	W25X16_Check
+*功能：		查询W25X16是否正常驱动
+*参数：		无
+*返回值：	FALSE		驱动失败
+*			TRUE		驱动成功
+*******************************************************************************/
+bool W25X16_Check(void)
+{
+	if ((W25X16_ReadJedecID() & 0x00FF0000) == 0x00EF0000)
+	{
+		return TRUE;
+	}
+	else
+	{
+		return FALSE;
 	}
 }
 

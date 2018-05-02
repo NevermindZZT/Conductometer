@@ -50,6 +50,10 @@ uint8_t W25X16_ReadWriteByte(uint8_t data);
 
 W25X16_Status W25X16_EraseSector(uint32_t sectorAddress);
 
+W25X16_Status W25X16_EraseBlock(uint32_t blockAddress);
+
+W25X16_Status W25X16_EraseChip(void);
+
 W25X16_Status W25X16_Read(uint8_t *data, uint32_t readAddress, uint8_t dataLength);
 
 W25X16_Status W25X16_PageWrite(uint8_t *data, uint32_t writeAddress, uint8_t dataLength);
@@ -57,5 +61,7 @@ W25X16_Status W25X16_PageWrite(uint8_t *data, uint32_t writeAddress, uint8_t dat
 uint32_t W25X16_ReadJedecID(void);
 
 bool W25X16_IsBusy(void);
+
+bool W25X16_Check(void);
 
 #endif

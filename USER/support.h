@@ -11,18 +11,18 @@
 #include	"config.h"
 
 
-#define		SOFTWAREVERSION		"0.7.2-Beta"										//软件版本
-#define		BUILDDATE		   __DATE__"  \n"__TIME__								//编译时间
+#define		SOFTWAREVERSION								"0.8-Beta"					//软件版本
+#define		BUILDDATE									__DATE__"  \n"__TIME__		//编译时间
 
 #define		ALLOWBACK																//允许长按左键返回上一步骤
 //#define		DEBUG																	//DEBUG模式
 //#define		DEBUG_TEST
 
-#define		PID_CONTROL			1													//使用PID算法控制温度(0:不使用  1:位置式  2:增量式)
+#define		PID_CONTROL									1							//使用PID算法控制温度(0:不使用  1:位置式  2:增量式)
 
 
-#define		DATA_CONTROL_ADDRESS						0x00000000
-#define		DATA_SATRT_ADDRESS							0x00001000
+#define		DATA_CONTROLLER_ADDRESS						0x00000000
+#define		DATA_START_ADDRESS							0x00001000
 #define		DATA_END_ADDRESS							0x001FFFFF
 
 
@@ -65,11 +65,40 @@ typedef enum																		//仪器设置项属性
 
 typedef enum
 {
+	DATA_READ,
+	DATA_SAVE,
+	DATA_LOOKUP,
+	DATA_READ_FAILED,
+	DATA_LOOKUP_FAILED,
+	DATA_LOOKUP_END,
+}DRY_DataHandlerType;
+
+typedef enum
+{
 	DRY_OK,
 	DRY_ERROR,
 }DRY_Status;
 
 /*-----------------------结构体声明---------------------*/
+typedef struct																//单次记录数据
+{
+	uint32_t time;															//记录数据的时间
+	float temperature;														//记录数据的温度
+}DRY_MeasuredData;
+
+typedef struct																//实验数据
+{
+	uint8_t machineNumber;													//机器号5
+	uint8_t studentNumber[12];												//学号
+	uint8_t progress;														//实验进度
+	float settedTemperature;												//设置加热盘温度
+	float balanceTempeatrue;												//稳恒态散热盘温度
+	float heatingTempeatrue;												//升温后散热盘温度
+	DRY_MeasuredData measuredData[20];										//实验数据
+}DRY_ExperimentalData;
+
+
+
 typedef struct																		//温度控制结构体
 {
 	float heatingAimTemperature;													//加热目标温度
@@ -116,13 +145,21 @@ typedef struct
 /*------------------------全局变量声明----------------------*/
 extern TEMP_Control temperatureControl;
 
+extern DRY_ExperimentalData experimentalData;
+
 
 /*--------------------------函数声明-----------------------*/
 void DRY_SystemSettingScreen(void);													//设置界面
 
 void DRY_SystemSetting(void);														//系统设置
 
-void DRY_DisplaySettingItem(uint16_t location, uint8_t color, DRY_SettingItem settingItem);
+void DRY_DisplaySettingItem(uint16_t location, uint8_t color, DRY_SettingItem settingItem);	//显示设置条目
+
+void DRY_DataSearchScreen(void);													//显示查找界面
+
+void DRY_DataSearch(void);															//数据查找
+
+uint8_t DRY_ShowSearchResult(void);													//显示查找结果
 
 void DRY_Booting(void);																//初始化界面
 
@@ -158,7 +195,7 @@ void DRY_CompleteScreen(void);														//实验完成对话框界面
 
 void DRY_Complete(void);															//实验完成对话框
 
-void DRY_DataSaveDialog(uint8_t mode);												//保存/读取数据对话框
+void DRY_DataHandlerDialog(DRY_DataHandlerType mode);												//保存/读取数据对话框
 
 void DRY_DrawEquipment1(uint16_t xLabel, uint16_t yLabel, uint8_t color);			//绘制加热盘
 
@@ -171,5 +208,9 @@ void DRY_DisplayData(uint8_t group, uint32_t time, float tempB, uint8_t color);	
 void DRY_TemperatureControl(void);													//温度控制
 
 void DRY_UplaodData(uint8_t command);												//上传数据
+
+DRY_Status DRY_SaveExperimentalData(DRY_ExperimentalData experimentalData);
+
+DRY_Status DRY_ReadExperimentalData(DRY_ExperimentalData *experimentalDataPointer, uint32_t dataAddress);
 
 #endif

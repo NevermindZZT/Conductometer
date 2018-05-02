@@ -10,7 +10,6 @@ uint16_t readFlash[2];													//读Flash数据
 int main(void)
 {
 	uint8_t keyScanData;
-	DRY_ExperimentalData *tmpExperimentalDataPointer;
 	
 	QPYLCD_Init();
 	
@@ -27,22 +26,6 @@ int main(void)
 	W25X16_Init();
 	SPI2_Config();
 	
-	/*- code for debug -*/
-//	while (1)
-//	{
-//		printf("mmp\r\n");
-//		uint8_t dataread[10];
-//		printf("id:%x\r\n", W25X16_ReadJedecID());
-//		W25X16_EraseSector(0x00000000);
-//		printf("erase\r\n");
-//		W25X16_PageWrite("hello\0", 0x00000000, 6);
-//		printf("write\r\n");
-//		W25X16_Read(dataread, 0x00000000, 6);
-//		printf("data:%s\r\n\r\n", dataread);
-//		delay_s(2);
-//	}
-	
-	/*- code for debug -*/
 	
 	MemReadByte(readFlash, 2);											//读取flash中保存的机器号和亮度
 	experimentalData.machineNumber = (uint8_t)readFlash[0];
@@ -55,12 +38,13 @@ int main(void)
 	{
 		DRY_SystemSetting();
 	}
-	else if ((keyScanData == KEY_COUNT_LONG) && (AT24CXX_Check() == TRUE))	//查看上一次实验数据
+	else if ((keyScanData == KEY_COUNT_LONG) && (W25X16_Check() == TRUE))	//查看上一次实验数据
 	{
-		DRY_DataSaveDialog(0);
-		tmpExperimentalDataPointer = &experimentalData;
-		AT24CXX_Read(0, (uint8_t *)tmpExperimentalDataPointer, sizeof(DRY_ExperimentalData));
-		DRY_ShowData();
+		DRY_DataSearch();
+//		DRY_DataHandlerDialog(DATA_READ);
+//		DRY_ReadExperimentalData(&experimentalData, 0x00000000);
+////		AT24CXX_Read(0, (uint8_t *)&experimentalData, sizeof(DRY_ExperimentalData));
+//		DRY_ShowData();
 		__set_FAULTMASK(1);												//关闭所有中断
 		NVIC_SystemReset();												//系统复位
 	}

@@ -184,8 +184,8 @@ void DRY_SystemSetting(void)
 *函数名称：	DRY_DisplaySettingItem
 *功能：		显示仪器设置的条目
 *参数：		location		位置(此处为y轴坐标)
-*		   color		   背景色
-*		   settingItem	 设置条目，使用结构体定义
+*			color		   背景色
+*			settingItem	 设置条目，使用结构体定义
 *返回值：	无
 *******************************************/
 void DRY_DisplaySettingItem(uint16_t location, uint8_t color, DRY_SettingItem settingItem)
@@ -227,6 +227,245 @@ void DRY_DisplaySettingItem(uint16_t location, uint8_t color, DRY_SettingItem se
 	}
 	QPYLCD_DrawLine(0, location + 47, 479, location + 47, QPYLCD_NewColor(1, 1, 1));
 }
+
+
+
+/*******************************************
+*函数名称：	DRY_DataSearchScreen
+*功能：		显示查找界面
+*参数：		无
+*返回值：	无
+*******************************************/
+void DRY_DataSearchScreen(void)
+{
+	QPYLCD_SetBackColor(WHITE);
+	QPYLCD_Clear();
+	QPYLCD_DrawRectangle(0, 0, 480, 64, BLUE);
+	QPYLCD_SetBackColor(BLUE);
+	QPYLCD_DisplayCharacters(176, 16, WHITE, FONT32X32, 4, sjcx);								//显示“数据查询”
+	
+	QPYLCD_SetBackColor(WHITE);
+	
+	QPYLCD_SetBackColor(WHITE);
+	QPYLCD_DisplayCharacters(124, 168, BLACK, FONT24X24, 3, xuehao);							//显示“学号：”
+	QPYLCD_DrawLine(196, 194, 356, 194, BLACK);
+}
+
+
+
+/*******************************************
+*函数名称：	DRY_DataSearch
+*功能：		数据查找
+*参数：		无
+*返回值：	无
+*******************************************/
+void DRY_DataSearch(void)
+{
+	uint8_t scanData;																			//按键键值
+	uint8_t tempData = 0;																		//当前光标位置数据
+	uint8_t studentNumber[12];
+	uint16_t xLabel = 196;																		//光标x坐标
+	uint8_t i = 0;
+	int8_t searchDirection = 0;
+	uint32_t searchAddress = DATA_START_ADDRESS;
+	uint32_t lastAimAddress;																	//最近一次查找到数据的地址
+	DRY_DataSaveController dataSaveController;
+	
+	DRY_DataSearchScreen();
+	
+	QPYLCD_DisplayInt(xLabel, 168, RED, FONT16X24, tempData);									//默认刷新一次数据
+	
+	if (W25X16_Read((uint8_t *)&dataSaveController,
+					DATA_CONTROLLER_ADDRESS,
+					sizeof(DRY_DataSaveController)) != W25X16_OK)
+	{
+		return;
+	}
+	
+	while (1)
+	{
+		scanData = KEYANDEC11_Scan();															//扫描按键和编码器
+		if (scanData != 0)
+		{
+			switch (scanData)
+			{
+				case KEY_LEFT:																	//按键左，光标左移
+					if (i > 0)
+					{
+						studentNumber[i] = NULL;
+						i--;
+						QPYLCD_DrawRectangle(xLabel, 168, 16, 24, WHITE);
+						xLabel -= 16;
+						tempData = 0;
+					}
+					break;
+				
+				case KEY_RIGHT:																	//按键右，保存当前位置数据并光标右移
+					if (i < 9)
+					{
+						QPYLCD_DisplayInt(xLabel, 168, BLACK, FONT16X24, tempData);
+						studentNumber[i++] = tempData + 48;
+						xLabel += 16;
+						tempData = 0;
+					}
+					break;
+				
+				case KEY_ENTER:
+				case KEY_ENTER_LONG:		
+					studentNumber[i++] = tempData + 48;									//保存最后一次数据
+					studentNumber[i] = NULL;											//学号结束
+					
+					
+					searchAddress = dataSaveController.startAddress;
+					searchDirection = 1;
+					lastAimAddress = 0x00000000;
+					while(1)
+					{
+						uint8_t enterFlag = 0;
+						
+						DRY_DataHandlerDialog(DATA_LOOKUP);											//正在查找数据
+						
+						if (DRY_ReadExperimentalData(&experimentalData, searchAddress) != DRY_OK)
+						{
+							//TODO 未读取到数据处理
+							DRY_DataHandlerDialog(DATA_READ_FAILED);								//读取失败
+							delay_s(2);
+							
+							DRY_DataSearchScreen();
+							QPYLCD_DisplayInt(xLabel, 168, RED, FONT16X24, tempData);			//默认刷新一次数据
+							break;
+						}
+						if (strstr((const char*)experimentalData.studentNumber, (const char *)studentNumber) != NULL)
+						{
+							lastAimAddress = searchAddress;
+							switch (DRY_ShowSearchResult())
+							{
+								case KEY_LEFT:
+									searchDirection = -1;
+									break;
+								
+								case KEY_RIGHT:
+									searchDirection = 1;
+									break;
+								
+								case KEY_ENTER:
+									enterFlag = 1;
+									break;
+								
+								default:
+									
+									break;
+							}
+						}
+						
+						switch (searchDirection)
+						{
+							case 1:
+								searchAddress += 256;
+								if (searchAddress >= dataSaveController.endAddress)
+								{
+									if (lastAimAddress != 0x00000000)
+									{
+										searchAddress = lastAimAddress;
+										//TODO 向后查找到尽头
+										DRY_DataHandlerDialog(DATA_LOOKUP_END);					//没有更多数据
+										delay_s(2);
+									}
+									else
+									{
+										//TODO 没有查找到数据
+										DRY_DataHandlerDialog(DATA_LOOKUP_FAILED);				//查找失败
+										delay_s(2);
+										enterFlag = 1;
+									}
+								}
+								break;
+							
+							case -1:
+								searchAddress -= 256;
+								if (searchAddress < dataSaveController.startAddress)
+								{
+									if (lastAimAddress != 0x00000000)
+									{
+										searchAddress = lastAimAddress;
+										//TODO 向前查找到尽头
+										DRY_DataHandlerDialog(DATA_LOOKUP_END);					//没有更多数据
+										delay_s(2);
+									}
+									else
+									{
+										//TODO 没有查找到数据
+									}
+								}
+								break;
+								
+							default:
+								break;
+						}
+						
+						if (enterFlag == 1)														//按下确认键，返回查找界面
+						{
+							for (uint8_t i = 0; i < 12; i++)
+							{
+								studentNumber[i] = 0;
+							}
+							tempData = 0;
+							xLabel = 196;
+							i = 0;
+							DRY_DataSearchScreen();
+							QPYLCD_DisplayInt(xLabel, 168, RED, FONT16X24, tempData);			//默认刷新一次数据
+							break;
+						}
+					}
+					break;
+				
+				case EC11_UP:																	//编码器顺时针
+					tempData++;																	//光标位置数据增加
+					if (tempData > 9)															//数据范围限制
+						tempData = 0;
+					break;
+					
+				case EC11_DOWN:																	//编码器逆时针
+					tempData--;																    //光标位置数据减少
+					if (tempData > 9)														    //数据范围限制
+						tempData = 9;
+					break;
+				
+				default:
+					break;
+				
+			}
+			QPYLCD_DisplayInt(xLabel, 168, RED, FONT16X24, tempData);							//刷新显示
+		}
+	}
+}
+
+
+/*******************************************
+*函数名称：	DRY_ShowSearchResult
+*功能：		显示数据查找结果
+*参数：		无
+*返回值：	数据查找界面触发的按键键值
+*******************************************/
+uint8_t DRY_ShowSearchResult(void)
+{
+	uint8_t scanData;
+	
+	DRY_ShowDataScreen();
+	
+	while (1)
+	{
+		scanData = KEYANDEC11_Scan();
+		
+		if (scanData == KEY_LEFT || scanData == KEY_RIGHT || scanData == KEY_ENTER)
+		{
+			return scanData;
+		}
+	}
+	
+}
+
+
 
 
 /*******************************************
@@ -908,10 +1147,11 @@ void DRY_Recording(void)
 //								DRY_DisplayData(group++, tim3Count, tempB, BLACK);				//此处注释，没有必要刷新
 							}
 							
-							if (AT24CXX_Check() == TRUE)
+							if (W25X16_Check() == TRUE)
 							{
-								DRY_DataSaveDialog(1);
-								AT24CXX_Write(0, (uint8_t *)(&experimentalData), sizeof(DRY_ExperimentalData));	//保存所有实验数据至AT24C02
+								DRY_DataHandlerDialog(DATA_SAVE);
+								DRY_SaveExperimentalData(experimentalData);
+//								AT24CXX_Write(0, (uint8_t *)(&experimentalData), sizeof(DRY_ExperimentalData));	//保存所有实验数据至AT24C02
 							}
 							experimentalData.progress = SHOWDATA;								//进入下一步骤
 							return;
@@ -1227,13 +1467,13 @@ void DRY_Complete(void)
 	
 
 /*******************************************
-*函数名称：	DRY_DataSaveDialog
+*函数名称：	DRY_DataHandlerDialog
 *功能：		数据保存，读取对话框
 *参数：		mode		0			读取
 *						1			保存
 *返回值：	无
 *******************************************/
-void DRY_DataSaveDialog(uint8_t mode)
+void DRY_DataHandlerDialog(DRY_DataHandlerType mode)
 {
 	QPYLCD_DrawRectangle(156, 88, 168, 96, WHITE);												//清除对话框区域
 	
@@ -1243,17 +1483,48 @@ void DRY_DataSaveDialog(uint8_t mode)
 	QPYLCD_DrawLine(324, 88, 324, 184, QPYLCD_NewColor(4, 4, 2));
 	
 	QPYLCD_SetBackColor(WHITE);
-	if (mode == 1)
+	
+	switch ((uint8_t)mode)
 	{
-		QPYLCD_DisplayCharacters(168, 100, BLACK, FONT24X24, 6, zzbcsj);						//显示"正在保存数据"
+		case DATA_READ:
+			QPYLCD_DisplayCharacters(168, 100, BLACK, FONT24X24, 2, zzbcsj);					//显示“正在读取数据”
+			QPYLCD_DisplayCharacters(216, 100, BLACK, FONT24X24, 2, zzbcsj + 72 * 9);
+			QPYLCD_DisplayCharacters(264, 100, BLACK, FONT24X24, 2, zzbcsj + 72 * 4);
+			QPYLCD_DisplayCharacters(204, 148, BLACK, FONT24X24, 3, zzbcsj + 72 * 6);			//显示“请等待”
+			break;
+		
+		case DATA_SAVE:
+			QPYLCD_DisplayCharacters(168, 100, BLACK, FONT24X24, 6, zzbcsj);					//显示"正在保存数据"
+			QPYLCD_DisplayCharacters(204, 148, BLACK, FONT24X24, 3, zzbcsj + 72 * 6);			//显示“请等待”
+			break;
+		
+		case DATA_LOOKUP:
+			QPYLCD_DisplayCharacters(192, 100, BLACK, FONT24X24, 2, zzbcsj);					//显示“正在查找”
+			QPYLCD_DisplayCharacters(240, 100, BLACK, FONT24X24, 2, zzbcsj + 72 * 11);
+			QPYLCD_DisplayCharacters(204, 148, BLACK, FONT24X24, 3, zzbcsj + 72 * 6);			//显示“请等待”
+			break;
+		
+		case DATA_READ_FAILED:
+			QPYLCD_DisplayCharacters(192, 100, BLACK, FONT24X24, 2, zzbcsj + 72 * 9);			//显示“读取失败”
+			QPYLCD_DisplayCharacters(240, 100, BLACK, FONT24X24, 2, zzbcsj + 72 * 13);
+			QPYLCD_DisplayCharacters(204, 148, BLACK, FONT24X24, 1, zzbcsj + 72 * 6);			//显示“请重试”
+			QPYLCD_DisplayCharacters(228, 148, BLACK, FONT24X24, 2, zzbcsj + 72 * 15);
+			break;
+		
+		case DATA_LOOKUP_FAILED:
+			QPYLCD_DisplayCharacters(192, 100, BLACK, FONT24X24, 2, zzbcsj + 72 * 11);			//显示“查找失败”
+			QPYLCD_DisplayCharacters(240, 100, BLACK, FONT24X24, 2, zzbcsj + 72 * 13);
+			QPYLCD_DisplayCharacters(204, 148, BLACK, FONT24X24, 1, zzbcsj + 72 * 6);			//显示“请重试”
+			QPYLCD_DisplayCharacters(228, 148, BLACK, FONT24X24, 2, zzbcsj + 72 * 15);
+			break;
+		
+		case DATA_LOOKUP_END:
+			QPYLCD_DisplayCharacters(168, 100, BLACK, FONT24X24, 4, zzbcsj + 72 * 17);			//显示“没有更多数据”
+			QPYLCD_DisplayCharacters(264, 100, BLACK, FONT24X24, 2, zzbcsj + 72 * 4);
+			QPYLCD_DisplayCharacters(204, 148, BLACK, FONT24X24, 1, zzbcsj + 72 * 6);			//显示“请重试”
+			QPYLCD_DisplayCharacters(228, 148, BLACK, FONT24X24, 2, zzbcsj + 72 * 15);
+			break;
 	}
-	else
-	{
-		QPYLCD_DisplayCharacters(168, 100, BLACK, FONT24X24, 2, zzbcsj);						//显示“正在读取数据”
-		QPYLCD_DisplayCharacters(216, 100, BLACK, FONT24X24, 2, zzbcsj + 72 * 9);
-		QPYLCD_DisplayCharacters(264, 100, BLACK, FONT24X24, 2, zzbcsj + 72 * 4);
-	}
-	QPYLCD_DisplayCharacters(204, 148, BLACK, FONT24X24, 3, zzbcsj + 72 * 6);					//显示“请等待”
 }
 
 
@@ -1542,25 +1813,104 @@ void DRY_UplaodData(uint8_t command)
 DRY_Status DRY_SaveExperimentalData(DRY_ExperimentalData experimentalData)
 {
 	DRY_DataSaveController dataSaveController;
-	DRY_DataSaveController *dataSaveControllerPointer;
+	//DRY_DataSaveController *dataSaveControllerPointer;
 	
-	dataSaveControllerPointer = &dataSaveController;
+	//dataSaveControllerPointer = &dataSaveController;
 	
-	if (W25X16_Read((uint8_t *)dataSaveControllerPointer,
-					DATA_CONTROL_ADDRESS,
+	if (W25X16_Read((uint8_t *)&dataSaveController,
+					DATA_CONTROLLER_ADDRESS,
 					sizeof(DRY_DataSaveController)) != W25X16_OK)
 	{
 		return DRY_ERROR;
 	}
-	else if ((dataSaveController.dataCount != ((dataSaveController.endAddress - dataSaveController.startAddress) / 256))
-			|| (dataSaveController.startAddress < DATA_SATRT_ADDRESS)
+	else if ((dataSaveController.dataCount != ((dataSaveController.endAddress
+				- dataSaveController.startAddress) / 256))
+			|| (dataSaveController.startAddress < DATA_START_ADDRESS)
 			|| (dataSaveController.endAddress > DATA_END_ADDRESS))
 	{
 		dataSaveController.dataCount = 0;
-		dataSaveController.startAddress = DATA_SATRT_ADDRESS;
-		dataSaveController.endAddress = DATA_SATRT_ADDRESS;
+		dataSaveController.startAddress = DATA_START_ADDRESS;
+		dataSaveController.endAddress = DATA_START_ADDRESS;
+	}
+	
+	if (dataSaveController.endAddress % 0x1000 == 0)
+	{
+		if (W25X16_EraseSector(dataSaveController.endAddress) != W25X16_OK)
+		{
+			return DRY_ERROR;
+		}
+	}
+	
+	if (W25X16_PageWrite((uint8_t *)&experimentalData,
+						dataSaveController.endAddress,
+						sizeof(DRY_ExperimentalData)) != W25X16_OK)
+	{
+		return DRY_ERROR;
+	}
+	
+	dataSaveController.dataCount++;
+	dataSaveController.endAddress += 256;
+	
+	if (W25X16_EraseSector(DATA_CONTROLLER_ADDRESS) != W25X16_OK)
+	{
+		return DRY_ERROR;
+	}
+	
+	if (W25X16_PageWrite((uint8_t *)&dataSaveController,
+						DATA_CONTROLLER_ADDRESS,
+						sizeof(DRY_DataSaveController)) != W25X16_OK)
+	{
+		return DRY_ERROR;
 	}
 	
 	return DRY_OK;
 }
+
+
+
+/*******************************************
+*函数名称：	DRY_ReadExperimentalData
+*功能：		从Flash读取实验数据
+*参数：		experimentalDataPointer		实验数据
+*			dataAddress					数据地址
+*返回值：	DRY_OK				读取成功
+*			DRY_ERROR			读取失败
+*******************************************/
+DRY_Status DRY_ReadExperimentalData(DRY_ExperimentalData *experimentalDataPointer, uint32_t dataAddress)
+{
+	DRY_DataSaveController dataSaveController;
+	//DRY_DataSaveController *dataSaveControllerPointer;
+	
+	//dataSaveControllerPointer = &dataSaveController;
+	
+	if (W25X16_Read((uint8_t *)&dataSaveController,
+					DATA_CONTROLLER_ADDRESS,
+					sizeof(DRY_DataSaveController)) != W25X16_OK)
+	{
+		return DRY_ERROR;
+	}
+	
+	
+	if (dataAddress >= dataSaveController.startAddress
+		&& dataAddress < dataSaveController.endAddress)
+	{
+		if (W25X16_Read((uint8_t *)experimentalDataPointer,
+						dataAddress,
+						sizeof(DRY_ExperimentalData)) != W25X16_OK)
+		{
+			return DRY_ERROR;
+		}
+	}
+	else if (dataAddress == 0x00000000)								//地址为0时，读取最后一组实验数据
+	{
+		if (W25X16_Read((uint8_t *)experimentalDataPointer,
+						dataSaveController.endAddress - 256,
+						sizeof(DRY_ExperimentalData)) != W25X16_OK)
+		{
+			return DRY_ERROR;
+		}
+	}
+	return DRY_OK;
+}
+
 

@@ -43,9 +43,11 @@ extern const uint8_t jrwdwht[];                         //加热温度稳恒态升温后FO
 
 extern const  uint8_t nywcsy[];                         //您已完成实验请整理好桌面FONT24X24
 
-extern const uint8_t zzbcsj[];                          //正在保存数据请等待读取FONT24X24
+extern const uint8_t zzbcsj[];                          //正在保存数据请等待读取查找失败重试没有更多FONT24X24
 
 extern const uint8_t jrpsrp[];                          //加热盘散热盘不良热导体FONT16X16
+
+extern const uint8_t sjcx[];							//数据查询FONT32X32
 	
 extern const unsigned char logo[];                      //logo
 

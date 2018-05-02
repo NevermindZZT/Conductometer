@@ -46,27 +46,9 @@ enum EXPERIMENTAL_PROGRESS
 	COMPLETE																//实验完成
 };
 
-/*------------------数据结构体定义---------------------*/
-typedef struct																//单次记录数据
-{
-	uint32_t time;															//记录数据的时间
-	float temperature;														//记录数据的温度
-}DRY_MeasuredData;
 
-typedef struct																//实验数据
-{
-	uint8_t machineNumber;													//机器号5
-	uint8_t studentNumber[12];												//学号
-	uint8_t progress;														//实验进度
-	float settedTemperature;												//设置加热盘温度
-	float balanceTempeatrue;												//稳恒态散热盘温度
-	float heatingTempeatrue;												//升温后散热盘温度
-	DRY_MeasuredData measuredData[20];										//实验数据
-}DRY_ExperimentalData;
 
 /*---------------------变量声明----------------------*/
-extern DRY_ExperimentalData experimentalData;
-
 extern uint8_t screenBrightness;
 
 extern uint16_t readFlash[2];
