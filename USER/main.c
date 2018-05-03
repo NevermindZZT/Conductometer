@@ -40,11 +40,7 @@ int main(void)
 	}
 	else if ((keyScanData == KEY_COUNT_LONG) && (W25X16_Check() == TRUE))	//查看上一次实验数据
 	{
-		DRY_DataSearch();
-//		DRY_DataHandlerDialog(DATA_READ);
-//		DRY_ReadExperimentalData(&experimentalData, 0x00000000);
-////		AT24CXX_Read(0, (uint8_t *)&experimentalData, sizeof(DRY_ExperimentalData));
-//		DRY_ShowData();
+		DRY_DataSearch();												//数据查询
 		__set_FAULTMASK(1);												//关闭所有中断
 		NVIC_SystemReset();												//系统复位
 	}
@@ -55,7 +51,7 @@ int main(void)
 	}
 	QPYLCD_Control(0, 0, 0, screenBrightness);
 	
-	DRY_Booting();												//显示初始化界面(温度传感器初始化)
+	DRY_Booting();														//显示初始化界面(温度传感器初始化)
 
 	experimentalData.progress = INPUTSTUDENTNUMBER;						//实验步骤起点
 	

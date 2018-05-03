@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\QPYLCD.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\QPYLCD.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Wed May 02 21:42:11 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Thu May 03 21:31:58 2018
 <BR><P>
 <H3>Maximum Stack Usage =        412 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -824,7 +824,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_Complete
 </UL>
 
-<P><STRONG><a name="[9b]"></a>DRY_DataHandlerDialog</STRONG> (Thumb, 740 bytes, Stack size 24 bytes, support.o(i.DRY_DataHandlerDialog))
+<P><STRONG><a name="[9b]"></a>DRY_DataHandlerDialog</STRONG> (Thumb, 774 bytes, Stack size 24 bytes, support.o(i.DRY_DataHandlerDialog))
 <BR><BR>[Stack]<UL><LI>Max Depth = 196<LI>Call Chain = DRY_DataHandlerDialog &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData
 </UL>
 <BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_SetBackColor
@@ -832,12 +832,13 @@ Global Symbols
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawLine
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayCharacters
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_Recording
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_DataSearch
 </UL>
 
-<P><STRONG><a name="[9c]"></a>DRY_DataSearch</STRONG> (Thumb, 560 bytes, Stack size 72 bytes, support.o(i.DRY_DataSearch))
+<P><STRONG><a name="[9c]"></a>DRY_DataSearch</STRONG> (Thumb, 570 bytes, Stack size 72 bytes, support.o(i.DRY_DataSearch))
 <BR><BR>[Stack]<UL><LI>Max Depth = 284<LI>Call Chain = DRY_DataSearch &rArr; DRY_ShowSearchResult &rArr; DRY_ShowDataScreen &rArr; QPYLCD_DisplayCharacters &rArr; QPYLCD_DisplayCharacter &rArr; QPYLCD_DrawMonochromeImage &rArr; QPYLCD_SetXYLabel &rArr; QPYLCD_WriteCmd &rArr; QPYLCD_WriteData
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25X16_Read
@@ -845,7 +846,6 @@ Global Symbols
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_ReadExperimentalData
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_DataSearchScreen
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_DataHandlerDialog
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_s
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DrawRectangle
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QPYLCD_DisplayInt
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEYANDEC11_Scan
@@ -1412,6 +1412,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_ShowSearchResult
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_EnterDialog
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_DataHandlerDialog
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_TemperatureSetting
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_SystemSetting
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_ShowData
@@ -2099,8 +2100,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_DataSearch
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_Booting
+<BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DRY_Booting
 </UL>
 
 <P><STRONG><a name="[c2]"></a>delay_us</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, delay.o(i.delay_us))

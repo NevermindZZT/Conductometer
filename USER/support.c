@@ -279,6 +279,7 @@ void DRY_DataSearch(void)
 					DATA_CONTROLLER_ADDRESS,
 					sizeof(DRY_DataSaveController)) != W25X16_OK)
 	{
+		DRY_DataHandlerDialog(DATA_READ_FAILED);
 		return;
 	}
 	
@@ -299,6 +300,10 @@ void DRY_DataSearch(void)
 						tempData = 0;
 					}
 					break;
+					
+				case KEY_LEFT_LONG:
+					return;
+					//break;
 				
 				case KEY_RIGHT:																	//按键右，保存当前位置数据并光标右移
 					if (i < 9)
@@ -329,7 +334,6 @@ void DRY_DataSearch(void)
 						{
 							//TODO 未读取到数据处理
 							DRY_DataHandlerDialog(DATA_READ_FAILED);								//读取失败
-							delay_s(2);
 							
 							DRY_DataSearchScreen();
 							QPYLCD_DisplayInt(xLabel, 168, RED, FONT16X24, tempData);			//默认刷新一次数据
@@ -364,18 +368,16 @@ void DRY_DataSearch(void)
 								searchAddress += 256;
 								if (searchAddress >= dataSaveController.endAddress)
 								{
-									if (lastAimAddress != 0x00000000)
+									if (lastAimAddress != 0x00000000 && enterFlag == 0)
 									{
 										searchAddress = lastAimAddress;
 										//TODO 向后查找到尽头
 										DRY_DataHandlerDialog(DATA_LOOKUP_END);					//没有更多数据
-										delay_s(2);
 									}
-									else
+									else if (enterFlag == 0)
 									{
 										//TODO 没有查找到数据
 										DRY_DataHandlerDialog(DATA_LOOKUP_FAILED);				//查找失败
-										delay_s(2);
 										enterFlag = 1;
 									}
 								}
@@ -385,14 +387,13 @@ void DRY_DataSearch(void)
 								searchAddress -= 256;
 								if (searchAddress < dataSaveController.startAddress)
 								{
-									if (lastAimAddress != 0x00000000)
+									if (lastAimAddress != 0x00000000 && enterFlag == 0)
 									{
 										searchAddress = lastAimAddress;
 										//TODO 向前查找到尽头
 										DRY_DataHandlerDialog(DATA_LOOKUP_END);					//没有更多数据
-										delay_s(2);
 									}
-									else
+									else if (enterFlag == 0)
 									{
 										//TODO 没有查找到数据
 									}
@@ -1524,6 +1525,15 @@ void DRY_DataHandlerDialog(DRY_DataHandlerType mode)
 			QPYLCD_DisplayCharacters(204, 148, BLACK, FONT24X24, 1, zzbcsj + 72 * 6);			//显示“请重试”
 			QPYLCD_DisplayCharacters(228, 148, BLACK, FONT24X24, 2, zzbcsj + 72 * 15);
 			break;
+	}
+	if (mode == DATA_READ_FAILED
+		|| mode == DATA_LOOKUP_FAILED
+		|| mode == DATA_LOOKUP_END)
+	{
+		uint16_t i = 50;
+		while (KEYANDEC11_Scan() == 0 && i-- > 0)
+		{
+		}
 	}
 }
 
