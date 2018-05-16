@@ -11,7 +11,7 @@
 #include	"config.h"
 
 
-#define		SOFTWAREVERSION								"0.8.1-Beta"					//软件版本
+#define		SOFTWAREVERSION								"0.9-Beta"					//软件版本
 #define		BUILDDATE									__DATE__"  \n"__TIME__		//编译时间
 
 #define		ALLOWBACK																//允许长按左键返回上一步骤
@@ -60,7 +60,8 @@ typedef enum																		//仪器设置项属性
 {
 	ITEM_COUNT,																		//数字设置项
 	ITEM_BOOL,																		//开关设置项
-	ITEM_STRING																		//字符显示项
+	ITEM_STRING,																	//字符显示项
+	ITEM_FUNCTION																	//函数执行项
 }DRY_SettingType;
 
 typedef enum
@@ -71,6 +72,8 @@ typedef enum
 	DATA_READ_FAILED,
 	DATA_LOOKUP_FAILED,
 	DATA_LOOKUP_END,
+	DATA_ERASEING,
+	DATA_ERASE_FAILED,
 }DRY_DataHandlerType;
 
 typedef enum
@@ -78,6 +81,10 @@ typedef enum
 	DRY_OK,
 	DRY_ERROR,
 }DRY_Status;
+
+
+
+typedef void (*settingFunction)();											//设置项可执行函数定义
 
 /*-----------------------结构体声明---------------------*/
 typedef struct																//单次记录数据
@@ -92,8 +99,9 @@ typedef struct																//实验数据
 	uint8_t studentNumber[12];												//学号
 	uint8_t progress;														//实验进度
 	float settedTemperature;												//设置加热盘温度
-	float balanceTempeatrue;												//稳恒态散热盘温度
-	float heatingTempeatrue;												//升温后散热盘温度
+	float balanceHeaterTempeature;											//稳恒态加热盘温度
+	float balanceCoolerTempeature;											//稳恒态散热盘温度
+	float heatingTempeature;												//升温后散热盘温度
 	DRY_MeasuredData measuredData[20];										//实验数据
 }DRY_ExperimentalData;
 
@@ -122,6 +130,7 @@ typedef union																		//设置项数据
 	int8_t countData;																//数字值
 	bool isTrue;																	//开关真假值
 	uint8_t *stringData;															//字符串
+	settingFunction function;														//可执行函数
 }DRY_SettingItemData;
 
 
@@ -212,5 +221,7 @@ void DRY_UplaodData(uint8_t command);												//上传数据
 DRY_Status DRY_SaveExperimentalData(DRY_ExperimentalData experimentalData);
 
 DRY_Status DRY_ReadExperimentalData(DRY_ExperimentalData *experimentalDataPointer, uint32_t dataAddress);
+
+void DRY_EraseFlash(void);
 
 #endif

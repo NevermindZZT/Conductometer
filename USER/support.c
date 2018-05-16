@@ -37,19 +37,14 @@ void DRY_SystemSetting(void)
 	
 	DRY_SettingItem settingItem[] =															 //设置项数组，可自由增减
 	{
-		{(uint8_t *)"Machine Number", 1, 30, ITEM_COUNT, 0},
-		{(uint8_t *)"Brightness", 1, 7, ITEM_COUNT, 0},
-		{(uint8_t *)"Software Version", 0, 0, ITEM_STRING, 0},
-		{(uint8_t *)"Build Date", 0, 0, ITEM_STRING, 0},
-		{(uint8_t *)"Romer", 0, 0, ITEM_STRING, 0},
+		{(uint8_t *)"Machine Number", 1, 30, ITEM_COUNT, .itemData.countData = experimentalData.machineNumber},
+		{(uint8_t *)"Brightness", 1, 7, ITEM_COUNT, .itemData.countData = screenBrightness},
+		{(uint8_t *)"Software Version", 0, 0, ITEM_STRING, .itemData.stringData = (uint8_t *)SOFTWAREVERSION},
+		{(uint8_t *)"Erase Flash", 0, 0, ITEM_FUNCTION, .itemData.function = DRY_EraseFlash},
+		{(uint8_t *)"Build Date", 0, 0, ITEM_STRING, .itemData.stringData = (uint8_t *)BUILDDATE},
+		{(uint8_t *)"Romer", 0, 0, ITEM_STRING, .itemData.stringData = (uint8_t *)"Letter"},
 	};
-	
-	settingItem[0].itemData.countData = experimentalData.machineNumber;						 //设置项数据初值
-	settingItem[1].itemData.countData = screenBrightness;
-	settingItem[2].itemData.stringData = (uint8_t *)SOFTWAREVERSION;
-	settingItem[3].itemData.stringData = (uint8_t *)BUILDDATE;
-	settingItem[4].itemData.stringData = (uint8_t *)"Letter";
-	
+
 	QPYLCD_SetBackColor(WHITE);
 	QPYLCD_Clear();
 	QPYLCD_DrawRectangle(0, 0, 480, 64, BLUE);
@@ -60,15 +55,11 @@ void DRY_SystemSetting(void)
 	
 	for (uint8_t i = 0; (i < sizeof(settingItem) / sizeof(DRY_SettingItem)) && (64 + 48 * i <= 272); i++)				 //显示设置项
 	{
-		if (i == 0)
-		{
-			DRY_DisplaySettingItem(64 + 48 * i, CYAN, settingItem[i]);
-		}
-		else
-		{
-			DRY_DisplaySettingItem(64 + 48 * i, WHITE, settingItem[i]);
-		}
+		DRY_DisplaySettingItem(64 + 48 * i, WHITE, settingItem[i]);
 	}
+	DRY_DisplaySettingItem(64 + 48 * (cursorLocation - cursorOffset), 
+							CYAN, settingItem[cursorLocation]);
+	
 	
 	while (1)
 	{
@@ -121,10 +112,23 @@ void DRY_SystemSetting(void)
 					}
 					break;
 				
+				case KEY_ENTER:
+					if (settingItem[cursorLocation].type == ITEM_FUNCTION)
+					{
+						settingItem[cursorLocation].itemData.function();
+						for (uint8_t i = 0; (i < sizeof(settingItem) / sizeof(DRY_SettingItem)) && (64 + 48 * i <= 272); i++)				 //显示设置项
+						{
+							DRY_DisplaySettingItem(64 + 48 * i, WHITE, settingItem[i]);
+						}
+						DRY_DisplaySettingItem(64 + 48 * (cursorLocation - cursorOffset), 
+												CYAN, settingItem[cursorLocation]);
+					}
+					break;
+				
 				case KEY_ENTER_LONG:
-						readFlash[0] = experimentalData.machineNumber = settingItem[0].itemData.countData;
-						readFlash[1] = screenBrightness = settingItem[1].itemData.countData;
-						MemWriteByte(readFlash, 2);					
+					readFlash[0] = experimentalData.machineNumber = settingItem[0].itemData.countData;
+					readFlash[1] = screenBrightness = settingItem[1].itemData.countData;
+					MemWriteByte(readFlash, 2);					
 					return;
 //					break;
 				
@@ -223,6 +227,10 @@ void DRY_DisplaySettingItem(uint16_t location, uint8_t color, DRY_SettingItem se
 			{
 				QPYLCD_DisplayString(320, location + 8, BLACK, FONT8X16, settingItem.itemData.stringData);
 			}
+			break;
+			
+		case ITEM_FUNCTION:
+			
 			break;
 	}
 	QPYLCD_DrawLine(0, location + 47, 479, location + 47, QPYLCD_NewColor(1, 1, 1));
@@ -891,7 +899,8 @@ void DRY_BuildBalance(void)
 						//DRY_EnterDialogScreen();												//显示确认弹窗
 						if (DRY_EnterDialog() == 0)												//判断弹窗动作，返回0为确定
 						{
-							experimentalData.balanceTempeatrue = tempB;							//记录数据
+							experimentalData.balanceHeaterTempeature = tempA;
+							experimentalData.balanceCoolerTempeature = tempB;							//记录数据
 							experimentalData.progress = HEATTING;								//进入下一步骤
 							
 							HeatingDisable();													//关闭加热
@@ -1009,7 +1018,7 @@ void DRY_Heating(void)
 						//DRY_EnterDialogScreen();												//显示确认弹窗
 						if (DRY_EnterDialog() == 0)												//判断弹窗动作，返回0为确定
 						{
-							experimentalData.heatingTempeatrue = tempB;							//保存数据
+							experimentalData.heatingTempeature = tempB;							//保存数据
 							experimentalData.progress = RECORDING;								//进入下一步骤
 							
 							HeatingDisable();													//关闭加热
@@ -1237,10 +1246,10 @@ void DRY_ShowDataScreen(void)
 	sprintf((char *)str, "%.1f", experimentalData.settedTemperature);							//格式化加热温度并显示
 	QPYLCD_DisplayString(20, 95, BLACK, FONT8X16, str);	
 	
-	sprintf((char *)str, "%.1f", experimentalData.balanceTempeatrue);							//格式化稳恒态温度并显示
+	sprintf((char *)str, "%.1f", experimentalData.balanceCoolerTempeature);							//格式化稳恒态温度并显示
 	QPYLCD_DisplayString(20, 173, BLACK, FONT8X16, str);	
 	
-	sprintf((char *)str, "%.1f", experimentalData.heatingTempeatrue);							//格式化升温后温度并显示
+	sprintf((char *)str, "%.1f", experimentalData.heatingTempeature);							//格式化升温后温度并显示
 	QPYLCD_DisplayString(20, 251, BLACK, FONT8X16, str);	
 	
 	for (i = 0; i < 7; i ++)
@@ -1525,10 +1534,25 @@ void DRY_DataHandlerDialog(DRY_DataHandlerType mode)
 			QPYLCD_DisplayCharacters(204, 148, BLACK, FONT24X24, 1, zzbcsj + 72 * 6);			//显示“请重试”
 			QPYLCD_DisplayCharacters(228, 148, BLACK, FONT24X24, 2, zzbcsj + 72 * 15);
 			break;
+		
+		case DATA_ERASEING:
+			QPYLCD_DisplayCharacters(168, 100, BLACK, FONT24X24, 2, zzbcsj);					//显示“正在擦除数据”
+			QPYLCD_DisplayCharacters(216, 100, BLACK, FONT24X24, 2, zzbcsj + 72 * 21);
+			QPYLCD_DisplayCharacters(264, 100, BLACK, FONT24X24, 2, zzbcsj + 72 * 4);
+			QPYLCD_DisplayCharacters(204, 148, BLACK, FONT24X24, 3, zzbcsj + 72 * 6);			//显示“请等待”
+			break;
+		
+		case DATA_ERASE_FAILED:
+			QPYLCD_DisplayCharacters(192, 100, BLACK, FONT24X24, 2, zzbcsj + 72 * 21);			//显示“擦除失败”
+			QPYLCD_DisplayCharacters(240, 100, BLACK, FONT24X24, 2, zzbcsj + 72 * 13);
+			QPYLCD_DisplayCharacters(204, 148, BLACK, FONT24X24, 1, zzbcsj + 72 * 6);			//显示“请重试”
+			QPYLCD_DisplayCharacters(228, 148, BLACK, FONT24X24, 2, zzbcsj + 72 * 15);
+			break;
 	}
 	if (mode == DATA_READ_FAILED
 		|| mode == DATA_LOOKUP_FAILED
-		|| mode == DATA_LOOKUP_END)
+		|| mode == DATA_LOOKUP_END
+		|| mode == DATA_ERASE_FAILED)
 	{
 		uint16_t i = 50;
 		while (KEYANDEC11_Scan() == 0 && i-- > 0)
@@ -1780,12 +1804,14 @@ void DRY_UplaodData(uint8_t command)
 				if (experimentalData.progress == TEMPERATURESETTING)
 					break;
 				
-				sprintf(str, "-%.1f", experimentalData.balanceTempeatrue);						//格式化稳恒态温度并发送
+				sprintf(str, "-%.1f", experimentalData.balanceHeaterTempeature);				//格式化稳恒态加热盘温度并发送
+				ESP8266_SendString(str);
+				sprintf(str, "-%.1f", experimentalData.balanceCoolerTempeature);				//格式化稳恒态散热盘温度并发送
 				ESP8266_SendString(str);
 				if (experimentalData.progress == BUILDBALANCE)
 					break;
 				
-				sprintf(str, "-%.1f", experimentalData.heatingTempeatrue);						//格式化升温温度并发送
+				sprintf(str, "-%.1f", experimentalData.heatingTempeature);						//格式化升温温度并发送
 				ESP8266_SendString(str);
 				if (experimentalData.progress == HEATTING)
 					break;
@@ -1923,4 +1949,24 @@ DRY_Status DRY_ReadExperimentalData(DRY_ExperimentalData *experimentalDataPointe
 	return DRY_OK;
 }
 
+
+
+/*******************************************
+*函数名称：	DRY_EraseFlash
+*功能：		擦除Flash
+*参数：		无
+*返回值：	无
+*******************************************/
+void DRY_EraseFlash(void)
+{
+	DRY_DataHandlerDialog(DATA_ERASEING);
+	if (W25X16_EraseChip() != W25X16_OK)
+	{
+		DRY_DataHandlerDialog(DATA_ERASE_FAILED);
+	}
+	else
+	{
+		delay_s(1);
+	}
+}
 

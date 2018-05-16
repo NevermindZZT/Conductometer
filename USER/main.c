@@ -52,7 +52,7 @@ int main(void)
 	QPYLCD_Control(0, 0, 0, screenBrightness);
 	
 	DRY_Booting();														//显示初始化界面(温度传感器初始化)
-
+	
 	experimentalData.progress = INPUTSTUDENTNUMBER;						//实验步骤起点
 	
 	while(1)
