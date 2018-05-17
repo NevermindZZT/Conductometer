@@ -11,7 +11,7 @@
 #include	"config.h"
 
 
-#define		SOFTWAREVERSION								"0.9-Beta"					//软件版本
+#define		SOFTWAREVERSION								"1.0"					//软件版本
 #define		BUILDDATE									__DATE__"  \n"__TIME__		//编译时间
 
 #define		ALLOWBACK																//允许长按左键返回上一步骤

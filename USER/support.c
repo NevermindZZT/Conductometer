@@ -40,7 +40,7 @@ void DRY_SystemSetting(void)
 		{(uint8_t *)"Machine Number", 1, 30, ITEM_COUNT, .itemData.countData = experimentalData.machineNumber},
 		{(uint8_t *)"Brightness", 1, 7, ITEM_COUNT, .itemData.countData = screenBrightness},
 		{(uint8_t *)"Software Version", 0, 0, ITEM_STRING, .itemData.stringData = (uint8_t *)SOFTWAREVERSION},
-		{(uint8_t *)"Erase Flash", 0, 0, ITEM_FUNCTION, .itemData.function = DRY_EraseFlash},
+		{(uint8_t *)"Erase Data From Flash", 0, 0, ITEM_FUNCTION, .itemData.function = DRY_EraseFlash},
 		{(uint8_t *)"Build Date", 0, 0, ITEM_STRING, .itemData.stringData = (uint8_t *)BUILDDATE},
 		{(uint8_t *)"Romer", 0, 0, ITEM_STRING, .itemData.stringData = (uint8_t *)"Letter"},
 	};
@@ -118,7 +118,8 @@ void DRY_SystemSetting(void)
 						settingItem[cursorLocation].itemData.function();
 						for (uint8_t i = 0; (i < sizeof(settingItem) / sizeof(DRY_SettingItem)) && (64 + 48 * i <= 272); i++)				 //显示设置项
 						{
-							DRY_DisplaySettingItem(64 + 48 * i, WHITE, settingItem[i]);
+							DRY_DisplaySettingItem(64 + 48 * i, WHITE, 
+									settingItem[cursorLocation - (cursorLocation - cursorOffset) + i]);
 						}
 						DRY_DisplaySettingItem(64 + 48 * (cursorLocation - cursorOffset), 
 												CYAN, settingItem[cursorLocation]);
@@ -1205,13 +1206,13 @@ void DRY_ShowDataScreen(void)
 	QPYLCD_DisplayCharacters(176, 16, WHITE, FONT32X32, 4, sysj);								//显示“散热速率测量”
 	
 	
-	QPYLCD_DrawLine(0, 64, 344, 64, BLACK);														//绘制数据表格
+	QPYLCD_DrawLine(0, 64, 479, 64, BLACK);														//绘制数据表格
 	QPYLCD_DrawLine(0, 90, 344, 90, BLACK);
 	QPYLCD_DrawLine(0, 116, 479, 116, BLACK);
-	QPYLCD_DrawLine(72, 142, 479, 142, BLACK);
+	QPYLCD_DrawLine(0, 142, 479, 142, BLACK);
 	QPYLCD_DrawLine(0, 168, 479, 168, BLACK);
 	QPYLCD_DrawLine(0, 194, 479, 194, BLACK);
-	QPYLCD_DrawLine(72, 220, 479, 220, BLACK);
+	QPYLCD_DrawLine(0, 220, 479, 220, BLACK);
 	QPYLCD_DrawLine(0, 246, 479, 246, BLACK);
 	
 	
@@ -1235,10 +1236,9 @@ void DRY_ShowDataScreen(void)
 	QPYLCD_DisplayCharacters(318, 69, BLACK, FONT16X16, 1, sjwd + 96);
 	
 	QPYLCD_DisplayCharacters(4, 69, BLACK, FONT16X16, 4, jrwdwht);								//显示“加热温度”等
-	QPYLCD_DisplayCharacters(12, 121, BLACK, FONT16X16, 3, jrwdwht + 32 *4);
-	QPYLCD_DisplayCharacters(20, 147, BLACK, FONT16X16, 2, jrwdwht + 32 * 2);
-	QPYLCD_DisplayCharacters(12, 199, BLACK, FONT16X16, 3, jrwdwht + 32 * 7);
-	QPYLCD_DisplayCharacters(20, 225, BLACK, FONT16X16, 2, jrwdwht + 32 * 2);
+	QPYLCD_DisplayCharacters(12, 121, BLACK, FONT16X16, 3, jrwdwht + 32 * 13);
+	QPYLCD_DisplayCharacters(12, 173, BLACK, FONT16X16, 3, jrwdwht + 32 * 16);
+	QPYLCD_DisplayCharacters(12, 225, BLACK, FONT16X16, 3, jrwdwht + 32 * 7);
 	
 	QPYLCD_DisplayCharacters(348, 82, BLACK, FONT16X16, 3, jrwdwht + 32 * 10);					//显示“学号”
 	QPYLCD_DisplayString(396, 82, BLACK, FONT8X16, experimentalData.studentNumber);				//显示学号
@@ -1246,8 +1246,11 @@ void DRY_ShowDataScreen(void)
 	sprintf((char *)str, "%.1f", experimentalData.settedTemperature);							//格式化加热温度并显示
 	QPYLCD_DisplayString(20, 95, BLACK, FONT8X16, str);	
 	
-	sprintf((char *)str, "%.1f", experimentalData.balanceCoolerTempeature);							//格式化稳恒态温度并显示
-	QPYLCD_DisplayString(20, 173, BLACK, FONT8X16, str);	
+	sprintf((char *)str, "%.1f", experimentalData.balanceHeaterTempeature);						//格式化稳恒态加热盘温度并显示
+	QPYLCD_DisplayString(20, 147, BLACK, FONT8X16, str);	
+	
+	sprintf((char *)str, "%.1f", experimentalData.balanceCoolerTempeature);						//格式化稳恒态散热盘温度并显示
+	QPYLCD_DisplayString(20, 199, BLACK, FONT8X16, str);	
 	
 	sprintf((char *)str, "%.1f", experimentalData.heatingTempeature);							//格式化升温后温度并显示
 	QPYLCD_DisplayString(20, 251, BLACK, FONT8X16, str);	
@@ -1920,8 +1923,12 @@ DRY_Status DRY_ReadExperimentalData(DRY_ExperimentalData *experimentalDataPointe
 	//dataSaveControllerPointer = &dataSaveController;
 	
 	if (W25X16_Read((uint8_t *)&dataSaveController,
-					DATA_CONTROLLER_ADDRESS,
-					sizeof(DRY_DataSaveController)) != W25X16_OK)
+						DATA_CONTROLLER_ADDRESS,
+						sizeof(DRY_DataSaveController)) != W25X16_OK
+					|| (dataSaveController.dataCount != ((dataSaveController.endAddress
+						- dataSaveController.startAddress) / 256))
+					|| (dataSaveController.startAddress < DATA_START_ADDRESS)
+					|| (dataSaveController.endAddress > DATA_END_ADDRESS))
 	{
 		return DRY_ERROR;
 	}
@@ -1960,7 +1967,7 @@ DRY_Status DRY_ReadExperimentalData(DRY_ExperimentalData *experimentalDataPointe
 void DRY_EraseFlash(void)
 {
 	DRY_DataHandlerDialog(DATA_ERASEING);
-	if (W25X16_EraseChip() != W25X16_OK)
+	if (W25X16_EraseSector(DATA_CONTROLLER_ADDRESS) != W25X16_OK)
 	{
 		DRY_DataHandlerDialog(DATA_ERASE_FAILED);
 	}

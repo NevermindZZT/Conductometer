@@ -39,11 +39,11 @@ extern const uint8_t qdqx[];                            //确定取消FONT16X16
 
 extern const uint8_t sysj[];                            //实验数据FONT32X32
 
-extern const uint8_t jrwdwht[];                         //加热温度稳恒态升温后FONT16X16
+extern const uint8_t jrwdwht[];                         //加热温度稳恒态升温后学号：加热盘散热盘FONT16X16
 
 extern const  uint8_t nywcsy[];                         //您已完成实验请整理好桌面FONT24X24
 
-extern const uint8_t zzbcsj[];                          //正在保存数据请等待读取查找失败重试没有更多FONT24X24
+extern const uint8_t zzbcsj[];                          //正在保存数据请等待读取查找失败重试没有更多擦除FONT24X24
 
 extern const uint8_t jrpsrp[];                          //加热盘散热盘不良热导体FONT16X16
 
